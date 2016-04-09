@@ -70,10 +70,6 @@ class PostController extends Controller {
 		}
 		$post->save();
 
-		$user = $request->user()->id;
-		
-
-		$peran = role_user::where('user_id', $user);
 		
 	
 		
