@@ -63,6 +63,17 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                @role(1)
+                                <li>
+                                    <a href="{{ url('admin/new-post') }}">Add new post</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/user/'.Auth::id().'/posts') }}">My Posts</a>
+                                </li>
+                                @endrole
+                                <li>
+                                    <a href="{{ url('/user/'.Auth::id()) }}">My Profile</a>
+                                </li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
