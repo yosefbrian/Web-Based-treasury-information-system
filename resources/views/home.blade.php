@@ -40,7 +40,7 @@ There is no post till now. Login and write a new post now!!!
 
 <div style="float: left; width: 47%" class="">
 
-<h3>Berita Terakhir</h3>
+<h3 align="center">Berita Terakhir</h3>
     @foreach( $posts as $post )
     <div class="list-group">
         <div class="list-group-item">
@@ -72,5 +72,18 @@ There is no post till now. Login and write a new post now!!!
 </div>
 @endif
 
+<div style="float: right; width: 45%">
+    <h3 align="center">Pemberitahuan</h3>
+
+@foreach($pemberitahuan_list as $pemberitahuan)
+    <div class="list-group">
+     <div class="list-group-item">
+        <h3>{{ $pemberitahuan->judul }}</h3>
+        <p>{{$pemberitahuan->deskripsi}}</p>
+     </div>
+
+</div>
+@endforeach
+{!! $pemberitahuan_list->render() !!}
 </div>
 @endsection

@@ -1,7 +1,7 @@
 <?php 
 
 namespace App\Http\Controllers;
-
+use App\pemberitahuan;
 use Auth;
 use App\Posts;
 use App\User;
@@ -26,7 +26,10 @@ class PostController extends Controller {
 	{
 		$posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5);
 		$title = 'Latest Posts';
-		return view('home')->withPosts($posts)->withTitle($title);
+		 $pemberitahuan_list = pemberitahuan::paginate(5);
+		// return view('home',['pemberitahuan_list' => $pemberitahuan_list])->withPosts($posts)->withTitle($title);
+		 return view('home', ['posts' => $posts, 'title' => $title, 'pemberitahuan_list' => $pemberitahuan_list]);
+		// ->with('pemberitahuan_list', $pemberitahuan_list)
 
 		// return view('home', ['posts' => 'posts']);
 
