@@ -9,4 +9,15 @@
 <a href="{{ asset('upload/peraturan/TUKIN.zip') }}">Tunjangan Kinerja</a><br>
 <a href="{{ asset('upload/peraturan/PBJ.zip') }}">PBJ</a><br>
 
+<br>
+<br>
+ <table style="width:100%">
+  <tr>
+    <th>Laporan Pertanggung Jawaban</th>
+  </tr>
+  <tr>
+    <td><a href="{{ asset('upload/lpj/Test_Data_LPJ.docx') }}">LPJ 1 2016</a></td>
+  </tr>
+</table>
+
 @endsection

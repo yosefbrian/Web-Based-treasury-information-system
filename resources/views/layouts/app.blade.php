@@ -27,7 +27,7 @@
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -66,6 +66,26 @@
 
                       </li>
                     @endrole
+
+                    @role(2)
+                     <li><a href="{{ url('/') }}">Home</a></li>
+                     <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
+                     <li><a href="{{ url('/peraturan') }}">Peraturan</a></li>
+                     <li class="dropdown"> 
+                    
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                SPD Center <span class="caret"></span>
+                    </a>
+                            
+                        <ul class="dropdown-menu" role="menu">                    
+                        <li><a href="#">SPD Center</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                      </ul>
+
+                      </li>
+                    @endrole
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -81,7 +101,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                @role(1)
+                                @role(1) 
                                 <li>
                                     <a href="{{ url('admin/new-post') }}">Add new post</a>
                                 </li>
@@ -90,6 +110,15 @@
                                 </li>
                                 @endrole
                                 
+                                 @role(2) 
+                                <li>
+                                    <a href="{{ url('bp/new-post') }}">Add new post</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('bp/user/'.Auth::id().'/posts') }}">My Posts</a>
+                                </li>
+                                @endrole
+
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -99,7 +128,47 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div class="container">
+            @if (Session::has('message'))
+            <div class="flash alert-info">
+                <p class="panel-body">
+                    {{ Session::get('message') }}
+                </p>
+            </div>
+            @endif
+            @if ($errors->any())
+            <div class='flash alert-danger'>
+                <ul class="panel-body">
+                    @foreach ( $errors->all() as $error )
+                    <li>
+                        {{ $error }}
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2>@yield('title')</h2>
+                            @yield('title-meta')
+                        </div>
+                        <div class="panel-body">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p>Copyright &copy; 2016 | <a href="#">Telek Jaran</a></p>
+                </div>
+            </div>
+        </div>
+
+   
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
