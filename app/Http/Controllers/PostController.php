@@ -71,6 +71,7 @@ class PostController extends Controller {
 		$post->save();
 
 		
+		
 	
 		
 		return redirect('admin/edit/'.$post->slug)->withMessage($message);

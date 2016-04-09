@@ -31,4 +31,9 @@ class HomeController extends Controller
     {
         return view('anjay');
     }
+
+    public function peraturan(){
+
+        return view('peraturan.peraturan');
+    }
 }

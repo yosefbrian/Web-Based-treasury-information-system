@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'PostController@index');
-
+Route::get('/peraturan', 'HomeController@peraturan');
 
 });
 
@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 	
 	Route::get('/', 'HomeController@coba');
+
 
 	Route::get('new-post','PostController@create');
 	

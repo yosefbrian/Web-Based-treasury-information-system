@@ -47,7 +47,25 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Home</a></li>
+                   
+                    @role(1)
+                     <li><a href="{{ url('/') }}">Home</a></li>
+                     <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
+                     <li><a href="{{ url('/peraturan') }}">Peraturan</a></li>
+                     <li class="dropdown"> 
+                    
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                SPD Center <span class="caret"></span>
+                    </a>
+                            
+                        <ul class="dropdown-menu" role="menu">                    
+                        <li><a href="#">SPD Center</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                      </ul>
+
+                      </li>
+                    @endrole
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -71,9 +89,7 @@
                                     <a href="{{ url('admin/user/'.Auth::id().'/posts') }}">My Posts</a>
                                 </li>
                                 @endrole
-                                <li>
-                                    <a href="{{ url('/user/'.Auth::id()) }}">My Profile</a>
-                                </li>
+                                
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
