@@ -197,27 +197,30 @@ th {
   @endforeach
 </table>
 
+@role(1)
 {!!$lpj_list->render()!!}
 </div>
 <div style="float: right; width: 47%">
 <h3>Tambah LPJ</h3>
-<form action="{{ url('peraturan') }}" method="post">
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<div class="form-group">
-		<input required="required" value="{{ old('judul') }}" placeholder="Judul LPJ" type="text" name = "judul" class="form-control" />
-	</div>
+<form action="{{ url('peraturan') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+        <input required="required" value="{{ old('judul') }}" placeholder="Judul LPJ" type="text" name = "judul" class="form-control" />
+    </div>
 
-	<div class="form-group">
-		<input required="required" value="{{ old('deskripsi') }}" placeholder="Deskripsi" type="text" name = "deskripsi" class="form-control" />
-	</div>
-
-
-	<input type="submit" name='publish' class="btn btn-success" value = "Tambah LPJ"/>
-</form>
-
-</div>
+    <div class="form-group">
+        <input required="required" value="{{ old('deskripsi') }}" placeholder="Deskripsi" type="text" name = "deskripsi" class="form-control" />
+    </div>
+                     
+    <div class="col-xs-8">
+        <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+    </div>
+    <div class="col-xs-3">
+        <input type="submit" class="btn btn-success" value="Tambah LPJ" name="submit"/>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    </div>
 
  
-
+@endrole
 @endif
 @endsection
