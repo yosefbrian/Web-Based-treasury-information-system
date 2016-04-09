@@ -20,7 +20,8 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'PostController@index');
-Route::get('/peraturan', 'HomeController@peraturan');
+Route::get('/peraturan', 'PeraturanController@getData');
+Route::post('/peraturan','PeraturanController@store');
 
 });
 

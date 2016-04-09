@@ -15,26 +15,18 @@ class PeraturanController extends Controller
     {
           $lpj_list = lpj::paginate(5);
         
-        return view('books.index')->with('lpj_list', $lpj_list);
+        return view('peraturan.peraturan')->with('lpj_list', $lpj_list);
     }
 
 
     public function store(Request $request) {
         // validation rules
-      $this->validate($request,
-                [
-                'nip' => 'required', 
-                'nama' => 'required|min:4', 
-                'jenis_kelamin' => 'required|min:4',
-                ]); 
-        
-
-        lpj::create(
-             
-            $request->all()
-            );
+     $lpjlist = new lpj();
+		$lpjlist->judul = $request->get('judul');
+		$lpjlist->deskripsi = $request->get('deskripsi');
+		$lpjlist->save();
          
     
-        return redirect('/getData');
+        return redirect('/peraturan');
     }
 }

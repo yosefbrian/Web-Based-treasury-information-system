@@ -30,7 +30,17 @@
     @if ( !$posts->count() )
 There is no post till now. Login and write a new post now!!!
 @else
-<div class="">
+<div>
+<h1 align="center">SLIDER</h1>
+<br>
+<hr>
+
+
+</div>
+
+<div style="float: left; width: 47%" class="">
+
+<h3>Berita Terakhir</h3>
     @foreach( $posts as $post )
     <div class="list-group">
         <div class="list-group-item">
