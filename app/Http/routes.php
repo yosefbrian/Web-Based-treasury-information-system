@@ -95,6 +95,23 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	// delete comment
 	Route::post('comment/delete/{id}','CommentController@distroy');
 
+	Route::post('uploadSPD', 'ExportController@uploadSPD');
+
+	Route::get('uploadSPD', array('uses' => 'ExportController@uploadSPD'));
+
+	Route::post('uploadBP', 'ExportController@uploadBP');
+
+	Route::get('uploadBP', array('uses' => 'ExportController@uploadBP'));
+
+   	Route::post('uploadTUKIN', 'ExportController@uploadTUKIN');
+
+	Route::get('uploadTUKIN', array('uses' => 'ExportController@uploadTUKIN'));
+
+   	Route::post('uploadPBJ', 'ExportController@uploadPBJ');
+
+	Route::get('uploadPBJ', array('uses' => 'ExportController@uploadPBJ'));
+
+
 });
 
 
