@@ -24,10 +24,157 @@ th {
 
 <h2>DOWNLOAD PERATURAN</h2>
 
-<a href="{{ asset('upload/peraturan/SPD.zip') }}">Perjalanan Dinas</a><br>
-<a href="{{ asset('upload/peraturan/BP.zip') }}">Bendahara Pengeluaran</a><br>
-<a href="{{ asset('upload/peraturan/TUKIN.zip') }}">Tunjangan Kinerja</a><br>
-<a href="{{ asset('upload/peraturan/PBJ.zip') }}">PBJ</a><br>
+
+<a href="{{ asset('upload/peraturan/SPD.zip') }}">Perjalanan Dinas</a>
+<a href="#" data-toggle="modal" data-target="#modalimport"> - Upload Versi Baru- </a>
+
+    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                                    
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><b>Unggah Data</b></h4>
+                </div>
+            <div class="modal-body">
+                <div class="col-xs-12">                          
+                    <label for="fileToUpload">Import file</label>
+                    <form action="{{ action('ExportController@uploadSPD') }}" method="post" enctype="multipart/form-data" >                                     
+                        <div class="col-xs-8 col-md-offset-1">
+                          <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="submit" class="btn btn-success" value="Upload" name="submit"/>
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+            </div>
+                    
+              
+            </div>
+        </div>
+    </div>
+
+<br>
+<a href="{{ asset('upload/peraturan/BP.zip') }}">Bendahara Pengeluaran</a>
+<a href="#" data-toggle="modal" data-target="#modalimport"> - Upload Versi Baru- </a>
+
+    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                                    
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><b>Unggah Data</b></h4>
+                </div>
+            <div class="modal-body">
+                <div class="col-xs-12">                          
+                    <label for="fileToUpload">Import file</label>
+                    <form action="{{ action('ExportController@uploadBP') }}" method="post" enctype="multipart/form-data" >                                     
+                        <div class="col-xs-8 col-md-offset-1">
+                          <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="submit" class="btn btn-success" value="Upload" name="submit"/>
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+            </div>
+                    
+              
+            </div>
+        </div>
+    </div>
+
+<br>
+<a href="{{ asset('upload/peraturan/TUKIN.zip') }}">Tunjangan Kinerja</a>
+<a href="#" data-toggle="modal" data-target="#modalimport"> - Upload Versi Baru- </a>
+
+    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                                    
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><b>Unggah Data</b></h4>
+                </div>
+            <div class="modal-body">
+                <div class="col-xs-12">                          
+                    <label for="fileToUpload">Import file</label>
+                    <form action="{{ action('ExportController@uploadTUKIN') }}" method="post" enctype="multipart/form-data" >                                     
+                        <div class="col-xs-8 col-md-offset-1">
+                          <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="submit" class="btn btn-success" value="Upload" name="submit"/>
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+            </div>
+                    
+              
+            </div>
+        </div>
+    </div>
+<br>
+<a href="{{ asset('upload/peraturan/PBJ.zip') }}">PBJ</a>
+<a href="#" data-toggle="modal" data-target="#modalimport"> - Upload Versi Baru- </a>
+
+    <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                                    
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><b>Unggah Data</b></h4>
+                </div>
+            <div class="modal-body">
+                <div class="col-xs-12">                          
+                    <label for="fileToUpload">Import file</label>
+                    <form action="{{ action('ExportController@uploadPBJ') }}" method="post" enctype="multipart/form-data" >                                     
+                        <div class="col-xs-8 col-md-offset-1">
+                          <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="submit" class="btn btn-success" value="Upload" name="submit"/>
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+            </div>
+                    
+              
+            </div>
+        </div>
+    </div>
+<br>
 
 <br>
 <br>
