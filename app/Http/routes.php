@@ -75,8 +75,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bikin','pemberitahuanController@store');
 	Route::get('/{id}/delete', 'pemberitahuanController@delete');
 
-	
-	Route::get('/', 'HomeController@coba');
+	Route::get('/editprofil', 'AdminController@editprofil');
+	Route::get('/', 'AdminController@admin');
 
 
 	Route::get('new-post','PostController@create');

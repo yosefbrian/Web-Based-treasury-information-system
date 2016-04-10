@@ -1,4 +1,8 @@
-<<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title>create</title>
@@ -24,3 +28,5 @@
                 </form>
 </body>
 </html>
+
+@endsection
