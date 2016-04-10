@@ -185,6 +185,7 @@ th {
  <table style="width:100%">
   <tr>
     <th>Laporan Pertanggung Jawaban</th>
+    <th>Aksi</th>
   </tr>
 
   <?php $i=0; ?>
@@ -193,6 +194,32 @@ th {
   <tr>
 
     <td><a href="upload/lpj/<?php echo $lpj->filename;?>">{{ $lpj->judul }}</a><br><p>{{ $lpj->deskripsi }}</p></td>
+    <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $lpj->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+
+     <div class="modal fade" id="modaldelete<?php echo $lpj->id;?>" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title"><b>Perhatian</b></h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <input type="hidden" value="<?php echo $lpj->id;?>" name="id">
+                                    <h5>Apakah Anda yakin akan menghapus data ini?</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                    <div class="divider"></div>
+                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('PeraturanController@delete', $lpj->id) }}">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+
   </tr>
   @endforeach
 </table>

@@ -74,12 +74,45 @@ There is no post till now. Login and write a new post now!!!
 
 <div style="float: right; width: 45%">
     <h3 align="center">Pemberitahuan</h3>
+  
+<a href="admin/bikin">Buat Baru</a>
+      
+
 
 @foreach($pemberitahuan_list as $pemberitahuan)
     <div class="list-group">
      <div class="list-group-item">
-        <h3>{{ $pemberitahuan->judul }}</h3>
+        <h3><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
+            <a class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"></a>
+
+            <div class="modal fade" id="modaldelete<?php echo $pemberitahuan->id;?>" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title"><b>Perhatian</b></h4>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <input type="hidden" value="<?php echo $pemberitahuan->id;?>" name="id">
+                                    <h5>Apakah Anda yakin akan menghapus data ini?</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                    <div class="divider"></div>
+                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+
+        </h3>
+        <h5>{{ $pemberitahuan->created_at}}</h5>
         <p>{{$pemberitahuan->deskripsi}}</p>
+
      </div>
 
 </div>

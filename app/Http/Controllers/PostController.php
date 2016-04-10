@@ -26,7 +26,7 @@ class PostController extends Controller {
 	{
 		$posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5);
 		$title = 'Latest Posts';
-		 $pemberitahuan_list = pemberitahuan::paginate(5);
+		 $pemberitahuan_list = pemberitahuan::orderBy('created_at', 'desc')->paginate(5);
 		// return view('home',['pemberitahuan_list' => $pemberitahuan_list])->withPosts($posts)->withTitle($title);
 		 return view('home', ['posts' => $posts, 'title' => $title, 'pemberitahuan_list' => $pemberitahuan_list]);
 		// ->with('pemberitahuan_list', $pemberitahuan_list)
@@ -49,6 +49,8 @@ class PostController extends Controller {
 		
 	}
 
+
+	
 	/**
 	 * Store a newly created resource in storage.
 	 *

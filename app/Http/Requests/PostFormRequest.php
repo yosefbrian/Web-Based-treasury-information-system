@@ -28,9 +28,9 @@ class PostFormRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title' => 'required|unique:posts|max:255',
-			'title' => array('Regex:/^[A-Za-z0-9 ]+$/'),
-			'body' => 'required',
+			// 'title' => 'required|unique:posts|max:255',
+			// 'title' => array('Regex:/^[A-Za-z0-9 ]+$/'),
+			// 'body' => 'required',
 		];
 	}	
 }

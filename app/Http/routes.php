@@ -19,16 +19,21 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
+
 Route::get('/', 'PostController@index');
+
 Route::get('/peraturan', 'PeraturanController@getData');
 Route::post('/peraturan','PeraturanController@store');
+
+Route::get('/peraturan/{id}/delete', 'PeraturanController@delete');
 
 });
 
 
 Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 {
-	
+
+
 	Route::get('/', 'HomeController@coba');
 
 
@@ -64,6 +69,12 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
+
+
+		Route::get('/bikin','pemberitahuanController@create');
+	Route::post('/bikin','pemberitahuanController@store');
+	Route::get('/{id}/delete', 'pemberitahuanController@delete');
+
 	
 	Route::get('/', 'HomeController@coba');
 

@@ -29,7 +29,7 @@ class HomeController extends Controller
 
      public function coba()
     {
-        return view('anjay');
+        return view('BikinPemberitahuan');
     }
 
     public function peraturan(){
