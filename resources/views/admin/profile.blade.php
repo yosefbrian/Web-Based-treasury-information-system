@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<a href="{!! url('admin/editprofil') !!}">Edit Profil</a>
+
 <h1>PROFIL</h1>
 
 <?php $i=0; ?>
          @foreach ($profil as $profile)
                     <?php $i++; ?>
-
+<a href="{!! url('admin/editprofil/'.$profile->id) !!}">Edit Profil</a><br>
+<br>
 <p> Nama : {{ $profile->nama }}</p> <br>
 <p>NIP 	:{{ $profile->nip }}</p>	<br>
 <p>Jabatan :{{ $profile->jabatan }}</p>	<br>
@@ -21,7 +22,7 @@
 <p>Nama Bank :{{ $profile->nama_bank }}</p>	<br>
 <p>Nomor Rekening :{{ $profile->no_rekening }}</p>	<br>
 <p>Nama Rekening :{{ $profile->nama_rekening }}</p>	<br>
-
+<p>Filename :{{ $profile->filename }}</p>
 @endforeach
 
 

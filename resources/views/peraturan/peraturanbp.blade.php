@@ -25,7 +25,6 @@ th {
 <h2>DOWNLOAD PERATURAN BENDAHARA PENGELUARAN</h2>
  
 <div style="float: left; width: 47%"> 
-@if ($bp_list->count())
 <table style="width:100%">
     <tr>
         <th>Peraturan Bendahara Pengeluaran</th>
@@ -94,5 +93,5 @@ th {
 
  
 @endrole
-@endif
+
 @endsection

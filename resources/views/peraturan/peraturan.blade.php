@@ -84,7 +84,7 @@ th {
     </div>
                      
     <div class="col-xs-8">
-        <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+        <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"/>
     </div>
     <div class="col-xs-3">
         <input type="submit" class="btn btn-success" value="Tambah LPJ" name="submit"/>

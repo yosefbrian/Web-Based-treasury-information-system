@@ -25,7 +25,7 @@ th {
 <h2>DOWNLOAD PERATURAN PERJALANAN DINAS</h2>
  
 <div style="float: left; width: 47%"> 
-@if ($pd_list->count())
+
 <table style="width:100%">
     <tr>
         <th>Peraturan Perjalanan Dinas</th>
@@ -94,5 +94,4 @@ th {
 
  
 @endrole
-@endif
 @endsection
