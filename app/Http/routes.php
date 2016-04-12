@@ -26,6 +26,7 @@ Route::get('/peraturan', 'PeraturanController@getData');
 Route::post('/peraturan','PeraturanController@store');
 
 Route::get('/peraturan/{id}/delete', 'PeraturanController@delete');
+Route::get('/profil','ProfilController@getData');
 
 });
 

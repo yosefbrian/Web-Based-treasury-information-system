@@ -50,7 +50,7 @@
                    
                     @role(1)
                      <li><a href="{{ url('/') }}">Home</a></li>
-                     <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
+                     <li><a href="{{ url('/profil') }}">Profil</a></li>
                      <li><a href="{{ url('/peraturan') }}">Peraturan</a></li>
                      <li class="dropdown"> 
                     
