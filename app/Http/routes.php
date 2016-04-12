@@ -44,6 +44,15 @@ Route::get('/peraturan/{id}/delete', 'PeraturanController@delete');
 
 Route::get('/profil','ProfilController@getData');
 
+//DIARY
+Route::get('/diary', 'DiaryController@index');
+Route::get('diarynewpost','DiaryController@create');
+Route::post('diarynewpost','DiaryController@store');
+Route::get('diaryedit/{slug}','DiaryController@edit');
+Route::post('diaryupdate','DiaryController@update');
+Route::get('diarydelete/{id}','DiaryController@destroy');
+Route::get('/diary/{slug}',['as' => 'diary', 'uses' => 'DiaryController@show'])->where('slug', '[A-Za-z0-9-_]+');
+
 });
 
 
