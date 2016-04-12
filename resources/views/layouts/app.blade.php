@@ -51,9 +51,18 @@
                     @role(1)
                      <li><a href="{{ url('/') }}">Home</a></li>
                      <li><a href="{{ url('/profil') }}">Profil</a></li>
-                     <li><a href="{{ url('/peraturan') }}">Peraturan</a></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Peraturan <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">                    
+                            <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
+                            <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
+                            <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
+                            <li><a href="{{ url('/peraturanpbj')}}">PBJ</a></li>
+                            <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
+                        </ul>
+                    </li>
                      <li class="dropdown"> 
-                    
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 SPD Center <span class="caret"></span>
                     </a>
@@ -70,7 +79,17 @@
                     @role(2)
                      <li><a href="{{ url('/') }}">Home</a></li>
                      <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
-                     <li><a href="{{ url('/peraturan') }}">Peraturan</a></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Peraturan <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">                    
+                            <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
+                            <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
+                            <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
+                            <li><a href="{{ url('/peraturanpbj')}}">PBJ</a></li>
+                            <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
+                        </ul>
+                    </li>
                      <li class="dropdown"> 
                     
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

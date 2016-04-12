@@ -22,10 +22,26 @@ Route::group(['middleware' => 'auth'], function() {
 
 Route::get('/', 'PostController@index');
 
+Route::get('/peraturanpd', 'PeraturanController@getDatapd');
+Route::post('/peraturanpd','PeraturanController@storepd');
+Route::get('/peraturanpd/{id}/delete', 'PeraturanController@deletepd');
+
+Route::get('/peraturanbp', 'PeraturanController@getDatabp');
+Route::post('/peraturanbp','PeraturanController@storebp');
+Route::get('/peraturanbp/{id}/delete', 'PeraturanController@deletebp');
+
+Route::get('/peraturantukin', 'PeraturanController@getDatatukin');
+Route::post('/peraturantukin','PeraturanController@storetukin');
+Route::get('/peraturantukin/{id}/delete', 'PeraturanController@deletetukin');
+
+Route::get('/peraturanpbj', 'PeraturanController@getDatapbj');
+Route::post('/peraturanpbj','PeraturanController@storepbj');
+Route::get('/peraturanpbj/{id}/delete', 'PeraturanController@deletepbj');
+
 Route::get('/peraturan', 'PeraturanController@getData');
 Route::post('/peraturan','PeraturanController@store');
-
 Route::get('/peraturan/{id}/delete', 'PeraturanController@delete');
+
 Route::get('/profil','ProfilController@getData');
 
 });
