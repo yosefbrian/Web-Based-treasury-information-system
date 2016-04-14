@@ -74,6 +74,7 @@
                       </ul>
 
                       </li>
+                      <li><a href="{{ url('/diary')}}">Diary</a></li>
                     @endrole
 
                     @role(2)
@@ -103,6 +104,7 @@
                       </ul>
 
                       </li>
+                      <li><a href="{{ url('/diary')}}">Diary</a></li>
                     @endrole
 
                 </ul>
