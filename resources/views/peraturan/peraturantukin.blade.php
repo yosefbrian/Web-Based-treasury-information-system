@@ -25,7 +25,6 @@ th {
 <h2>DOWNLOAD PERATURAN TUNJANGAN KINERJA</h2>
  
 <div style="float: left; width: 47%"> 
-@if ($tukin_list->count())
 <table style="width:100%">
     <tr>
         <th>Peraturan Tunjangan Kinerja</th>
@@ -94,5 +93,5 @@ th {
 
  
 @endrole
-@endif
+
 @endsection

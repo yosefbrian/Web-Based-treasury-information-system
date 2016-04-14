@@ -68,7 +68,7 @@
                     </a>
                             
                         <ul class="dropdown-menu" role="menu">                    
-                        <li><a href="#">SPD Center</a></li>
+                        <li><a href="{{url('admin/spd')}}">SPD Center</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                       </ul>
@@ -98,7 +98,7 @@
                     </a>
                             
                         <ul class="dropdown-menu" role="menu">                    
-                        <li><a href="#">SPD Center</a></li>
+                        <li><a href="{{ action('SPDcontroller@getData') }}">SPD Center</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                       </ul>

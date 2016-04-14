@@ -106,6 +106,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/', 'AdminController@admin');
 
 
+	Route::get('/spd','SPDController@getData');
+	Route::get('/spdcenter/{id}','SPDController@edit');
+
 	Route::get('new-post','PostController@create');
 	
 	// save new post
