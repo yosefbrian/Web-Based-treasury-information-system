@@ -15,6 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+
     <style>
         body {
             font-family: 'Lato';
@@ -25,9 +26,10 @@
         }
     </style>
 </head>
-<body id="app-layout">
+
+<body>
     <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
+        <div class="">
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -47,14 +49,14 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                   
+                    <!-- admin cek ya -->
                     @role(1)
                      <li><a href="{{ url('/') }}">Home</a></li>
                      <li><a href="{{ url('/profil') }}">Profil</a></li>
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Peraturan <span class="caret"></span>
-                        <ul class="dropdown-menu" role="menu">                    
+                        <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
                             <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
                             <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
@@ -62,14 +64,54 @@
                             <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
                         </ul>
                     </li>
-                     <li class="dropdown"> 
+                     <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Reimbursement <span class="caret"></span>
+                    </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('admin/spd')}}">SPD Center</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 2</a></li>
+                      </ul>
+                      </li>
+                      <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                 Statistik <span class="caret"></span>
+                     </a>
+                         <ul class="dropdown-menu" role="menu">
+                         <li><a href="#">Pengeluaran</a></li>
+                         <li><a href="#">Dugaan</a></li>
+                         <li><a href="#">Data</a></li>
+                         <li><a href="#">Kategori</a></li>
+                       </ul>
+
+                       </li>
+                      <li><a href="{{ url('/diary')}}">Diary</a></li>
+                    @endrole
+
+                    <!-- BP -->
+                    @role(2)
+                     <li><a href="{{ url('/') }}">Home</a></li>
+                     <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Peraturan <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
+                            <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
+                            <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
+                            <li><a href="{{ url('/peraturanpbj')}}">PBJ</a></li>
+                            <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown">
+
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 SPD Center <span class="caret"></span>
                     </a>
-                            
+
                         <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{url('spdcenter')}}">SPD Center</a></li>     
-                        <li><a href="{{url('admin/spd')}}">SPD Center Admin</a></li>
+                        <li><a href="{{ action('SPDcontroller@getData') }}">SPD Center</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                       </ul>
@@ -78,13 +120,14 @@
                       <li><a href="{{ url('/diary')}}">Diary</a></li>
                     @endrole
 
-                    @role(2)
+                    <!-- SPD -->
+                    @role(1)
                      <li><a href="{{ url('/') }}">Home</a></li>
-                     <li><a href="{{ url('/user/'.Auth::id()) }}">Profile</a></li>
+                     <li><a href="{{ url('/profil') }}">Profil</a></li>
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Peraturan <span class="caret"></span>
-                        <ul class="dropdown-menu" role="menu">                    
+                        <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
                             <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
                             <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
@@ -92,14 +135,43 @@
                             <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
                         </ul>
                     </li>
-                     <li class="dropdown"> 
-                    
+                     <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 SPD Center <span class="caret"></span>
                     </a>
-                            
-                        <ul class="dropdown-menu" role="menu">                    
-                        <li><a href="{{ action('SPDcontroller@getData') }}">SPD Center</a></li>
+
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('admin/spd')}}">SPD Center</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                        <li><a href="#">Bendahara Pengeluaran 1</a></li>
+                      </ul>
+
+                      </li>
+                      <li><a href="{{ url('/diary')}}">Diary</a></li>
+                    @endrole
+
+                    <!-- Client -->
+                    @role(1)
+                     <li><a href="{{ url('/') }}">Home</a></li>
+                     <li><a href="{{ url('/profil') }}">Profil</a></li>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Peraturan <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
+                            <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
+                            <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
+                            <li><a href="{{ url('/peraturanpbj')}}">PBJ</a></li>
+                            <li><a href="{{ url('/peraturan')}}">Laporan Pertanggung Jawaban</a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                SPD Center <span class="caret"></span>
+                    </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('admin/spd')}}">SPD Center</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                       </ul>
@@ -115,7 +187,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        
+                        <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -123,17 +195,16 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                @role(1) 
+                                @role(1)
                                 <li>
                                     <a href="{{ url('admin/new-post') }}">Add new post</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('admin/user/'.Auth::id().'/posts') }}">My Posts</a>
                                 </li>
-                                <li><a href="{{ url('/register') }}">Register</a></li>
                                 @endrole
-                                
-                                 @role(2) 
+
+                                 @role(2)
                                 <li>
                                     <a href="{{ url('bp/new-post') }}">Add new post</a>
                                 </li>
@@ -151,7 +222,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="">
             @if (Session::has('message'))
             <div class="flash alert-info">
                 <p class="panel-body">
@@ -171,31 +242,31 @@
             </div>
             @endif
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                <div class="">
+                    <div class="">
+                        <div class="">
                             <h2>@yield('title')</h2>
                             @yield('title-meta')
                         </div>
-                        <div class="panel-body">
+                        <div class="">
                             @yield('content')
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>Copyright &copy; 2016 | <a href="#">Telek Jaran</a></p>
-                </div>
-            </div>
         </div>
 
-   
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
