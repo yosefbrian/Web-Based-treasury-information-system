@@ -67,8 +67,9 @@
                                 SPD Center <span class="caret"></span>
                     </a>
                             
-                        <ul class="dropdown-menu" role="menu">                    
-                        <li><a href="{{url('admin/spd')}}">SPD Center</a></li>
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('spdcenter')}}">SPD Center</a></li>     
+                        <li><a href="{{url('admin/spd')}}">SPD Center Admin</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                         <li><a href="#">Bendahara Pengeluaran 1</a></li>
                       </ul>

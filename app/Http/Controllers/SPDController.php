@@ -12,6 +12,8 @@ use App\Http\Requests;
 
 use Request as reques;
 
+use Auth;
+
 class SPDController extends Controller
 {
     public function getData()
@@ -134,6 +136,23 @@ class SPDController extends Controller
         return redirect('admin/listspd');
     }
 
+
+
+
+
+    public function spduser()
+    {
+
+    	$user = Auth::user()->id;
+
+          $profil = Profil::where('profil_id', $user)->firstOrFail();
+
+          $nip = $profil->nip;
+
+			$spd = spdcenter::where('nip', $nip)->paginate(10);          
+        
+        return view('spd.spduser')->with('spd', $spd);
+    }
 
 
 
