@@ -29,25 +29,36 @@ table#t01 th	{
 </style>
 
 
-<?php $i=0; ?>
-                @foreach ($profil as $profile)
-                    <?php $i++; ?>
+
+<a href="{{ url('admin/listspd') }}"><button>List SPD</button></a>
+<br>
+<br>
+
+
+
 
 <table>
+
+
   <tr>
     <th>NIP</th>
     <th>Nama Lengkap</th>
     <th>Aksi</th>			
    </tr>
+
+   <?php $i=0; ?>
+                @foreach ($profil as $profile)
+                    <?php $i++; ?>
   <tr>
     <td>{{$profile->nip}}</td>		
      <td>{{$profile->nama}}</td>
      <td><a href="{!! url('admin/spdcenter/'.$profile->id) !!}">Buat Data</a></td>
   </tr>
-  
+ @endforeach 
+
  </table>
  
- @endforeach 
+ 
 
 <table>
 </table>

@@ -22,7 +22,11 @@
 <p>Nama Bank :{{ $profile->nama_bank }}</p>	<br>
 <p>Nomor Rekening :{{ $profile->no_rekening }}</p>	<br>
 <p>Nama Rekening :{{ $profile->nama_rekening }}</p>	<br>
-<p>Filename :{{ $profile->filename }}</p>
+
+@if($profile->filename != '')
+<p>Scan Rekening :<a href="upload/rekening/<?php echo $profile->filename;?>"> Scan Rekening</a></p>
+@endif
+
 @endforeach
 
 

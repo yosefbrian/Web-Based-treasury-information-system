@@ -15,4 +15,9 @@ class Profil extends Model
 	{
 		return $this->belongsTo('App\User','profil_id');
 	}
+
+	public function nip()
+    {
+        return $this->hasMany('App\spdcenter','nip');
+    }
 }

@@ -105,10 +105,17 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/editprofil/{id}', 'ProfilController@update');
 	Route::get('/', 'AdminController@admin');
 
+	Route::post('/spd','SPDController@create');
+
+	Route::get('/listspd/{id}/delete', 'SPDController@delete');
+
 
 	Route::get('/spd','SPDController@getData');
+	Route::get('/listspd','SPDController@spdlist');
 	Route::get('/spdcenter/{id}','SPDController@edit');
-
+	Route::get('/listspd/{id}/ubah','SPDController@ubah');
+	Route::post('/listspd/{id}/ubah','SPDController@update');
+	
 	Route::get('new-post','PostController@create');
 	
 	// save new post

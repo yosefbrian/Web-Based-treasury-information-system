@@ -3,10 +3,18 @@
 
 @section('content')
 
-<form action="#" method="post" enctype="multipart/form-data">
+<h2> SPD CENTER </h2>
+<hr>
+
+<form action="{{ action('SPDController@create') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  Checklist:<br>
-  <input class="form-control" type="text" name="checklist" value=""><br>
+
+
+ Pengiriman:<br>
+ <input type="radio" name="pengiriman" value="1" checked> Sudah<br>
+  <input type="radio" name="pengiriman" value="0"> Belum<br>
+
+  <br>
   no_PD:<br>
   <input class="form-control" type="text" name="no_pd" value=""><br>
   no_ST:<br>
