@@ -7,7 +7,7 @@
 <?php $i=0; ?>
          @foreach ($profil as $profile)
                     <?php $i++; ?>
-<a href="{!! url('admin/editprofil/'.$profile->id) !!}">Edit Profil</a><br>
+<a href="{!! url('editprofil/'.$profile->id) !!}">Edit Profil</a><br>
 <br>
 <p> Nama : {{ $profile->nama }}</p> <br>
 <p>NIP 	:{{ $profile->nip }}</p>	<br>

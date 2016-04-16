@@ -20,6 +20,9 @@ Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
 
+Route::get('/editprofil/{id}', 'ProfilController@edit');
+	Route::post('/editprofil/{id}', 'ProfilController@update');
+
 Route::get('/', 'PostController@index');
 
 Route::get('/peraturanpd', 'PeraturanController@getDatapd');
@@ -103,8 +106,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bikin','pemberitahuanController@store');
 	Route::get('/{id}/delete', 'pemberitahuanController@delete');
 
-	Route::get('/editprofil/{id}', 'ProfilController@edit');
-	Route::post('/editprofil/{id}', 'ProfilController@update');
+	
 	Route::get('/', 'AdminController@admin');
 
 	Route::post('/spd','SPDController@create');
