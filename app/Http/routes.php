@@ -101,8 +101,12 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
-
-		Route::get('/bikin','pemberitahuanController@create');
+	Route::post('/create','RoleController@create');	
+	Route::get('/registeri','RoleController@registeri');
+	Route::get('/role/{id}','RoleController@role');
+	Route::post('/assign/{id}','RoleController@assign');
+	
+	Route::get('/bikin','pemberitahuanController@create');
 	Route::post('/bikin','pemberitahuanController@store');
 	Route::get('/{id}/delete', 'pemberitahuanController@delete');
 
