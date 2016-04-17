@@ -92,14 +92,15 @@
                   <ul class="nav child_menu" role="menu" style="display: none">
                     <li><a href="{{ url('/peraturanpd')}}">Perjalanan Dinas</a></li>
                     <li><a href="{{ url('/peraturanbp')}}">Bendahara Pengeluaran</a></li>
-                    <li><a href="{{ url('/peraturantukin')}}">Tunjangan Pengeluaran</a></li>
+                    <li><a href="{{ url('/peraturantukin')}}">Tunjangan Kinerja</a></li>
                     <li><a href="{{ url('/peraturanpbj')}}">PBJ</a></li>
                     <li><a href="{{ url('/peraturan')}}">Laporan Pertanggungjawaban</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-table"></i> Reimbursement <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">SPD Center</a></li>
+                    <li><a href="{{ url('spdcenter')}}">SPD Center</a></li>
+                    <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
                     <li><a href="#">Bendahara Pengeluaran 1</a></li>
                     <li><a href="#">Bendahara Pengeluaran 2</a></li>
                   </ul>
@@ -112,7 +113,7 @@
                     <li><a href="#">Kategori</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-edit"></i>Diary</a>
+                <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Diary</a>
               </ul>
             </div>
 
@@ -140,6 +141,10 @@
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;">  Bantuan</a>
                   </li>
+                  <li>
+                                    <a href="{{ url('admin/new-post') }}">Add new post</a>
+                                </li>
+                 <li><a href="{{ url('admin/registeri') }}">Register</a></li>
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>

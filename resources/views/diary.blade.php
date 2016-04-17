@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="">
-<h3 align="center">Berita Terakhir</h3>
+<h3 align="center">Diary</h3>
 <br>
-<a href="{!! url('diarynewpost') !!}"><button type="button" class="btn btn-default">Buat Berita</button></a>
+<a href="{!! url('diarynewpost') !!}"><button type="button" class="btn btn-default">Buat Diary</button></a>
     @foreach( $diarys as $diary )
     <div class="list-group">
         <div class="list-group-item">
