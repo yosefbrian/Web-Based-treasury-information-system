@@ -20,7 +20,7 @@ class ProfilController extends Controller
 
     	$user = Auth::user()->id;
 
-          $profil = Profil::where('profil_id', $user)->orderBy('created_at','desc')->paginate(5);
+          $profil = Profil::where('profil_id', $user)->orderBy('created_at','desc')->get();
         
         return view('admin.profile')->with('profil', $profil);
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
- <form action="{{url('admin/editprofil/'.$book->id) }}" method="post" enctype="multipart/form-data">
+ <form action="{{url('/editprofil/'.$book->id) }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
   Nama:<br>
   <input class="form-control" type="text" name="nama" value="{{ $book->nama }}"><br>
