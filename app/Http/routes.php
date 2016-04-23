@@ -105,6 +105,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
 
+
+	Route::get('bp1/show/{id}/delete', 'bpController@delete');
+
 	Route::post('/bp1/edit/{id}', 'bpController@create1');
 	Route::get('/bp1','bpController@getData');
 	Route::get('/bp2','bpController@getData');

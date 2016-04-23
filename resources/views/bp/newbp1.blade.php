@@ -28,7 +28,7 @@
   Nama PPK:<br>
   <input class="form-control" type="text" name="nama_ppk" value="{{ $bp1->nama_ppk }}"><br>
   Keterangan:<br>
-  <input class="form-control" type="text" name="Keterangan" value=""><br>
+  <input class="form-control" type="text" name="keterangan" value=""><br>
 
 
 

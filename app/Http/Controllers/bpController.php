@@ -78,6 +78,12 @@ class bpController extends Controller
     }
 
 
+public function delete($id) {
+        bp1::find($id)->delete();
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        return Redirect('admin/bp1/show');
+    }
+
 
 
 
