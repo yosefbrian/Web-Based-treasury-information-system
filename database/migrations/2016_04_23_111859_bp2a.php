@@ -14,10 +14,10 @@ class Bp2a extends Migration
     {
         Schema::create('bp2a', function (Blueprint $table) {
             $table->increments('id');
-            // $table->integer('nota_id') -> unsigned() -> default(0);
-            // $table->foreign('nota_id')
-            //         ->references('id')->on('spdcenter')
-            //         ->onDelete('cascade');
+            $table->integer('spd_id') -> unsigned() -> default(0);
+            $table->foreign('spd_id')
+                    ->references('id')->on('spdcenter')
+                    ->onDelete('cascade');
             $table->string('no_spp');
             $table->string('tgl_spp')->nullable();
             $table->string('tiket_berangkat')->nullable();
@@ -26,11 +26,9 @@ class Bp2a extends Migration
             $table->string('penginapan')->nullable();
             $table->string('penginapan_tanpa_bukti')->nullable();
             $table->string('uh')->nullable();
-            $table->string('UHR')->nullable();
+            $table->string('uhr')->nullable();
             $table->string('kekurangan')->nullable();
             $table->string('total1');
-
-
             $table->timestamps();
         });
     }
@@ -43,6 +41,6 @@ class Bp2a extends Migration
     public function down()
     {
         
-        Schema::drop('notaspd');
+        Schema::drop('bp2a');
     }
 }

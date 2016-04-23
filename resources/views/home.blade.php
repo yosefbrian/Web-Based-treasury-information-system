@@ -68,7 +68,7 @@ There is no post till now. Login and write a new post now!!!
         </div>
     </div>
     @endforeach
-    {!! $posts->render() !!}
+    {!! $posts->render(); !!}
 </div>
 @endif
 
@@ -117,6 +117,7 @@ There is no post till now. Login and write a new post now!!!
 
 </div>
 @endforeach
-{!! $pemberitahuan_list->render() !!}
+{!! $pemberitahuan_list->render();!!}
+
 </div>
 @endsection

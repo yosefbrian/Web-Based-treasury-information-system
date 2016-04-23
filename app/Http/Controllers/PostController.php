@@ -10,6 +10,7 @@ use Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFormRequest;
 
+
 use Illuminate\Http\Request;
 
 // note: use true and false for active posts in postgresql database
@@ -24,9 +25,14 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-		$posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5);
+		
+		$posts = Posts::where('active','1')->orderBy('created_at','desc')->paginate(5,['*'],'berita');
 		$title = 'Latest Posts';
-		 $pemberitahuan_list = pemberitahuan::orderBy('created_at', 'desc')->paginate(5);
+		 
+		
+
+		 $pemberitahuan_list = pemberitahuan::orderBy('created_at', 'desc')->paginate(5,['*'],'pemberitahuan');
+		 // $pemberitahuan_list->setPath('cari');
 		// return view('home',['pemberitahuan_list' => $pemberitahuan_list])->withPosts($posts)->withTitle($title);
 		 return view('home', ['posts' => $posts, 'title' => $title, 'pemberitahuan_list' => $pemberitahuan_list]);
 		// ->with('pemberitahuan_list', $pemberitahuan_list)

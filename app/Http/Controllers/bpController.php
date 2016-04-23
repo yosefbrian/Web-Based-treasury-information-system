@@ -97,8 +97,6 @@ public function delete($id) {
     {
     		
 
-    	 
-
         $no_pp = reques::get('no_pp');
         $no_pd = reques::get('no_pd');
         $nama =  reques::get('nama');
