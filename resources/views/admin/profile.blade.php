@@ -4,9 +4,8 @@
 
 <h1>PROFIL</h1>
 
-<?php $i=0; ?>
          @foreach ($profil as $profile)
-                    <?php $i++; ?>
+  
 <a href="{!! url('editprofil/'.$profile->id) !!}">Edit Profil</a><br>
 <br>
 <p> Nama : {{ $profile->nama }}</p> <br>

@@ -66,20 +66,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Role</label>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <select class="form-control" id="role_id" name="role_id">
-                                    <option value="1">Super Admin</option>
-                                    <option value="2">Bendahara Pengeluaran</option>
-                                    <option value="3">SPD</option>
-                                    <option value="4">Klien</option>
-                                  </select>
-                                </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

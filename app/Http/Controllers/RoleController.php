@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Request as reques;
 use App\roler;
 use App\User;
+use App\Profil;
 
 class RoleController extends Controller
 {
@@ -39,6 +40,10 @@ class RoleController extends Controller
     	$peran->role_id = reques::get('role_id');
     	$peran->user_id = $id;
     	$peran->save();
+
+        $tampan = new Profil();
+        $tampan->profil_id = $id;
+        $tampan->save();
 
     	return redirect('/');
     }
