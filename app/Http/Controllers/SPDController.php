@@ -44,7 +44,8 @@ class SPDController extends Controller
     	$spd->nama = $request->get('nama');
     	$spd->berangkat = $request->get('berangkat');
     	$spd->tujuan = $request->get('tujuan');
-    	$spd->tanggal = $request->get('tanggal');
+    	$spd->tanggal = $request->get('Tanggal')." ".$request->get('Bulan')." ".$request->get('Tahun');
+
     	$spd->kegiatan = $request->get('kegiatan');
     	$spd->keterangan = $request->get('keterangan');
     	$spd->nama_ppk = $request->get('nama_ppk');

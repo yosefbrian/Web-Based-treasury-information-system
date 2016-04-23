@@ -45,7 +45,7 @@ table#t01 th	{
         @foreach ($nota_list as $nota)
     <tr>
 
-        <td><a href="upload/notaspd/<?php echo $nota->filename;?>">{{ $nota->judul }}</a><br><p>{{ $nota->deskripsi }}</p></td>
+        <td><a href="{{url('upload/notaspd/'.$nota->filename)}}"> {{ $nota->judul }}</a><br><p>{{ $nota->deskripsi }}</p></td>
         <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
         <div class="modal fade" id="modaldelete<?php echo $nota->id;?>" tabindex="-1" role="dialog">
