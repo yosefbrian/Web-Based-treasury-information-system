@@ -13,15 +13,32 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')}}">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css')}}">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="{{ URL::asset('//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')}}"></script>
+<!-- carousel -->
+	<link href="{{ URL::asset('css/gsd/get-shit-done.css')}}" rel="stylesheet" />
+<!-- readmore and less -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://tester3.yolasite.com/resources/javascript/jtruncate.js"></script>
 
+  <script type="text/javascript">
+  // Settings for script
+  $(document).ready(function() {
+  $('.text').jTruncate({length: 200,/* The number of characters to display before truncating. */ minTrail: 0, /* The minimum number of "extra" characters required to truncate. This option allows you to prevent truncation of a section of text that is only a few characters longer than the specified length. */
+  moreText: "Read More", // The text to use for the "more" link.
+  lessText: "Read Less", // The text to use for the "less" link.
+  ellipsisText: "...",
+   // The text to append to the truncated portion.
+  });
+  });
+
+  </script>
 
     <!-- Styles -->
    <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -29,18 +46,17 @@
 
 <!-- sidebar -->
   <!--   <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+<link href="{{ URL::asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+<link href="{{ URL::asset('css/animate.min.css')}}" rel="stylesheet">
 
-    <!-- Custom styling plus plugins -->
-    <link href="css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />
-    <link href="css/icheck/flat/green.css" rel="stylesheet" />
-    <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
+<!-- Custom styling plus plugins -->
+<link href="{{ URL::asset('css/custom.css')}}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/maps/jquery-jvectormap-2.0.3.css')}}" />
+<link href="{{ URL::asset('css/icheck/flat/green.css')}}" rel="stylesheet" />
+<link href="{{ URL::asset('css/floatexamples.css')}}" rel="stylesheet" type="text/css" />
 
-   <!--  <script src="js/jquery.min.js"></script> -->
-    <script src="js/nprogress.js"></script>
-
+<!--  <script src="js/jquery.min.js"></script> -->
+<script src="{{ URL::asset('js/nprogress.js')}}"></script>
     <style>
         body {
             font-family: 'Lato';
@@ -69,7 +85,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="img/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="{{URL::asset('img/img.jpg')}}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -146,7 +162,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="img/img.jpg" alt="">Admin
+                  <img src="{{URL::asset('img/img.jpg')}}" alt="">Admin
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -204,33 +220,31 @@
   <!-- <script src="js/bootstrap.min.js"></script> -->
 
   <!-- gauge js -->
-  <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
-  <script type="text/javascript" src="js/gauge/gauge_demo.js"></script>
+  <script type="text/javascript" src="{{URL::asset('js/gauge/gauge.min.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/gauge/gauge_demo.js')}}"></script>
   <!-- bootstrap progress js -->
-  <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
-  <!-- icheck -->
-  <script src="js/icheck/icheck.min.js"></script>
+  <script src="{{URL::asset('js/progressbar/bootstrap-progressbar.min.js')}}"></script>
   <!-- daterangepicker -->
-  <script type="text/javascript" src="js/moment/moment.min.js"></script>
-  <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="{{URL::asset('js/moment/moment.min.js')}}"></script>
+  <script type="text/javascript" src="js/datepicker/daterangepicker.js')}}"></script>
   <!-- chart js -->
-  <script src="js/chartjs/chart.min.js"></script>
+  <script src="{{URL::asset('js/chartjs/chart.min.js')}}"></script>
 
-  <script src="js/custom.js"></script>
+  <script src="{{URL::asset('js/custom.js')}}"></script>
 
   <!-- flot js -->
   <!-- [if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]
  -->
-  
-  <script type="text/javascript" src="js/flot/jquery.flot.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.pie.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.orderBars.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.time.min.js"></script>
-  <script type="text/javascript" src="js/flot/date.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.spline.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
-  <script type="text/javascript" src="js/flot/curvedLines.js"></script>
-  <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
+
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.pie.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.orderBars.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.time.min.j')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/date.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.spline.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.stack.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/curvedLines.js')}}"></script>
+  <script type="text/javascript" src="{{URL::asset('js/flot/jquery.flot.resize.js')}}"></script>
   <script>
     $(document).ready(function() {
       // [17, 74, 6, 39, 20, 85, 7]

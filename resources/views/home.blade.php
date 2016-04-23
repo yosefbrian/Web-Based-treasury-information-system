@@ -3,15 +3,66 @@
 
 @section('content')
 
-                <div class="row">
-    <div align="center">
-        Sistem Informasi Bea Cukai
+<div id="carousel" class="col-md-12">
+  <!--
+  IMPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
+
+-->
+<div id="carousel-example-generic" class="carousel slide gsdk-transition" data-ride="carousel" >
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" >
+    <div class="item active" style="width:100%; max-height:500px !important;">
+      <img src="img/2.jpg" alt="">
+      <div class="carousel-caption">
+        <h2>Caption 1</h2>
+        <p> bla bla bla </p>
+      </div>
     </div>
+    <div class="item" style="width:100%; max-height:500px !important;">
+      <img src="img/5.jpg" alt="">
+      <div class="carousel-caption">
+        <h2>Caption 2</h2>
+        <p> bla bla bla </p>
+      </div>
+    </div>
+    <div class="item" style="width:100%; max-height:500px !important;">
+      <img src="img/4.jpg" alt="">
+      <div class="carousel-caption">
+        <h2>Caption 3</h2>
+        <p> bla bla bla </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span style="margin-left:-100px; margin-top:250px" class="fa fa-angle-left" ></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span style="margin-right:-100px; margin-top:250px" class="fa fa-angle-right"></span>
+  </a>
+
+</div>
+</div>
+
+
+
+<!-- end carousel -->
+
+
+<div class="row">
     <br>
-    <div align="center">
+  <div align="center">
         @role(1)
 <!-- Role Id =1 -->
-     <a href="{!! url('admin') !!}"><button type="button" class="btn btn-default">Admin</button></a> 
 @endrole
 @role(3)
 <!-- Member Role_id =3 -->
@@ -30,53 +81,155 @@
     @if ( !$posts->count() )
 There is no post till now. Login and write a new post now!!!
 @else
-<div>
-<h1 align="center">SLIDER</h1>
-<br>
+
+<div style="float: left; width: 47%; margin-top:10px; margin-left:10px" class="panel-heading">
+  <!-- <a class="btn btn-success pull-right" href="{{ url('admin/new-post') }}">
+   <i class="fa fa-plus-square"></i> Tambah</a> -->
+   <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahberita" style="margin-top:5px; margin-right:0px;">
+     <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
+     <button type="button" class="btn btn-success">Tambah</button>
+   </div>
+   <h4 align="left" style="margin-left:0px; font-family:"Helvetica Neue"">BERITA TERAKHIR</h4>
 <hr>
+      <div id="tambahberita" class="collapse" style="margin-left:0px; margin-right:0px; margin-top:0px">
+        <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
+        <script type="text/javascript">
+        tinymce.init({
+          selector : "textarea",
+          plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste jbimages"],
+          toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+        });
+        </script>
 
+        <form action="{{ url('admin/new-post') }}" method="post">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <div class="form-group">
+            <input required="required" value="{{ old('title') }}" placeholder="Enter title here" type="text" name = "title"class="form-control" />
+          </div>
+          <div class="form-group">
+            <textarea name='body'class="form-control">{{ old('body') }}</textarea>
+          </div>
+          <input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
+          <input type="submit" name='save' class="btn btn-default" value = "Save Draft" />
+        </form>
+      </div>
+<!-- <hr style="margin-top:0px"> -->
 
-</div>
-
-<div style="float: left; width: 47%" class="">
-
-<h3 align="center">Berita Terakhir</h3>
     @foreach( $posts as $post )
-    <div class="list-group">
+    <div class="list-group " style="margin-top:10px">
         <div class="list-group-item">
-            <h3><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
-    
-                   
+            <h5><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
+
+
                     @role(1)
                     @if($post->active == '1')
-                    <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Post</a>
-                    <!-- 
-                    <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
-                    @else
-                    <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
-                    @endrole
-                @endif
-            </h3>
-            <h5>{{ $post->created_at->format('M d,Y \a\t h:i a') }} by {{ $post->author->name }}</h5> 
-            <!-- <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>  -->
-            
-        </div>
-        <div class="list-group-item">
-            <article>
-                {!! str_limit($post->body, $limit = 100, $end = '....... <a href='.url("/".$post->slug).'>Read More</a>') !!}
-            </article>
-        </div>
+                    <!-- <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Post</a> -->
+                    <a type="button" class="btn btn-danger btn-simple pull-right" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $post->id;?>"><span class="fa fa-trash"></a>
+                        <div class="modal fade" id="modaldelete<?php echo $post->id;?>" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title"><b>Perhatian</b></h4>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <input type="hidden" value="<?php echo $post->id;?>" name="id">
+                                                <h5>Apakah Anda yakin akan menghapus data ini?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</button>
+                                                <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}"style="width:60px;">Ya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                    <a type="button"class="btn btn-warning btn-simple pull-right" data-toggle="collapse" data-target="#editberita<?php echo $post->id;?>"> <i class=" fa fa-pencil-square-o"></i></a>
+                    <div id="editberita<?php echo $post->id;?>" class="collapse" style="margin-left:10px; margin-right:10px">
+                          <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
+                          <script type="text/javascript">
+                          	tinymce.init({
+                          		selector : "textarea",
+                          		plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste jbimages"],
+                          		toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages"
+                          	});
+                          </script>
+
+                          <form method="post" action='{{ action("PostController@update") }}'>
+                          	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          	<input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">
+                          	<div class="form-group">
+                          		<input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" value="@if(!old('title')){{$post->title}}@endif{{ old('title') }}"/>
+                          	</div>
+                          	<div class="form-group">
+                          		<textarea name='body'class="form-control">
+                          			@if(!old('body'))
+                          			{!! $post->body !!}
+                          			@endif
+                          			{!! old('body') !!}
+                          		</textarea>
+                          	</div>
+                          	@if($post->active == '1')
+                          	<input type="submit" name='publish' class="btn btn-success" value = "Update"/>
+                          	@else
+                          	<input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
+                          	@endif
+                          	<input type="submit" name='save' class="btn btn-default" value = "Save As Draft" />
+                          	@role(1)
+                          	<a href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Delete</a>
+                          	@endrole
+                          </form>
+                            <!--
+                            <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
+                            @else
+                            <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
+                            @endrole
+                        @endif
+
+                    </h5>
+
+                    <h6>{{ $post->created_at->format('M d,Y \a\t h:i a') }} by {{ $post->author->name }}</h6>
+                    <!-- <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} By <a href="{{ url('/user/'.$post->author_id)}}">{{ $post->author->name }}</a></p>  -->
+                    <div class="text" style="width:100%; overflow:auto"  >
+                      <?php echo $post->body ?>
+
+                      <!-- {!! str_limit($post->body, $limit = 100, $end = '.......') !!} -->
+                      <!-- {!! str_limit($post->body, $limit = 100, $end = '....... <a href='.url("/".$post->slug).'>Read More</a>') !!} -->
+                    </div>
+                  </div>
+
+        <!-- <div class="list-group-item">
+        </div> -->
     </div>
     @endforeach
-    {!! $posts->render(); !!}
+    {!! $posts->render() !!}
 </div>
+
 @endif
 
-<div style="float: right; width: 45%">
-    <h3 align="center">Pemberitahuan</h3>
-  
-<a href="admin/bikin">Buat Baru</a>
-      
+<div style="float: right; width: 47%; margin-top:10px; margin-right:10px" class="panel-heading">
+<div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahpemberitahuan" style="margin-top:5px; margin-right:0px;">
+  <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
+  <button type="button" class="btn btn-success">Tambah</button>
+</div>
+<h4 align="left" style="margin-left:10px; font-family:"Helvetica Neue"">PEMBERITAHUAN</h4>
+<hr>
+   <div id="tambahpemberitahuan" class="collapse" style="margin-left:0px; margin-right:0px; margin-top:0px">
+     <form action="{{ action('pemberitahuanController@store') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input required="required"  placeholder="Judul" type="text" name = "judul1" class="form-control" />
+            <input required="required"  placeholder="Deskripsi" type="text" name = "deskripsi1" class="form-control" />
+     <div class="col-xs-8">
+      <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+      </div>
+      <input type="submit" class="btn btn-success" value="Tambah Pemberitahuan" name="submit"/>
+           </form>
+   </div>
+
 
 
 @foreach($pemberitahuan_list as $pemberitahuan)
@@ -94,20 +247,19 @@ There is no post till now. Login and write a new post now!!!
                                     </button>
                                     <h4 class="modal-title"><b>Perhatian</b></h4>
                                 </div>
-                                
+
                                 <div class="modal-body">
                                     <input type="hidden" value="<?php echo $pemberitahuan->id;?>" name="id">
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}">Hapus</a>
+                                      <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</button>
+                                      <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}"style="width:60px;">Ya</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
+
 
         </h3>
         <h5>{{ $pemberitahuan->created_at}}</h5>
@@ -117,7 +269,6 @@ There is no post till now. Login and write a new post now!!!
 
 </div>
 @endforeach
-{!! $pemberitahuan_list->render();!!}
-
+{!! $pemberitahuan_list->render() !!}
 </div>
 @endsection
