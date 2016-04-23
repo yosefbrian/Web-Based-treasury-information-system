@@ -53,6 +53,9 @@ Route::get('/profil','ProfilController@getData');
 Route::get('/spdcenter','SPDController@spduser');
 Route::post('/spdcenter/{id}', 'SPDController@storespd');
 
+Route::get('/lihatnota/{id}', 'SPDController@lihat');
+Route::get('/lihatnota/{id}/delete', 'SPDController@deletenota');
+
 //DIARY
 Route::get('/diary', 'DiaryController@index');
 Route::get('diarynewpost','DiaryController@create');

@@ -14,6 +14,8 @@ use Request as reques;
 
 use Auth;
 
+use App/notaspd as nota;
+
 class SPDController extends Controller
 {
     public function getData()
@@ -204,7 +206,18 @@ public function storespd(Request $request, $id) {
         return redirect('/spdcenter');
     }
 
+    public function lihat($id)
+    {
+        $nota_list = nota::where('nota_id', $id)->orderBy('created_at','desc')->paginate(5);
+        
+        return view('spd.lihatnota')->with('nota_list', $nota_list);
+    }
 
+    public function deletenota($id) {
+        nota::find($id)->delete();
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        return Redirect('/lihatnota');
+    }
 
 
 }

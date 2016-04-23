@@ -59,7 +59,9 @@ table#t01 th	{
     <td>{{$espede->no_pd}}</td>		
      <td>{{$espede->tanggal}}</td>
      <td>{{$espede->tujuan}}</td>
-     <td> <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a></td>
+     <td> <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
+    <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a>
+     </td>
 
 
 
