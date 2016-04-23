@@ -65,5 +65,28 @@ class UserController extends Controller {
 		return view('admin.profile', $data);
 	}
 
+	public function changepassword()
+	{
+		$user = Auth::user()->id;
+		$old = User::findOrFail($user);
+		return view('gantipassword', compact('old'));
+	}
+
+	public function ganti($id, Request $request)
+	{
+		$user = User::findOrFail($id);
+
+		$oldpass = reques::get('password_lama');
+        $newpass = reques::get('password_baru');
+        $confirm =  reques::get('konfirmasi_password');
+		if (Hash::check($oldpass, $user->password)) {
+			if ($newpass == $confirm) {
+				$user->password = bcrypt($newpass);
+				$user->save();
+			}
+			
+		}
+		return redirect('/');
+	}
 }
 

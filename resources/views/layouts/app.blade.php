@@ -156,6 +156,7 @@
                                     <a href="{{ url('admin/new-post') }}">Add new post</a>
                                 </li>
                  <li><a href="{{ url('admin/registeri') }}">Register</a></li>
+                 <li><a href="{{ url('/gantipassword') }}">Ubah Password</a></li>
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>

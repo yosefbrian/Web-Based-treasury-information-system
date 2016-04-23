@@ -23,6 +23,9 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/editprofil/{id}', 'ProfilController@edit');
 	Route::post('/editprofil/{id}', 'ProfilController@update');
 
+Route::get('/gantipassword', 'UserController@changepassword');
+Route::post('/gantipassword/{id}', 'UserController@ganti');
+
 Route::get('/', 'PostController@index');
 
 Route::get('/peraturanpd', 'PeraturanController@getDatapd');
