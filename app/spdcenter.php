@@ -11,4 +11,9 @@ class spdcenter extends Model
 	{
 		return $this->belongsTo('App\Profil','nip');
 	}
+
+	 public function nip1()
+	{
+		return $this->hasOne('App\spdcenter','nip');
+	}
 }

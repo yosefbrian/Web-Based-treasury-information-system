@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\spdcenter;
 
+
 class bpController extends Controller
 {
     
@@ -18,6 +19,14 @@ class bpController extends Controller
         
        	  return view('bp.bp')->with('spd', $spd);
     }
+
+
+      public function make($id) {
+        $bp1 = spdcenter::findOrFail($id);
+        return view('bp.newbp1',  compact('bp1'));
+    }
+
+
 
 
 
