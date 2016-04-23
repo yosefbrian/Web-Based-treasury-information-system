@@ -219,5 +219,13 @@ public function storespd(Request $request, $id) {
         return Redirect('/lihatnota');
     }
 
+    public function cari(Request $request) {
+        $tanggal = $request->get('Tanggal')." ".$request->get('Bulan')." ".$request->get('Tahun');
+
+        $result = spdcenter::where('tanggal', 'LIKE', $tanggal)->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('spd.listspdcari')->with('result', $result);
+    }
 
 }

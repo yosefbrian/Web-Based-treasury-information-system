@@ -102,10 +102,6 @@ table#t01 th	{
 </div>
 <input class="btn btn-default" type="submit" value="Cari">
 </form>
-
-
-
-
 <table>
 
 
@@ -124,7 +120,7 @@ table#t01 th	{
    </tr>
 
    <?php $i=0; ?>
-                @foreach ($spd as $espede)
+                @foreach ($result as $espede)
                     <?php $i++; ?>
   <tr>
     <td>{{$espede->no_pd}}</td>		
@@ -308,6 +304,6 @@ table#t01 th	{
 
  </table>
 
-{!!$spd->render()!!}
+{!!$result->render()!!}
 
 @endsection
