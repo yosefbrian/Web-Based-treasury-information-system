@@ -14,7 +14,7 @@ use Request as reques;
 
 use Auth;
 
-use App/notaspd as nota;
+use App\notaspd as nota;
 
 class SPDController extends Controller
 {

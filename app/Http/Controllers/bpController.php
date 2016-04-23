@@ -87,6 +87,65 @@ public function delete($id) {
 
 
 
+    public function editdata($id) {
+        $bp1 = bp1::findOrFail($id);
+        return view('bp.editbp1',  compact('bp1'));
+    }
+
+
+ public function update($id, Request $request) 
+    {
+    		
+
+    	 
+
+        $no_pp = reques::get('no_pp');
+        $no_pd = reques::get('no_pd');
+        $nama =  reques::get('nama');
+        $nip   = reques::get('nip');
+        $pencairan = reques::get('pencairan');
+        $nama_ppk = reques::get('nama_ppk');
+        $keterangan =reques::get('keterangan');
+        // $filename = reques::get('fileToUpload')->getClientOriginalName();
+
+
+
+		$bp1 = bp1::findOrFail($id);
+
+		$bp1->no_pp = $no_pp;
+		$bp1->no_pd = $no_pd;
+		$bp1->nama = $nama;
+		$bp1->nip = $nip;
+		$bp1->pencairan = $pencairan;
+		$bp1->nama_ppk = $nama_ppk;
+		$bp1->keterangan = $keterangan;
+		$bp1->save();
+
+
+
+		// $book->update(array(
+  //           'nama'    =>  $nama,
+  //           'nip' =>  $nip,
+  //           'jabatan'  => $jabatan,
+  //           'npwp' => $npwp
+  //           'jenis_kelamin' => $jenis_kelamin,
+  //           'nm_status_pegawai' => $nm_status_pegawai,
+  //           'pangkat' => $pangkat,
+  //           'jenis_jabatan' => $jenis_jabatan,
+  //           'unit_organisasi'  => $unit_organisasi,
+  //           'jabatan_grade'  => $jabatan_grade,
+  //           'nama_bank'  => $nama_bank,
+  //           'no_rekening'  => $no_rekening,
+  //           'nama_rekening'  => $nama_rekening,
+  //           'filename'  => $filename
+
+
+  //       ));        
+        // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
+        return redirect('/admin/bp1');
+    }
+    
+
 
 
 }

@@ -42,6 +42,10 @@ th, td {
     <td>{{ $bp11->pencairan }}</td>    
     <td>{{ $bp11->nama_ppk }}</td>
      <td>{{ $bp11->keterangan }}</td>
+
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
                              <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">

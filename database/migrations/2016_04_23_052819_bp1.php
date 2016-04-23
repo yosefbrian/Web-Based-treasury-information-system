@@ -15,7 +15,7 @@ class Bp1 extends Migration
         Schema::create('bp1', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('no_pp')->nullable();
-             $table->string('no_pd')->nullable();
+             $table->string('no_pd')->unique();
             // $table->foreign('no_pd')->nullable()
             //         ->references('no_pd')->on('spdcenter')
             //         ->onDelete('cascade');

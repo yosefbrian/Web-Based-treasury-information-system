@@ -108,7 +108,8 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
-
+	Route::post('/bp1/ubah/{id}', 'bpController@update');
+	Route::get('/bp1/ubah/{id}','bpController@editdata');
 
 	Route::get('bp1/show/{id}/delete', 'bpController@delete');
 
