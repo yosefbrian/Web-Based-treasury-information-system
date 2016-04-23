@@ -14,6 +14,6 @@ class spdcenter extends Model
 
 	 public function nip1()
 	{
-		return $this->hasOne('App\spdcenter','nip');
+		return $this->hasOne('App\bp1','nip');
 	}
 }

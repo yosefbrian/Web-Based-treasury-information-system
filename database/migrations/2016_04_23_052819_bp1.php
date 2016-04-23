@@ -28,9 +28,7 @@ class Bp1 extends Migration
             $table->foreign('nip')
                     ->references('nip')->on('spdcenter')
                     ->onDelete('cascade');
-            $table->integer('cair_tersedia')->nullable();
-            $table->integer('cair_ditransfer')->nullable();
-            $table->integer('batal')->nullable();
+            $table->integer('pencairan')->nullable();
             $table->string('nama_ppk')->nullable();
              // $table->foreign('nama_ppk')
              //        ->references('nama_ppk')->on('spdcenter')

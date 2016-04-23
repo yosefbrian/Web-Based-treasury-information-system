@@ -105,10 +105,13 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
 
+	Route::post('/bp1/edit/{id}', 'bpController@create1');
 	Route::get('/bp1','bpController@getData');
 	Route::get('/bp2','bpController@getData');
 
 	Route::get('/bp1/edit/{id}','bpController@make');
+	Route::get('/bp1/show','bpController@show');
+
 
 
 	Route::post('/create','RoleController@create');	

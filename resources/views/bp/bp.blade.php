@@ -31,7 +31,7 @@ table#t01 th    {
 
 
 
-
+<a href="{{url('admin/bp1/show')}}">List Data BP</a>
 <table>
 
 
@@ -196,7 +196,11 @@ table#t01 th    {
                            </div>
 
                           
-<td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a></td>               
+<td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
+
+
+
+</td>               
                             
                              
 
@@ -205,6 +209,6 @@ table#t01 th    {
  @endforeach 
 
  </table>
-
+{!!$spd->render()!!}
 
 @endsection

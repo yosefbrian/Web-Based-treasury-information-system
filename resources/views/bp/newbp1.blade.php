@@ -2,10 +2,14 @@
 
 @section('content')
 
- <form action="#" method="post" enctype="multipart/form-data">
+
+
+ <form action="{{url('/admin/bp1/edit/'.$bp1->id) }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
   No PP:<br>
-  <input class="form-control" type="text" name="nama" ><br>
+  <input class="form-control" type="text" name="no_pp" ><br>
+   No PD:<br>
+  <input class="form-control" type="text" name="no_pd" value="{{ $bp1->no_pd }}" ><br>
   Nama:<br>
   <input class="form-control" type="text" name="nama" value="{{ $bp1->nama }}"><br>
   NIP:<br>
@@ -13,10 +17,12 @@
 
 
  Pencairan : <br><br>
-<input type="radio" name="pencairan" value="1" checked> Cair, Dana Tersedia<br>
+
   <input type="radio" name="pencairan" value="2"> Cair, Dana Ditransfer<br>
 
-  <input type="radio" name="pencairan" value="3"> Batal<br><br>
+  <input type="radio" name="pencairan" value="1" checked> Cair, Dana Tersedia<br>
+
+  <input type="radio" name="pencairan" value="0"> Batal<br><br>
 
 
   Nama PPK:<br>

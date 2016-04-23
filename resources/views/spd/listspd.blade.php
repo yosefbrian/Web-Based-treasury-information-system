@@ -234,5 +234,6 @@ table#t01 th	{
 
  </table>
 
+{!!$spd->render()!!}
 
 @endsection
