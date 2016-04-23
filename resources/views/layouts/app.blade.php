@@ -12,12 +12,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+   <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}} -->
 
 <!-- sidebar -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!--   <link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
 
@@ -27,7 +38,7 @@
     <link href="css/icheck/flat/green.css" rel="stylesheet" />
     <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
 
-    <script src="js/jquery.min.js"></script>
+   <!--  <script src="js/jquery.min.js"></script> -->
     <script src="js/nprogress.js"></script>
 
     <style>
@@ -101,8 +112,8 @@
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('spdcenter')}}">SPD Center</a></li>
                     <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
-                    <li><a href="#">Bendahara Pengeluaran 1</a></li>
-                    <li><a href="#">Bendahara Pengeluaran 2</a></li>
+                    <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran 1</a></li>
+                    <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran 2</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>
@@ -189,7 +200,7 @@
       </div>
     </div>
 
-  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/bootstrap.min.js"></script> -->
 
   <!-- gauge js -->
   <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
@@ -207,7 +218,9 @@
   <script src="js/custom.js"></script>
 
   <!-- flot js -->
-  <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+  <!-- [if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]
+ -->
+  
   <script type="text/javascript" src="js/flot/jquery.flot.js"></script>
   <script type="text/javascript" src="js/flot/jquery.flot.pie.js"></script>
   <script type="text/javascript" src="js/flot/jquery.flot.orderBars.js"></script>

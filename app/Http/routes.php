@@ -101,6 +101,13 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
+
+	Route::get('/bp1','bpController@getData');
+	Route::get('/bp2','bpController@getData');
+
+
+
+
 	Route::post('/create','RoleController@create');	
 	Route::get('/registeri','RoleController@registeri');
 	Route::get('/role/{id}','RoleController@role');
