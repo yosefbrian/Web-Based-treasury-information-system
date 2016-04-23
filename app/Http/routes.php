@@ -51,6 +51,7 @@ Route::get('/peraturan/{id}/delete', 'PeraturanController@delete');
 Route::get('/profil','ProfilController@getData');
 
 Route::get('/spdcenter','SPDController@spduser');
+Route::post('/spdcenter/{id}', 'SPDController@storespd');
 
 //DIARY
 Route::get('/diary', 'DiaryController@index');

@@ -75,16 +75,19 @@ table#t01 th	{
       <div class="modal-body">
         
 
-            <form  action="#" method="#" enctype="multipart/form-data">
+<form  action="{{ url('/spdcenter/'.$espede->id) }}" method="post" enctype="multipart/form-data">
     
 Nomor ST :<br>
-  <input class="form-control" type="text" name="no_st" value=""><br>
+  <input class="form-control" type="text" name="no_st" value="<?php echo $espede->no_st;?>"><br>
 
-Tanggal ST :<br>
-  <input class="form-control" type="text" name="tanggal_st" value=""><br>
+No Resi :<br>
+  <input class="form-control" type="text" name="no_resi" value=""><br>
 
-Tanggal Kirim :<br>
-  <input class="form-control" type="text" name="tanggal_kirim" value=""><br>
+Judul Nota :<br>
+  <input class="form-control" type="text" name="judul" value=""><br>
+
+Deskripsi Nota :<br>
+  <input class="form-control" type="text" name="deskripsi" value=""><br>
 
 
     <div class="col-xs-8">
@@ -92,7 +95,8 @@ Tanggal Kirim :<br>
     </div>
 
 
-<input class="btn btn-success" type="submit" value="Simpan">
+<input class="btn btn-success" type="submit" value="Simpan"/>
+<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
 
 
