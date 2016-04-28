@@ -10,6 +10,8 @@ use App\spdcenter;
 
 use App\bp1;
 
+use App\bp2a;
+
 use Request as reques;
 
 
@@ -30,6 +32,10 @@ class bpController extends Controller
         return view('bp.newbp1',  compact('bp1'));
     }
 
+     public function make2($id) {
+        $bp2a = spdcenter::findOrFail($id);
+        return view('bp.newbp2',  compact('bp2a'));
+    }
 
     public function show() {
           $bp1 = bp1::paginate(10);
@@ -39,29 +45,6 @@ class bpController extends Controller
 
 
     public function create1(Request $request) {
-        
-
-  //   	$no_pp = reques::get('no_pp');
-  //       $no_pd = reques::get('no_pd');
-  //       $nama =  reques::get('nama');
-  //       $nip   = reques::get('nip');
-  //       $pencairan = reques::get('pencairan');
-  //       $nama_pkk = reques::get('nama_pkk');
-  //       $keterangan =reques::get('keterangan');
-
-
-  //       $book = bp1::findOrFail($id);
-
-		// $book->no_pp = $no_pp;
-		// $book->no_pd = $no_pd;
-		// $book->nama = $nama;
-		// $book->nip = $nip;
-		// $book->pencairan = $pencairan;
-		// $book->nama_pkk = $nama_pkk;
-		// $book->keterangan = $keterangan;
-		// $book->save();
-
-
         
         $bp1 = new bp1();
         $bp1->no_pp = $request->get('no_pp');
@@ -76,6 +59,29 @@ class bpController extends Controller
     
         return redirect('admin/bp1');
     }
+
+public function create2(Request $request) {
+        
+        $bp2a = new bp2a();
+         $bp2a->no_pp = $request->get('no_pp');
+        $bp2a->no_spp = $request->get('no_spp');
+        $bp2a->spd_id = $request->get('spd_id');
+        $bp2a->tgl_spp = $request->get('tanggal_spp');
+      $bp2a->tiket_berangkat = $request->get('tiket_berangkat');
+      $bp2a->tiket_kembali = $request->get('tiket_kembali');
+      $bp2a->dpr = $request->get('dpr');
+      $bp2a->penginapan = $request->get('penginapan');
+      $bp2a->penginapan_tanpa_bukti = $request->get('penginapan_tanpa_bukti');
+      $bp2a->uh = $request->get('uh');
+      $bp2a->uhr = $request->get('uhr');
+      $bp2a->kekurangan = $request->get('kekurangan');
+      $bp2a->total1 = $request->get('total1');
+        $bp2a->save();
+         
+    
+        return redirect('admin/bp2');
+    }
+
 
 
 public function delete($id) {

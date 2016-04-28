@@ -101,7 +101,7 @@
               <ul  class="nav side-menu">
                 <h3>MENU</h3>
 
-                @role(1)
+       
                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="#">Berita Terakhir</a></li>
@@ -183,7 +183,7 @@
         </div>
 
       </div>
-      @endrole
+      
       <!-- /top navigation -->
 
 

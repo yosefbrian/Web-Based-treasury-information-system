@@ -16,4 +16,9 @@ class spdcenter extends Model
 	{
 		return $this->hasOne('App\bp1','nip');
 	}
+
+	public function spd2()
+	{
+		return $this->hasOne('App\bp2a','spd_id');
+	}
 }

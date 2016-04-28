@@ -197,8 +197,8 @@ table#t01 th    {
 
                           
 <td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
-
-
+<td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2 #1</a>
+<td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2 #2</a>
 
 </td>               
                             

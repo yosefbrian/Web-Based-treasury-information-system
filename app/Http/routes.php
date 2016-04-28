@@ -108,6 +108,8 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
+
+	//BP1
 	Route::post('/bp1/ubah/{id}', 'bpController@update');
 	Route::get('/bp1/ubah/{id}','bpController@editdata');
 
@@ -119,6 +121,12 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
+
+	//BP2
+	Route::get('/bp2a/edit/{id}','bpController@make2');
+	Route::post('/bp2a/edit/{id}', 'bpController@create2');
+
+
 
 
 
