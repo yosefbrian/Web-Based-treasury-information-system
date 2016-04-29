@@ -132,10 +132,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 
 
-	//BP2b
-	Route::get('/bp2b/edit/{id}','bpController@make2b');
-	Route::post('/bp2b/edit/{id}', 'bpController@create2b');
-
+	
 
 
 

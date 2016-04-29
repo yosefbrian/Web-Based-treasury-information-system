@@ -12,8 +12,6 @@ use App\bp1;
 
 use App\bp2a;
 
-use App\bp2b;
-
 use Request as reques;
 
 
@@ -89,33 +87,23 @@ public function create2(Request $request) {
       $bp2a->uh = $request->get('uh');
       $bp2a->uhr = $request->get('uhr');
       $bp2a->kekurangan = $request->get('kekurangan');
-      $bp2a->total1 = $request->get('total1');
+
+      $bp2a->perjalanan_dinas = $request->get('perjalanan_dinas');
+      $bp2a->angkutan_pegawai = $request->get('angkutan_pegawai');
+      $bp2a->angkutan_keluarga = $request->get('angkutan_keluarga');
+      $bp2a->angkutan_prt = $request->get('angkutan_prt');
+      $bp2a->pengepakan = $request->get('angkutan_prt');
+      $bp2a->angkutan_barang = $request->get('angkutan_barang');
+      $bp2a->uang_harian_tiba = $request->get('uang_harian_tiba');
+      $bp2a->uang_harian_bertolak = $request->get('uang_harian_bertolak');
+      $bp2a->uang_harian_pembantu = $request->get('uang_harian_pembantu');
+      $bp2a->total = $request->get('total');
         $bp2a->save();
          
     
         return redirect('admin/bp2');
     }
 
-public function create2b(Request $request) {
-        
-        $bp2b = new bp2b();
-         $bp2b->no_spd = $request->get('no_spd');
-        $bp2b->spd_id = $request->get('spd_id');
-         $bp2b->perjalanan_dinas = $request->get('perjalanan_dinas');
-        $bp2b->angkutan_pegawai = $request->get('angkutan_pegawai');
-        $bp2b->angkutan_keluarga = $request->get('angkutan_keluarga');
-      $bp2b->angkutan_prt = $request->get('angkutan_prt');
-      $bp2b->pengepakan = $request->get('angkutan_prt');
-      $bp2b->angkutan_barang = $request->get('angkutan_barang');
-      $bp2b->uang_harian_tiba = $request->get('uang_harian_tiba');
-      $bp2b->uang_harian_bertolak = $request->get('uang_harian_bertolak');
-      $bp2b->uang_harian_pembantu = $request->get('uang_harian_pembantu');
-      $bp2b->total2 = $request->get('total2');
-        $bp2b->save();
-         
-    
-        return redirect('admin/bp2');
-    }
 
 
 

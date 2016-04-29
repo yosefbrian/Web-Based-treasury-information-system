@@ -32,7 +32,7 @@ table#t01 th    {
 
 
 <a href="{{url('admin/bp1/show')}}"><p>List Data BP 1   </p></a>
-<a href="{{url('admin/bp2a/show')}}"><p>List Data BP 2 #1   </p></a>
+<a href="{{url('admin/bp2a/show')}}"><p>List Data BP 2   </p></a>
 
 <table>
 
@@ -199,8 +199,8 @@ table#t01 th    {
 
                           
 <td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
-<td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2 #1</a>
-<td><a href="{{ url('admin/bp2b/edit/'.$espede->id) }}">Isi data BP2 #2</a>
+<td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
+
 
 </td>               
                             

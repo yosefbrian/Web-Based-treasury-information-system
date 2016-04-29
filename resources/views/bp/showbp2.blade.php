@@ -133,7 +133,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    NIP : 
+                                                                    Penginapan : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->penginapan }}</div>
@@ -179,17 +179,123 @@ th, td {
                                                             <div class="col-sm-6">{{$bp21->kekurangan}}</div>
                                                         </div>
                                                     </div>
+
+                                                    <!-- bagian2 -->
                                                     <div class="row">
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Total 1 : 
+                                                                    Perjalanan Dinas : 
                                                                 </div>
                                                             </label>
-                                                            <div class="col-sm-6">{{$bp21->total1}}</div>
+                                                            <div class="col-sm-6">{{$bp21->perjalanan_dinas}}</div>
                                                         </div>
                                                     </div>
-                                                
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Angkutan Pegawai : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->angkutan_pegawai}}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Angkutan Keluarga : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->angkutan_keluarga}}</div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Angkutan PRT : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->angkutan_prt}}</div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Pengepakan : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->pengepakan}}</div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Angkutan Barang : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->angkutan_barang}}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Uang Harian Tiba : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->uang_harian_tiba}}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Uang Harian Bertolak : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->uang_harian_bertolak}}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Uang Harian Pembantu : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->uang_harian_pembantu}}</div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Total : 
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$bp21->total}}</div>
+                                                        </div>
+                                                    </div>
+
+
                                                     
                                                     
                                                     </div>

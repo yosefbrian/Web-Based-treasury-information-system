@@ -46,9 +46,41 @@
   Kekurangan :<br>
   <input class="form-control" type="text" name="kekurangan"><br>
 
+
+<!-- part2 -->
+
+ Perjalanan Dinas:<br>
+  <input class="form-control" type="text" name="perjalanan_dinas" ><br>
+
+  Angkutan Pegawai:<br>
+  <input class="form-control" type="text" name="angkutan_pegawai" ><br>
   
-  Total1 :<br>
-  <input class="form-control" type="text" name="total1"><br>  
+  Angkutan Keluarga:<br>
+  <input class="form-control" type="text" name="angkutan_keluarga"  ><br>
+  
+  Angkutan PRT:<br>
+  <input class="form-control" type="text" name="angkutan_prt" ><br>
+  
+  Pengepakan:<br>
+  <input class="form-control" type="text" name="pengepakan"><br>
+  
+  Angkutan Barang:<br>
+  <input class="form-control" type="text" name="angkutan_barang"><br>
+  
+  Uang Harian Tiba:<br>
+  <input class="form-control" type="text" name="uang_harian_tiba"><br>
+  
+ Uang Harian Bertolak:<br>
+  <input class="form-control" type="text" name="uang_harian_bertolak"><br>
+  
+  Uang Harian Pembantu:<br>
+  <input class="form-control" type="text" name="uang_harian_pembantu"><br>
+
+
+
+  
+  Total :<br>
+  <input class="form-control" type="text" name="total"><br>  
 
 
   <input class="btn btn-success" type="submit" value="Simpan">

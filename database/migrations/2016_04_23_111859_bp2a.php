@@ -30,7 +30,16 @@ class Bp2a extends Migration
             $table->string('uh')->nullable();
             $table->string('uhr')->nullable();
             $table->string('kekurangan')->nullable();
-            $table->string('total1');
+            $table->string('perjalanan_dinas')->nullable();
+            $table->string('angkutan_pegawai')->nullable();
+            $table->string('angkutan_keluarga')->nullable();
+            $table->string('angkutan_prt')->nullable();
+            $table->string('pengepakan')->nullable();
+            $table->string('angkutan_barang')->nullable();
+            $table->string('uang_harian_tiba')->nullable();
+            $table->string('uang_harian_bertolak')->nullable();
+            $table->string('uang_harian_pembantu')->nullable();
+            $table->string('total');
             $table->timestamps();
         });
     }
