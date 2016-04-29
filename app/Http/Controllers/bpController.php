@@ -216,6 +216,40 @@ public function delete2($id) {
         return redirect('/admin/bp2');
     }
 
+          public function bp1cari(Request $request) {
+        $tanggal = $request->get('Tahun')."-".$request->get('Bulan')."-".$request->get('Tanggal')."%";
+
+        $result = bp1::where('created_at', 'LIKE', $tanggal)->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('bp.showbp1cari')->with('result', $result)->with('tanggal', urlencode($tanggal));
+
+    }
+
+    public function exportbp1all(){
+
+      set_time_limit ( 300000 ); 
+
+      Excel::create('ListBP1', function($excel) {
+
+        $excel->sheet('ListBP1', function($sheet) {
+          $users = bp1::orderBy('id')->get();
+          $sheet->loadView('exportbp1', ['users' => $users->toArray()]);
+        });
+      })->download('xls');
+  }
+
+      public function exportbp1tgl($tanggal){
+      set_time_limit ( 300000 ); 
+
+      Excel::create('ListBP1-'.substr($tanggal, 0, 10), function($excel) use($tanggal) {
+
+        $excel->sheet('ListBP1', function($sheet) use($tanggal) {
+          $users = bp1::where('created_at', 'LIKE', $tanggal)->orderBy('id')->get();
+          $sheet->loadView('exportbp1', ['users' => $users->toArray()]);
+        });
+      })->download('xls');
+  }
 
 
 }

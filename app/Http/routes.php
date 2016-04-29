@@ -120,7 +120,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bp1/edit/{id}', 'bpController@create1');
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
-
+	Route::post('/bp1cari', 'bpController@bp1cari');
+	Route::get('/bp1/export', array('uses' => 'bpController@exportbp1all'));
+	Route::get('/bp1/export/{tanggal}', array('uses' => 'bpController@exportbp1tgl'));
 
 	//BP2a
 	Route::get('/bp2a/edit/{id}','bpController@make2');
@@ -158,6 +160,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/spdcenter/{id}','SPDController@edit');
 	Route::get('/listspd/{id}/ubah','SPDController@ubah');
 	Route::post('/listspd/{id}/ubah','SPDController@update');
+	
+	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
+	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
 	
 	Route::get('new-post','PostController@create');
 	
