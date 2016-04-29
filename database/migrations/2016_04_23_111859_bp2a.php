@@ -18,6 +18,7 @@ class Bp2a extends Migration
             $table->foreign('spd_id')
                     ->references('id')->on('spdcenter')
                     ->onDelete('cascade');
+            $table->string('no_spd');
             $table->string('no_pp');
             $table->string('no_spp');
             $table->string('tgl_spp')->nullable();

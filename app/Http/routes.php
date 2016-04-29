@@ -109,23 +109,32 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 {
 
 
-	//BP1
-	Route::post('/bp1/ubah/{id}', 'bpController@update');
-	Route::get('/bp1/ubah/{id}','bpController@editdata');
-
-	Route::get('bp1/show/{id}/delete', 'bpController@delete');
-
-	Route::post('/bp1/edit/{id}', 'bpController@create1');
+	//BP
 	Route::get('/bp1','bpController@getData');
 	Route::get('/bp2','bpController@getData');
 
+	//BP1
+	Route::post('/bp1/ubah/{id}', 'bpController@update');
+	Route::get('/bp1/ubah/{id}','bpController@editdata');
+	Route::get('bp1/show/{id}/delete', 'bpController@delete');
+	Route::post('/bp1/edit/{id}', 'bpController@create1');
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
 
-	//BP2
+
+	//BP2a
 	Route::get('/bp2a/edit/{id}','bpController@make2');
 	Route::post('/bp2a/edit/{id}', 'bpController@create2');
+	Route::get('/bp2a/show','bpController@show2');
+	Route::get('bp2a/show/{id}/delete', 'bpController@delete2');
+	Route::post('/bp2/ubah/{id}', 'bpController@update2');
+	Route::get('/bp2/ubah/{id}','bpController@editdata2');
 
+
+
+	//BP2b
+	Route::get('/bp2b/edit/{id}','bpController@make2b');
+	Route::post('/bp2b/edit/{id}', 'bpController@create2b');
 
 
 

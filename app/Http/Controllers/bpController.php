@@ -12,6 +12,8 @@ use App\bp1;
 
 use App\bp2a;
 
+use App\bp2b;
+
 use Request as reques;
 
 
@@ -27,6 +29,7 @@ class bpController extends Controller
     }
 
 
+
       public function make($id) {
         $bp1 = spdcenter::findOrFail($id);
         return view('bp.newbp1',  compact('bp1'));
@@ -37,12 +40,22 @@ class bpController extends Controller
         return view('bp.newbp2',  compact('bp2a'));
     }
 
+    public function make2b($id) {
+        $bp2b = spdcenter::findOrFail($id);
+        return view('bp.newbp2b',  compact('bp2b'));
+    }
+
     public function show() {
           $bp1 = bp1::paginate(10);
         
        	  return view('bp.showbp1')->with('bp1', $bp1);
     }
 
+    public function show2() {
+          $bp2 = bp2a::paginate(10);
+        
+          return view('bp.showbp2')->with('bp2', $bp2);
+    }
 
     public function create1(Request $request) {
         
@@ -63,6 +76,7 @@ class bpController extends Controller
 public function create2(Request $request) {
         
         $bp2a = new bp2a();
+        $bp2a->no_spd = $request->get('no_spd');
          $bp2a->no_pp = $request->get('no_pp');
         $bp2a->no_spp = $request->get('no_spp');
         $bp2a->spd_id = $request->get('spd_id');
@@ -82,6 +96,28 @@ public function create2(Request $request) {
         return redirect('admin/bp2');
     }
 
+public function create2b(Request $request) {
+        
+        $bp2b = new bp2b();
+         $bp2b->no_spd = $request->get('no_spd');
+        $bp2b->spd_id = $request->get('spd_id');
+         $bp2b->perjalanan_dinas = $request->get('perjalanan_dinas');
+        $bp2b->angkutan_pegawai = $request->get('angkutan_pegawai');
+        $bp2b->angkutan_keluarga = $request->get('angkutan_keluarga');
+      $bp2b->angkutan_prt = $request->get('angkutan_prt');
+      $bp2b->pengepakan = $request->get('angkutan_prt');
+      $bp2b->angkutan_barang = $request->get('angkutan_barang');
+      $bp2b->uang_harian_tiba = $request->get('uang_harian_tiba');
+      $bp2b->uang_harian_bertolak = $request->get('uang_harian_bertolak');
+      $bp2b->uang_harian_pembantu = $request->get('uang_harian_pembantu');
+      $bp2b->total2 = $request->get('total2');
+        $bp2b->save();
+         
+    
+        return redirect('admin/bp2');
+    }
+
+
 
 
 public function delete($id) {
@@ -90,12 +126,23 @@ public function delete($id) {
         return Redirect('admin/bp1/show');
     }
 
+public function delete2($id) {
+        bp2a::find($id)->delete();
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        return Redirect('admin/bp2a/show');
+    }
+
 
 
 
     public function editdata($id) {
         $bp1 = bp1::findOrFail($id);
         return view('bp.editbp1',  compact('bp1'));
+    }
+
+    public function editdata2($id) {
+        $bp2a = bp2a::findOrFail($id);
+        return view('bp.editbp2',  compact('bp2a'));
     }
 
 
@@ -127,28 +174,59 @@ public function delete($id) {
 
 
 
-		// $book->update(array(
-  //           'nama'    =>  $nama,
-  //           'nip' =>  $nip,
-  //           'jabatan'  => $jabatan,
-  //           'npwp' => $npwp
-  //           'jenis_kelamin' => $jenis_kelamin,
-  //           'nm_status_pegawai' => $nm_status_pegawai,
-  //           'pangkat' => $pangkat,
-  //           'jenis_jabatan' => $jenis_jabatan,
-  //           'unit_organisasi'  => $unit_organisasi,
-  //           'jabatan_grade'  => $jabatan_grade,
-  //           'nama_bank'  => $nama_bank,
-  //           'no_rekening'  => $no_rekening,
-  //           'nama_rekening'  => $nama_rekening,
-  //           'filename'  => $filename
-
 
   //       ));        
         // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
         return redirect('/admin/bp1');
     }
     
+
+    public function update2($id, Request $request) 
+    {
+         $no_spd = reques::get('no_spd');
+        $spd_id = reques::get('spd_id');
+        $no_pp = reques::get('no_pp');
+        $no_spp = reques::get('no_spp');
+        $tanggal_spp =  reques::get('tanggal_spp');
+        $tiket_berangkat   = reques::get('tiket_berangkat');
+        $tiket_kembali = reques::get('tiket_kembali');
+        $nama_dpr = reques::get('dpr');
+        $penginapan =reques::get('penginapan');
+        $penginapan_tanpa_bukti =reques::get('penginapan_tanpa_bukti');
+        $uh =reques::get('uh');
+        $uhr =reques::get('uhr');
+        $kekurangan =reques::get('kekurangan');
+        $total1 =reques::get('total1');
+        // $filename = reques::get('fileToUpload')->getClientOriginalName();
+
+
+
+    $bp2a = bp2a::findOrFail($id);
+
+     $bp2a->no_spd = $no_spd;
+    $bp2a->spd_id = $spd_id;
+    $bp2a->no_pp = $no_pp;
+    $bp2a->no_spp = $no_spp;
+    $bp2a->tgl_spp = $tanggal_spp;
+    $bp2a->tiket_berangkat = $tiket_berangkat;
+    $bp2a->tiket_kembali = $tiket_kembali;
+    $bp2a->dpr = $nama_dpr;
+    $bp2a->penginapan = $penginapan;
+    $bp2a->penginapan_tanpa_bukti = $penginapan_tanpa_bukti;
+    $bp2a->uh = $uh;
+    $bp2a->uhr = $uhr;
+    $bp2a->kekurangan = $kekurangan;
+    $bp2a->total1 = $total1;
+
+    $bp2a->save();
+
+
+
+
+  //       ));        
+        // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
+        return redirect('/admin/bp2');
+    }
 
 
 

@@ -18,7 +18,8 @@ class Bp2b extends Migration
             $table->foreign('spd_id')
                     ->references('id')->on('spdcenter')
                     ->onDelete('cascade');
-            $table->string('perjalanana_dinas')->nullable();
+            $table->string('no_spd');
+            $table->string('perjalanan_dinas')->nullable();
             $table->string('angkutan_pegawai')->nullable();
             $table->string('angkutan_keluarga')->nullable();
             $table->string('angkutan_prt')->nullable();

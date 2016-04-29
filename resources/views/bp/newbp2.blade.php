@@ -8,6 +8,9 @@
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
 
+  
+  <input class="form-control" type="hidden" name="no_spd" value="{{ $bp2a->no_pd }}"><br>
+
   No PP:<br>
   <input class="form-control" type="text" name="no_pp" ><br>
 
