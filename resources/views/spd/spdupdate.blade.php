@@ -10,11 +10,170 @@
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
- Pengiriman:<br>
+ <!-- Pengiriman:<br>
  <input type="radio" name="pengiriman" value="1" checked> Sudah<br>
-  <input type="radio" name="pengiriman" value="0"> Belum<br>
+  <input type="radio" name="pengiriman" value="0"> Belum<br> -->
+
+  <select id="pengiriman" name="pengiriman" class="form-control selectpicker" title="Pengiriman">
+                         <option value="1">Sudah</option>
+                          <option value="0">Belum</option>
+                         
+                        </select>
 
   <br>
+
+ 
+
+<?php
+      
+   if(isset($spd->tanggal_pengiriman)) {
+       $tanggal_pengiriman=substr($spd->tanggal_pengiriman,0,2);
+      }  
+      else{$tanggal_pengiriman='01';}
+
+$tgl = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');    
+
+    foreach($tgl as $Tanggal){
+  if($Tanggal == $tanggal_pengiriman){
+    $tgl[0]=$tanggal_pengiriman;      
+  }
+}
+
+?>
+
+  <div id="tanggal_pengiriman">
+Tanggal:<br>
+ <div class="col-xs-2">
+  <select name="Tanggal_pengiriman" class="form-control" >
+
+@foreach($tgl as $datee)
+
+<option value="{{$datee}}">{{$datee}}</option>
+
+@endforeach
+  </select>
+  </div>
+
+
+<?php
+      
+   if(isset($spd->tanggal_pengiriman)) {
+       $bulan_pengiriman=substr($spd->tanggal_pengiriman,3,2);
+      }  
+      else{$bulan_pengiriman='01';}
+
+ 
+
+$boelan = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');    
+
+    foreach($boelan as $bulan){
+  if($bulan == $bulan_pengiriman){
+    $boelan[0]=$bulan_pengiriman;
+  }
+}
+
+
+?>
+
+
+  <div class="col-xs-2">
+  <select name="Bulan_pengiriman" class="form-control">
+
+  @foreach($boelan as $jaran)
+<?php  
+  switch ($jaran) {
+    case "01":
+        $bul="Januari";
+        break;
+    case "02":
+       $bul="Februari";
+        break;
+    case "03":
+        $bul="Maret";
+        break;
+     case "04":
+        $bul="April";
+        break;
+    case "05":
+        $bul="Mei";
+        break;
+    case "06":
+        $bul="Juni";
+        break;
+    case "07":
+        $bul="Juli";
+        break;
+    case "08":
+        $bul="Agustus";
+        break;
+    case "09":
+        $bul="September";
+        break;
+    case "10":
+        $bul="Oktober";
+        break;
+    case "11":
+        $bul="November";
+        break;
+    case "12":
+        $bul="Desember";
+        break;
+    default:
+        $bul="Bulan";
+} 
+
+?>
+
+ 
+<option value="{{$jaran}}">{{$bul}}</option>
+
+  @endforeach
+  
+  </select>
+  </div>
+
+  <?php
+      
+   if(isset($spd->tanggal_pengiriman)) {
+       $tahun_pengiriman=substr($spd->tanggal_pengiriman,6,4);
+      }  
+      else{$tahun_pengiriman='2016';}
+
+ 
+
+$tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');    
+
+    foreach($tahun as $tahoen){
+  if($tahoen == $tahun_pengiriman){
+    $tahun[0]=$tahun_pengiriman;
+  }
+}
+
+
+?>
+
+
+  <div class="col-xs-2">
+  <select name="Tahun_pengiriman" class="form-control">
+
+  @foreach($tahun as $thn)
+
+ <option value="{{$thn}}">{{$thn}}</option>
+
+
+  @endforeach
+  
+
+    </select>
+  </div>
+
+<br>
+<br>
+
+
+</div>
+
+  
   no_PD:<br>
   <input class="form-control" type="text" name="no_pd" value="{{ $spd->no_pd }}"><br>
   no_ST:<br>
@@ -31,77 +190,158 @@
   Tujuan:<br>
   <input class="form-control" type="text" name="tujuan" value="{{ $spd->tujuan }}"><br>
 
-  Tanggal:<br>
-  <div class="col-xs-2">
-  <select name="Tanggal" class="form-control">
-    <option> - Hari - </option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-    <option value="31">31</option>
+
+<?php
+      
+   if(isset($spd->tanggal)) {
+       $tanggal=substr($spd->tanggal,0,2);
+      }  
+      else{$tanggal='01';}
+
+$tgls = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');    
+
+    foreach($tgls as $Tanggals){
+  if($Tanggals == $tanggal){
+    $tgls[0]=$tanggal;      
+  }
+}
+
+?>
+
+  <div id="Tanggal">
+Tanggal:<br>
+ <div class="col-xs-2">
+  <select name="Tanggal" class="form-control" >
+
+@foreach($tgls as $datees)
+
+<option value="{{$datees}}">{{$datees}}</option>
+
+@endforeach
   </select>
   </div>
+
+
+
+
+<?php
+      
+   if(isset($spd->tanggal)) {
+       $bulan2=substr($spd->tanggal,3,2);
+      }  
+      else{$bulan2='01';}
+
+ 
+
+$boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');    
+
+    foreach($boelan2 as $bulans2){
+  if($bulans2 == $bulan2){
+    $boelan2[0]=$bulan2;
+  }
+}
+
+
+?>
+
 
   <div class="col-xs-2">
   <select name="Bulan" class="form-control">
-    <option> - Bulan - </option>
-    <option value="Januari">Januari</option>
-    <option value="Februari">Februari</option>
-    <option value="Maret">Maret</option>
-    <option value="April">April</option>
-    <option value="Mei">Mei</option>
-    <option value="Juni">Juni</option>
-    <option value="Juli">Juli</option>
-    <option value="Agustus">Agustus</option>
-    <option value="September">September</option>
-    <option value="Oktober">Oktober</option>
-    <option value="November">November</option>
-    <option value="Desember">Desember</option>
+
+  @foreach($boelan2 as $jaran2)
+<?php  
+  switch ($jaran2) {
+    case "01":
+        $bul2="Januari";
+        break;
+    case "02":
+       $bul2="Februari";
+        break;
+    case "03":
+        $bul2="Maret";
+        break;
+     case "04":
+        $bul2="April";
+        break;
+    case "05":
+        $bul2="Mei";
+        break;
+    case "06":
+        $bul2="Juni";
+        break;
+    case "07":
+        $bul2="Juli";
+        break;
+    case "08":
+        $bul2="Agustus";
+        break;
+    case "09":
+        $bul2="September";
+        break;
+    case "10":
+        $bul2="Oktober";
+        break;
+    case "11":
+        $bul2="November";
+        break;
+    case "12":
+        $bul2="Desember";
+        break;
+    default:
+        $bul2="Bulan";
+} 
+
+?>
+
+ 
+<option value="{{$jaran2}}">{{$bul2}}</option>
+
+  @endforeach
+  
   </select>
   </div>
 
+
+
+  <?php
+      
+   if(isset($spd->tanggal)) {
+       $tahun_pengiriman2=substr($spd->tanggal,6,4);
+      }  
+      else{$tahun_pengiriman='2016';}
+
+ 
+
+$tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');    
+
+    foreach($tahun2 as $tahoen2){
+  if($tahoen2 == $tahun_pengiriman2){
+    $tahun2[0]=$tahun_pengiriman2;
+  }
+}
+
+
+?>
+
+
   <div class="col-xs-2">
   <select name="Tahun" class="form-control">
-    <option> - Tahun - </option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>                            
-  </select>
+
+  @foreach($tahun2 as $thn2)
+
+ <option value="{{$thn2}}">{{$thn2}}</option>
+
+
+  @endforeach
+  
+
+    </select>
   </div>
+
+
+
+
+
 
   <br>
   <br>
@@ -119,6 +359,20 @@
    <input class="btn btn-danger" type="submit" value="Batal">
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 </form> 
+
+<script type="text/javascript">
+$('#pengiriman').on('change', function() {
+      if($(this).val() == "0") {
+        $('#tanggal_pengiriman').hide();
+      } 
+
+      else{
+         $('#tanggal_pengiriman').show();
+      }
+
+    })
+
+</script>
 
 
 @endsection

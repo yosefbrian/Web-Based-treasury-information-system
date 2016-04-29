@@ -44,11 +44,12 @@ class SPDController extends Controller
     	$spd->nama = $request->get('nama');
     	$spd->berangkat = $request->get('berangkat');
     	$spd->tujuan = $request->get('tujuan');
-    	$spd->tanggal = $request->get('Tanggal')." ".$request->get('Bulan')." ".$request->get('Tahun');
+    	$spd->tanggal = $request->get('Tanggal')."-".$request->get('Bulan')."-".$request->get('Tahun');
 
     	$spd->kegiatan = $request->get('kegiatan');
     	$spd->keterangan = $request->get('keterangan');
     	$spd->nama_ppk = $request->get('nama_ppk');
+      $spd->tanggal_pengiriman = $request->get('Tanggal_pengiriman')."-".$request->get('Bulan_pengiriman')."-".$request->get('Tahun_pengiriman');
         $spd->save();
          
     
@@ -61,7 +62,7 @@ class SPDController extends Controller
 
     	// $user = Auth::user()->id;
 
-        $spd = spdcenter::paginate(10);
+        $spd = spdcenter::orderBy('created_at','desc')->paginate(10);
         
         return view('spd.listspd')->with('spd', $spd);
     }
@@ -90,10 +91,15 @@ class SPDController extends Controller
     	$nama = reques::get('nama');
     	$berangkat = reques::get('berangkat');
     	$tujuan = reques::get('tujuan');
-    	$tanggal = reques::get('tanggal');
+    	$tanggal = reques::get('Tanggal');
+      $bulan = reques::get('Bulan');
+      $tahun = reques::get('Tahun');
     	$kegiatan = reques::get('kegiatan');
     	$keterangan = reques::get('keterangan');
     	$nama_ppk = reques::get('nama_ppk');
+      $tanggal_pengiriman = reques::get('Tanggal_pengiriman');
+      $bulan_pengiriman = reques::get('Bulan_pengiriman');
+      $tahun_pengiriman = reques::get('Tahun_pengiriman');
 
 
        
@@ -109,10 +115,11 @@ class SPDController extends Controller
 		$book->nama = $nama;
 		$book->berangkat = $berangkat;
 		$book->tujuan = $tujuan;
-		$book->tanggal = $tanggal;
+		$book->tanggal = $tanggal.'-'.$bulan.'-'.$tahun;
 		$book->kegiatan = $kegiatan;
 		$book->keterangan = $keterangan;
 		$book->nama_ppk = $nama_ppk;
+    $book->tanggal_pengiriman = $tanggal_pengiriman.'-'.$bulan_pengiriman.'-'.$tahun_pengiriman;
 		$book->save();
 
 
@@ -226,32 +233,7 @@ public function storespd(Request $request, $id) {
       $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('spd.listspdcari')->with('result', $result)->with('tanggal', $tanggal);
+        return view('spd.listspdcari')->with('result', $result);
     }
-
-    public function exportall(){
-
-      set_time_limit ( 300000 ); 
-
-      Excel::create('ListSPD', function($excel) {
-
-        $excel->sheet('ListSPD', function($sheet) {
-          $users = spdcenter::orderBy('id')->get();
-          $sheet->loadView('exportspd', ['users' => $users->toArray()]);
-        });
-      })->download('xls');
-  }
-
-      public function exporttgl($tanggal){
-      set_time_limit ( 300000 ); 
-
-      Excel::create('ListSPD', function($excel) use($tanggal) {
-
-        $excel->sheet('ListSPD', function($sheet) use($tanggal) {
-          $users = spdcenter::where('created_at', 'LIKE', $tanggal)->orderBy('id')->get();
-          $sheet->loadView('exportspd', ['users' => $users->toArray()]);
-        });
-      })->download('xls');
-  }
 
 }
