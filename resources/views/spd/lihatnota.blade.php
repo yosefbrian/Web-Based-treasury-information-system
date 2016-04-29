@@ -39,6 +39,8 @@ table#t01 th	{
 <table style="width:100%">
     <tr>
         <th>Nota Perjalanan Dinas</th>
+        <th>Nomor ST</th>
+        <th>Nomor Resi</th>
         <th>Aksi</th>
     </tr>
 
@@ -46,6 +48,10 @@ table#t01 th	{
     <tr>
 
         <td><a href="{{url('upload/notaspd/'.$nota->filename)}}"> {{ $nota->judul }}</a><br><p>{{ $nota->deskripsi }}</p></td>
+
+        <td>{{ $nota->no_st }}</td>
+         <td>{{ $nota->no_resi }}</td>
+
         <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
         <div class="modal fade" id="modaldelete<?php echo $nota->id;?>" tabindex="-1" role="dialog">

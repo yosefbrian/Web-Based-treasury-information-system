@@ -119,6 +119,13 @@ Deskripsi Nota :<br>
 
 
 
+
+
+
+
+
+
+
      <!-- <div class="modal fade" id="modalshow<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -259,7 +266,7 @@ Deskripsi Nota :<br>
                     		
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td> -->
 
-                             <div class="modal fade" id="modaldelete<?php echo $espede->id;?>" tabindex="-1" role="dialog">
+                           <!--   <div class="modal fade" id="modaldelete<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -281,7 +288,7 @@ Deskripsi Nota :<br>
                             </div>
                         </div>
                     </div>      
-
+ -->
    <!--   <td>{{$espede->berangkat}}</td>
      <td>{{$espede->tujuan}}</td>
      <td>{{$espede->tanggal}}</td>
