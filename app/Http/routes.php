@@ -160,6 +160,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/listspd/{id}/ubah','SPDController@update');
 	
 	Route::get('new-post','PostController@create');
+
+	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
+	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
 	
 	// save new post
 	Route::post('new-post','PostController@store');

@@ -1,0 +1,40 @@
+<table>
+  <tbody>
+    <tr>
+      <th>id</th>
+      <th>pengiriman</th>
+  		<th>no_pd</th>
+      <th>no_st</th>
+     	<th>nip</th>
+      <th>nama</th>
+      <th>berangkat</th>
+      <th>tujuan</th>
+      <th>tanggal</th>
+      <th>kegiatan</th>
+      <th>keterangan</th>
+      <th>nama_ppk</th>
+      <th>nota</th>
+      <th>created_at</th>
+
+  </tr>
+  @foreach($users as $user)
+  <tr>
+  	<td>{{$user['id']}}</td>
+  	<td>{{$user['pengiriman']}}</td>
+    <td>{{$user['no_pd']}}</td>
+    <td>{{$user['no_st']}}</td>
+    <td>{{$user['nip']}}</td>
+    <td>{{$user['nama']}}</td>
+    <td>{{$user['berangkat']}}</td>
+    <td>{{$user['tujuan']}}</td>
+    <td>{{$user['tanggal']}}</td>
+    <td>{{$user['kegiatan']}}</td>
+    <td>{{$user['keterangan']}}</td>
+    <td>{{$user['nama_ppk']}}</td>
+    <td>{{$user['nota']}}</td>
+    <td>{{substr($user['created_at'],0,10)}}</td>
+
+  </tr>
+  @endforeach
+ </tbody>
+</table>

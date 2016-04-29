@@ -103,7 +103,8 @@ table#t01 th	{
 <input class="btn btn-default" type="submit" value="Cari">
 </form>
 
-
+<a data-placement="bottom" title="Download Daftar SPD" href="{{url('admin/listspd/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+<table>
 
 
 <table>

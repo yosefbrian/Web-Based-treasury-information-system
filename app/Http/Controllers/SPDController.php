@@ -226,7 +226,32 @@ public function storespd(Request $request, $id) {
       $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('spd.listspdcari')->with('result', $result);
+        return view('spd.listspdcari')->with('result', $result)->with('tanggal', $tanggal);
     }
+
+    public function exportall(){
+
+      set_time_limit ( 300000 ); 
+
+      Excel::create('ListSPD', function($excel) {
+
+        $excel->sheet('ListSPD', function($sheet) {
+          $users = spdcenter::orderBy('id')->get();
+          $sheet->loadView('exportspd', ['users' => $users->toArray()]);
+        });
+      })->download('xls');
+  }
+
+      public function exporttgl($tanggal){
+      set_time_limit ( 300000 ); 
+
+      Excel::create('ListSPD', function($excel) use($tanggal) {
+
+        $excel->sheet('ListSPD', function($sheet) use($tanggal) {
+          $users = spdcenter::where('created_at', 'LIKE', $tanggal)->orderBy('id')->get();
+          $sheet->loadView('exportspd', ['users' => $users->toArray()]);
+        });
+      })->download('xls');
+  }
 
 }
