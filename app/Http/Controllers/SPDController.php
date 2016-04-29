@@ -221,9 +221,9 @@ public function storespd(Request $request, $id) {
     }
 
     public function cari(Request $request) {
-        $tanggal = $request->get('Tanggal')." ".$request->get('Bulan')." ".$request->get('Tahun');
+      $tanggal = $request->get('Tahun')."-".$request->get('Bulan')."-".$request->get('Tanggal')."%";
 
-        $result = spdcenter::where('tanggal', 'LIKE', $tanggal)->paginate(10);
+      $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('spd.listspdcari')->with('result', $result);

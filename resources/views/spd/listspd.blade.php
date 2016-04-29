@@ -69,18 +69,18 @@ table#t01 th	{
   <div class="col-xs-2">
   <select name="Bulan" class="form-control">
     <option value="%"> - Bulan - </option>
-    <option value="Januari">Januari</option>
-    <option value="Februari">Februari</option>
-    <option value="Maret">Maret</option>
-    <option value="April">April</option>
-    <option value="Mei">Mei</option>
-    <option value="Juni">Juni</option>
-    <option value="Juli">Juli</option>
-    <option value="Agustus">Agustus</option>
-    <option value="September">September</option>
-    <option value="Oktober">Oktober</option>
-    <option value="November">November</option>
-    <option value="Desember">Desember</option>
+    <option value="01">Januari</option>
+    <option value="02">Februari</option>
+    <option value="03">Maret</option>
+    <option value="04">April</option>
+    <option value="05">Mei</option>
+    <option value="06">Juni</option>
+    <option value="07">Juli</option>
+    <option value="08">Agustus</option>
+    <option value="09">September</option>
+    <option value="10">Oktober</option>
+    <option value="11">November</option>
+    <option value="12">Desember</option>
   </select>
   </div>
 
