@@ -132,8 +132,8 @@
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">Pengeluaran</a></li>
+                  <ul class="nav child_menu" style="display: none"> 
+                    <li><a href="{{ url('admin/statistik/pengeluaran')}}">Pengeluaran</a></li>
                     <li><a href="#">Dugaan</a></li>
                     <li><a href="#">Data</a></li>
                     <li><a href="#">Kategori</a></li>

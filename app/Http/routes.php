@@ -139,6 +139,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
 
 
+	//statistik
+
+	Route::get('/statistik/pengeluaran','statistikController@pengeluaran');
 	
 
 
