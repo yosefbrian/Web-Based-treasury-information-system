@@ -131,7 +131,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('bp2a/show/{id}/delete', 'bpController@delete2');
 	Route::post('/bp2/ubah/{id}', 'bpController@update2');
 	Route::get('/bp2/ubah/{id}','bpController@editdata2');
-
+	Route::post('/bp2cari', 'bpController@bp2cari');
+	Route::get('/bp2/export', array('uses' => 'bpController@exportbp2all'));
+	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
 
 
 	
