@@ -135,7 +135,7 @@ th, td {
 
 
 
-<table style="width:100%">
+<table>
   <tr>
     <th>No PP</th>
     <th>No PD</th>
