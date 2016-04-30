@@ -83,7 +83,7 @@
           <div class="clearfix"></div>
 
           <!-- menu prile quick info -->
-          <div class="profile">
+          <div class="profile" style="margin-left:10px">
             <div class="profile_pic">
               <img src="{{URL::asset('img/img.jpg')}}" alt="..." class="img-circle profile_img">
             </div>
@@ -98,10 +98,10 @@
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
             <div class="menu_section">
-              <ul  class="nav side-menu">
+              <ul  class="nav side-menu" style="margin-left:10px">
                 <h3>MENU</h3>
 
-       
+
                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="#">Berita Terakhir</a></li>
@@ -111,7 +111,6 @@
                 <li><a><i class="fa fa-user"></i> Profil<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('/profil') }}">Lihat Profil</a></li>
-                    <li><a href="#">Edit Profil</a></li>
                   </ul>
                 </li>
                 <li><a data-toggle="dropdown" role="button" aria-expanded="false">
@@ -183,7 +182,7 @@
         </div>
 
       </div>
-      
+
       <!-- /top navigation -->
 
 
@@ -192,13 +191,12 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
               <div class="dashboard_graph">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="x_panel">
                     <h2>@yield('title')</h2>
                     @yield('title-meta')
-                  </div>
                   <div class="panel-body">
                     @yield('content')
+                  </div>
                   </div>
                 </div>
               </div>
