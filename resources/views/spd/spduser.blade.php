@@ -29,13 +29,9 @@ th {
 </style>
 
 
-
-<div>
-<h2>Reimbursement</h2>
+<h2>REIMBURSEMENT</h2>
+<div class="x_title">
 </div>
-
-<br>
-<hr>
 
 <table>
 

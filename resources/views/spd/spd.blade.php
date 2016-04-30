@@ -27,7 +27,7 @@ th {
 }
 </style>
 
-<h2>JUDULNYA
+<h2>SPD CENTER ADMIN
   <a href="{{ url('admin/listspd') }}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List SPD</a>
 
 </h2>

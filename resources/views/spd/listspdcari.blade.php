@@ -5,7 +5,7 @@
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">SPD Center Admin</a></li>
+  <li><a href="#">List SPD Cari</a></li>
 </ol>
 
 <style type="text/css">
@@ -27,6 +27,10 @@ th {
     color: white;
 }
 </style>
+
+<h2>LIST SPD Cari</h2>
+<div class="x_title">
+</div>
 
 <form action="{{ url('admin/listcari') }}" method="post" enctype="multipart/form-data">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">

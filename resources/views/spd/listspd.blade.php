@@ -4,8 +4,9 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">SPD Center</a></li>
+  <li><a href="{{ url('admin/spd')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+  <li><a href="#">List SPD</a></li>
 </ol>
 
 <style type="text/css">
@@ -28,46 +29,36 @@ th {
 }
 </style>
 
-<form action="{{ url('admin/listcari') }}" method="post" enctype="multipart/form-data">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<div class="col-xs-2">
-  <select name="Tanggal" class="form-control">
-    <option value="%"> - Hari - </option>
-    <option value="01">1</option>
-    <option value="02">2</option>
-    <option value="03">3</option>
-    <option value="04">4</option>
-    <option value="05">5</option>
-    <option value="06">6</option>
-    <option value="07">7</option>
-    <option value="08">8</option>
-    <option value="09">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-    <option value="31">31</option>
-  </select>
-  </div>
+<h2>List SPD
+  <a href="{{url('admin/listspd/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+</h2>
+<div class="x_title">
+</div>
 
-  <div class="col-xs-2">
+<div class="">
+
+
+<form action="{{ url('admin/listcari') }}" method="post" enctype="multipart/form-data" >
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<div class="col-xs-2" style="float:right">
+  <select name="Tahun" class="form-control">
+    <option value="%"> - Tahun - </option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+  </select>
+</div>
+
+
+  <div class="col-xs-2" style="float:right">
   <select name="Bulan" class="form-control">
     <option value="%"> - Bulan - </option>
     <option value="01">Januari</option>
@@ -85,31 +76,46 @@ th {
   </select>
   </div>
 
-  <div class="col-xs-2">
-  <select name="Tahun" class="form-control">
-    <option value="%"> - Tahun - </option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-  </select>
+  <div class="col-xs-2" style="float:right">
+    <select name="Tanggal" class="form-control" >
+      <option value="%"> - Hari - </option>
+      <option value="01">1</option>
+      <option value="02">2</option>
+      <option value="03">3</option>
+      <option value="04">4</option>
+      <option value="05">5</option>
+      <option value="06">6</option>
+      <option value="07">7</option>
+      <option value="08">8</option>
+      <option value="09">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+    </select>
   </div>
+
+
 </div>
-<input class="btn btn-default" type="submit" value="Cari">
 </form>
-
-
-
-<a data-placement="bottom" title="Download Daftar SPD" href="{{url('admin/listspd/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
-
-
-
 
 <table>
 
