@@ -20,6 +20,8 @@ use App\bp2a;
 
 use App\bp1;
 
+use App\notaspd;
+
 use Excel;
 
 class SPDController extends Controller
@@ -167,7 +169,7 @@ class SPDController extends Controller
 
       
 
-			$spd = spdcenter::where('nip', $nip)->paginate(10);  
+			$spd = spdcenter::where('nip', $nip)->orderBy('created_at','desc')->paginate(10);  
 
       
       // foreach ($spd as $spdc) {
@@ -179,10 +181,11 @@ class SPDController extends Controller
         
       $bp1 = bp1::where('nip', $nip)->paginate(10);
       $bp2 = bp2a::paginate(10);
+      $nota = notaspd::paginate(10);
 
         // return view('spd.spduser')->with('spd', $spd)->with('bp1', $bp1)->with('bp2', $bp2);
 
-      return view('spd.spduser')->with('spd', $spd)->with('bp1', $bp1)->with('bp2', $bp2);
+      return view('spd.spduser')->with('spd', $spd)->with('bp1', $bp1)->with('bp2', $bp2)->with('nota', $nota);
     }
 
 

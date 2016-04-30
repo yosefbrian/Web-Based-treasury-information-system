@@ -56,9 +56,115 @@ th {
     <td>{{$espede->no_pd}}</td>
      <td>{{$espede->tanggal}}</td>
      <td>{{$espede->tujuan}}</td>
-     <td> <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
+     <td> 
+
+<a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow1<?php echo $espede->id;?>" href="#">Detil SPD</a>
+
+     <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
     <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a>
+     <a class="btn btn-success" data-id ="espede->id" data-target="#checklist<?php echo $espede->id;?>" data-toggle="modal" href="#">Checklist</a>
      </td>
+
+
+     <div id="checklist<?php echo $espede->id;?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Checklist</h4>
+      </div>
+      <div class="modal-body">
+        
+
+<?php  
+
+$bppd = 0;
+$pengiriman = 0;
+$pencairan = 0;
+$kondisi = 0;
+
+
+foreach ($nota as $notas) { 
+    $notasatu = $notas->no_st;
+
+    if($notasatu == $espede->no_st){
+        $kondisi = $espede->no_st;
+    }
+}
+
+
+
+foreach ($bp1 as $bepe1) { 
+    $bpsatu = $bepe1->no_pd;
+    $pengiriman = $espede->pengiriman;
+    if($bpsatu == $espede->no_pd){
+        $bppd = $espede->no_pd;
+        
+        $pencairan = $bepe1->pencairan;
+    }
+}
+
+
+
+?>
+ 
+
+
+@if($espede->pengiriman=='0' and $kondisi==null)
+ <input type="checkbox" name="pengiriman"  disabled="disabled"> Pengiriman<br>
+@endif
+
+@if($espede->pengiriman=='1' || $kondisi!=null)
+ <input type="checkbox" name="pengiriman"  checked="checked" disabled="disabled"> Pengiriman<br>
+@endif
+
+<input type="checkbox" name="pengiriman" value="{{ $espede->id }}" checked="checked" disabled="disabled"> SPD Center <br>
+
+@if($bppd != null)
+
+<input type="checkbox" name="pengiriman"  checked="checked" disabled="disabled"> BP <br>
+
+@endif
+
+@if($bppd == null)
+
+<input type="checkbox" name="pengiriman"  disabled="disabled"> BP <br>
+
+@endif
+
+@if($pencairan == '1')
+
+<input type="checkbox" name="pengiriman"  disabled="disabled" checked="checked"> Cair Dana Tersedia <br>
+
+@endif
+
+@if($pencairan == '2')
+<input type="checkbox" name="pengiriman"  disabled="disabled" checked="checked"> Cair Dana Telah Ditransfer <br>
+
+@endif
+
+@if($pencairan == '0' )
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Tersedia <br>
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Telah Ditransfer <br>
+
+
+@endif
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>     
 
 
 
@@ -123,7 +229,7 @@ Deskripsi Nota :<br>
 
 
 
-     <!-- <div class="modal fade" id="modalshow<?php echo $espede->id;?>" tabindex="-1" role="dialog">
+     <div class="modal fade" id="modalshow1<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -147,7 +253,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman
+                                                                    Pengiriman 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->pengiriman}}</div>
@@ -157,7 +263,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor PD:
+                                                                    Nomor PD: 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_pd}}</div>
@@ -167,7 +273,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor ST :
+                                                                    Nomor ST : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_st}}</div>
@@ -177,7 +283,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    NIP :
+                                                                    NIP : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nip}}</div>
@@ -187,7 +293,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama :
+                                                                    Nama : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama}}</div>
@@ -197,7 +303,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Berangkat :
+                                                                    Berangkat : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->berangkat}}</div>
@@ -227,7 +333,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Kegiatan :
+                                                                    Kegiatan : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$espede->keterangan}}</div>
@@ -237,28 +343,25 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama PPK :
+                                                                    Nama PPK : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama_ppk}}</div>
                                                         </div>
                                                     </div>
-
-
+                                                    
+                                                    
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-
-
+                                
+                                
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a>
-
+                                    
                             </div>
                            </div>
- -->
                           <!--  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
 
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td> -->
