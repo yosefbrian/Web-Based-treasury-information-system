@@ -27,14 +27,12 @@ th {
 }
 </style>
 
+<h2>JUDULNYA
+  <a href="{{ url('admin/listspd') }}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List SPD</a>
 
-
-<a href="{{ url('admin/listspd') }}"><button>List SPD</button></a>
-<br>
-<br>
-
-
-
+</h2>
+<div class="x_title">
+</div>
 
 <table>
 
