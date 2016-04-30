@@ -2,37 +2,38 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+</ol>
+<style type="text/css">
 
-<style>
-table {
-    width:100%;
-}
-table, th, td {
-    border: 1px solid black;
+    table {
     border-collapse: collapse;
+    width: 100%;
 }
+
 th, td {
-    padding: 5px;
     text-align: left;
+    padding: 8px;
 }
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#t01 th    {
-    background-color: black;
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
     color: white;
 }
 </style>
 
+<h2>BENDAHARA PENGELUARAN 1
+  <a href="{{url('admin/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
+  <a href="{{url('admin/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
 
-
-
-
-<a href="{{url('admin/bp1/show')}}"><p>List Data BP 1   </p></a>
-<a href="{{url('admin/bp2a/show')}}"><p>List Data BP 2   </p></a>
+</h2>
+<div class="x_title">
+</div>
 
 <table>
 
@@ -55,7 +56,7 @@ table#t01 th    {
                 @foreach ($spd as $espede)
                     <?php $i++; ?>
   <tr>
-    <td>{{$espede->no_pd}}</td>     
+    <td>{{$espede->no_pd}}</td>
      <td>{{$espede->no_st}}</td>
      <td>{{$espede->nip}}</td>
      <td>{{$espede->nama}}</td>
@@ -85,7 +86,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman 
+                                                                    Pengiriman
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->pengiriman}}</div>
@@ -95,7 +96,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor PD: 
+                                                                    Nomor PD:
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_pd}}</div>
@@ -105,7 +106,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor ST : 
+                                                                    Nomor ST :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_st}}</div>
@@ -115,7 +116,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    NIP : 
+                                                                    NIP :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nip}}</div>
@@ -125,7 +126,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama : 
+                                                                    Nama :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama}}</div>
@@ -135,7 +136,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Berangkat : 
+                                                                    Berangkat :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->berangkat}}</div>
@@ -165,7 +166,7 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Kegiatan : 
+                                                                    Kegiatan :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$espede->keterangan}}</div>
@@ -175,40 +176,40 @@ table#t01 th    {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama PPK : 
+                                                                    Nama PPK :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama_ppk}}</div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
+
+
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
                                     <div class="divider"></div>
                                     <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a>
-                                
+
                             </div>
                            </div>
 
-                          
+
 <td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
 <td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
 
 
-</td>               
-                            
-                             
+</td>
 
-   
+
+
+
   </tr>
- @endforeach 
+ @endforeach
 
  </table>
 {!!$spd->render()!!}
