@@ -16,6 +16,12 @@ use Auth;
 
 use App\notaspd as nota;
 
+use App\bp2a;
+
+use App\bp1;
+
+use Excel;
+
 class SPDController extends Controller
 {
     public function getData()
@@ -159,9 +165,24 @@ class SPDController extends Controller
 
           $nip = $profil->nip;
 
-			$spd = spdcenter::where('nip', $nip)->paginate(10);          
+      
+
+			$spd = spdcenter::where('nip', $nip)->paginate(10);  
+
+      
+      // foreach ($spd as $spdc) {
+      //   if($spdc==){
+      //   $spdc1 = $spd->id;
+      //   }
+      // }
+              
         
-        return view('spd.spduser')->with('spd', $spd);
+      $bp1 = bp1::where('nip', $nip)->paginate(10);
+      $bp2 = bp2a::paginate(10);
+
+        // return view('spd.spduser')->with('spd', $spd)->with('bp1', $bp1)->with('bp2', $bp2);
+
+      return view('spd.spduser')->with('spd', $spd)->with('bp1', $bp1)->with('bp2', $bp2);
     }
 
 

@@ -31,7 +31,7 @@
     <td>{{$user['kegiatan']}}</td>
     <td>{{$user['keterangan']}}</td>
     <td>{{$user['nama_ppk']}}</td>
-    <td>{{$user['nota']}}</td>
+    <td>{{$user['tanggal_pengiriman']}}</td>
     <td>{{substr($user['created_at'],0,10)}}</td>
 
   </tr>

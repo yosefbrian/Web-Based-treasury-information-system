@@ -59,11 +59,112 @@ table#t01 th	{
     <td>{{$espede->no_pd}}</td>		
      <td>{{$espede->tanggal}}</td>
      <td>{{$espede->tujuan}}</td>
-     <td> <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
+     <td> 
+
+    <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow1<?php echo $espede->id;?>" href="#">Detil SPD</a>
+
+     <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
     <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a>
+
+    <a class="btn btn-success" data-id ="espede->id" data-target="#checklist<?php echo $espede->id;?>" data-toggle="modal" href="#">Checklist</a>
      </td>
 
 
+<!-- modal checklist -->
+
+
+ <div id="checklist<?php echo $espede->id;?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Checklist</h4>
+      </div>
+      <div class="modal-body">
+        
+
+<?php  
+
+$bppd = 0;
+$pengiriman = 0;
+$pencairan = 0;
+foreach ($bp1 as $bepe1) { 
+    $bpsatu = $bepe1->no_pd;
+    if($bpsatu == $espede->no_pd){
+
+        $bppd = $espede->no_pd;
+        $pengiriman = $espede->pengiriman;
+        $pencairan = $bepe1->pencairan;
+
+    }
+}
+
+
+?>
+
+
+@if($pengiriman=='0')
+ <input type="checkbox" name="pengiriman" value="{{ $pengiriman }}" disabled="disabled"> Pengiriman<br>
+@endif
+
+@if($pengiriman=='1')
+ <input type="checkbox" name="pengiriman" value="{{ $pengiriman }}" checked="checked" disabled="disabled"> Pengiriman {{$espede->tanggal_pengiriman}}<br>
+@endif
+
+<input type="checkbox" name="pengiriman" value="{{ $espede->id }}" checked="checked" disabled="disabled"> SPD Center <br>
+
+@if($bppd != '')
+
+<input type="checkbox" name="pengiriman" value="{{ $bppd }}" checked="checked" disabled="disabled"> BP <br>
+
+@endif
+
+@if($bppd == '')
+
+<input type="checkbox" name="pengiriman" value="{{ $bppd }}" disabled="disabled"> BP <br>
+
+@endif
+
+@if($pencairan == '1')
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" checked="checked"> Cair Dana Tersedia <br>
+
+@endif
+
+@if($pencairan == '2')
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" checked="checked"> Cair Dana Telah Ditransfer <br>
+
+@endif
+
+@if($pencairan == '0' )
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Tersedia <br>
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Telah Ditransfer <br>
+
+
+@endif
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>     
+
+
+
+
+
+
+<!-- modal nota -->
 
     <div id="modalshow<?php echo $espede->id;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -124,9 +225,7 @@ Deskripsi Nota :<br>
 
 
 
-
-
-     <!-- <div class="modal fade" id="modalshow<?php echo $espede->id;?>" tabindex="-1" role="dialog">
+     <div class="modal fade" id="modalshow1<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -256,12 +355,10 @@ Deskripsi Nota :<br>
                                 
                                 
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a>
-                                
+                                    
                             </div>
                            </div>
- -->
+
                           <!--  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
                     		
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td> -->
