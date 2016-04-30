@@ -2,6 +2,31 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">SPD Center Admin</a></li>
+</ol>
+
+<style type="text/css">
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
 
 <h2> SPD CENTER </h2>
 <hr>
@@ -17,25 +42,25 @@
   <select id="pengiriman" name="pengiriman" class="form-control selectpicker" title="Pengiriman">
                          <option value="1">Sudah</option>
                           <option value="0">Belum</option>
-                         
+
                         </select>
 
   <br>
 
- 
+
 
 <?php
-      
+
    if(isset($spd->tanggal_pengiriman)) {
        $tanggal_pengiriman=substr($spd->tanggal_pengiriman,0,2);
-      }  
+      }
       else{$tanggal_pengiriman='01';}
 
-$tgl = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');    
+$tgl = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');
 
     foreach($tgl as $Tanggal){
   if($Tanggal == $tanggal_pengiriman){
-    $tgl[0]=$tanggal_pengiriman;      
+    $tgl[0]=$tanggal_pengiriman;
   }
 }
 
@@ -56,15 +81,15 @@ Tanggal:<br>
 
 
 <?php
-      
+
    if(isset($spd->tanggal_pengiriman)) {
        $bulan_pengiriman=substr($spd->tanggal_pengiriman,3,2);
-      }  
+      }
       else{$bulan_pengiriman='01';}
 
- 
 
-$boelan = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');    
+
+$boelan = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
 
     foreach($boelan as $bulan){
   if($bulan == $bulan_pengiriman){
@@ -80,7 +105,7 @@ $boelan = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'
   <select name="Bulan_pengiriman" class="form-control">
 
   @foreach($boelan as $jaran)
-<?php  
+<?php
   switch ($jaran) {
     case "01":
         $bul="Januari";
@@ -120,28 +145,28 @@ $boelan = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'
         break;
     default:
         $bul="Bulan";
-} 
+}
 
 ?>
 
- 
+
 <option value="{{$jaran}}">{{$bul}}</option>
 
   @endforeach
-  
+
   </select>
   </div>
 
   <?php
-      
+
    if(isset($spd->tanggal_pengiriman)) {
        $tahun_pengiriman=substr($spd->tanggal_pengiriman,6,4);
-      }  
+      }
       else{$tahun_pengiriman='2016';}
 
- 
 
-$tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');    
+
+$tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');
 
     foreach($tahun as $tahoen){
   if($tahoen == $tahun_pengiriman){
@@ -162,7 +187,7 @@ $tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '
 
 
   @endforeach
-  
+
 
     </select>
   </div>
@@ -173,7 +198,7 @@ $tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '
 
 </div>
 
-  
+
   no_PD:<br>
   <input class="form-control" type="text" name="no_pd" value="{{ $spd->no_pd }}"><br>
   no_ST:<br>
@@ -183,7 +208,7 @@ $tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '
 
   Nama Lengkap:<br>
   <input class="form-control" type="text" name="nama" value="{{ $spd->nama }}"><br>
-  
+
   Berangkat:<br>
   <input class="form-control" type="text" name="berangkat" value="{{ $spd->berangkat }}"><br>
 
@@ -192,17 +217,17 @@ $tahun = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '
 
 
 <?php
-      
+
    if(isset($spd->tanggal)) {
        $tanggal=substr($spd->tanggal,0,2);
-      }  
+      }
       else{$tanggal='01';}
 
-$tgls = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');    
+$tgls = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31');
 
     foreach($tgls as $Tanggals){
   if($Tanggals == $tanggal){
-    $tgls[0]=$tanggal;      
+    $tgls[0]=$tanggal;
   }
 }
 
@@ -225,15 +250,15 @@ Tanggal:<br>
 
 
 <?php
-      
+
    if(isset($spd->tanggal)) {
        $bulan2=substr($spd->tanggal,3,2);
-      }  
+      }
       else{$bulan2='01';}
 
- 
 
-$boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');    
+
+$boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
 
     foreach($boelan2 as $bulans2){
   if($bulans2 == $bulan2){
@@ -249,7 +274,7 @@ $boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   <select name="Bulan" class="form-control">
 
   @foreach($boelan2 as $jaran2)
-<?php  
+<?php
   switch ($jaran2) {
     case "01":
         $bul2="Januari";
@@ -289,30 +314,30 @@ $boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
         break;
     default:
         $bul2="Bulan";
-} 
+}
 
 ?>
 
- 
+
 <option value="{{$jaran2}}">{{$bul2}}</option>
 
   @endforeach
-  
+
   </select>
   </div>
 
 
 
   <?php
-      
+
    if(isset($spd->tanggal)) {
        $tahun_pengiriman2=substr($spd->tanggal,6,4);
-      }  
+      }
       else{$tahun_pengiriman='2016';}
 
- 
 
-$tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');    
+
+$tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027');
 
     foreach($tahun2 as $tahoen2){
   if($tahoen2 == $tahun_pengiriman2){
@@ -333,7 +358,7 @@ $tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', 
 
 
   @endforeach
-  
+
 
     </select>
   </div>
@@ -348,7 +373,7 @@ $tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', 
 
   Kegiatan:<br>
   <input class="form-control" type="text" name="kegiatan" value="{{ $spd->kegiatan }}"><br>
-  
+
   Keterangan:<br>
   <input class="form-control" type="text" name="keterangan" value="{{ $spd->keterangan }}"><br>
 
@@ -358,13 +383,13 @@ $tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', 
   <input class="btn btn-success" type="submit" value="Simpan">
    <input class="btn btn-danger" type="submit" value="Batal">
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-</form> 
+</form>
 
 <script type="text/javascript">
 $('#pengiriman').on('change', function() {
       if($(this).val() == "0") {
         $('#tanggal_pengiriman').hide();
-      } 
+      }
 
       else{
          $('#tanggal_pengiriman').show();

@@ -2,28 +2,27 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">SPD Center Admin</a></li>
+</ol>
+<style type="text/css">
 
-
-<style>
-table {
-    width:100%;
-}
-table, th, td {
-    border: 1px solid black;
+    table {
     border-collapse: collapse;
+    width: 100%;
 }
+
 th, td {
-    padding: 5px;
     text-align: left;
+    padding: 8px;
 }
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#t01 th	{
-    background-color: black;
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
     color: white;
 }
 </style>
@@ -43,22 +42,22 @@ table#t01 th	{
   <tr>
     <th>NIP</th>
     <th>Nama Lengkap</th>
-    <th>Aksi</th>			
+    <th>Aksi</th>
    </tr>
 
    <?php $i=0; ?>
                 @foreach ($profil as $profile)
                     <?php $i++; ?>
   <tr>
-    <td>{{$profile->nip}}</td>		
+    <td>{{$profile->nip}}</td>
      <td>{{$profile->nama}}</td>
      <td><a href="{!! url('admin/spdcenter/'.$profile->id) !!}">Buat Data</a></td>
   </tr>
- @endforeach 
+ @endforeach
 
  </table>
- 
- 
+
+
 
 <table>
 </table>

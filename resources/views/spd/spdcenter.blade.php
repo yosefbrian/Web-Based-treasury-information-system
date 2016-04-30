@@ -2,6 +2,30 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+</ol>
+
+<style type="text/css">
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
 
 <h2> SPD CENTER </h2>
 <hr>
@@ -20,13 +44,13 @@
  <select id="pengiriman" name="pengiriman" class="form-control selectpicker" title="Pengiriman">
                          <option value="1">Sudah</option>
                           <option value="0">Belum</option>
-                         
+
                         </select>
 
 
 <br>
 <div id="tanggal_pengiriman">
- 
+
 Tanggal:<br>
  <div class="col-xs-2">
   <select name="Tanggal_pengiriman" class="form-control">
@@ -95,7 +119,7 @@ Tanggal:<br>
     <option value="2022">2022</option>
     <option value="2023">2023</option>
     <option value="2024">2024</option>
-    <option value="2025">2025</option>                            
+    <option value="2025">2025</option>
   </select>
   </div>
 
@@ -115,7 +139,7 @@ Tanggal:<br>
 
   Nama Lengkap:<br>
   <input class="form-control" type="text" name="nama" value="{{ $profil->nama }}"><br>
-  
+
   Berangkat:<br>
   <input class="form-control" type="text" name="berangkat" value=""><br>
 
@@ -190,7 +214,7 @@ Tanggal:<br>
     <option value="2022">2022</option>
     <option value="2023">2023</option>
     <option value="2024">2024</option>
-    <option value="2025">2025</option>                            
+    <option value="2025">2025</option>
   </select>
   </div>
 
@@ -199,7 +223,7 @@ Tanggal:<br>
 
   Kegiatan:<br>
   <input class="form-control" type="text" name="kegiatan" value=""><br>
-  
+
   Keterangan:<br>
   <input class="form-control" type="text" name="keterangan" value=""><br>
 
@@ -209,16 +233,16 @@ Tanggal:<br>
   <input class="btn btn-success" type="submit" value="Simpan">
    <input class="btn btn-danger" type="submit" value="Batal">
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-</form> 
+</form>
 
 
 <script type="text/javascript">
-  
+
 
 $('#pengiriman').on('change', function() {
       if($(this).val() == "0") {
         $('#tanggal_pengiriman').hide();
-      } 
+      }
 
       else{
          $('#tanggal_pengiriman').show();

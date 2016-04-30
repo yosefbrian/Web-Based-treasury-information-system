@@ -2,27 +2,28 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">SPD Center</a></li>
+</ol>
 
-<style>
-table {
-    width:100%;
-}
-table, th, td {
-    border: 1px solid black;
+<style type="text/css">
+
+    table {
     border-collapse: collapse;
+    width: 100%;
 }
+
 th, td {
-    padding: 5px;
     text-align: left;
+    padding: 8px;
 }
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#t01 th	{
-    background-color: black;
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
     color: white;
 }
 </style>
@@ -56,7 +57,7 @@ table#t01 th	{
                 @foreach ($spd as $espede)
                     <?php $i++; ?>
   <tr>
-    <td>{{$espede->no_pd}}</td>		
+    <td>{{$espede->no_pd}}</td>
      <td>{{$espede->tanggal}}</td>
      <td>{{$espede->tujuan}}</td>
      <td> <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
@@ -75,10 +76,10 @@ table#t01 th	{
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-        
+
 
 <form  action="{{ url('/spdcenter/'.$espede->id) }}" method="post" enctype="multipart/form-data">
-    
+
 Nomor ST :<br>
   <input class="form-control" type="text" name="no_st" value="<?php echo $espede->no_st;?>"><br>
 
@@ -113,7 +114,7 @@ Deskripsi Nota :<br>
     </div>
 
   </div>
-</div>     
+</div>
 
 
 
@@ -150,7 +151,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman 
+                                                                    Pengiriman
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->pengiriman}}</div>
@@ -160,7 +161,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor PD: 
+                                                                    Nomor PD:
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_pd}}</div>
@@ -170,7 +171,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor ST : 
+                                                                    Nomor ST :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_st}}</div>
@@ -180,7 +181,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    NIP : 
+                                                                    NIP :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nip}}</div>
@@ -190,7 +191,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama : 
+                                                                    Nama :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama}}</div>
@@ -200,7 +201,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Berangkat : 
+                                                                    Berangkat :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->berangkat}}</div>
@@ -230,7 +231,7 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Kegiatan : 
+                                                                    Kegiatan :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$espede->keterangan}}</div>
@@ -240,30 +241,30 @@ Deskripsi Nota :<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama PPK : 
+                                                                    Nama PPK :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama_ppk}}</div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
+
+
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
                                     <div class="divider"></div>
                                     <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a>
-                                
+
                             </div>
                            </div>
  -->
                           <!--  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
-                    		
+
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td> -->
 
                            <!--   <div class="modal fade" id="modaldelete<?php echo $espede->id;?>" tabindex="-1" role="dialog">
@@ -275,7 +276,7 @@ Deskripsi Nota :<br>
                                     </button>
                                     <h4 class="modal-title"><b>Perhatian</b></h4>
                                 </div>
-                                
+
                                 <div class="modal-body">
                                     <input type="hidden" value="<?php echo $espede->id;?>" name="id">
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
@@ -287,7 +288,7 @@ Deskripsi Nota :<br>
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
  -->
    <!--   <td>{{$espede->berangkat}}</td>
      <td>{{$espede->tujuan}}</td>
@@ -297,7 +298,7 @@ Deskripsi Nota :<br>
      <td>{{$espede->nama_ppk}}</td> -->
 
   </tr>
- @endforeach 
+ @endforeach
 
  </table>
 
