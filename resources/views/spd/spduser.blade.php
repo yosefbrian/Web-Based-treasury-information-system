@@ -96,9 +96,10 @@ foreach ($nota as $notas) {
 
 
 
+ $pengiriman = $espede->pengiriman;
+
 foreach ($bp1 as $bepe1) { 
     $bpsatu = $bepe1->no_pd;
-    $pengiriman = $espede->pengiriman;
     if($bpsatu == $espede->no_pd){
         $bppd = $espede->no_pd;
         
