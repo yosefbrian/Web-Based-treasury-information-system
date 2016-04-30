@@ -140,6 +140,7 @@
                   </ul>
                 </li>
                 <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Diary</a>
+                <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
               </ul>
             </div>
 

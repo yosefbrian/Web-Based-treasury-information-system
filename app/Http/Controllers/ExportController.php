@@ -33,37 +33,86 @@ public function import(){
 
     set_time_limit ( 300000 );
 
-    $results = Excel::load('upload/ListPegawai.xls')->get();
+    $results = Excel::load('uploads/DataPegawai.xls')->get();
 
     foreach ($results as $row) {
     
-    // $hashed = bcrypt($row->nama);
-
-    employees::updateOrCreate(
-        [
-        'Nip' => $row->Nip],
-        [        
-        
-        'KdKantor' => $row->KdKantor,
-        'NmPegawai' => $row->NmPegawai,
-        'UraianJabatan' => $row->UraianJabatan,
-        'NPWP' => $row->NPWP,
-        'NmJenisKelamin' => $row->NmJenisKelamin,
-        'NmStatusPegawai' => $row->NmStatusPegawai,
-        'UraianPangkat' => $row->UraianPangkat,
-        'NmJenisJabatan' => $row->NmJenisJabatan,
-        'NmUnitOrganisasi' => $row->NmUnitOrganisasi,
-        'NmJabatanGrade' => $row->NmJabatanGrade,
-        'Esl2' => $row->Esl2,
-        'Esl3' => $row->Esl3,
-        'Esl4' => $row->Esl4,
-        'Esl5' => $row->Esl5,
-        'NmBank' => $row->NmBank,
-        'NoRek' => $row->NoRek,
-        'NmRek' => $row->NmRek,
-
+    User::updateOrCreate(
+        [     
+        'email' => $row->Nip,
+        'name' => $row->NmPegawai,
+        'password' => bcrypt($row->Nip)
         ]);
+
+    $tampan = new Profil();
+    $tampan->profil_id = User::where('email', $row->Nip)->value('id');
+    $tampan->nama = $row->NmPegawai;
+    $tampan->nip = $row->Nip;
+    $tampan->jabatan = $row->UraianJabatan;
+    $tampan->npwp = $row->NPWP;
+    $tampan->jenis_kelamin = $row->NmJenisKelamin;
+    $tampan->nm_status_pegawai = $row->NmStatusPegawai;
+    $tampan->pangkat = $row->UraianPangkat;
+    $tampan->jenis_jabatan = $row->NmJenisJabatan;
+    $tampan->unit_organisasi = $row->NmUnitOrganisasi;
+    $tampan->jabatan_grade = $row->NmJabatanGrade;
+    $tampan->nama_bank = $row->NmBank;
+    $tampan->no_rekening = $row->NoRek;
+    $tampan->nama_rekening = $row->NmRek;
+    $tampan->save();
+
+
+    // employees::updateOrCreate(
+    //     [
+    //     'Nip' => $row->Nip],
+    //     [        
+        
+    
+
+    //     ]);
     }
+}
+
+public function upload(){
+
+            $target_dir = "uploads/";
+            $target_file = $target_dir . "DataPegawai.xls";
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+            // Check if image file is a actual image or fake image
+            if(isset($_POST["submit"])) {
+                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+
+                    $uploadOk = 1;              
+                
+            }
+            // Check if file already exists
+            if (file_exists($target_file)) {
+                    
+                $uploadOk = 1;
+            }
+            // Check file size
+            // Allow certain file formats
+            if($imageFileType != "xls") {
+                echo "Sorry, only xls files are allowed.";
+                $uploadOk = 0;
+            }
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+            } 
+            else {
+                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                    // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                  $this->import();
+                  \Session::flash('flash_message', 'Data telah berhasil diimport');
+                  } 
+                    else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+        return redirect('/getData');
 }
    
 

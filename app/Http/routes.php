@@ -17,6 +17,9 @@
 
 Route::auth();
 Route::get('/', 'HomeController@index');
+Route::post('uploada', 'ExportController@upload');
+Route::get('uploada', array('uses' => 'ExportController@upload'));
+
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -149,6 +152,15 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bikin','pemberitahuanController@store');
 	Route::get('/{id}/delete', 'pemberitahuanController@delete');
 
+	//Daftar User
+	Route::get('/daftaruser','UserController@getData');
+	Route::get('/daftaruser/cari','UserController@cari');
+	Route::get('/editprofiluser/{id}', 'UserController@edit');
+	Route::post('/editprofiluser/{id}', 'UserController@update');
+	Route::resource('/daftaruser/employees','UserController');
+    Route::get('/daftaruser/employees/{id}/delete', 'UserController@delete');
+    Route::get('/gantipassworduser/{id}', 'UserController@changepassworduser');
+	Route::post('/gantipassworduser/{id}', 'UserController@resetpassworduser');
 	
 	Route::get('/', 'AdminController@admin');
 
