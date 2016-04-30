@@ -4,11 +4,40 @@
 
 
 <!DOCTYPE html>
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="{{ url('admin/bp2')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="#">List BP 2</a></li>
+</ol>
+
+<style type="text/css">
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
+
+<!DOCTYPE html>
 <html>
 <head>
 <style>
 table, th, td {
-    border: 1px solid black;
+    border: 0px solid black;
     border-collapse: collapse;
 }
 th, td {
@@ -16,6 +45,10 @@ th, td {
 }
 </style>
 </head>
+
+<h2>LIST BENDAHARA PENGELUARAN 2</h2>
+<div class="x_title">
+</div>
 <body>
 
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
@@ -87,7 +120,7 @@ th, td {
     <option value="2022">2022</option>
     <option value="2023">2023</option>
     <option value="2024">2024</option>
-    <option value="2025">2025</option>                            
+    <option value="2025">2025</option>
   </select>
   </div>
 </div>
@@ -103,7 +136,7 @@ th, td {
   <tr>
     <th>No SPD</th>
     <th>No PP</th>
-    <th>No SPP/SPM</th>   
+    <th>No SPP/SPM</th>
     <th>tanggal SPP/SPM</th>
     <th></th>
   </tr>
@@ -115,14 +148,14 @@ th, td {
   <tr>
     <td>{{$bp21->no_spd}}</td>
     <td>{{$bp21->no_pp}}</td>
-    <td>{{$bp21->no_spp}}</td>    
+    <td>{{$bp21->no_spp}}</td>
     <td>{{$bp21->tgl_spp}}</td>
  <!--     <td>{{$bp21->tiket_berangkat}}</td>
-    <td>{{ $bp21->tiket_kembali }}</td>    
+    <td>{{ $bp21->tiket_kembali }}</td>
     <td>{{ $bp21->dpr }}</td>
      <td>{{ $bp21->penginapan }}</td> -->
 
- 
+
 <td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
 
      <div class="modal fade" id="modalshow<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
@@ -150,7 +183,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    No PP 
+                                                                    No PP
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->no_pp}}</div>
@@ -184,7 +217,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman 
+                                                                    Pengiriman
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->tiket_berangkat}}</div>
@@ -194,7 +227,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Tiket Kembali: 
+                                                                    Tiket Kembali:
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6"> {{ $bp21->tiket_kembali }}</div>
@@ -204,7 +237,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    DPR : 
+                                                                    DPR :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->dpr }}</div>
@@ -214,7 +247,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Penginapan : 
+                                                                    Penginapan :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->penginapan }}</div>
@@ -224,7 +257,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Penginapan Tanpa Bukti : 
+                                                                    Penginapan Tanpa Bukti :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->penginapan_tanpa_bukti }}</div>
@@ -234,7 +267,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    UH: 
+                                                                    UH:
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->uh}}</div>
@@ -266,7 +299,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Perjalanan Dinas : 
+                                                                    Perjalanan Dinas :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->perjalanan_dinas}}</div>
@@ -277,7 +310,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Pegawai : 
+                                                                    Angkutan Pegawai :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_pegawai}}</div>
@@ -288,7 +321,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Keluarga : 
+                                                                    Angkutan Keluarga :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_keluarga}}</div>
@@ -300,7 +333,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan PRT : 
+                                                                    Angkutan PRT :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_prt}}</div>
@@ -312,7 +345,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengepakan : 
+                                                                    Pengepakan :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->pengepakan}}</div>
@@ -324,7 +357,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Barang : 
+                                                                    Angkutan Barang :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_barang}}</div>
@@ -335,7 +368,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Tiba : 
+                                                                    Uang Harian Tiba :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_tiba}}</div>
@@ -346,7 +379,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Bertolak : 
+                                                                    Uang Harian Bertolak :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_bertolak}}</div>
@@ -357,7 +390,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Pembantu : 
+                                                                    Uang Harian Pembantu :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_pembantu}}</div>
@@ -369,7 +402,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Total : 
+                                                                    Total :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->total}}</div>
@@ -377,14 +410,14 @@ th, td {
                                                     </div>
 
 
-                                                    
-                                                    
+
+
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
 
 
@@ -402,7 +435,7 @@ th, td {
                                     </button>
                                     <h4 class="modal-title"><b>Perhatian</b></h4>
                                 </div>
-                                
+
                                 <div class="modal-body">
                                     <input type="hidden" value="<?php echo $bp21->id;?>" name="id">
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
@@ -414,7 +447,7 @@ th, td {
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
 
   </tr>
   @endforeach

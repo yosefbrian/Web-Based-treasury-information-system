@@ -115,6 +115,7 @@ There is no post till now. Login and write a new post now!!!
           <input type="submit" name='publish' class="btn btn-success" value = "Publish" style="float:right"/>
           <input type="submit" name='save' class="btn btn-default" value = "Save Draft" style="float:right"/>
         </form>
+        <hr>
       </div>
 <!-- <hr style="margin-top:0px"> -->
 
@@ -229,18 +230,19 @@ There is no post till now. Login and write a new post now!!!
      <form action="{{ action('pemberitahuanController@store') }}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input required="required"  placeholder="Judul" type="text" name = "judul1" class="form-control" />
-            <input required="required"  placeholder="Deskripsi" type="text" name = "deskripsi1" class="form-control" />
+            <input required="required"  placeholder="Deskripsi" type="text" name = "deskripsi1" class="form-control" style="margin-top:10px"/>
      <div class="col-xs-8">
-      <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+      <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"  style="margin-top:10px; margin-left:-10px"/>
       </div>
-      <input type="submit" class="btn btn-success" value="Tambah Pemberitahuan" name="submit"/>
+      <input type="submit" class="btn btn-success" value="Tambah Pemberitahuan" name="submit"  style="margin-top:10px"/>
            </form>
+           <hr>
    </div>
 
 
 
 @foreach($pemberitahuan_list as $pemberitahuan)
-    <div class="list-group">
+    <div class="list-group" style="margin-top:10px">
      <div class="list-group-item">
         <h4><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
             <button class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"><center></button>
