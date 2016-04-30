@@ -2,6 +2,9 @@
 
 
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+</ol>
 
 <div id="carousel" class="col-md-12">
   <!--
@@ -104,28 +107,32 @@ There is no post till now. Login and write a new post now!!!
         <form action="{{ url('admin/new-post') }}" method="post">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
-            <input required="required" value="{{ old('title') }}" placeholder="Enter title here" type="text" name = "title"class="form-control" />
+            <input required="required" value="{{ old('title') }}" placeholder="Judul" type="text" name = "title"class="form-control" />
           </div>
           <div class="form-group">
             <textarea name='body'class="form-control">{{ old('body') }}</textarea>
           </div>
-          <input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
-          <input type="submit" name='save' class="btn btn-default" value = "Save Draft" />
+          <input type="submit" name='publish' class="btn btn-success" value = "Publish" style="float:right"/>
+          <input type="submit" name='save' class="btn btn-default" value = "Save Draft" style="float:right"/>
         </form>
       </div>
 <!-- <hr style="margin-top:0px"> -->
 
     @foreach( $posts as $post )
-    <div class="list-group " style="margin-top:10px">
+    <div class="list-group " style="margin-top:5px">
         <div class="list-group-item">
-            <h5><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
+            <h4><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
 
 
                     @role(1)
                     @if($post->active == '1')
                     <!-- <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Post</a> -->
-                    <a type="button" class="btn btn-danger btn-simple pull-right" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $post->id;?>"><span class="fa fa-trash"></a>
-                        <div class="modal fade" id="modaldelete<?php echo $post->id;?>" tabindex="-1" role="dialog">
+                    <div class="btn-group pull-right" role="group" >
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editberita<?php echo $post->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
+                    <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $post->id;?>"><span class="fa fa-trash"></button>
+                  </div>
+
+                        <div class="modal fade" id="modaldelete<?php echo $post->id;?>" tabindex="-1" role="dialog" >
                                     <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -140,55 +147,55 @@ There is no post till now. Login and write a new post now!!!
                                                 <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</button>
+                                                <a type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</a>
                                                 <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}"style="width:60px;">Ya</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                          <div id="editberita<?php echo $post->id;?>" class="collapse" style="margin-left:10px; margin-right:10px; margin-top:50px; ">
+                            <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
+                            <script type="text/javascript">
+                            tinymce.init({
+                              selector : "textarea",
+                              plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste jbimages"],
+                              toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages"
+                            });
+                            </script>
 
+                                  <form method="post" action='{{ action("PostController@update") }}'>
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">
+                                    <div class="form-group">
+                                      <input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" value="@if(!old('title')){{$post->title}}@endif{{ old('title') }}"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <textarea name='body'class="form-control">
+                                        @if(!old('body'))
+                                        {!! $post->body !!}
+                                        @endif
+                                        {!! old('body') !!}
+                                      </textarea>
+                                    </div>
+                                    @if($post->active == '1')
+                                    <input type="submit" name='publish' class="btn btn-success" value = "Update" style="float:right; margin-left:10px" />
+                                    @else
+                                    <input type="submit" name='publish' class="btn btn-success" value = "Publish" style="float:right; margin-left:10px"/>
+                                    @endif
+                                    <input type="submit" name='save' class="btn btn-default" value = "Save As Draft" style="float:right; margin-left:10px"/>
+                                    @role(1)
+                                    <a type="button" href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger" style="float:right">Delete</a>
+                                    @endrole
+                                  </form>
+                                  <!--
+                                  <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
+                                  @else
+                                  <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
+                                  @endrole
+                                  <hr>
+                                  @endif
+                              </div>
 
-                    <a type="button"class="btn btn-warning btn-simple pull-right" data-toggle="collapse" data-target="#editberita<?php echo $post->id;?>"> <i class=" fa fa-pencil-square-o"></i></a>
-                    <div id="editberita<?php echo $post->id;?>" class="collapse" style="margin-left:10px; margin-right:10px">
-                          <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
-                          <script type="text/javascript">
-                          	tinymce.init({
-                          		selector : "textarea",
-                          		plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste jbimages"],
-                          		toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages"
-                          	});
-                          </script>
-
-                          <form method="post" action='{{ action("PostController@update") }}'>
-                          	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          	<input type="hidden" name="post_id" value="{{ $post->id }}{{ old('post_id') }}">
-                          	<div class="form-group">
-                          		<input required="required" placeholder="Enter title here" type="text" name = "title" class="form-control" value="@if(!old('title')){{$post->title}}@endif{{ old('title') }}"/>
-                          	</div>
-                          	<div class="form-group">
-                          		<textarea name='body'class="form-control">
-                          			@if(!old('body'))
-                          			{!! $post->body !!}
-                          			@endif
-                          			{!! old('body') !!}
-                          		</textarea>
-                          	</div>
-                          	@if($post->active == '1')
-                          	<input type="submit" name='publish' class="btn btn-success" value = "Update"/>
-                          	@else
-                          	<input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
-                          	@endif
-                          	<input type="submit" name='save' class="btn btn-default" value = "Save As Draft" />
-                          	@role(1)
-                          	<a href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Delete</a>
-                          	@endrole
-                          </form>
-                            <!--
-                            <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
-                            @else
-                            <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
-                            @endrole
-                        @endif
 
                     </h5>
 
@@ -235,8 +242,8 @@ There is no post till now. Login and write a new post now!!!
 @foreach($pemberitahuan_list as $pemberitahuan)
     <div class="list-group">
      <div class="list-group-item">
-        <h3><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
-            <a class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"></a>
+        <h4><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
+            <button class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"><center></button>
 
             <div class="modal fade" id="modaldelete<?php echo $pemberitahuan->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
