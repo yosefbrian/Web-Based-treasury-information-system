@@ -1,0 +1,62 @@
+<table>
+  <tbody>
+    <tr>
+      <th>id</th>
+      <th>spd_id</th>
+  		<th>no_spd</th>
+      <th>no_pp</th>
+     	<th>no_spp</th>
+      <th>tgl_spp</th>
+      <th>tiket_berangkat</th>
+      <th>tiket_kembali</th>
+      <th>dpr</th>
+      <th>penginapan</th>
+      <th>penginapan_tanpa_bukti</th>
+      <th>uh</th>
+      <th>uhr</th>
+      <th>kekurangan</th>
+      <th>perjalanan_dinas</th>
+      <th>angkutan_pegawai</th>
+      <th>angkutan_keluarga</th>
+      <th>angkutan_prt</th>
+      <th>pengepakan</th>
+      <th>angkutan_barang</th>
+      <th>uang_harian_tiba</th>
+      <th>uang_harian_bertolak</th>
+      <th>uang_harian_pembantu</th>
+      <th>total</th>
+      <th>created_at</th>
+
+  </tr>
+  @foreach($users as $user)
+  <tr>
+  	<td>{{$user['id']}}</td>
+    <td>{{$user['spd_id']}}</td>
+    <td>{{$user['no_spd']}}</td>
+  	<td>{{$user['no_pp']}}</td>
+    <td>{{$user['no_spp']}}</td>
+    <td>{{$user['tgl_spp']}}</td>
+    <td>{{$user['tiket_berangkat']}}</td>
+    <td>{{$user['tiket_kembali']}}</td>
+    <td>{{$user['dpr']}}</td>
+    <td>{{$user['penginapan']}}</td>
+    <td>{{$user['penginapan_tanpa_bukti']}}</td>
+    <td>{{$user['uh']}}</td>
+    <td>{{$user['uhr']}}</td>
+    <td>{{$user['kekurangan']}}</td>
+    <td>{{$user['perjalanan_dinas']}}</td>
+    <td>{{$user['angkutan_pegawai']}}</td>
+    <td>{{$user['angkutan_keluarga']}}</td>
+    <td>{{$user['angkutan_prt']}}</td>
+    <td>{{$user['pengepakan']}}</td>
+    <td>{{$user['angkutan_barang']}}</td>
+    <td>{{$user['uang_harian_tiba']}}</td>
+    <td>{{$user['uang_harian_bertolak']}}</td>
+    <td>{{$user['uang_harian_pembantu']}}</td>
+    <td>{{$user['total']}}</td>
+    <td>{{substr($user['created_at'],0,10)}}</td>
+
+  </tr>
+  @endforeach
+ </tbody>
+</table>
