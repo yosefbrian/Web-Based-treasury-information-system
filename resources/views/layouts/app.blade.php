@@ -187,28 +187,27 @@
 
 
         <!-- /page content -->
-      <div class="right_col" role="main">
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0">
-              <div class="dashboard_graph">
-                  <div class="x_panel">
-                    <h2>@yield('title')</h2>
-                    @yield('title-meta')
-                  <div class="panel-body">
-                    @yield('content')
-                  </div>
-                  </div>
+        <div class="right_col" role="main">
+      <div class="row">
+          <div class="col-md-12 col-md-offset-0">
+            <div class="dashboard_graph">
+                <div class="x_panel">
+                  <h2>@yield('title')</h2>
+                  @yield('title-meta')
+                <div class="panel-body">
+                  @yield('content')
+                </div>
                 </div>
               </div>
-              <footer>
-                <div class="pull-right">
-                  Telek Jaran Admin Template by Bebek</a>
-                </div>
-                <div class="clearfix"></div>
-              </footer>
-            </div>
-            </div>
-      </div>
+            <footer>
+              <div class="pull-right">
+                Telek Jaran Admin Template by Bebek</a>
+              </div>
+              <div class="clearfix"></div>
+            </footer>
+          </div>
+          </div>
+    </div>
 
 
       </div>
