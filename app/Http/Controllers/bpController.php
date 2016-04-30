@@ -44,13 +44,13 @@ class bpController extends Controller
     }
 
     public function show() {
-          $bp1 = bp1::paginate(10);
+          $bp1 = bp1::orderBy('created_at','desc')->paginate(10);
         
        	  return view('bp.showbp1')->with('bp1', $bp1);
     }
 
     public function show2() {
-          $bp2 = bp2a::paginate(10);
+          $bp2 = bp2a::orderBy('created_at','desc')->paginate(10);
         
           return view('bp.showbp2')->with('bp2', $bp2);
     }

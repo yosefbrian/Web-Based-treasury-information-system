@@ -151,6 +151,7 @@ return [
         Illuminate\Auth\AuthServiceProvider::class,
         Bican\Roles\RolesServiceProvider::class,
         'Maatwebsite\Excel\ExcelServiceProvider',
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider",
 
         /*
          * Application Service Providers...
