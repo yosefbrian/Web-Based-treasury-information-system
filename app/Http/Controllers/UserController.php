@@ -104,7 +104,7 @@ class UserController extends Controller {
 	public function cari() {
 
 
-        $kata_kunci = Request::input('kata_kunci');
+        $kata_kunci = reques::get('kata_kunci');
 
         if($kata_kunci==''){
         	// \Session::Flash('error', 'Keywords tidak boleh kosong');

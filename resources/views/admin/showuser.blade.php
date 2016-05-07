@@ -5,7 +5,8 @@
 <!--   <div class="form-group" style="float:right"> -->
     <form action="{{ url('/admin/daftaruser/cari/') }}" method="post" enctype="multipart/form-data">
         <div class="col-xs-9">
-          <input class="form-control" type="text" name="kata_kunci" placeholder="Keywords"><br>
+          <input class="form-control" type="text" name="kata_kunci" placeholder="Keywords">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
 <!--    <button class="btn btn-round glyphicon glyphicon-search" type="submit"></button>-->
             <button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button>
         </div>
