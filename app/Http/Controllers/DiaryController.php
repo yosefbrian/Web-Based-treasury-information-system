@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 use App\pemberitahuan;
@@ -41,13 +41,13 @@ class DiaryController extends Controller {
 	 */
 	public function create(Request $request)
 	{
-		// 
-		
+		//
+
 			return view('diary.create');
 	}
 
 
-	
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -63,17 +63,17 @@ class DiaryController extends Controller {
 		if($request->has('save'))
 		{
 			$diary->active = 0;
-			$message = 'Post saved successfully';			
-		}			
-		else 
+			$message = 'Post saved successfully';
+		}
+		else
 		{
 			$diary->active = 1;
 			$message = 'Post published successfully';
 		}
 		$diary->save();
-		
+
 		return redirect('/diaryedit/'.$diary->slug)->withMessage($message);
-	
+
 	}
 
 	/**
@@ -91,7 +91,7 @@ class DiaryController extends Controller {
 			if($diary->active == false)
 				return redirect('/diary')->withErrors('requested page not found');
 		}
-		else 
+		else
 		{
 			return redirect('/diary')->withErrors('requested page not found');
 		}
@@ -109,7 +109,7 @@ class DiaryController extends Controller {
 		$diary = Diary::where('slug',$slug)->first();
 		if($diary && ($request->user()->id == $diary->author_id || $request->user()->is_admin()))
 			return view('diary.edit')->with('diary',$diary);
-		else 
+		else
 		{
 			return redirect('/diary')->withErrors('you have not sufficient permissions');
 		}
@@ -137,28 +137,28 @@ class DiaryController extends Controller {
 				{
 					return redirect('edit/'.$diary->slug)->withErrors('Title already exists.')->withInput();
 				}
-				else 
+				else
 				{
 					$diary->slug = $slug;
 				}
 			}
-			
+
 			$diary->title = $title;
 			$diary->body = $request->input('body');
-			
+
 			if($request->has('save'))
 			{
 				$diary->active = 0;
 				$message = 'Post saved successfully';
 				$landing = 'edit/'.$diary->slug;
-			}			
+			}
 			else {
 				$diary->active = 1;
 				$message = 'Post updated successfully';
 				$landing = $diary->slug;
 			}
 			$diary->save();
-	 		return redirect($landing)->withMessage($message);
+	 		return redirect('/diary')->withMessage($message);
 		}
 		else
 		{
@@ -181,11 +181,11 @@ class DiaryController extends Controller {
 			$diary->delete();
 			$data['message'] = 'Post deleted Successfully';
 		}
-		else 
+		else
 		{
 			$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
 		}
-		
+
 		return redirect('/diary')->with($data);
 	}
 }
