@@ -257,6 +257,7 @@ public function storespd(Request $request, $id) {
     }
 
     public function cari(Request $request) {
+
       $tanggal = $request->get('Tahun')."-".$request->get('Bulan')."-".$request->get('Tanggal')."%";
 
       $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
@@ -270,14 +271,37 @@ public function storespd(Request $request, $id) {
 
      public function searchspd(Request $request) {
       $cari = $request->get('searchspd');
+      if($cari==''){
+        return redirect('admin/listspd');
+      }
 
+      else{
 
       $result = spdcenter::where('no_pd', 'LIKE', '%'.$cari.'%')->orWhere('no_st', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->orWhere('nip', 'LIKE', '%'.$cari.'%')->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('spd.listspdsearch')->with('result', $result);
+    
+        }
     }
 
+
+ public function spdsearch(Request $request) {
+      $cari = $request->get('searchspd');
+
+      if($cari==''){
+        return redirect('admin/spd');
+      }
+
+      else{
+      $result = profil::where('nip', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('spd.spdsearch')->with('result', $result);
+      }
+
+
+    }
 
     public function exportall(){
 

@@ -51,7 +51,7 @@ th {
    </tr>
 
    <?php $i=0; ?>
-                @foreach ($profil as $profile)
+                @foreach ($result as $profile)
                     <?php $i++; ?>
   <tr>
     <td>{{$profile->nip}}</td>
@@ -66,5 +66,5 @@ th {
 
 <table>
 </table>
-{!!$profil->render()!!}
+{!!$result->render()!!}
 @endsection

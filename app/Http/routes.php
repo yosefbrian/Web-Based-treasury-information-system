@@ -177,6 +177,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/listspd/{id}/delete', 'SPDController@delete');
 	Route::post('/listcari', 'SPDController@cari');
 	Route::post('/searchspd', 'SPDController@searchspd');
+	Route::post('/spdsearch', 'SPDController@spdsearch');
 
 	Route::get('/spd','SPDController@getData');
 	Route::get('/listspd','SPDController@spdlist');
