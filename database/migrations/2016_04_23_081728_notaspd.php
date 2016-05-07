@@ -21,6 +21,7 @@ class Notaspd extends Migration
             $table->string('judul');
             $table->string('deskripsi');
             $table->string('filename');
+            $table->string('tanggal_pengiriman');
             $table->string('no_st');
             $table->string('no_resi');
 

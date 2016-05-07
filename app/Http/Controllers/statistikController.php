@@ -31,6 +31,7 @@ $i=0;
 
           for($i=0; $i<=8; $i++){
 
+
             $bp2yeah = bp2a::where('created_at', 'LIKE', $year[$i])->get();
             foreach ($bp2yeah as $bp2) {
                     $total = $bp2->total;
