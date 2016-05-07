@@ -7,13 +7,41 @@
   <li><a href="#">Diary</a></li>
 </ol>
 
-<h2>DIARY</h2>
+<h2>DIARY
+<a type="button" class="btn btn-success btn-simple pull-right" style="float:right; margin-top:-5px" data-toggle="collapse" data-target="#tambahdiary"><i class="fa fa-plus-square" style="margin-right:10px" ></i>Tambah</a>
+</h2>
 <div class="x_title">
 </div>
 
-<a href="{!! url('diarynewpost') !!}"><button type="button" class="btn btn-default">Buat Diary</button></a>
+<div id="tambahdiary" class="collapse" style="margin-left:0px; margin-right:0px; margin-top:0px">
+  <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector : "textarea",
+    plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste jbimages"],
+    toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+  });
+  </script>
+
+  <form action="{{ url('diarynewpost') }}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+      <input required="required" value="{{ old('title') }}" placeholder="Enter title here" type="text" name = "title"class="form-control" />
+    </div>
+    <div class="form-group">
+      <textarea name='body'class="form-control">{{ old('body') }}</textarea>
+    </div>
+    <input type="submit" name='publish' class="btn btn-success pull-right" value = "Publish"/>
+    <input type="submit" name='save' class="btn btn-default pull-right" value = "Save Draft" />
+  </form>
+  <hr>
+</div>
+
+
+<!-- <a href="{!! url('diarynewpost') !!}"><button type="button" class="btn btn-default">Buat Diary</button></a> -->
+
     @foreach( $diarys as $diary )
-    <div class="list-group">
+    <div class="list-group" style="margin-top:5px">
         <div class="list-group-item">
             <h3><a href="{{ url('/'.$diary->slug) }}">{{ $diary->title }}</a>
 

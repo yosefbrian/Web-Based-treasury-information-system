@@ -72,7 +72,7 @@ class DiaryController extends Controller {
 		}
 		$diary->save();
 
-		return redirect('/diaryedit/'.$diary->slug)->withMessage($message);
+		return redirect('/diary')->withMessage($message);
 
 	}
 
