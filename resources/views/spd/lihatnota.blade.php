@@ -41,6 +41,7 @@ th {
         <th>Nota Perjalanan Dinas</th>
         <th>Nomor ST</th>
         <th>Nomor Resi</th>
+        <th>Tanggal Pengiriman</th>
         <th>Aksi</th>
     </tr>
 
@@ -51,6 +52,7 @@ th {
 
         <td>{{ $nota->no_st }}</td>
          <td>{{ $nota->no_resi }}</td>
+           <td>{{ $nota->tanggal_pengiriman }}</td>
 
         <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
