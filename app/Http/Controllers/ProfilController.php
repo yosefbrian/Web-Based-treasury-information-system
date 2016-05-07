@@ -14,28 +14,29 @@ use Request as reques;
 
 class ProfilController extends Controller
 {
-	
+
 	 public function getData()
     {
 
     	$user = Auth::user()->id;
 
           $profil = Profil::where('profil_id', $user)->orderBy('created_at','desc')->get();
-        
+
         return view('admin.profile')->with('profil', $profil);
     }
 
 
     public function edit($id) {
         $book = Profil::findOrFail($id);
+
         return view('admin.editprofil',  compact('book'));
     }
 
 
-    public function update($id, Request $request) 
+    public function update($id, Request $request)
     {
-    		
-        
+
+
 
         $nama = reques::get('nama');
         $nip = reques::get('nip');
@@ -91,12 +92,13 @@ class ProfilController extends Controller
   //           'filename'  => $filename
 
 
-  //       ));        
+  //       ));
         // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
+					\Session::flash('flash_message','');
         return redirect('/profil');
     }
-    
-    
-	
+
+
+
 
 }

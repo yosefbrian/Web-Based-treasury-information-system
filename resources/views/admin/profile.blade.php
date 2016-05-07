@@ -15,6 +15,13 @@
  <div class="x_title">
  </div>
 
+ @if(Session::has('flash_message'))
+     <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil mengubah profil.<em> {!! session('flash_message') !!}</em></div>
+ @endif
+ <script type="text/javascript">
+ $('div.alert').delay(5000).slideUp(300);
+ </script>
+
  <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" style="margin-top:20px">
  <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <div class="form-group">
