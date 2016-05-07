@@ -32,7 +32,17 @@ th {
 <div class="x_title">
 </div>
 
+@role(1)
 <form action="{{ url('admin/listcari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
+
+@role(3)
+<form action="{{ url('spd/listcari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="col-xs-2">
   <select name="Tanggal" class="form-control">
@@ -105,7 +115,14 @@ th {
 <input class="btn btn-default" type="submit" value="Cari">
 </form>
 
+@role(1)
 <a data-placement="bottom" title="Download Daftar SPD" href="{{url('admin/listspd/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
+
+
+@role(3)
+<a data-placement="bottom" title="Download Daftar SPD" href="{{url('spd/listspd/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
 
 <table>
 
@@ -270,7 +287,21 @@ th {
                             </div>
                            </div>
 
+                           @role(1)
+
                            <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+                           @endrole
+
+
+
+
+                           @role(3)
+
+                           <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+                           @endrole
+
 
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 

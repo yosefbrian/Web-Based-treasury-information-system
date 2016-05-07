@@ -31,9 +31,17 @@ th {
 <h2> SPD CENTER </h2>
 <hr>
 
+@role(1)
 <form action="{{ url('admin/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
+
+
+@role(3)
+<form action="{{ url('spd/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
  <!-- Pengiriman:<br>
  <input type="radio" name="pengiriman" value="1" checked> Sudah<br>
@@ -381,7 +389,7 @@ $tahun2 = array('2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', 
   <input class="form-control" type="text" name="nama_ppk" value="{{ $spd->nama_ppk }}"><br>
 
   <input class="btn btn-success" type="submit" value="Simpan">
-   <input class="btn btn-danger" type="submit" value="Batal">
+  
      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 </form>
 

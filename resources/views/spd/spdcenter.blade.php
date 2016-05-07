@@ -30,9 +30,17 @@ th {
 <h2> SPD CENTER </h2>
 <hr>
 
+@role(1)
 <form action="{{ action('SPDController@create') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
+
+
+@role(3)
+<form action="{{ url('spd/spd') }}" method="post" enctype="multipart/form-data">
+   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
  <!-- Pengiriman:<br>
  <input type="radio" name="pengiriman" id="pengiriman" value="1" checked> Sudah<br>

@@ -71,6 +71,28 @@ Route::get('/diary/{slug}',['as' => 'diary', 'uses' => 'DiaryController@show'])-
 });
 
 
+Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
+{
+
+
+	Route::post('/spd','SPDController@create');
+	Route::get('/listspd/{id}/delete', 'SPDController@delete');
+	Route::post('/listcari', 'SPDController@cari');
+	Route::post('/searchspd', 'SPDController@searchspd');
+	Route::post('/spdsearch', 'SPDController@spdsearch');
+	Route::get('/spd','SPDController@getData');
+	Route::get('/listspd','SPDController@spdlist');
+	Route::get('/spdcenter/{id}','SPDController@edit');
+	Route::get('/listspd/{id}/ubah','SPDController@ubah');
+	Route::post('/listspd/{id}/ubah','SPDController@update');
+	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
+	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
+
+
+});
+
+
+
 Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 {
 
@@ -203,22 +225,24 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	
 	Route::get('/', 'AdminController@admin');
 
+	
+	//spd
 	Route::post('/spd','SPDController@create');
-
 	Route::get('/listspd/{id}/delete', 'SPDController@delete');
 	Route::post('/listcari', 'SPDController@cari');
 	Route::post('/searchspd', 'SPDController@searchspd');
 	Route::post('/spdsearch', 'SPDController@spdsearch');
-
 	Route::get('/spd','SPDController@getData');
 	Route::get('/listspd','SPDController@spdlist');
 	Route::get('/spdcenter/{id}','SPDController@edit');
 	Route::get('/listspd/{id}/ubah','SPDController@ubah');
 	Route::post('/listspd/{id}/ubah','SPDController@update');
-	
 	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
 	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
 	
+
+
+
 	Route::get('new-post','PostController@create');
 	
 	// save new post

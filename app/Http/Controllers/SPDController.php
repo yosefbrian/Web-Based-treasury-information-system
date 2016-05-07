@@ -64,8 +64,10 @@ class SPDController extends Controller
         $spd->save();
          
 
-       
-        return redirect('admin/spd');
+         $profil = Profil::paginate(10);
+        
+        return view('spd.spd')->with('profil', $profil);
+        // return redirect('admin/spd');
     }
 
 
@@ -83,7 +85,9 @@ class SPDController extends Controller
     public function delete($id) {
         spdcenter::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
-        return Redirect('admin/listspd');
+        $spd = spdcenter::orderBy('created_at','desc')->paginate(10);
+        
+        return view('spd.listspd')->with('spd', $spd);
     }
 
 
@@ -155,7 +159,9 @@ class SPDController extends Controller
 
   //       ));        
         // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
-        return redirect('admin/listspd');
+        $spd = spdcenter::orderBy('created_at','desc')->paginate(10);
+        
+        return view('spd.listspd')->with('spd', $spd);
     }
 
 
@@ -276,7 +282,8 @@ public function storespd(Request $request, $id) {
      public function searchspd(Request $request) {
       $cari = $request->get('searchspd');
       if($cari==''){
-        return redirect('admin/listspd');
+        // return redirect('admin/listspd');
+        return redirect()->back(); 
       }
 
       else{
@@ -291,10 +298,10 @@ public function storespd(Request $request, $id) {
 
 
  public function spdsearch(Request $request) {
-      $cari = $request->get('searchspd');
+      $cari = $request->get('spdsearch');
 
       if($cari==''){
-        return redirect('admin/spd');
+        return redirect()->back();
       }
 
       else{

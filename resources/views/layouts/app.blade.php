@@ -132,7 +132,7 @@
                     @endrole
                   
                    @role(3)
-                        <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+                        <li><a href="{{ url('spd/spd')}}">SPD Center Admin</a></li>
                     @endrole
 
                     @role(2)

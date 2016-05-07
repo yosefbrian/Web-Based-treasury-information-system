@@ -14,6 +14,8 @@ use App\bp2a;
 
 use Request as reques;
 
+use Excel;
+
 
 class bpController extends Controller
 {

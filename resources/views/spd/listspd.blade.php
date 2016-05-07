@@ -4,12 +4,25 @@
 
 
 @section('content')
+
+@role(1)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="{{ url('admin/spd')}}">Reimbursement</a></li>
   <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
   <li><a href="#">List SPD</a></li>
 </ol>
+@endrole
+
+
+@role(3)
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="{{ url('spd/spd')}}">Reimbursement</a></li>
+  <li><a href="{{ url('spd/spd')}}">SPD Center Admin</a></li>
+  <li><a href="#">List SPD</a></li>
+</ol>
+@endrole
 
 <style type="text/css">
 
@@ -35,13 +48,26 @@ th {
 
 
 <h2>List SPD
+
+@role(1)
   <a href="{{url('admin/listspd/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
+
+@role(3)
+  <a href="{{url('spd/listspd/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
 </h2>
 <div class="x_title">
 </div>
 
-
+@role(1)
 <form action="{{ url('admin/searchspd') }}" method="post">
+@endrole
+
+@role(3)
+<form action="{{ url('spd/searchspd') }}" method="post">
+@endrole
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchspd" id="searchspd"></input>
 <input class="btn btn-default" type="submit" value="Cari" >
@@ -49,7 +75,16 @@ th {
 <div class="">
 
 
+@role(1)
 <form action="{{ url('admin/searchspd') }}" method="post" enctype="multipart/form-data" >
+@endrole
+
+
+@role(3)
+<form action="{{ url('spd/searchspd') }}" method="post" enctype="multipart/form-data" >
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
   <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <div class="col-xs-2" style="float:right">
@@ -153,6 +188,7 @@ th {
      <td>{{$espede->no_st}}</td>
      <td>{{$espede->nip}}</td>
      <td>{{$espede->nama}}</td>
+
      <td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $espede->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
 
      <div class="modal fade" id="modalshow<?php echo $espede->id;?>" tabindex="-1" role="dialog">
@@ -290,8 +326,16 @@ th {
 
                             </div>
                            </div>
-
+                          @role(1)
                            <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+                           @endrole
+
+
+                             @role(3)
+                           <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+                           @endrole
+
+
 
                             <td><a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a></td>
 

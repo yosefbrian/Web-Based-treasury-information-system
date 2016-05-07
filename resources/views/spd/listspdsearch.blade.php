@@ -32,8 +32,14 @@ th {
 <div class="x_title">
 </div>
 
+@role(1)
 <a href="{{url('admin/listspd')}}"><button>kembali</button></a>
+@endrole
 
+
+@role(3)
+<a href="{{url('spd/listspd')}}"><button>kembali</button></a>
+@endrole
 
 <table>
 
@@ -197,7 +203,14 @@ th {
                             </div>
                            </div>
 
+                           @role(1)
                            <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+                           @endrole
+
+                           @role(3)
+                           <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
+                           @endrole
+
 
                     		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
