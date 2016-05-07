@@ -68,7 +68,11 @@
     </style>
 </head>
 
+
+
+
 <body class="nav-md">
+
 
   <div class="container body">
     <div class="main_container">
@@ -126,9 +130,23 @@
                 <li><a><i class="fa fa-table"></i> Reimbursement <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('spdcenter')}}">SPD Center</a></li>
-                    <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+                  @role(1)
+                        <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+                    @endrole
+                  
+                   @role(3)
+                        <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+                    @endrole
+
+                    @role(2)
                     <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran 1</a></li>
                     <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran 2</a></li>
+                  @endrole
+
+                  @role(1)
+                    <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran 1</a></li>
+                    <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran 2</a></li>
+                  @endrole
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>

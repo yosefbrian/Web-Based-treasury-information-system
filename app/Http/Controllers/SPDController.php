@@ -24,6 +24,9 @@ use App\notaspd;
 
 use Excel;
 
+use Carbon\Carbon;
+use Illuminate\Session;
+
 class SPDController extends Controller
 {
     public function getData()
@@ -60,7 +63,8 @@ class SPDController extends Controller
       $spd->tanggal_pengiriman = $request->get('Tanggal_pengiriman')."-".$request->get('Bulan_pengiriman')."-".$request->get('Tahun_pengiriman');
         $spd->save();
          
-    
+
+       
         return redirect('admin/spd');
     }
 
