@@ -29,7 +29,7 @@ th {
 <h2>DOWNLOAD PERATURAN</h2>
 
 <div class="control-label col-md-3 col-sm-3 col-xs-12">
-@if ($lpj_list->count())
+
  <table style="width:100%">
   <tr>
     <th>Laporan Pertanggung Jawaban</th>
@@ -97,5 +97,5 @@ th {
 
 
 @endrole
-@endif
+
 @endsection

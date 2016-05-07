@@ -72,7 +72,15 @@ class PeraturanController extends Controller
 
 
     public function deletepd($id) {
+
+        $peraturan = pd::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $peraturan->filename;
+        unlink($target_file);
+
         pd::find($id)->delete();
+
+
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         return Redirect('/peraturanpd');
     }
@@ -136,6 +144,13 @@ class PeraturanController extends Controller
 
 
     public function deletebp($id) {
+        
+        $peraturan = bp::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $peraturan->filename;
+        unlink($target_file);
+
+
         bp::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         return Redirect('/peraturanbp');
@@ -202,6 +217,13 @@ public function getDatatukin()
 
 
     public function deletetukin($id) {
+        
+        $peraturan = tukin::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $peraturan->filename;
+        unlink($target_file);
+
+
         tukin::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         return Redirect('/peraturantukin');
@@ -268,6 +290,13 @@ public function getDatapbj()
 
 
     public function deletepbj($id) {
+        
+        $peraturan = pbj::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $peraturan->filename;
+        unlink($target_file);
+
+
         pbj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         return Redirect('/peraturanpbj');
@@ -334,6 +363,12 @@ public function getDatapbj()
 
 
     public function delete($id) {
+        $peraturan = lpj::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $peraturan->filename;
+        unlink($target_file);
+
+
         lpj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         return Redirect('/peraturan');

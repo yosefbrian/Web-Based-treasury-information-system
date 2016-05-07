@@ -265,6 +265,20 @@ public function storespd(Request $request, $id) {
         return view('spd.listspdcari')->with('result', $result);
     }
 
+
+
+
+     public function searchspd(Request $request) {
+      $cari = $request->get('searchspd');
+
+
+      $result = spdcenter::where('no_pd', 'LIKE', '%'.$cari.'%')->orWhere('no_st', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->orWhere('nip', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('spd.listspdsearch')->with('result', $result);
+    }
+
+
     public function exportall(){
 
       set_time_limit ( 300000 ); 

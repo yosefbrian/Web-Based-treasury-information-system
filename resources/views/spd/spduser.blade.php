@@ -279,7 +279,9 @@ Tanggal Pengiriman:<br>
 
 
     <div class="col-xs-8">
-        <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"/>
+
+    Upload File Nota(maks 500kb) :
+        <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"  />
     </div>
 
 
