@@ -1,12 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
+@role(1)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="{{ url('admin/bp1')}}">Reimbursement</a></li>
   <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">List BP 1</a></li>
 </ol>
+@endrole
+
+@role(2)
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="{{ url('bp/bp1')}}">Reimbursement</a></li>
+  <li><a href="{{ url('bp/bp1')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="#">List BP 1</a></li>
+</ol>
+@endrole
 
 <style type="text/css">
 
@@ -49,10 +61,13 @@ th, td {
 
 <body>
 
+@role(1)
 <a href="{{url('admin/bp1/show')}}"><button>kembali</button></a>
+@endrole
 
-
-
+@role(2)
+<a href="{{url('bps/bp1/show')}}"><button>kembali</button></a>
+@endrole
 
 
 <table>
@@ -80,7 +95,14 @@ th, td {
     <td>{{ $bp11->nama_ppk }}</td>
      <td>{{ $bp11->keterangan }}</td>
 
+@role(1)
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+@endrole
+
+@role(1)
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+@endrole
+
 
 
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>

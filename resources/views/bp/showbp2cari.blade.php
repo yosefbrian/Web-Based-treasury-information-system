@@ -18,7 +18,16 @@ th, td {
 </head>
 <body>
 
+@role(1)
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
+@role(2)
+<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="col-xs-2">
   <select name="Tanggal" class="form-control">
@@ -91,7 +100,16 @@ th, td {
 <input class="btn btn-default" type="submit" value="Cari">
 </form>
 
+
+@role(1)
 <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
+
+
+@role(2)
+<a data-placement="bottom" title="Download Data BP 2" href="{{url('bp/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
+
 
 
 <table style="width:100%">
@@ -382,9 +400,16 @@ th, td {
                                 
 
 
-
+@role(1)
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 
+@endrole
+
+
+@role(2)
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+@endrole
 
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 

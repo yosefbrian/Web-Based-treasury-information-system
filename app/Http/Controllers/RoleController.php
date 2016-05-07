@@ -41,8 +41,16 @@ class RoleController extends Controller
     	$peran->user_id = $id;
     	$peran->save();
 
+        $copet = User::findOrFail($id);
+        
+        $nip = $copet->email;
+        $name = $copet->name;
+
+
         $tampan = new Profil();
         $tampan->profil_id = $id;
+        $tampan->nip = $nip;
+        $tampan->nama = $name;
         $tampan->save();
 
     	return redirect('/');

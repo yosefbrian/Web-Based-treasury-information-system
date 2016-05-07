@@ -241,9 +241,9 @@ public function bp1search(Request $request) {
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('bp.showbp1search')->with('result', $result);
-        }
-    }
 
+    }
+}
 
     public function bp2search(Request $request) {
        $cari = $request->get('searchbp2');

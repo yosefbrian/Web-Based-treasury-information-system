@@ -75,6 +75,37 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 {
 
 
+	//BP
+	Route::get('/bp1','bpController@getData');
+	Route::get('/bp2','bpController@getData');
+
+	//BP1
+	Route::post('/bp1/ubah/{id}', 'bpController@update');
+	Route::get('/bp1/ubah/{id}','bpController@editdata');
+	Route::get('bp1/show/{id}/delete', 'bpController@delete');
+	Route::post('/bp1/edit/{id}', 'bpController@create1');
+	Route::get('/bp1/edit/{id}','bpController@make');
+	Route::get('/bp1/show','bpController@show');
+	Route::post('/bp1cari', 'bpController@bp1cari');
+
+	Route::post('/bp1search', 'bpController@bp1search');
+
+	Route::get('/bp1/export', array('uses' => 'bpController@exportbp1all'));
+	Route::get('/bp1/export/{tanggal}', array('uses' => 'bpController@exportbp1tgl'));
+
+	//BP2a
+	Route::get('/bp2a/edit/{id}','bpController@make2');
+	Route::post('/bp2a/edit/{id}', 'bpController@create2');
+	Route::get('/bp2a/show','bpController@show2');
+	Route::get('bp2a/show/{id}/delete', 'bpController@delete2');
+	Route::post('/bp2/ubah/{id}', 'bpController@update2');
+	Route::get('/bp2/ubah/{id}','bpController@editdata2');
+	Route::post('/bp2cari', 'bpController@bp2cari');
+	Route::get('/bp2/export', array('uses' => 'bpController@exportbp2all'));
+	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
+	Route::post('/bp2search', 'bpController@bp2search');
+
+
 	Route::get('/', 'HomeController@coba');
 
 

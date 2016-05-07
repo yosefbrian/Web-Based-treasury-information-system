@@ -126,13 +126,15 @@
             <h4><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
 
 
-                    @role(1)
+                  
                     @if($post->active == '1')
                     <!-- <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Post</a> -->
                     <div class="btn-group pull-right" role="group" >
+                    @role(1)
                       <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editberita<?php echo $post->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
                     <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $post->id;?>"><span class="fa fa-trash"></button>
-                  </div>
+                    @endrole
+                    </div>
 
                         <div class="modal fade" id="modaldelete<?php echo $post->id;?>" tabindex="-1" role="dialog" >
                                     <div class="modal-dialog modal-sm" role="document">
@@ -193,7 +195,7 @@
                                   <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
                                   @else
                                   <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
-                                  @endrole
+                               
                                   <hr>
                                   @endif
                               </div>
@@ -249,8 +251,12 @@
     <div class="list-group" style="margin-top:10px">
      <div class="list-group-item">
         <h4><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
+           
+           @role(1)
+
             <button class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"><center></button>
 
+            @endrole
             <div class="modal fade" id="modaldelete<?php echo $pemberitahuan->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">

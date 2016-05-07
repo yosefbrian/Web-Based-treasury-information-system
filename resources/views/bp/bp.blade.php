@@ -28,8 +28,19 @@ th {
 </style>
 
 <h2>BENDAHARA PENGELUARAN 1
+
+@role(1)
   <a href="{{url('admin/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
   <a href="{{url('admin/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
+@endrole
+
+
+@role(2)
+  <a href="{{url('bp/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
+  <a href="{{url('bp/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
+@endrole
+
+
 
 </h2>
 <div class="x_title">
@@ -199,9 +210,16 @@ th {
                            </div>
 
 
+@role(1)
 <td><a href="{{ url('admin/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
 <td><a href="{{ url('admin/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
+@endrole
 
+
+@role(2)
+<td><a href="{{ url('bp/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
+<td><a href="{{ url('bp/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
+@endrole
 
 </td>
 

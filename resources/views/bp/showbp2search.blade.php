@@ -5,10 +5,25 @@
 
 <!DOCTYPE html>
 <ol class="breadcrumb">
+@role(1)
+
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="{{ url('admin/bp2')}}">Reimbursement</a></li>
   <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">List BP 2</a></li>
+@endrole
+
+
+
+@role(2)
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="{{ url('bp/bp2')}}">Reimbursement</a></li>
+  <li><a href="{{ url('bp/bp2')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="#">List BP 2</a></li>
+@endrole
+
+
+
 </ol>
 
 <style type="text/css">
@@ -47,21 +62,45 @@ th, td {
 </head>
 
 <h2>LIST BENDAHARA PENGELUARAN 2
+
+@role(1)
   <a  title="Download Data BP 2" href="{{url('admin/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
   <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
+@endrole
 
 
+@role(2)
+  <a  title="Download Data BP 2" href="{{url('bp/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+  <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
+@endrole
+
+
+@role(1)
 <a href="{{url('admin/bp2a/show')}}"><button>kembali</button></a>
+@endrole
+
+@role(1)
+<a href="{{url('bp/bp2a/show')}}"><button>kembali</button></a>
+@endrole
 
 </h2>
 <div class="x_title">
 </div>
 <body>
 
+@role(1)
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
   <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
+
+
+@role(2)
+<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
 
 
 </form>
@@ -358,8 +397,19 @@ th, td {
 
 
 
+@role(1)
 
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+@endrole
+
+
+
+@role(2)
+
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+@endrole
 
 
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
