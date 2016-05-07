@@ -106,11 +106,8 @@
                 <h3>MENU</h3>
 
 
-                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">Berita Terakhir</a></li>
-                    <li><a href="#">Pemberitahuan</a></li>
-                  </ul>
+                <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Home  <span class="fa fa-chevron-down"></span></a>
+                  
                 </li>
                 <li><a><i class="fa fa-user"></i> Profil<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -149,6 +146,7 @@
                   @endrole
                   </ul>
                 </li>
+                @role(1)
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none"> 
                     <li><a href="{{ url('admin/statistik/pengeluarantahun')}}">Pengeluaran</a></li>
@@ -157,8 +155,11 @@
                     <li><a href="#">Kategori</a></li>
                   </ul>
                 </li>
+                @endrole
                 <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Diary</a>
+                @role(1)
                 <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
+                @endrole
               </ul>
             </div>
 

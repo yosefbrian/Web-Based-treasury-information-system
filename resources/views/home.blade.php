@@ -87,8 +87,11 @@
   <!-- <a class="btn btn-success pull-right" href="{{ url('admin/new-post') }}">
    <i class="fa fa-plus-square"></i> Tambah</a> -->
    <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahberita" style="margin-top:5px; margin-right:0px;">
+   @role(1)
      <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
      <button type="button" class="btn btn-success">Tambah</button>
+   @endrole
+
    </div>
    <h4 align="left" style="margin-left:0px; font-family:"Helvetica Neue"">BERITA TERAKHIR</h4>
 <hr>
@@ -219,8 +222,11 @@
 
 <div style="float: right; width: 47%; margin-top:10px; margin-right:10px" class="panel-heading">
 <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahpemberitahuan" style="margin-top:5px; margin-right:0px;">
+ 
+ @role(1)
   <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
   <button type="button" class="btn btn-success">Tambah</button>
+  @endrole
 </div>
 <h4 align="left" style="margin-left:10px; font-family:"Helvetica Neue"">PEMBERITAHUAN</h4>
 <hr>
