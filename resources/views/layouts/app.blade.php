@@ -87,15 +87,15 @@
           <div class="clearfix"></div>
 
           <!-- menu prile quick info -->
-          <div class="profile" style="margin-left:10px">
+        <!--   <div class="profile" style="margin-left:10px">
             <div class="profile_pic">
               <img src="{{URL::asset('img/img.jpg')}}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Admin</h2>
+              <h2> {{ Auth::user()->name }} </h2>
             </div>
-          </div>
+          </div> -->
           <!-- /menu prile quick info -->
 
           <!-- sidebar menu -->
@@ -103,13 +103,13 @@
 
             <div class="menu_section">
               <ul  class="nav side-menu" style="margin-left:10px">
-                <h3>MENU</h3>
+                <!-- <h3>MENU</h3> -->
 
 
-                <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Home  <span class="fa fa-chevron-down"></span></a>
+                <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Home  <span class="fa fa-chevron"></span></a>
                   
                 </li>
-                <li><a><i class="fa fa-user"></i> Profil<span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-user"></i> Profil<span class="fa fa-chevron"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('/profil') }}">Lihat Profil</a></li>
                   </ul>
@@ -181,16 +181,20 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="{{URL::asset('img/img.jpg')}}" alt="">Admin
-                  <span class=" fa fa-angle-down"></span>
+                  {{ Auth::user()->name }} <span class=" fa fa-angle-down"></span>
+                  
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;">  Bantuan</a>
                   </li>
+                  
+                  @role(1)
                   <li>
                                     <a href="{{ url('admin/new-post') }}">Add new post</a>
                                 </li>
+               
                  <li><a href="{{ url('admin/registeri') }}">Register</a></li>
+                  @endrole
                  <li><a href="{{ url('/gantipassword') }}">Ubah Password</a></li>
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
