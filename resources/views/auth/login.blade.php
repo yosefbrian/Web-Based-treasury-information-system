@@ -69,9 +69,9 @@ www.xxxx.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk 
                             <div class="form-bottom">
 			                    <form role="form" action="{{ url('/login') }}" method="post" class="login-form">
                             {!! csrf_field() !!}
-			                    	<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-			                    		<label class="sr-only" for="form-username">Email</label>
-			                        	<input type="text" name="email" placeholder="Email" class="form-username form-control" id="form-username" value="{{ old('email') }}">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">NIP</label>
+			                        	<input type="text" name="email" placeholder="NIP" class="form-username form-control" id="form-username" >
                                   @if ($errors->has('email'))
                                   <span class="help-block">
                                       <strong>{{ $errors->first('email') }}</strong>
