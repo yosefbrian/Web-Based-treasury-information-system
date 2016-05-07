@@ -144,7 +144,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 	//statistik
 
-	Route::get('/statistik/pengeluaran','statistikController@pengeluaran');
+	Route::get('/statistik/pengeluarantahun','statistikController@pengeluarantahun');
+	Route::get('/statistik/pengeluaranbulan','statistikController@pengeluaranbulan');
+	Route::post('/statistik/pengeluaranbulancari','statistikController@pengeluaranbulancari');
 	
 
 
