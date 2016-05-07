@@ -81,9 +81,7 @@
 @endrole
     </div>
 
-    @if ( !$posts->count() )
-There is no post till now. Login and write a new post now!!!
-@else
+   
 
 <div style="float: left; width: 47%; margin-top:10px; margin-left:10px" class="panel-heading">
   <!-- <a class="btn btn-success pull-right" href="{{ url('admin/new-post') }}">
@@ -217,7 +215,7 @@ There is no post till now. Login and write a new post now!!!
     {!! $posts->render() !!}
 </div>
 
-@endif
+
 
 <div style="float: right; width: 47%; margin-top:10px; margin-right:10px" class="panel-heading">
 <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahpemberitahuan" style="margin-top:5px; margin-right:0px;">
