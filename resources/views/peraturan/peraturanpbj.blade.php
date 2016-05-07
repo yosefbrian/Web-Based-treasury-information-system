@@ -30,6 +30,13 @@ th {
 <div class="x_title">
 </div>
 
+@if(Session::has('flash_message_tambah'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah PBJ.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapus'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menghapus PBJ.<em> {!! session('flash_message') !!}</em></div>
+@endif
+
   <div class="col-md-6 col-sm-3 col-xs-12">
     <h2>Download Peraturan PBJ</h2>
 
@@ -62,9 +69,8 @@ th {
                         <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                        <div class="divider"></div>
-                        <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('PeraturanController@deletepbj', $pbj->id) }}">Hapus</a>
+                        <a class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</a>
+                        <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('PeraturanController@deletepbj', $pbj->id) }}" style="width:60px;">Ya</a>
                     </div>
                 </div>
             </div>

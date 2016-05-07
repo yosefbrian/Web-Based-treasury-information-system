@@ -29,7 +29,7 @@ th {
 <h2>DOWNLOAD PERATURAN</h2>
 
 <div class="control-label col-md-3 col-sm-3 col-xs-12">
-
+@if ($lpj_list->count())
  <table style="width:100%">
   <tr>
     <th>Laporan Pertanggung Jawaban</th>
@@ -59,9 +59,8 @@ th {
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('PeraturanController@delete', $lpj->id) }}">Hapus</a>
+                                    <a type="button" class="btn btn-default btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</a>
+                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('PeraturanController@delete', $lpj->id) }}"style="width:60px;">Ya</a>
                                 </div>
                             </div>
                         </div>
@@ -97,5 +96,5 @@ th {
 
 
 @endrole
-
+@endif
 @endsection

@@ -19,7 +19,7 @@ class PeraturanController extends Controller
     public function getDatapd()
     {
         $pd_list = pd::orderBy('created_at','desc')->paginate(5);
-        
+
         return view('peraturan.peraturanpd')->with('pd_list', $pd_list);
     }
 
@@ -35,29 +35,31 @@ class PeraturanController extends Controller
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
     // Allow certain file formats
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+      // \Session::flash('flash_message_gagalupload','');
+        // echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message_', 'Data telah berhasil diimport');
+          }
             else {
-                echo "Sorry, there was an error uploading your file.";
+              \Session::flash('flash_message_berhasilupload','');
+                // echo "Sorry, there was an error uploading your file.";
             }
         }
      $pdlist = new pd();
@@ -65,23 +67,16 @@ class PeraturanController extends Controller
         $pdlist->deskripsi = $request->get('deskripsi');
     $pdlist->filename = basename($_FILES["fileToUpload"]["name"]);
         $pdlist->save();
-         
-    
+
+    \Session::flash('flash_message_tambah','');
         return redirect('/peraturanpd');
     }
 
 
     public function deletepd($id) {
-
-        $peraturan = pd::find($id);
-        $target_dir = "upload/notaspd/";
-        $target_file = $target_dir . $peraturan->filename;
-        unlink($target_file);
-
         pd::find($id)->delete();
-
-
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+            \Session::flash('flash_message_hapus','');
         return Redirect('/peraturanpd');
     }
 
@@ -91,7 +86,7 @@ class PeraturanController extends Controller
     public function getDatabp()
     {
         $bp_list = bp::orderBy('created_at','desc')->paginate(5);
-        
+
         return view('peraturan.peraturanbp')->with('bp_list', $bp_list);
     }
 
@@ -107,12 +102,12 @@ class PeraturanController extends Controller
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
@@ -121,15 +116,15 @@ class PeraturanController extends Controller
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message', 'Data telah berhasil diimport');
+          }
             else {
-                echo "Sorry, there was an error uploading your file.";
+                // echo "Sorry, there was an error uploading your file.";
             }
         }
      $bplist = new bp();
@@ -137,22 +132,16 @@ class PeraturanController extends Controller
         $bplist->deskripsi = $request->get('deskripsi');
     $bplist->filename = basename($_FILES["fileToUpload"]["name"]);
         $bplist->save();
-         
-    
+
+    \Session::flash('flash_message_tambah','');
         return redirect('/peraturanbp');
     }
 
 
     public function deletebp($id) {
-        
-        $peraturan = bp::find($id);
-        $target_dir = "upload/notaspd/";
-        $target_file = $target_dir . $peraturan->filename;
-        unlink($target_file);
-
-
         bp::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+          \Session::flash('flash_message_hapus','');
         return Redirect('/peraturanbp');
     }
 
@@ -164,7 +153,7 @@ class PeraturanController extends Controller
 public function getDatatukin()
     {
         $tukin_list = tukin::orderBy('created_at','desc')->paginate(5);
-        
+
         return view('peraturan.peraturantukin')->with('tukin_list', $tukin_list);
     }
 
@@ -180,29 +169,29 @@ public function getDatatukin()
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
     // Allow certain file formats
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        // echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message', 'Data telah berhasil diimport');
+          }
             else {
-                echo "Sorry, there was an error uploading your file.";
+                // echo "Sorry, there was an error uploading your file.";
             }
         }
      $tukinlist = new tukin();
@@ -210,22 +199,16 @@ public function getDatatukin()
         $tukinlist->deskripsi = $request->get('deskripsi');
     $tukinlist->filename = basename($_FILES["fileToUpload"]["name"]);
         $tukinlist->save();
-         
-    
+
+    \Session::flash('flash_message_tambah','');
         return redirect('/peraturantukin');
     }
 
 
     public function deletetukin($id) {
-        
-        $peraturan = tukin::find($id);
-        $target_dir = "upload/notaspd/";
-        $target_file = $target_dir . $peraturan->filename;
-        unlink($target_file);
-
-
         tukin::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+                  \Session::flash('flash_message_hapus','');
         return Redirect('/peraturantukin');
     }
 
@@ -237,7 +220,7 @@ public function getDatatukin()
 public function getDatapbj()
     {
         $pbj_list = pbj::orderBy('created_at','desc')->paginate(5);
-        
+
         return view('peraturan.peraturanpbj')->with('pbj_list', $pbj_list);
     }
 
@@ -253,29 +236,29 @@ public function getDatapbj()
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
     // Allow certain file formats
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        // echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message', 'Data telah berhasil diimport');
+          }
             else {
-                echo "Sorry, there was an error uploading your file.";
+                // echo "Sorry, there was an error uploading your file.";
             }
         }
      $pbjlist = new pbj();
@@ -283,22 +266,16 @@ public function getDatapbj()
         $pbjlist->deskripsi = $request->get('deskripsi');
     $pbjlist->filename = basename($_FILES["fileToUpload"]["name"]);
         $pbjlist->save();
-         
-    
+
+        \Session::flash('flash_message_tambah','');
         return redirect('/peraturanpbj');
     }
 
 
     public function deletepbj($id) {
-        
-        $peraturan = pbj::find($id);
-        $target_dir = "upload/notaspd/";
-        $target_file = $target_dir . $peraturan->filename;
-        unlink($target_file);
-
-
         pbj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        \Session::flash('flash_message_hapus','');
         return Redirect('/peraturanpbj');
     }
 
@@ -310,7 +287,7 @@ public function getDatapbj()
     public function getData()
     {
         $lpj_list = lpj::orderBy('created_at','desc')->paginate(5);
-        
+
         return view('peraturan.peraturan')->with('lpj_list', $lpj_list);
     }
 
@@ -326,29 +303,29 @@ public function getDatapbj()
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
     // Allow certain file formats
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        // echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message', 'Data telah berhasil diimport');
+          }
             else {
-                echo "Sorry, there was an error uploading your file.";
+                // echo "Sorry, there was an error uploading your file.";
             }
         }
      $lpjlist = new lpj();
@@ -356,26 +333,21 @@ public function getDatapbj()
 		$lpjlist->deskripsi = $request->get('deskripsi');
     $lpjlist->filename = basename($_FILES["fileToUpload"]["name"]);
 		$lpjlist->save();
-         
-    
+
+    \Session::flash('flash_message_tambah','');
         return redirect('/peraturan');
     }
 
 
     public function delete($id) {
-        $peraturan = lpj::find($id);
-        $target_dir = "upload/notaspd/";
-        $target_file = $target_dir . $peraturan->filename;
-        unlink($target_file);
-
-
         lpj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        \Session::flash('flash_message_hapus','');
         return Redirect('/peraturan');
     }
 
 
-   
+
 
 
 }
