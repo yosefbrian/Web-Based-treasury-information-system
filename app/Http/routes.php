@@ -124,6 +124,9 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
 	Route::post('/bp1cari', 'bpController@bp1cari');
+
+	Route::post('/bp1search', 'bpController@bp1search');
+
 	Route::get('/bp1/export', array('uses' => 'bpController@exportbp1all'));
 	Route::get('/bp1/export/{tanggal}', array('uses' => 'bpController@exportbp1tgl'));
 

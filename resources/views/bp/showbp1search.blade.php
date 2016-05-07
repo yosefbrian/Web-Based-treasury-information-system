@@ -44,18 +44,6 @@ th, td {
 </head>
 
 <h2>LIST BENDAHARA PENGELUARAN 1
-  <a  title="Download Data BP 1" href="{{url('admin/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-  <!-- <a data-placement="bottom" title="Download Data BP 1" href="{{url('admin/bp1/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
-
-</h2>
-
-<form action="{{ url('admin/bp1search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp1" id="searchbp1"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
-
-
 <div class="x_title">
 </div>
 
@@ -157,7 +145,7 @@ th, td {
 
 
  <?php $i=0; ?>
-                @foreach ($bp1 as $bp11)
+                @foreach ($result as $bp11)
                     <?php $i++; ?>
   <tr>
     <td>{{$bp11->no_pp}}</td>
@@ -205,6 +193,6 @@ th, td {
 
 
 
-{!!$bp1->render()!!}
+{!!$result->render()!!}
 
 @endsection
