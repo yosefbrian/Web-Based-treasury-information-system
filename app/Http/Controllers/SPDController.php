@@ -238,17 +238,21 @@ public function storespd(Request $request, $id) {
         return redirect('/spdcenter');
     }
 
-    public function lihat($id)
-    {
+    public function lihat($id){
         $nota_list = nota::where('nota_id', $id)->orderBy('created_at','desc')->paginate(5);
         
         return view('spd.lihatnota')->with('nota_list', $nota_list);
     }
 
     public function deletenota($id) {
+        $nota = nota::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $nota->filename;
+        unlink($target_file);
+
         nota::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
-        return Redirect('/lihatnota');
+        return Redirect('/spdcenter');
     }
 
     public function cari(Request $request) {
