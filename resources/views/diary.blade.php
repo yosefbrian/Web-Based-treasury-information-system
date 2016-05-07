@@ -38,6 +38,20 @@
 </div>
 
 
+
+@if(Session::has('flash_message_tambah'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah diary.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapus'))
+    <div class="alert alert-danger"><strong>Sukses!</strong> Anda berhasil menghapus diary.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_edit'))
+    <div class="alert alert-warning"><strong>Sukses!</strong> Anda berhasil mengubah diary.<em> {!! session('flash_message') !!}</em></div>
+@endif
+<script type="text/javascript">
+$('div.alert').delay(5000).slideUp(300);
+</script>
+
 <!-- <a href="{!! url('diarynewpost') !!}"><button type="button" class="btn btn-default">Buat Diary</button></a> -->
 
     @foreach( $diarys as $diary )

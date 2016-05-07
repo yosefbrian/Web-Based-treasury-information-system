@@ -71,7 +71,7 @@ class DiaryController extends Controller {
 			$message = 'Post published successfully';
 		}
 		$diary->save();
-
+		\Session::flash('flash_message_tambah','');
 		return redirect('/diary')->withMessage($message);
 
 	}
@@ -111,6 +111,7 @@ class DiaryController extends Controller {
 			return view('diary.edit')->with('diary',$diary);
 		else
 		{
+			\Session::flash('flash_message_edit','');
 			return redirect('/diary')->withErrors('you have not sufficient permissions');
 		}
 	}
@@ -158,10 +159,12 @@ class DiaryController extends Controller {
 				$landing = $diary->slug;
 			}
 			$diary->save();
+			\Session::flash('flash_message_edit','');
 	 		return redirect('/diary')->withMessage($message);
 		}
 		else
 		{
+
 			return redirect('/diary')->withErrors('you have not sufficient permissions');
 		}
 	}
@@ -185,7 +188,7 @@ class DiaryController extends Controller {
 		{
 			$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
 		}
-
+		\Session::flash('flash_message_hapus','');
 		return redirect('/diary')->with($data);
 	}
 }
