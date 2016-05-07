@@ -140,7 +140,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bp2cari', 'bpController@bp2cari');
 	Route::get('/bp2/export', array('uses' => 'bpController@exportbp2all'));
 	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
-
+	Route::post('/bp2search', 'bpController@bp2search');
 
 	//statistik
 

@@ -228,13 +228,25 @@ public function delete2($id) {
 
 
 public function bp1search(Request $request) {
-       $cari = $request->get('searchbp1');
+       $cari = $request->get('searchbp2');
 
 
       $result = bp1::where('no_pd', 'LIKE', '%'.$cari.'%')->orWhere('no_pp', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->orWhere('nip', 'LIKE', '%'.$cari.'%')->orWhere('nama_ppk', 'LIKE', '%'.$cari.'%')->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
         return view('bp.showbp1search')->with('result', $result);
+
+    }
+
+
+    public function bp2search(Request $request) {
+       $cari = $request->get('searchbp2');
+
+
+      $result = bp2a::where('no_spd', 'LIKE', '%'.$cari.'%')->orWhere('no_pp', 'LIKE', '%'.$cari.'%')->orWhere('no_spp', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('bp.showbp2search')->with('result', $result);
 
     }
 
