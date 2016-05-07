@@ -32,7 +32,7 @@ th {
 <div class="x_title">
 </div>
 
-
+<a href="{{url('admin/listspd')}}"><button>kembali</button></a>
 
 
 <table>
