@@ -70,7 +70,9 @@ class bpController extends Controller
         $bp1->save();
          
     
-        return redirect('admin/bp1');
+         $spd = spdcenter::paginate(10);
+        
+          return view('bp.bp')->with('spd', $spd);
     }
 
 public function create2(Request $request) {
@@ -103,7 +105,9 @@ public function create2(Request $request) {
         $bp2a->save();
          
     
-        return redirect('admin/bp2');
+        $spd = spdcenter::paginate(10);
+        
+          return view('bp.bp')->with('spd', $spd);
     }
 
 
@@ -113,13 +117,19 @@ public function create2(Request $request) {
 public function delete($id) {
         bp1::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
-        return Redirect('admin/bp1/show');
+        // return Redirect('admin/bp1/show');
+        $bp1 = bp1::orderBy('created_at','desc')->paginate(10);
+        
+          return view('bp.showbp1')->with('bp1', $bp1);
     }
 
 public function delete2($id) {
         bp2a::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
-        return Redirect('admin/bp2a/show');
+        // return Redirect('admin/bp2a/show');
+         $bp2 = bp2a::orderBy('created_at','desc')->paginate(10);
+        
+          return view('bp.showbp2')->with('bp2', $bp2);
     }
 
 
@@ -167,7 +177,11 @@ public function delete2($id) {
 
   //       ));        
         // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
-        return redirect('/admin/bp1');
+        // return redirect('/admin/bp1');
+
+    $spd = spdcenter::paginate(10);
+        
+          return view('bp.bp')->with('spd', $spd);
     }
     
 
@@ -215,7 +229,11 @@ public function delete2($id) {
 
   //       ));        
         // \Session::flash('flash_message', 'Data pegawai telah diperbarui');
-        return redirect('/admin/bp2');
+        // return redirect('/admin/bp2');
+
+      $spd = spdcenter::paginate(10);
+        
+          return view('bp.bp')->with('spd', $spd);
     }
 
           public function bp1cari(Request $request) {
@@ -234,7 +252,7 @@ public function bp1search(Request $request) {
 
 
         if($cari==''){
-        return redirect('admin/bp1/show');
+        return redirect()->back(); 
       }
 
 
@@ -251,7 +269,7 @@ public function bp1search(Request $request) {
        $cari = $request->get('searchbp2');
 
         if($cari==''){
-        return redirect('admin/bp2a/show');
+       return redirect()->back(); 
       }
 
       else{

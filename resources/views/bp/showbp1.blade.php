@@ -1,12 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+@role(1)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="{{ url('admin/bp1')}}">Reimbursement</a></li>
   <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">List BP 1</a></li>
 </ol>
+@endrole
+
+@role(3)
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="{{ url('spd/bp1')}}">Reimbursement</a></li>
+  <li><a href="{{ url('spd/bp1')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="#">List BP 1</a></li>
+</ol>
+@endrole
 
 <style type="text/css">
 
