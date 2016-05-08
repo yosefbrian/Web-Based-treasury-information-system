@@ -84,7 +84,7 @@ class PostController extends Controller {
 
 
 
-
+	\Session::flash('flash_message_tambahberita','');
 		return redirect('/')->withMessage($message);
 
 	}
@@ -125,6 +125,7 @@ class PostController extends Controller {
 			return view('posts.edit')->with('post',$post);
 		else
 		{
+			\Session::flash('flash_message_editberita','');
 			return redirect('/')->withErrors('you have not sufficient permissions');
 		}
 	}
@@ -172,6 +173,7 @@ class PostController extends Controller {
 				$landing = $post->slug;
 			}
 			$post->save();
+			\Session::flash('flash_message_editberita','');
 				return redirect('/');
 		}
 		else
@@ -199,7 +201,7 @@ class PostController extends Controller {
 		{
 			$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
 		}
-
+		\Session::flash('flash_message_hapusberita','');
 		return redirect('/')->with($data);
 	}
 }

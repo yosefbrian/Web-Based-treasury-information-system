@@ -32,6 +32,18 @@ th {
 <div class="x_title">
 </div>
 
+<!-- flash message -->
+@if(Session::has('flash_message_tambah'))
+<div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah Peraturan Perjalanan Dinas.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapus'))
+<div class="alert alert-danger"><strong>Sukses!</strong> Anda berhasil menghapus Peraturan Perjalanan Dinas.<em> {!! session('flash_message') !!}</em></div>
+@endif
+<script type="text/javascript">
+$('div.alert').delay(5000).slideUp(300);
+</script>
+<!-- end of flash -->
+
   <div class="col-md-6 col-sm-3 col-xs-12">
     <h2>Download Peraturan Perjalanan Dinas</h2>
 
@@ -64,10 +76,10 @@ th {
                         <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                        <div class="divider"></div>
-                        <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('PeraturanController@deletepd', $pd->id) }}">Hapus</a>
+                        <a class="btn btn-info btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
+                        <a class="btn btn-danger btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('PeraturanController@deletepd', $pd->id) }}">Ya</a>
                     </div>
+
                 </div>
             </div>
         </div>

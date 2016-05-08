@@ -27,12 +27,12 @@ class pemberitahuanController extends Controller
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
-            $uploadOk = 1;              
-        
+            $uploadOk = 1;
+
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-            
+
         $uploadOk = 1;
     }
     // Check file size
@@ -41,13 +41,13 @@ class pemberitahuanController extends Controller
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
-    } 
+    }
     else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
           // $this->import();
-          \Session::flash('flash_message', 'Data telah berhasil diimport');
-          } 
+          // \Session::flash('flash_message', 'Data telah berhasil diimport');
+          }
             else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -57,13 +57,14 @@ class pemberitahuanController extends Controller
 		$yeah->deskripsi = $request->get('deskripsi1');
     $yeah->filename = basename($_FILES["fileToUpload"]["name"]);
 		$yeah->save();
-
+		\Session::flash('flash_message_tambahpemberitahuan','');
     return Redirect('/');
     }
 
 public function delete($id) {
         tahu::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+				\Session::flash('flash_message_hapuspemberitahuan','');
         return Redirect('/');
     }
 

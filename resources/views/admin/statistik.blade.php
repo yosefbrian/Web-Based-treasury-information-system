@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Statistik</a></li>
+  <li><a href="#">Pengeluaran</a></li>
+</ol>
 
 <div>
 	<ul class="list-group">

@@ -41,8 +41,8 @@
   </script>
 
     <!-- Styles -->
-   <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}} -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 <!-- sidebar -->
   <!--   <link href="css/bootstrap.min.css" rel="stylesheet"> -->
@@ -107,7 +107,7 @@
 
 
                 <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Home  <span class="fa fa-chevron"></span></a>
-                  
+
                 </li>
                 <li><a><i class="fa fa-user"></i> Profil<span class="fa fa-chevron"></span></a>
                   <ul class="nav child_menu" style="display: none">
@@ -130,7 +130,7 @@
                   @role(1)
                         <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
                     @endrole
-                  
+
                    @role(3)
                         <li><a href="{{ url('spd/spd')}}">SPD Center Admin</a></li>
                     @endrole
@@ -148,7 +148,7 @@
                 </li>
                 @role(1)
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none"> 
+                  <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('admin/statistik/pengeluarantahun')}}">Pengeluaran</a></li>
                     <li><a href="#">Dugaan</a></li>
                     <li><a href="#">Data</a></li>
@@ -182,17 +182,17 @@
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   {{ Auth::user()->name }} <span class=" fa fa-angle-down"></span>
-                  
+
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;">  Bantuan</a>
                   </li>
-                  
+
                   @role(1)
                   <li>
                                     <a href="{{ url('admin/new-post') }}">Add new post</a>
                                 </li>
-               
+
                  <li><a href="{{ url('admin/registeri') }}">Register</a></li>
                   @endrole
                  <li><a href="{{ url('/gantipassword') }}">Ubah Password</a></li>
@@ -223,13 +223,13 @@
                 </div>
                 </div>
               </div>
-            <footer>
-              <div class="pull-right">
-                Telek Jaran Admin Template by Bebek</a>
-              </div>
-              <div class="clearfix"></div>
-            </footer>
           </div>
+          <footer class="col-md-12 col-md-offset-0">
+            <div class="dashboard_graph pull-right">
+                Template by Bebek</a>
+            </div>
+            <div class="clearfix"></div>
+          </footer>
           </div>
     </div>
 

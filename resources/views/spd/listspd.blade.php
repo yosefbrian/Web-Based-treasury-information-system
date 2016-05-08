@@ -69,11 +69,15 @@ th {
 @endrole
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchspd" id="searchspd"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
 <div class="">
 
+
+<div class="">
+  <input class="form-control pull-left" type="text" name="spdsearch" id="spdsearch" placeholder="cari.." style="width: 200px; height:30px; margin-top: 2px;margin-right:10px"></input>
+  <input class="btn btn-default pull-left" type="submit" value="Cari" ></input>
+</div>
+</form>
+<div class="">
 
 @role(1)
 <form action="{{ url('admin/searchspd') }}" method="post" enctype="multipart/form-data" >
@@ -86,7 +90,7 @@ th {
 
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
-  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+  <input class="btn btn-default " type="submit" value="Cari" style="float:right">
 <div class="col-xs-2" style="float:right">
   <select name="Tahun" class="form-control">
     <option value="%"> - Tahun - </option>
@@ -161,16 +165,19 @@ th {
 
 
 </div>
+</div>
 </form>
+<br>
 
 <table>
 
 
   <tr>
-    <th>No PD</th>
-    <th>No ST</th>
-    <th>NIP</th>
-    <th>Nama Lengkap</th>
+    <th><center>No PD</th>
+    <th><center>No ST</th>
+    <th><center>NIP</th>
+    <th><center>Nama Lengkap</th>
+    <th><center>Aksi</th>
    <!--  <th>Berangkat</th>
     <th>Tujuan</th>
     <th>Tanggal</th>
@@ -188,9 +195,19 @@ th {
      <td>{{$espede->no_st}}</td>
      <td>{{$espede->nip}}</td>
      <td>{{$espede->nama}}</td>
+    <td style="text-align:center">
+      <a class="btn btn-info" data-placement="bottom" title="Lihat Detil SPD" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $espede->id;?>" href="#"><span class="fa fa-book"></span></a>
+      @role(1)
+      <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a>
+       @endrole
+      @role(3)
+      <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a>
+      @endrole
+       <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}"><i class="fa fa-file-text-o"></i></a>
+       <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a>
+    </td>
 
-     <td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="espede->id" data-target="#modalshow<?php echo $espede->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
-
+<!-- Modal -->
      <div class="modal fade" id="modalshow<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -317,29 +334,19 @@ th {
                                                 </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                      <a class="btn btn-info btn-simple pull-left" style="width:70px" title="Kembali" data-dismiss="modal">Kembali</a>
+                                      <a class="btn btn-warning btn-simple pull-right" style="width:70px" title="Hapus" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}">Ubah</a>
+                                    </div>
                                 </div>
 
-
+<!--
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
                                     <div class="divider"></div>
-                                    <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a>
+                                    <a class="btn btn-warning btn-simple" title="Hapus" href="#">Ganti</a> -->
 
                             </div>
                            </div>
-                          @role(1)
-                           <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
-                           @endrole
-
-
-                             @role(3)
-                           <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
-                           @endrole
-
-
-
-                            <td><a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a></td>
-
-                    		<td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
                              <div class="modal fade" id="modaldelete<?php echo $espede->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
@@ -356,10 +363,14 @@ th {
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
+                                  <a class="btn btn-info btn-simple pull-left" style="width:70px" title="Kembali" data-dismiss="modal">Tidak</a>
+                                  <a class="btn btn-danger btn-simple pull-right" style="width:70px" title="Hapus" href="{{ action('SPDController@delete', $espede->id) }}">Ya</a>
+                                </div>
+                                <!-- <div class="modal-footer">
                                     <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
                                     <div class="divider"></div>
                                     <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('SPDController@delete', $espede->id) }}">Hapus</a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

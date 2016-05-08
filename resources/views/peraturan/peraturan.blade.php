@@ -26,14 +26,30 @@ th {
 }
 </style>
 
-<h2>DOWNLOAD PERATURAN</h2>
 
-<div class="control-label col-md-3 col-sm-3 col-xs-12">
+<h2>LAPORAN PERTANGGUNGJAWABAN</h2>
+<div class="x_title">
+</div>
+
+<!-- flash message -->
+@if(Session::has('flash_message_tambah'))
+<div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah Laporan Pertanggungjawaban.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapus'))
+<div class="alert alert-danger"><strong>Sukses!</strong> Anda berhasil menghapus Laporan Pertanggungjawaban.<em> {!! session('flash_message') !!}</em></div>
+@endif
+<script type="text/javascript">
+$('div.alert').delay(5000).slideUp(300);
+</script>
+<!-- end of flash -->
+
+<div class="col-md-6 col-sm-3 col-xs-12">
+  <h2>Download Laporan Pertanggungjawaban</h2>
 
  <table style="width:100%">
   <tr>
-    <th>Laporan Pertanggung Jawaban</th>
-    <th>Aksi</th>
+    <th><center>Laporan Pertanggung Jawaban</th>
+    <th><center>Aksi</th>
   </tr>
 
   <?php $i=0; ?>
@@ -59,10 +75,10 @@ th {
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('PeraturanController@delete', $lpj->id) }}">Hapus</a>
+                                    <a class="btn btn-info btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
+                                    <a class="btn btn-danger btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('PeraturanController@delete', $lpj->id) }}">Ya</a>
                                 </div>
+                          
                             </div>
                         </div>
                     </div>
@@ -76,7 +92,7 @@ th {
 {!!$lpj_list->render()!!}
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
-<h3>Tambah LPJ</h3>
+<h2>Tambah LPJ</h2>
 <form action="{{ url('peraturan') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">

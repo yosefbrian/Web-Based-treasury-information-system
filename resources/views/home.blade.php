@@ -6,6 +6,30 @@
   <li><a href="#">Home</a></li>
 </ol>
 
+@if(Session::has('flash_message_tambahberita'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah berita.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapusberita'))
+    <div class="alert alert-danger"><strong>Sukses!</strong> Anda berhasil menghapus berita.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_editberita'))
+    <div class="alert alert-warning"><strong>Sukses!</strong> Anda berhasil mengubah berita.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_tambahpemberitahuan'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil menambah pemberitahuan.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_hapuspemberitahuan'))
+    <div class="alert alert-danger"><strong>Sukses!</strong> Anda berhasil menghapus pemberitahuan.<em> {!! session('flash_message') !!}</em></div>
+@endif
+@if(Session::has('flash_message_editpemberitahuan'))
+    <div class="alert alert-success"><strong>Sukses!</strong> Anda berhasil mengubah pemberitahuan.<em> {!! session('flash_message') !!}</em></div>
+@endif
+<script type="text/javascript">
+$('div.alert').delay(5000).slideUp(300);
+</script>
+
+
+<!-- slider -->
 <div id="carousel" class="col-md-12">
   <!--
   IMPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
@@ -81,15 +105,15 @@
 @endrole
     </div>
 
-   
+
 
 <div style="float: left; width: 47%; margin-top:10px; margin-left:10px" class="panel-heading">
   <!-- <a class="btn btn-success pull-right" href="{{ url('admin/new-post') }}">
    <i class="fa fa-plus-square"></i> Tambah</a> -->
    <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahberita" style="margin-top:5px; margin-right:0px;">
    @role(1)
-     <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
-     <button type="button" class="btn btn-success">Tambah</button>
+     <button type="button" class="btn btn-success"><i class="fa fa-plus-square" style="margin-right:10px"></i>Tambah</button>
+     <!-- <button type="button" class="btn btn-success">Tambah</button> -->
    @endrole
 
    </div>
@@ -126,7 +150,7 @@
             <h4><a href="{{ url('/'.$post->slug) }}">{{ $post->title }}</a>
 
 
-                  
+
                     @if($post->active == '1')
                     <!-- <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Post</a> -->
                     <div class="btn-group pull-right" role="group" >
@@ -195,7 +219,7 @@
                                   <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
                                   @else
                                   <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
-                               
+
                                   <hr>
                                   @endif
                               </div>
@@ -224,10 +248,11 @@
 
 <div style="float: right; width: 47%; margin-top:10px; margin-right:10px" class="panel-heading">
 <div class="btn-group pull-right" role="group" data-toggle="collapse" data-target="#tambahpemberitahuan" style="margin-top:5px; margin-right:0px;">
- 
+
  @role(1)
-  <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
-  <button type="button" class="btn btn-success">Tambah</button>
+  <!-- <button type="button" class="btn btn-success"><i class="fa fa-plus-square"></i></button>
+  <button type="button" class="btn btn-success">Tambah</button> -->
+  <button type="button" class="btn btn-success"><i class="fa fa-plus-square" style="margin-right:10px"></i>Tambah</button>
   @endrole
 </div>
 <h4 align="left" style="margin-left:10px; font-family:"Helvetica Neue"">PEMBERITAHUAN</h4>
@@ -251,7 +276,7 @@
     <div class="list-group" style="margin-top:10px">
      <div class="list-group-item">
         <h4><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
-           
+
            @role(1)
 
             <button class="btn btn-danger" style="float: right;" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pemberitahuan->id;?>"><span class="glyphicon glyphicon-trash"><center></button>

@@ -46,8 +46,10 @@ th {
 @role(1)
 <form action="{{ url('admin/spdsearch') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="spdsearch" id="spdsearch"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
+<div class="">
+  <input class="btn btn-default pull-right" type="submit" value="Cari" ><i class="fa fa-search"></i></input>
+  <input class="pull-right" type="text" name="spdsearch" id="spdsearch" placeholder="cari.." style="width: 200px; height:30px; margin-top: 2px;margin-right:10px"></input>
+</div>
 </form>
 @endrole
 
