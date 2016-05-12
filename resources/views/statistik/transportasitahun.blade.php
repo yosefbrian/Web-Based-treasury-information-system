@@ -10,11 +10,9 @@
 
 <div class="row">
     <div class="page-header">
-        <h2>Pengeluaran per Tahun</h2>
+        <h2>Pengeluaran Transportasi per Tahun</h2>
     </div>
-    <a href="{{ url('admin/statistik/pengeluaranbulan')}}">Pengeluaran per Bulan</a></li>
-    <a href="{{ url('admin/statistik/transportasitahun')}}">Pengeluaran Transportasi</a></li>
-    <a href="{{ url('admin/statistik/dprtahun')}}">Pengeluaran DPR</a></li>
+    <a href="{{ url('admin/statistik/transportasibulan')}}">Pengeluaran per Bulan</a></li>
 </div>
 <div id="pengeluaran-div" align="center" style="width: 1000px; height: 700px"></div>
 

@@ -200,7 +200,12 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/statistik/pengeluarantahun','statistikController@pengeluarantahun');
 	Route::get('/statistik/pengeluaranbulan','statistikController@pengeluaranbulan');
 	Route::post('/statistik/pengeluaranbulancari','statistikController@pengeluaranbulancari');
-	
+	Route::get('/statistik/transportasitahun','statistikController@transportasitahun');
+	Route::get('/statistik/transportasibulan','statistikController@transportasibulan');
+	Route::post('/statistik/transportasibulancari','statistikController@transportasibulancari');
+	Route::get('/statistik/dprtahun','statistikController@dprtahun');
+	Route::get('/statistik/dprbulan','statistikController@dprbulan');
+	Route::post('/statistik/dprbulancari','statistikController@dprbulancari');	
 
 
 
