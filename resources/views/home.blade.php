@@ -213,6 +213,8 @@ $('div.alert').delay(5000).slideUp(300);
                                     <input type="submit" name='save' class="btn btn-default" value = "Save As Draft" style="float:right; margin-left:10px"/>
                                     @role(1)
                                     <a type="button" href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger" style="float:right">Delete</a>
+
+
                                     @endrole
                                   </form>
                                   <!--
@@ -300,7 +302,10 @@ $('div.alert').delay(5000).slideUp(300);
                                       <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</button>
                                       <!-- <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}"style="width:60px;">Ya</a> -->
 
-                                       <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/'.{pemberitahuan->id}.'/delete?_token='.csrf_token()) }}"style="width:60px;">Ya</a>
+                                       <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/'.$pemberitahuan->id.'/delete?_token='.csrf_token() ) }}"style="width:60px;">Ya</a>
+
+                                      
+
                                 </div>
                             </div>
                         </div>

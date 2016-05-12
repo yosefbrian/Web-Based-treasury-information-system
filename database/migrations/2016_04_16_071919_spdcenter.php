@@ -24,7 +24,8 @@ class Spdcenter extends Migration
             $table->string('nama')->nullable();
             $table->string('berangkat')->nullable();
             $table->string('tujuan')->nullable();
-            $table->string('tanggal')->nullable();
+            $table->string('tanggal_berangkat')->nullable();
+              $table->string('tanggal_pulang')->nullable();
             $table->string('kegiatan')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('nama_ppk')->nullable();

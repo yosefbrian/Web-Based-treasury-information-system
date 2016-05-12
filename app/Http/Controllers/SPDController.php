@@ -55,7 +55,8 @@ class SPDController extends Controller
     	$spd->nama = $request->get('nama');
     	$spd->berangkat = $request->get('berangkat');
     	$spd->tujuan = $request->get('tujuan');
-    	$spd->tanggal = $request->get('Tanggal')."-".$request->get('Bulan')."-".$request->get('Tahun');
+    	$spd->tanggal_berangkat = $request->get('Tanggal')."-".$request->get('Bulan')."-".$request->get('Tahun');
+      $spd->tanggal_pulang = $request->get('Tanggal_pulang')."-".$request->get('Bulan_pulang')."-".$request->get('Tahun_pulang');
 
     	$spd->kegiatan = $request->get('kegiatan');
     	$spd->keterangan = $request->get('keterangan');
@@ -110,6 +111,12 @@ class SPDController extends Controller
     	$tanggal = reques::get('Tanggal');
       $bulan = reques::get('Bulan');
       $tahun = reques::get('Tahun');
+
+      $tanggal_pulang = reques::get('Tanggal_pulang');
+      $bulan_pulang = reques::get('Bulan_pulang');
+      $tahun_pulang = reques::get('Tahun_pulang');
+
+
     	$kegiatan = reques::get('kegiatan');
     	$keterangan = reques::get('keterangan');
     	$nama_ppk = reques::get('nama_ppk');
@@ -131,7 +138,8 @@ class SPDController extends Controller
 		$book->nama = $nama;
 		$book->berangkat = $berangkat;
 		$book->tujuan = $tujuan;
-		$book->tanggal = $tanggal.'-'.$bulan.'-'.$tahun;
+		$book->tanggal_berangkat = $tanggal.'-'.$bulan.'-'.$tahun;
+    $book->tanggal_pulang = $tanggal_pulang.'-'.$bulan_pulang.'-'.$tahun_pulang;
 		$book->kegiatan = $kegiatan;
 		$book->keterangan = $keterangan;
 		$book->nama_ppk = $nama_ppk;

@@ -245,12 +245,26 @@ th {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Tanggal :
+                                                                    Tanggal Berangkat :
                                                                 </div>
                                                             </label>
-                                                            <div class="col-sm-6">{{$espede->tanggal}}</div>
+                                                            <div class="col-sm-6">{{$espede->tanggal_berangkat}}</div>
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-6">
+                                                                <div class="pull-right">
+                                                                    Tanggal Pulang:
+                                                                </div>
+                                                            </label>
+                                                            <div class="col-sm-6">{{$espede->tanggal_pulang}}</div>
+                                                        </div>
+                                                    </div>
+
+
                                                     <div class="row">
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
