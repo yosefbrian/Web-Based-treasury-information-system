@@ -298,7 +298,9 @@ $('div.alert').delay(5000).slideUp(300);
                                 </div>
                                 <div class="modal-footer">
                                       <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px;">Tidak</button>
-                                      <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}"style="width:60px;">Ya</a>
+                                      <!-- <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('pemberitahuanController@delete', $pemberitahuan->id) }}"style="width:60px;">Ya</a> -->
+
+                                       <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/'.{pemberitahuan->id}.'/delete?_token='.csrf_token()) }}"style="width:60px;">Ya</a>
                                 </div>
                             </div>
                         </div>
