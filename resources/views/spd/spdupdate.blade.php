@@ -33,20 +33,18 @@ th {
 <h2> UBAH DATA </h2>
 <div class="x_title"></div>
 
-<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" style="margin-top:20px">
-
 @role(1)
 <!-- <form action="{{ url('admin/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
 
-   <form action="{{ url('admin/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
+   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" style="margin-top:20px" action="{{ url('admin/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
 
 
 
 @role(3)
-<form action="{{ url('spd/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" style="margin-top:20px" action="{{ url('spd/listspd/'.$spd->id.'/ubah') }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
 
@@ -219,7 +217,7 @@ $tgl = array('', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
   </div>
 </div>
 
-<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" style="margin-top:20px">
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nomor PD </label>
@@ -376,7 +374,7 @@ $boelan2 = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11
    if(isset($spd->tanggal_berangkat)) {
        $tahun_pengiriman2=substr($spd->tanggal,6,4);
       }
-      else{$tahun_pengiriman='2016';}
+      else{$tahun_pengiriman2='2016';}
 
 
 
@@ -533,7 +531,7 @@ $boelan2_pulang = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '1
    if(isset($spd->tanggal_pulang)) {
        $tahun_pengiriman2_pulang=substr($spd->tanggal_pulang,6,4);
       }
-      else{$tahun_pengiriman_pulang='2016';}
+      else{$tahun_pengiriman2_pulang='2016';}
 
 
 
