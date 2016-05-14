@@ -24,7 +24,7 @@ th {
 </style>
 
 
- <form action="{{ url('admin/rangkingtahun') }}" method="post" enctype="multipart/form-data">
+ <form action="{{ action('rangkingdinasController@rangkingtahun') }}" method="post" enctype="multipart/form-data">
 	  	<input class="btn btn-default" type="submit" value="Cari" style="float:right">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="col-xs-2" style="float:right">
@@ -43,10 +43,6 @@ th {
 			</select>
 		</div>
 	</form>
-
-
-
-
 
 <table>
 <tr>
