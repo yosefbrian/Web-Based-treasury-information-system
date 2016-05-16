@@ -20,8 +20,8 @@
         <div class="page-header">
             <h2>Pengeluaran per Tahun</h2>
         </div>
-        <a href="{{ url('admin/statistik/transportasibulan')}}">Pengeluaran per Bulan</a></li>
-        <form action="{{ url('admin/statistik/transportasibulancari') }}" method="post" enctype="multipart/form-data">
+        <a href="{{ url('admin/statistik/angkutanbulan')}}">Pengeluaran per Bulan</a></li>
+        <form action="{{ url('admin/statistik/angkutanbulancari') }}" method="post" enctype="multipart/form-data">
           <input class="btn btn-default" type="submit" value="Cari" style="float:right">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="col-xs-2" style="float:right">
@@ -51,8 +51,8 @@
         <div class="page-header">
             <h2>Pengeluaran</h2>
         </div>
-        <a href="{{ url('admin/statistik/transportasitahun')}}">Pengeluaran per Tahun</a></li>
-
+        <a href="{{ url('admin/statistik/angkutantahun')}}">Pengeluaran per Tahun</a></li>
+        
     </div>
     <div id="pengeluaran-div" align="center" style="width: 1000px; height: 700px"></div>
 

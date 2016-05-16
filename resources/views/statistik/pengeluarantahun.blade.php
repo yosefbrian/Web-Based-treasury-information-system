@@ -15,6 +15,9 @@
     <a href="{{ url('admin/statistik/pengeluaranbulan')}}">Pengeluaran per Bulan</a></li>
     <a href="{{ url('admin/statistik/transportasitahun')}}">Pengeluaran Transportasi</a></li>
     <a href="{{ url('admin/statistik/dprtahun')}}">Pengeluaran DPR</a></li>
+    <a href="{{ url('admin/statistik/akomodasitahun')}}">Pengeluaran Akomodasi</a></li>
+    <a href="{{ url('admin/statistik/uhtahun')}}">Pengeluaran Uang Harian</a></li>
+    <a href="{{ url('admin/statistik/angkutantahun')}}">Pengeluaran Angkutan</a></li>
 </div>
 <div id="pengeluaran-div" align="center" style="width: 1000px; height: 700px"></div>
 

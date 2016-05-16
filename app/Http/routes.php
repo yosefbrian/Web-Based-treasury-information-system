@@ -211,7 +211,16 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/statistik/transportasibulancari','statistikController@transportasibulancari');
 	Route::get('/statistik/dprtahun','statistikController@dprtahun');
 	Route::get('/statistik/dprbulan','statistikController@dprbulan');
-	Route::post('/statistik/dprbulancari','statistikController@dprbulancari');	
+	Route::post('/statistik/dprbulancari','statistikController@dprbulancari');
+	Route::get('/statistik/akomodasitahun','statistikController@akomodasitahun');
+	Route::get('/statistik/akomodasibulan','statistikController@akomodasibulan');
+	Route::post('/statistik/akomodasibulancari','statistikController@akomodasibulancari');
+	Route::get('/statistik/uhtahun','statistikController@uhtahun');
+	Route::get('/statistik/uhbulan','statistikController@uhbulan');
+	Route::post('/statistik/uhbulancari','statistikController@uhbulancari');
+	Route::get('/statistik/angkutantahun','statistikController@angkutantahun');
+	Route::get('/statistik/angkutanbulan','statistikController@angkutanbulan');
+	Route::post('/statistik/angkutanbulancari','statistikController@angkutanbulancari');	
 
 
 
