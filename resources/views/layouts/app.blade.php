@@ -194,6 +194,7 @@
                                 </li>
 
                  <li><a href="{{ url('admin/registeri') }}">Register</a></li>
+                 <li><a data-placement="bottom" title="Tambah Database Pegawai" href="#" data-toggle="modal" data-target="#modalimport"><i class="fa fa-btn glyphicon glyphicon-upload"></i>Import User</a></li>
                   @endrole
                  <li><a href="{{ url('/gantipassword') }}">Ubah Password</a></li>
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -208,6 +209,41 @@
       </div>
 
       <!-- /top navigation -->
+
+
+<div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title"><b>Unggah Data</b></h4>
+                                </div>
+                                    <div class="modal-body">
+                                    <div class="col-xs-12">                          
+                                      <label for="fileToUpload">Import file excel (xls)</label>
+                                      <form action="{{ action('ExportController@upload') }}" method="post" enctype="multipart/form-data" >                                     
+                                        <div class="col-xs-8 col-md-offset-1">
+                                          <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required">
+                                        </div>
+                                        <div class="col-xs-3">
+                                        <input type="submit" class="btn btn-success" value="Upload" name="submit">
+                                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                                        </div>
+                                    </form>
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                    </div>
+                                    
+                              
+                              </div>
+                              </div>
+                              </div>
 
 
         <!-- /page content -->

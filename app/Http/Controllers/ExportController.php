@@ -9,6 +9,9 @@ use App\employees as employees;
 use Carbon\Carbon;
 use Illuminate\Session;
 use Excel;
+use App\User;
+use App\Profil;
+use App\roler;
 
 class ExportController extends Controller
 {
@@ -33,33 +36,44 @@ public function import(){
 
     set_time_limit ( 300000 );
 
-    $results = Excel::load('uploads/DataPegawai.xls')->get();
+    $results = Excel::load('upload/DataPegawai.xls')->get();
 
     foreach ($results as $row) {
     
     User::updateOrCreate(
+        [ 'email' => $row->Nip
+        ],
         [     
-        'email' => $row->Nip,
         'name' => $row->NmPegawai,
         'password' => bcrypt($row->Nip)
         ]);
 
-    $tampan = new Profil();
-    $tampan->profil_id = User::where('email', $row->Nip)->value('id');
-    $tampan->nama = $row->NmPegawai;
-    $tampan->nip = $row->Nip;
-    $tampan->jabatan = $row->UraianJabatan;
-    $tampan->npwp = $row->NPWP;
-    $tampan->jenis_kelamin = $row->NmJenisKelamin;
-    $tampan->nm_status_pegawai = $row->NmStatusPegawai;
-    $tampan->pangkat = $row->UraianPangkat;
-    $tampan->jenis_jabatan = $row->NmJenisJabatan;
-    $tampan->unit_organisasi = $row->NmUnitOrganisasi;
-    $tampan->jabatan_grade = $row->NmJabatanGrade;
-    $tampan->nama_bank = $row->NmBank;
-    $tampan->no_rekening = $row->NoRek;
-    $tampan->nama_rekening = $row->NmRek;
-    $tampan->save();
+
+
+
+    
+    // $tampan = new Profil();
+    // $tampan->profil_id = User::where('email', $row->Nip)->value('id');
+    // $tampan->nama = $row->NmPegawai;
+    // $tampan->nip = $row->Nip;
+    // // $tampan->jabatan = $row->UraianJabatan;
+    // // $tampan->npwp = $row->NPWP;
+    // // $tampan->jenis_kelamin = $row->NmJenisKelamin;
+    // // $tampan->nm_status_pegawai = $row->NmStatusPegawai;
+    // // $tampan->pangkat = $row->UraianPangkat;
+    // // $tampan->jenis_jabatan = $row->NmJenisJabatan;
+    // // $tampan->unit_organisasi = $row->NmUnitOrganisasi;
+    // // $tampan->jabatan_grade = $row->NmJabatanGrade;
+    // // $tampan->nama_bank = $row->NmBank;
+    // // $tampan->no_rekening = $row->NoRek;
+    // // $tampan->nama_rekening = $row->NmRek;
+    // $tampan->save();
+
+
+    $role = new roler();
+    $role->role_id = 4;
+    $role->user_id = User::where('email', $row->Nip)->value('id');
+    $role->save();
 
 
     // employees::updateOrCreate(
@@ -75,7 +89,7 @@ public function import(){
 
 public function upload(){
 
-            $target_dir = "uploads/";
+            $target_dir = "upload/";
             $target_file = $target_dir . "DataPegawai.xls";
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -112,7 +126,7 @@ public function upload(){
                         echo "Sorry, there was an error uploading your file.";
                     }
                 }
-        return redirect('/getData');
+        return redirect('/');
 }
    
 
