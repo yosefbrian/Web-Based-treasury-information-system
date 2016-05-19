@@ -18,6 +18,13 @@ class pemberitahuanController extends Controller
 
     public function store(Request $request){
 
+
+// $fileyeah = $request->get('fileToUpload');
+
+$fileyeah = basename($_FILES["fileToUpload"]["name"]);
+
+if($fileyeah != '' ){
+
          $uploadOk = 1;
 
     $target_dir = "upload/pemberitahuan/";
@@ -52,6 +59,14 @@ class pemberitahuanController extends Controller
                 echo "Sorry, there was an error uploading your file.";
             }
         }
+     
+}
+
+else{
+    $fileyeah = '#';
+}
+
+
      $yeah = new tahu();
 		$yeah->judul = $request->get('judul1');
 		$yeah->deskripsi = $request->get('deskripsi1');

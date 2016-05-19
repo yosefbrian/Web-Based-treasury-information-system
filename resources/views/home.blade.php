@@ -265,7 +265,7 @@ $('div.alert').delay(5000).slideUp(300);
             <input required="required"  placeholder="Judul" type="text" name = "judul1" class="form-control" />
             <input required="required"  placeholder="Deskripsi" type="text" name = "deskripsi1" class="form-control" style="margin-top:10px"/>
      <div class="col-xs-8">
-      <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"  style="margin-top:10px; margin-left:-10px"/>
+      <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload"  style="margin-top:10px; margin-left:-10px"/>
       </div>
       <input type="submit" class="btn btn-success" value="Tambah Pemberitahuan" name="submit"  style="margin-top:10px"/>
            </form>
@@ -277,7 +277,14 @@ $('div.alert').delay(5000).slideUp(300);
 @foreach($pemberitahuan_list as $pemberitahuan)
     <div class="list-group" style="margin-top:10px">
      <div class="list-group-item">
+
+     @if($pemberitahuan->filename!='')
         <h4><a href="upload/pemberitahuan/<?php echo $pemberitahuan->filename;?>">{{ $pemberitahuan->judul }}</a>
+        @endif
+
+        @if($pemberitahuan->filename=='')
+        <h4><a href="#">{{ $pemberitahuan->judul }}</a>
+        @endif
 
            @role(1)
 

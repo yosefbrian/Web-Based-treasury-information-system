@@ -11,7 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/', function () {, 
 //     return view('welcome');
 // });
 
@@ -19,6 +19,8 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 Route::post('uploada', 'ExportController@upload');
 Route::get('uploada', array('uses' => 'ExportController@upload'));
+
+
 
 
 Route::group(['middleware' => 'auth'], function() {
