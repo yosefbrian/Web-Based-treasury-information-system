@@ -40,6 +40,7 @@ th {
     <tr>
         <th>Nota Perjalanan Dinas</th>
         <th>Nomor ST</th>
+        <th>Tanggal ST</th>
         <th>Nomor Resi</th>
         <th>Tanggal Pengiriman</th>
         <th>Aksi</th>
@@ -48,11 +49,12 @@ th {
         @foreach ($nota_list as $nota)
     <tr>
 
-        <td><a href="{{url('upload/notaspd/'.$nota->filename)}}"> {{ $nota->judul }}</a><br><p>{{ $nota->deskripsi }}</p></td>
+        <td><a href="{{url('upload/notaspd/'.$nota->filename)}}"> {{ $nota->deskripsi }}</a></td>
 
         <td>{{ $nota->no_st }}</td>
-         <td>{{ $nota->no_resi }}</td>
-           <td>{{ $nota->tanggal_pengiriman }}</td>
+        <td>{{ $nota->tanggal_st }}</td>
+        <td>{{ $nota->no_resi }}</td>
+        <td>{{ $nota->tanggal_pengiriman }}</td>
 
         <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 

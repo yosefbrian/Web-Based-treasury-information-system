@@ -247,10 +247,10 @@ public function storespd(Request $request, $id) {
       $notalist->nota_id = $id;
       $notalist->no_st = $request->get('no_st');
       $notalist->no_resi = $request->get('no_resi');
-      $notalist->judul = $request->get('judul');
       $notalist->deskripsi = $request->get('deskripsi');
       $notalist->filename = basename($_FILES["fileToUpload"]["name"]);
       $notalist->tanggal_pengiriman = $request->get('Tanggal_pengiriman').'-'.$request->get('Bulan_pengiriman').'-'.$request->get('Tahun_pengiriman');
+      $notalist->tanggal_st = $request->get('Tanggal_st').'-'.$request->get('Bulan_st').'-'.$request->get('Tahun_st');
       $notalist->save();
          
     

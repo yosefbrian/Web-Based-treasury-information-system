@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class notaspd extends Model
 {
     protected $table = 'notaspd';
-    protected $fillable  = ['judul','deskripsi','filename','create_at','update_at'];
+    protected $fillable  = ['judul','deskripsi','filename', 'tanggal_pengiriman', 'tanggal_st','created_at','updated_at'];
 }
