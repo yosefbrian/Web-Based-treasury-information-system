@@ -47,25 +47,28 @@ $('div.alert').delay(5000).slideUp(300);
 
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <!-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li> -->
-    
-    <?php 
-      $i=0;
-      ?>
-   @foreach($slider as $sliding)
-    <li data-target="#carousel-example-generic" data-slide-to="{{$i}}"></li>
+  
+<?php
+$i=0  ?>
 
-    <?php    $i=$i+1; ?>
-    <!-- <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
+@foreach($slider as $slide)
+
+    <li data-target="#carousel-example-generic" data-slide-to="{{}}" class="active"></li>
+<!--     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
+ <?php $i++; ?> 
 @endforeach
+
   </ol>
   <!-- Wrapper for slides -->
  
 
 
-@foreach($slider as $slid)
 <div class="carousel-inner" >
-    <div class="item active" style="width:100%; max-height:500px !important;">
+
+@foreach($slider as $slid)
+
+    <div class="item" style="width:100%; max-height:500px !important;">
       <img src="upload/slider/<?php echo $slid->filename;?>" alt="">
       <div class="carousel-caption">
         <h2>{{$slid->judul}}</h2>
@@ -74,7 +77,7 @@ $('div.alert').delay(5000).slideUp(300);
     </div>
 @endforeach
 
-
+</div>
 
 <!--   <div class="carousel-inner" >
     <div class="item active" style="width:100%; max-height:500px !important;">

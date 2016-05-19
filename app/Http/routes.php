@@ -242,7 +242,7 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 Route::post('/newslider','HomeController@stor');
 Route::get('/slider','HomeController@cret');
-
+Route::get('/slider/{id}/delete', 'HomeController@delete');
 
 
 	//Daftar User

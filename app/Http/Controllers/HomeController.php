@@ -40,7 +40,9 @@ class HomeController extends Controller
 
  public function cret(){
 
-        return view('admin.slider');
+        $slider = slider::all();
+
+        return view('admin.slider')->with('slider', $slider);
     }
 
 
@@ -137,6 +139,16 @@ $uploadOk = 1;
 
     return Redirect('/');
     }
+
+
+
+     public function delete($id) {
+        slider::find($id)->delete();
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+            \Session::flash('flash_message_hapus','');
+        return Redirect('/');
+    }
+
 
 
 
