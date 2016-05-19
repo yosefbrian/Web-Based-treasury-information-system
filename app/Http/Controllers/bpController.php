@@ -366,7 +366,7 @@ public function bp1search(Request $request) {
       $result = spdcenter::where('nip', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->orWhere('berangkat', 'LIKE', '%'.$cari.'%')->orWhere('tujuan', 'LIKE', '%'.$cari.'%')->orWhere('kegiatan', 'LIKE', '%'.$cari.'%')->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('bp.bpcari')->with('result', $result);
+        return view('bp.bpsearch')->with('result', $result);
 
       }
     }
