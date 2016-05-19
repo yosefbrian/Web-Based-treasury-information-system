@@ -22,6 +22,12 @@ $adminRole = Role::create([
 		    'level' =>4
 		]);
 
+			$moderatorRole = Role::create([
+		    'name' => 'bp2',
+		    'slug' => 'bp2',
+		    'level' =>5
+		]);
+
 		$user = User::find(1);
 		$user->attachRole(1);
 		$user = User::find(2);

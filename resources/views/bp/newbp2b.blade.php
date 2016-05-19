@@ -51,9 +51,9 @@
 
 @endrole
 
-@role(2)
+@role(5)
 
- <form action="{{url('/bp/bp2b/edit/'.$bp2b->id) }}" method="post" enctype="multipart/form-data">
+ <form action="{{url('/bp2/bp2b/edit/'.$bp2b->id) }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
 

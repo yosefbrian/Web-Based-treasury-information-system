@@ -23,8 +23,8 @@ th, td {
 @endrole
 
 
-@role(2)
-<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+@role(5)
+<form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
 @endrole
 
 
@@ -106,8 +106,8 @@ th, td {
 @endrole
 
 
-@role(2)
-<a data-placement="bottom" title="Download Data BP 2" href="{{url('bp/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@role(5)
+<a data-placement="bottom" title="Download Data BP 2" href="{{url('bp2/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
 @endrole
 
 
@@ -406,8 +406,8 @@ th, td {
 @endrole
 
 
-@role(2)
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+@role(5)
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 
 @endrole
 

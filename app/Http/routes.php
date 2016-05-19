@@ -95,6 +95,53 @@ Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
 
 
 
+
+Route::group(['prefix' => 'bp2','middleware' => 'role:bp2'], function()
+{
+
+
+	//BP
+	Route::get('/bp1','bpController@getData');
+	Route::get('/bp2','bpController@getData');
+
+	//BP1
+	Route::post('/bp1/ubah/{id}', 'bpController@update');
+	Route::get('/bp1/ubah/{id}','bpController@editdata');
+	Route::get('bp1/show/{id}/delete', 'bpController@delete');
+	Route::post('/bp1/edit/{id}', 'bpController@create1');
+	Route::get('/bp1/edit/{id}','bpController@make');
+	Route::get('/bp1/show','bpController@show');
+	Route::post('/bp1cari', 'bpController@bp1cari');
+	Route::post('/indexbpcari', 'bpController@indexbpcari');
+	Route::post('/indexbpsearch', 'bpController@indexbpsearch');
+	Route::post('/bp1search', 'bpController@bp1search');
+	Route::get('/bp1/export', array('uses' => 'bpController@exportbp1all'));
+	Route::get('/bp1/export/{tanggal}', array('uses' => 'bpController@exportbp1tgl'));
+
+	//BP2a
+	Route::get('/bp2a/edit/{id}','bpController@make2');
+	Route::post('/bp2a/edit/{id}', 'bpController@create2');
+	Route::get('/bp2a/show','bpController@show2');
+	Route::get('bp2a/show/{id}/delete', 'bpController@delete2');
+	Route::post('/bp2/ubah/{id}', 'bpController@update2');
+	Route::get('/bp2/ubah/{id}','bpController@editdata2');
+	Route::post('/bp2cari', 'bpController@bp2cari');
+	Route::get('/bp2/export', array('uses' => 'bpController@exportbp2all'));
+	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
+	Route::post('/bp2search', 'bpController@bp2search');
+
+	Route::get('/', 'HomeController@coba');
+	
+});
+
+
+
+
+
+
+
+
+
 Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 {
 
@@ -131,38 +178,10 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
 	Route::post('/bp2search', 'bpController@bp2search');
 
-
 	Route::get('/', 'HomeController@coba');
-
-
-	Route::get('new-post','PostController@create');
 	
-	// save new post
-	Route::post('new-post','PostController@store');
-	
-	// edit post form
-	Route::get('edit/{slug}','PostController@edit');
-	
-	// update post
-	Route::post('update','PostController@update');
-	
-	// delete post
-	Route::get('delete/{id}','PostController@destroy');
-	
-	// display user's all posts
-	Route::get('my-all-posts','UserController@user_posts_all');
-	
-	// display user's drafts
-	Route::get('my-drafts','UserController@user_posts_draft');
-	
-	
-	// add comment
-	Route::post('comment/add','CommentController@store');
-	
-	// delete comment
-	Route::post('comment/delete/{id}','CommentController@distroy');
-
 });
+
 
 
 Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()

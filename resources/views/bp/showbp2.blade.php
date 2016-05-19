@@ -16,11 +16,11 @@
 @endrole
 
 
-@role(2)
+@role(5)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="{{ url('bp/bp2')}}">Reimbursement</a></li>
-  <li><a href="{{ url('bp/bp2')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="{{ url('bp2/bp2')}}">Reimbursement</a></li>
+  <li><a href="{{ url('bp2/bp2')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">List BP 2</a></li>
 </ol>
 
@@ -71,8 +71,8 @@ th, td {
 
 
 
-@role(2)
-  <a  title="Download Data BP 2" href="{{url('bp/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@role(5)
+  <a  title="Download Data BP 2" href="{{url('bp2/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
   <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
@@ -94,8 +94,8 @@ th, td {
 @endrole
 
 
-@role(2)
-<form action="{{ url('bp/bp2search') }}" method="post">
+@role(5)
+<form action="{{ url('bp2/bp2search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp2" id="searchbp2">
 <input class="btn btn-default" type="submit" value="Cari" >
@@ -112,8 +112,8 @@ th, td {
 @endrole
 
 
-@role(2)
-<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+@role(5)
+<form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
   <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
@@ -497,9 +497,9 @@ th, td {
 
 
 
-@role(2)
+@role(5)
 
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 
 @endrole
 

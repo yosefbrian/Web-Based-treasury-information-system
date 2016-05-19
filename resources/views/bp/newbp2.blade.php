@@ -93,8 +93,8 @@
 
 
 
-@role(2)
- <form action="{{url('/admin/bp2a/edit/'.$bp2a->id) }}" method="post" enctype="multipart/form-data">
+@role(5)
+ <form action="{{url('/bp2/bp2a/edit/'.$bp2a->id) }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
  
 

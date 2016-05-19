@@ -139,9 +139,11 @@
 
                     @role(2)
                     <li><a href="{{ url('bp/bp1')}}">Bendahara Pengeluaran 1</a></li>
-                    <li><a href="{{ url('bp/bp2')}}">Bendahara Pengeluaran 2</a></li>
                   @endrole
 
+@role(5)
+                  <li><a href="{{ url('bp2/bp2')}}">Bendahara Pengeluaran 2</a></li>
+@endrole
                   @role(1)
                     <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran 1</a></li>
                     <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran 2</a></li>
