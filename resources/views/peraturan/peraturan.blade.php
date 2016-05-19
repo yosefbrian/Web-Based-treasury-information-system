@@ -49,17 +49,30 @@ $('div.alert').delay(5000).slideUp(300);
  <table style="width:100%">
   <tr>
     <th><center>Laporan Pertanggung Jawaban</th>
+
+    @role(1)
     <th><center>Aksi</th>
+    @endrole
+
   </tr>
+
+
+
+
+
 
   <?php $i=0; ?>
                 @foreach ($lpj_list as $lpj)
                     <?php $i++; ?>
+
   <tr>
 
     <td><a href="upload/lpj/<?php echo $lpj->filename;?>">{{ $lpj->judul }}</a><br><p>{{ $lpj->deskripsi }}</p></td>
-    <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $lpj->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+    
 
+@role(1)
+    <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $lpj->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
      <div class="modal fade" id="modaldelete<?php echo $lpj->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">

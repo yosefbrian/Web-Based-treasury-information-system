@@ -50,8 +50,13 @@ $('div.alert').delay(5000).slideUp(300);
 <table style="width:100%">
     <tr>
         <th><center>Peraturan Perjalanan Dinas</th>
+       @role(1)
+
         <th><center>Aksi</th>
-    </tr>
+    
+        @endrole
+
+        </tr>
 
     <?php $i=0; ?>
         @foreach ($pd_list as $pd)
@@ -59,8 +64,11 @@ $('div.alert').delay(5000).slideUp(300);
     <tr>
 
         <td><a href="upload/peraturan/pd/<?php echo $pd->filename;?>">{{ $pd->judul }}</a><br><p>{{ $pd->deskripsi }}</p></td>
-        <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pd->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 
+
+        @role(1)
+        <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $pd->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+        @endrole
         <div class="modal fade" id="modaldelete<?php echo $pd->id;?>" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
