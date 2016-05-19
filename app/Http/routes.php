@@ -239,6 +239,12 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::post('/bikin','pemberitahuanController@store');
 	Route::get('/{id}/delete', 'pemberitahuanController@delete');
 
+
+Route::post('/newslider','HomeController@stor');
+Route::get('/slider','HomeController@cret');
+
+
+
 	//Daftar User
 	Route::get('/daftaruser','UserController@getData');
 	Route::get('/daftaruser/cari','UserController@cari');

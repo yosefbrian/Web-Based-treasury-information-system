@@ -9,7 +9,7 @@ use App\role_user as peran;
 use Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFormRequest;
-
+use App\slider;
 
 use Illuminate\Http\Request;
 
@@ -32,9 +32,12 @@ class PostController extends Controller {
 
 
 		 $pemberitahuan_list = pemberitahuan::orderBy('created_at', 'desc')->paginate(5,['*'],'pemberitahuan');
+
+		 $slider = slider::all();
+
 		 // $pemberitahuan_list->setPath('cari');
 		// return view('home',['pemberitahuan_list' => $pemberitahuan_list])->withPosts($posts)->withTitle($title);
-		 return view('home', ['posts' => $posts, 'title' => $title, 'pemberitahuan_list' => $pemberitahuan_list]);
+		 return view('home', ['posts' => $posts, 'title' => $title, 'pemberitahuan_list' => $pemberitahuan_list, 'slider'=>$slider]);
 		// ->with('pemberitahuan_list', $pemberitahuan_list)
 
 		// return view('home', ['posts' => 'posts']);
