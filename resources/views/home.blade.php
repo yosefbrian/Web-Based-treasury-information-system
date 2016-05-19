@@ -130,25 +130,6 @@ $i=1  ?>
 
 <div class="row">
     <br>
-  <div align="center">
-        @role(1)
-<!-- Role Id =1 -->
-@endrole
-@role(3)
-<!-- Member Role_id =3 -->
-    <p align="center">SPD Area!!!</p>
-@endrole
-@role(2)
-<!-- Member Role_id =3 -->
-    <p align="center">BP Area!!!</p>
-@endrole
-@role(4)
-<!-- Role Id =4 -->
-     <p align="center">Klien Area!!!</p>
-@endrole
-    </div>
-
-
 
 <div style="float: left; width: 47%; margin-top:10px; margin-left:10px" class="panel-heading">
   <!-- <a class="btn btn-success pull-right" href="{{ url('admin/new-post') }}">
