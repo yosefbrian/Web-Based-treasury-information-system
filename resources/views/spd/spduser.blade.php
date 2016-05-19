@@ -83,7 +83,7 @@ th {
 
 $bppd = 0;
 $pengiriman = 0;
-$pencairan = 0;
+$pencairan = '';
 $kondisi = 0;
 
 
@@ -140,6 +140,7 @@ foreach ($bp1 as $bepe1) {
 
 <input type="checkbox" name="pengiriman"  disabled="disabled" checked="checked"> Cair Dana Tersedia <br>
 
+
 @endif
 
 @if($pencairan == '2')
@@ -149,13 +150,20 @@ foreach ($bp1 as $bepe1) {
 
 @if($pencairan == '0' )
 
-<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Tersedia <br>
-
-<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Telah Ditransfer <br>
-
-
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" checked="checked" > Batal <br>
 @endif
 
+
+@if($pencairan == '')
+
+
+<!-- <input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Tersedia <br>
+
+<input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Cair Dana Telah Ditransfer <br>
+ -->
+<!-- <input type="checkbox" name="pengiriman" value="$pencairan" disabled="disabled" > Batal <br>
+ -->
+@endif
 
 
 
