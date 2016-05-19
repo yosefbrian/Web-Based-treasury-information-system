@@ -77,6 +77,19 @@ Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
 {
 
 
+	Route::get('/daftaruser','UserController@getData');
+	Route::get('/daftaruser/cari','UserController@cari');
+	Route::get('/editprofiluser/{id}', 'UserController@edit');
+	Route::post('/editprofiluser/{id}', 'UserController@update');
+	Route::resource('/daftaruser/employees','UserController');
+    Route::get('/daftaruser/employees/{id}/delete', 'UserController@delete');
+    Route::get('/gantipassworduser/{id}', 'UserController@changepassworduser');
+	Route::post('/gantipassworduser/{id}', 'UserController@resetpassworduser');
+	
+	Route::get('/', 'AdminController@admin');
+		
+
+
 	Route::post('/spd','SPDController@create');
 	Route::get('/listspd/{id}/delete', 'SPDController@delete');
 	Route::post('/listcari', 'SPDController@cari');
@@ -89,6 +102,35 @@ Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
 	Route::post('/listspd/{id}/ubah','SPDController@update');
 	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
 	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
+
+
+	Route::get('/bp1','bpController@getData');
+	Route::get('/bp2','bpController@getData');
+
+	//BP1
+	Route::post('/bp1/ubah/{id}', 'bpController@update');
+	Route::get('/bp1/ubah/{id}','bpController@editdata');
+	Route::get('bp1/show/{id}/delete', 'bpController@delete');
+	Route::post('/bp1/edit/{id}', 'bpController@create1');
+	Route::get('/bp1/edit/{id}','bpController@make');
+	Route::get('/bp1/show','bpController@show');
+	Route::post('/bp1cari', 'bpController@bp1cari');
+	Route::post('/indexbpcari', 'bpController@indexbpcari');
+	Route::post('/indexbpsearch', 'bpController@indexbpsearch');
+	Route::post('/bp1search', 'bpController@bp1search');
+	Route::get('/bp1/export', array('uses' => 'bpController@exportbp1all'));
+	Route::get('/bp1/export/{tanggal}', array('uses' => 'bpController@exportbp1tgl'));
+
+	//BP2a
+	Route::get('/bp2a/edit/{id}','bpController@make2');
+	Route::post('/bp2a/edit/{id}', 'bpController@create2');
+	Route::get('/bp2a/show','bpController@show2');
+	Route::get('bp2a/show/{id}/delete', 'bpController@delete2');
+	Route::post('/bp2/ubah/{id}', 'bpController@update2');
+	Route::get('/bp2/ubah/{id}','bpController@editdata2');
+	Route::post('/bp2cari', 'bpController@bp2cari');
+	Route::get('/bp2/export', array('uses' => 'bpController@exportbp2all'));
+	Route::get('/bp2/export/{tanggal}', array('uses' => 'bpController@exportbp2tgl'));
 
 
 });
@@ -144,6 +186,20 @@ Route::group(['prefix' => 'bp2','middleware' => 'role:bp2'], function()
 
 Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 {
+
+
+	Route::post('/spd','SPDController@create');
+	Route::get('/listspd/{id}/delete', 'SPDController@delete');
+	Route::post('/listcari', 'SPDController@cari');
+	Route::post('/searchspd', 'SPDController@searchspd');
+	Route::post('/spdsearch', 'SPDController@spdsearch');
+	Route::get('/spd','SPDController@getData');
+	Route::get('/listspd','SPDController@spdlist');
+	Route::get('/spdcenter/{id}','SPDController@edit');
+	Route::get('/listspd/{id}/ubah','SPDController@ubah');
+	Route::post('/listspd/{id}/ubah','SPDController@update');
+	Route::get('/listspd/export', array('uses' => 'SPDController@exportall'));
+	Route::get('/listspd/export/{tanggal}', array('uses' => 'SPDController@exporttgl'));
 
 
 	//BP

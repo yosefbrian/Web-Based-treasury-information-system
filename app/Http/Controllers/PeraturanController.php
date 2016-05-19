@@ -218,11 +218,11 @@ public function getDatatukin()
 
 
 public function getDatapbj()
-    {
+{
         $pbj_list = pbj::orderBy('created_at','desc')->paginate(5);
 
         return view('peraturan.peraturanpbj')->with('pbj_list', $pbj_list);
-    }
+}
 
 
     public function storepbj(Request $request) {

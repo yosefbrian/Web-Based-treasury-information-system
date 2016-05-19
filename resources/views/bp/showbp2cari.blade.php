@@ -28,6 +28,11 @@ th, td {
 @endrole
 
 
+@role(3)
+<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="col-xs-2">
   <select name="Tanggal" class="form-control">
@@ -411,8 +416,14 @@ th, td {
 
 @endrole
 
+@role(1)
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
 
+
+@role(5)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
                              <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">

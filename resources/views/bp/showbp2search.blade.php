@@ -83,6 +83,11 @@ th, td {
 <a href="{{url('bp2/bp2a/show')}}"><button>kembali</button></a>
 @endrole
 
+
+@role(3)
+<a href="{{url('bp2/bp2a/show')}}"><button>kembali</button></a>
+@endrole
+
 </h2>
 <div class="x_title">
 </div>
@@ -98,6 +103,13 @@ th, td {
 
 @role(5)
 <form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
+  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
+
+
+@role(3)
+<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
   <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
@@ -412,7 +424,13 @@ th, td {
 @endrole
 
 
+@role(1)
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
+@role(5)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
 
                              <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">

@@ -203,8 +203,19 @@ th {
       @role(3)
       <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a>
       @endrole
+
+      @role(1)
        <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}"><i class="fa fa-file-text-o"></i></a>
        <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a>
+      @endrole
+
+
+      @role(3)
+       <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}"><i class="fa fa-file-text-o"></i></a>
+       <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $espede->id;?>"><span class="glyphicon glyphicon-trash"></a>
+      @endrole
+
+
     </td>
 
 <!-- Modal -->

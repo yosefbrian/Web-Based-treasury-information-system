@@ -125,28 +125,46 @@
                   </ul>
                 </li>
 
-                 @role(1)
-                        <li><a href="{{ url('admin/spd')}}"><i class="fa fa-group"> </i>List PNS</a></li>
-                    @endrole
+                
 
-                   @role(3)
-                        <li><a href="{{ url('spd/spd')}}">SPD Center Admin</a></li>
-                    @endrole
+                 
 
                 <li><a><i class="fa fa-table"></i> Reimbursement <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
+                    @role(3)
+                        <li><a href="{{ url('spd/spd')}}">SPD Center</a></li>
+                    @endrole
+
+                  @role(4)
                     <li><a href="{{ url('spdcenter')}}">SPD Center</a></li>
+                    @endrole
+
+                     @role(1)
+                        <li><a href="{{ url('admin/spd')}}">SPD Center</a></li>
+                    @endrole
+
+                     @role(2)
+                        <li><a href="{{ url('bp/spd')}}">SPD Center</a></li>
+                    @endrole
+
 
                     @role(2)
-                    <li><a href="{{ url('bp/bp1')}}">Bendahara Pengeluaran 1</a></li>
+                    <li><a href="{{ url('bp/bp1')}}">Bendahara Pengeluaran</a></li>
+                  @endrole
+
+                  @role(5)
+                    <li><a href="{{ url('bp2/bp1')}}">Bendahara Pengeluaran</a></li>
+                  @endrole
+
+                   @role(3)
+                    <li><a href="{{ url('spd/bp1')}}">Bendahara Pengeluaran</a></li>
                   @endrole
 
 @role(5)
                   <li><a href="{{ url('bp2/bp2')}}">Bendahara Pengeluaran 2</a></li>
 @endrole
                   @role(1)
-                    <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran 1</a></li>
-                    <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran 2</a></li>
+                    <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
                   @endrole
                   </ul>
                 </li>
@@ -162,6 +180,10 @@
                 @endrole
                 <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Diary</a>
                 @role(1)
+                <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
+                @endrole
+
+                @role(3)
                 <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
                 @endrole
               </ul>

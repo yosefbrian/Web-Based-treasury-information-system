@@ -37,6 +37,14 @@ th {
   <a href="{{ url('spd/listspd') }}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List SPD</a>
 @endrole
 
+@role(2)
+  <a href="{{ url('bp/listspd') }}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List SPD</a>
+@endrole
+
+
+@role(5)
+  <a href="{{ url('bp2/listspd') }}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List SPD</a>
+@endrole
 
 
 </h2>
@@ -69,7 +77,16 @@ th {
   <tr>
     <th>NIP</th>
     <th>Nama Lengkap</th>
+   @role(1)
+
     <th>Aksi</th>
+   @endrole
+
+   @role(3)
+
+    <th>Aksi</th>
+   @endrole
+
    </tr>
 
    <?php $i=0; ?>

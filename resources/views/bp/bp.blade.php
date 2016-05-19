@@ -27,7 +27,7 @@ th {
 }
 </style>
 
-<h2>BENDAHARA PENGELUARAN 1
+<h2>BENDAHARA PENGELUARAN
 
 @role(1)
 <form action="{{ url('admin/indexbpsearch') }}" method="post">
@@ -139,6 +139,10 @@ th {
   <a href="{{url('admin/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
 @endrole
 
+@role(3)
+<a href="{{url('spd/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
+  <a href="{{url('spd/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
+@endrole
 
 @role(2)
   <a href="{{url('bp/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
@@ -326,8 +330,12 @@ th {
 
 @role(2)
 <td><a href="{{ url('bp/bp1/edit/'.$espede->id) }}">Isi data BP1</a>
-<td><a href="{{ url('bp/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
 @endrole
+
+@role(5)
+<td><a href="{{ url('bp2/bp2a/edit/'.$espede->id) }}">Isi data BP2</a>
+@endrole
+
 
 </td>
 

@@ -86,6 +86,16 @@ th, td {
 @endrole
 
 
+@role(3)
+<form action="{{ url('spd/bp1search') }}" method="post">
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+<input type="text" name="searchbp1" id="searchbp1"></input>
+<input class="btn btn-default" type="submit" value="Cari" >
+</form>
+@endrole
+
+
+
 <div class="x_title">
 </div>
 
@@ -216,7 +226,15 @@ th, td {
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 @endrole
 
+@role(1)
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
+
+
+@role(2)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
 
                              <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">

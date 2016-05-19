@@ -69,6 +69,9 @@ th, td {
 <a href="{{url('bps/bp1/show')}}"><button>kembali</button></a>
 @endrole
 
+@role(3)
+<a href="{{url('spd/bp1/show')}}"><button>kembali</button></a>
+@endrole
 
 <table>
   <tr>
@@ -99,13 +102,19 @@ th, td {
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 @endrole
 
-@role(1)
+@role(2)
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 @endrole
 
 
-
+@role(1)
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
+
+@role(2)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
 
                              <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">

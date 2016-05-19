@@ -26,6 +26,12 @@ th, td {
 <form action="{{ url('bp/bp1cari') }}" method="post" enctype="multipart/form-data">
 @endrole
 
+
+@role(3)
+<form action="{{ url('spd/bp1cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="col-xs-2">
   <select name="Tanggal" class="form-control">
@@ -109,6 +115,12 @@ th, td {
 
 @endrole
 
+@role(3)
+<a data-placement="bottom" title="Download Daftar SPD" href="{{url('spd/bp1/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+
+@endrole
+
+
 
 
 
@@ -146,7 +158,16 @@ th, td {
  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
 @endrole
 
+
+@role(1)
      <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
+
+@role(2)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
 
                              <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
