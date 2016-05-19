@@ -47,32 +47,40 @@ $('div.alert').delay(5000).slideUp(300);
 
   <!-- Indicators -->
   <ol class="carousel-indicators">
-  
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+
 <?php
-$i=0  ?>
+$i=1  ?>
 
 @foreach($slider as $slide)
+<li data-target="#carousel-example-generic" data-slide-to="{{$i}}"></li>
 
-    <li data-target="#carousel-example-generic" data-slide-to="{{}}" class="active"></li>
 <!--     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
- <?php $i++; ?> 
+ <?php $i++; ?>
 @endforeach
 
   </ol>
   <!-- Wrapper for slides -->
- 
+
 
 
 <div class="carousel-inner" >
 
-@foreach($slider as $slid)
+    <div class="item active" style="width:100%; max-height:500px !important;">
+    <img src="upload/slider/selamatdtg.png" alt="">
+      <div class="carousel-caption">
+        <h2></h2>
+        <p></p>
+      </div>
+    </div>
 
+@foreach($slider as $slid)
     <div class="item" style="width:100%; max-height:500px !important;">
       <img src="upload/slider/<?php echo $slid->filename;?>" alt="">
       <div class="carousel-caption">
         <h2>{{$slid->judul}}</h2>
-        <p> bla bla bla </p>
+        <p></p>
       </div>
     </div>
 @endforeach
@@ -346,7 +354,7 @@ $i=0  ?>
 
                                        <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{  url('admin/'.$pemberitahuan->id.'/delete?_token='.csrf_token() ) }}"style="width:60px;">Ya</a>
 
-                                      
+
 
                                 </div>
                             </div>
