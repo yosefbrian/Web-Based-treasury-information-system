@@ -150,6 +150,7 @@ th {
 
 @role(5)
   <a href="{{url('bp2/bp2a/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 2</a>
+  <a href="{{url('bp2/bp1/show')}}" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-list-alt" style="margin-right:10px"></i>List Data BP 1</a>
 @endrole
 
 

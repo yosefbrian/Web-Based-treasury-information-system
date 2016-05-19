@@ -141,6 +141,9 @@ Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
 Route::group(['prefix' => 'bp2','middleware' => 'role:bp2'], function()
 {
 
+	//SPD
+	Route::get('/spd','SPDController@getData');
+	Route::get('/listspd','SPDController@spdlist');
 
 	//BP
 	Route::get('/bp1','bpController@getData');
