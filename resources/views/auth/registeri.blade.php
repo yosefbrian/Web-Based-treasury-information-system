@@ -13,8 +13,16 @@
 </div>
 
 
+@role(1)
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/create') }}">
                         {!! csrf_field() !!}
+@endrole
+
+
+@role(3)
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('spd/create') }}">
+                        {!! csrf_field() !!}
+@endrole
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama</label>

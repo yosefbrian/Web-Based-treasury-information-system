@@ -105,8 +105,38 @@ th {
                     @endrole
 
 
+
                     </td>
 
+
+
+@role(3)
+                    <div class="modal fade" id="modaldelete<?php echo $book->id?>" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title"><b>Perhatian</b></h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <input type="hidden" value="<?php echo $book->id;?>" name="id">
+                                    <h5>Apakah Anda yakin akan menghapus data ini?</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal" style="width:60px">Tidak</button>
+                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" style="width:60px" href="{{ url('spd/daftaruser/employees/'.$book->id.'/delete') }}">Ya</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+@endrole
+
+
+
+@role(1)
                     <div class="modal fade" id="modaldelete<?php echo $book->id?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
@@ -128,6 +158,7 @@ th {
                             </div>
                         </div>
                     </div>
+@endrole
 
                 </tr>
                 @endforeach

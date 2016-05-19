@@ -7,7 +7,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+
+                @role(1)
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('admin/assign/'.$mantap->id) }}">
+                @endrole
+
+                  @role(3)
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('spd/assign/'.$mantap->id) }}">
+                @endrole
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
