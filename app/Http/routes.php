@@ -77,6 +77,12 @@ Route::group(['prefix' => 'spd','middleware' => 'role:SPD'], function()
 {
 
 
+	Route::post('/create','RoleController@create');	
+	Route::get('/registeri','RoleController@registeri');
+	Route::get('/role/{id}','RoleController@role');
+	Route::post('/assign/{id}','RoleController@assign');
+
+
 	Route::get('/daftaruser','UserController@getData');
 	Route::get('/daftaruser/cari','UserController@cari');
 	Route::get('/editprofiluser/{id}', 'UserController@edit');

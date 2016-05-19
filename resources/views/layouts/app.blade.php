@@ -188,7 +188,7 @@
                 @endrole
 
                 @role(3)
-                <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
+                <li><a href="{{ url('spd/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
                 @endrole
               </ul>
             </div>

@@ -12,7 +12,15 @@
 <div class="x_title">
 </div>
 
+@role(1)
 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('/editprofil/'.$book->id) }}" method="post" enctype="multipart/form-data" style="margin-top:20px">
+@endrole
+
+@role(3)
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('/editprofil/'.$book->id) }}" method="post" enctype="multipart/form-data" style="margin-top:20px">
+@endrole
+
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama <span class="required">*</span></label>

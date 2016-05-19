@@ -73,6 +73,12 @@ $('div.alert').delay(5000).slideUp(300);
 @role(1)
     <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $lpj->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
 @endrole
+
+
+@role(3)
+    <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $lpj->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+
      <div class="modal fade" id="modaldelete<?php echo $lpj->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
@@ -101,8 +107,10 @@ $('div.alert').delay(5000).slideUp(300);
   @endforeach
 </table>
 
-@role(1)
+
 {!!$lpj_list->render()!!}
+
+@role(1)
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
 <h2>Tambah LPJ</h2>
@@ -126,5 +134,33 @@ $('div.alert').delay(5000).slideUp(300);
 
 
 @endrole
+
+@role(3)
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+<h2>Tambah LPJ</h2>
+<form action="{{ url('peraturan') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+        <input required="required" value="{{ old('judul') }}" placeholder="Judul LPJ" type="text" name = "judul" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input required="required" value="{{ old('deskripsi') }}" placeholder="Deskripsi" type="text" name = "deskripsi" class="form-control" />
+    </div>
+
+    <div class="col-xs-7" style="margin-left:-10px">
+        <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"/>
+    </div>
+    <div class="col-xs-5">
+        <input type="submit" class="btn btn-success pull-right" value="Tambah LPJ" name="submit"/>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    </div>
+
+
+@endrole
+
+
+
 
 @endsection

@@ -56,7 +56,16 @@ $('div.alert').delay(5000).slideUp(300);
     <tr>
 
         <td><a href="upload/peraturan/bp/<?php echo $bp->filename;?>">{{ $bp->judul }}</a><br><p>{{ $bp->deskripsi }}</p></td>
+
+        @role(1)
         <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+        @endrole
+
+
+           @role(3)
+        <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+        @endrole
+
 
         <div class="modal fade" id="modaldelete<?php echo $bp->id;?>" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm" role="document">
@@ -85,8 +94,38 @@ $('div.alert').delay(5000).slideUp(300);
   @endforeach
 </table>
 
-@role(1)
+
 {!!$bp_list->render()!!}
+
+@role(1)
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12">
+<h2>Tambah Peraturan</h2>
+<form action="{{ url('peraturanbp') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+        <input required="required" value="{{ old('judul') }}" placeholder="Judul Peraturan" type="text" name = "judul" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input required="required" value="{{ old('deskripsi') }}" placeholder="Deskripsi" type="text" name = "deskripsi" class="form-control" />
+    </div>
+
+    <div class="col-xs-7" style="margin-left:-10px">
+        <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required"/>
+    </div>
+    <div class="col-xs-5">
+        <input type="submit" class="btn btn-success pull-right" value="Tambah Peraturan" name="submit"/>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    </div>
+
+
+
+@endrole
+
+
+
+@role(3)
 </div>
 <div class="col-md-6 col-sm-6 col-xs-12">
 <h2>Tambah Peraturan</h2>
