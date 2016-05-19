@@ -111,6 +111,8 @@ Route::group(['prefix' => 'bp','middleware' => 'role:BP'], function()
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
 	Route::post('/bp1cari', 'bpController@bp1cari');
+	Route::post('/indexbpcari', 'bpController@indexbpcari');
+	Route::post('/indexbpsearch', 'bpController@indexbpsearch');
 
 	Route::post('/bp1search', 'bpController@bp1search');
 
@@ -185,6 +187,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 	Route::get('/bp1/edit/{id}','bpController@make');
 	Route::get('/bp1/show','bpController@show');
 	Route::post('/bp1cari', 'bpController@bp1cari');
+	Route::post('/indexbpcari', 'bpController@indexbpcari');
+	Route::post('/indexbpsearch', 'bpController@indexbpsearch');
 
 	Route::post('/bp1search', 'bpController@bp1search');
 

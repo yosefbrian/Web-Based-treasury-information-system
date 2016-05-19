@@ -342,4 +342,33 @@ public function bp1search(Request $request) {
       })->download('xls');
   }
 
+  public function indexbpcari(Request $request) {
+        $tanggal = $request->get('Tahun')."-".$request->get('Bulan')."-".$request->get('Tanggal')."%";
+
+        $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('bp.bpcari')->with('result', $result)->with('tanggal', urlencode($tanggal));
+
+    }
+
+
+    public function indexbpsearch(Request $request) {
+       $cari = $request->get('searchbp');
+
+
+        if($cari==''){
+        return redirect()->back(); 
+      }
+
+
+      else{
+      $result = spdcenter::where('nip', 'LIKE', '%'.$cari.'%')->orWhere('nama', 'LIKE', '%'.$cari.'%')->orWhere('berangkat', 'LIKE', '%'.$cari.'%')->orWhere('tujuan', 'LIKE', '%'.$cari.'%')->orWhere('kegiatan', 'LIKE', '%'.$cari.'%')->paginate(10);
+        // \Session::flash('flash_message', 'Data pegawai telah dihapus');
+        // return Redirect('admin/listspd');
+        return view('bp.bpcari')->with('result', $result);
+
+      }
+    }
+
 }
