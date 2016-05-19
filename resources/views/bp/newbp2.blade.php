@@ -2,93 +2,181 @@
 
 @section('content')
 
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+  <li><a href="#">Isi data BP2</a></li>
+</ol>
 
+<h2>ISI DATA BP 2</h2>
+<div class="x_title">
+</div>
 
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('/bp/bp2/ubah/'.$bp2a->id) }}" method="post" enctype="multipart/form-data" style="margin-top:20px">
 @role(1)
- <form action="{{url('/admin/bp2a/edit/'.$bp2a->id) }}" method="post" enctype="multipart/form-data">
-   <input type="hidden" name="_token" value="{{ csrf_token() }}">
- 
+<form action="{{url('/admin/bp2a/edit/'.$bp2a->id) }}" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-  
-  <input class="form-control" type="hidden" name="no_spd" value="{{ $bp2a->no_pd }}"><br>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PP</label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input class="form-control" type="text" name="no_pp" value="{{ $bp2a->no_spd }}"><br>
+    </div>
+    </div>
 
-  No PP:<br>
-  <input class="form-control" type="text" name="no_pp" ><br>
+<input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}">
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPP/SPM</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="no_spd" value="{{ $bp2a->no_pd }}">
+</div>
+</div>
+<input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}"><br>
 
-  No SPP/SPM:<br>
-  <input class="form-control" type="text" name="no_spp" ><br>
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal SPP/SPM</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="tanggal_spp"  value="{{ $bp2a->tgl_spp }}"><br>
+</div>
+</div>
 
-  <input class="form-control" type="hidden" name="spd_id" value="{{ $bp2a->id }}"><br>
-  
-  Tanggal SPP/SPM:<br>
-  <input class="form-control" type="text" name="tanggal_spp"  ><br>
-  
-  Tiket Berangkat:<br>
-  <input class="form-control" type="text" name="tiket_berangkat" ><br>
-  
-  Tiket Kembali:<br>
-  <input class="form-control" type="text" name="tiket_kembali"><br>
-  
-  DPR:<br>
-  <input class="form-control" type="text" name="dpr"><br>
-  
-  Penginapan:<br>
-  <input class="form-control" type="text" name="penginapan"><br>
-  
-  Penginapan Tanpa Bukti:<br>
-  <input class="form-control" type="text" name="penginapan_tanpa_bukti"><br>
-  
-  UH:<br>
-  <input class="form-control" type="text" name="uh"><br>
-      
-  UHR:<br>
-  <input class="form-control" type="text" name="uhr"><br>
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tiket Berangkat</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="tiket_berangkat" value="{{ $bp2a->tiket_berangkat }}" ><br>
+</div>
+</div>
 
-  Kekurangan :<br>
-  <input class="form-control" type="text" name="kekurangan"><br>
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tiket Kembali</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="tiket_kembali" value="{{ $bp2a->tiket_kembali }}"><br>
+</div>
+</div>
 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">DPR</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="dpr" value="{{ $bp2a->dpr }}"><br>
+</div>
+</div>
 
-<!-- part2 -->
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Penginapan</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="penginapan" value="{{ $bp2a->penginapan }}"><br>
+</div>
+</div>
 
- Perjalanan Dinas:<br>
-  <input class="form-control" type="text" name="perjalanan_dinas" ><br>
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Penginapan Tanpa Bukti</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="penginapan_tanpa_bukti" value="{{ $bp2a->penginapan_tanpa_bukti }}"><br>
+</div>
+</div>
 
-  Angkutan Pegawai:<br>
-  <input class="form-control" type="text" name="angkutan_pegawai" ><br>
-  
-  Angkutan Keluarga:<br>
-  <input class="form-control" type="text" name="angkutan_keluarga"  ><br>
-  
-  Angkutan PRT:<br>
-  <input class="form-control" type="text" name="angkutan_prt" ><br>
-  
-  Pengepakan:<br>
-  <input class="form-control" type="text" name="pengepakan"><br>
-  
-  Angkutan Barang:<br>
-  <input class="form-control" type="text" name="angkutan_barang"><br>
-  
-  Uang Harian Tiba:<br>
-  <input class="form-control" type="text" name="uang_harian_tiba"><br>
-  
- Uang Harian Bertolak:<br>
-  <input class="form-control" type="text" name="uang_harian_bertolak"><br>
-  
-  Uang Harian Pembantu:<br>
-  <input class="form-control" type="text" name="uang_harian_pembantu"><br>
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">UH</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="uh" value="{{ $bp2a->uh }}"><br>
+</div>
+</div>
 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">UHR</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="uhr" value="{{ $bp2a->uhr }}"><br>
+</div>
+</div>
 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kekurangan</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="kekurangan" value=""><br>
+</div>
+</div>
 
-  
-  Total :<br>
-  <input class="form-control" type="text" name="total"><br>  
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perjalanan Dinas</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="perjalanan_dinas" value=""><br>
+</div>
+</div>
 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Pegawai</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="angkutan_pegawai" value=""><br>
+</div>
+</div>
 
-  <input class="btn btn-success" type="submit" value="Simpan">
-   <input class="btn btn-danger" type="submit" value="Batal">
-     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-</form> 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Keluarga</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="angkutan_keluarga" value=""><br>
+</div>
+</div>
 
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan PR</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="angkutan_prt" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pengepakan</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="pengepakan" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Barang</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="angkutan_barang" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Tiba</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="uang_harian_tiba" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Bertolak</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="uang_harian_bertolak" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Pembantu</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="uang_harian_pembantu" value=""><br>
+</div>
+</div>
+
+<div class="form-group">
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Total</label>
+ <div class="col-md-6 col-sm-6 col-xs-12">
+ <input class="form-control" type="text" name="total" value="{{ $bp2a->total1 }}"><br>
+</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="form-group">
+ <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+   <button type="submit" class="btn btn-primary">Batal</button>
+   <button type="submit" class="btn btn-success">Simpan</button>
+   <input type="hidden" name="_token" value="">
+ </div>
+</div>
+
+</form>
 @endrole
 
 
@@ -96,88 +184,167 @@
 @role(5)
  <form action="{{url('/bp2/bp2a/edit/'.$bp2a->id) }}" method="post" enctype="multipart/form-data">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
- 
 
-  
-  <input class="form-control" type="hidden" name="no_spd" value="{{ $bp2a->no_pd }}"><br>
-
-  No PP:<br>
-  <input class="form-control" type="text" name="no_pp" ><br>
-
-  No SPP/SPM:<br>
-  <input class="form-control" type="text" name="no_spp" ><br>
-
-  <input class="form-control" type="hidden" name="spd_id" value="{{ $bp2a->id }}"><br>
-  
-  Tanggal SPP/SPM:<br>
-  <input class="form-control" type="text" name="tanggal_spp"  ><br>
-  
-  Tiket Berangkat:<br>
-  <input class="form-control" type="text" name="tiket_berangkat" ><br>
-  
-  Tiket Kembali:<br>
-  <input class="form-control" type="text" name="tiket_kembali"><br>
-  
-  DPR:<br>
-  <input class="form-control" type="text" name="dpr"><br>
-  
-  Penginapan:<br>
-  <input class="form-control" type="text" name="penginapan"><br>
-  
-  Penginapan Tanpa Bukti:<br>
-  <input class="form-control" type="text" name="penginapan_tanpa_bukti"><br>
-  
-  UH:<br>
-  <input class="form-control" type="text" name="uh"><br>
-      
-  UHR:<br>
-  <input class="form-control" type="text" name="uhr"><br>
-
-  Kekurangan :<br>
-  <input class="form-control" type="text" name="kekurangan"><br>
+   <div class="form-group">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PP</label>
+       <input class="form-control" type="text" name="no_pp" value="{{ $bp2a->no_spd }}">
+     </div>
+     </div>
 
 
-<!-- part2 -->
+       <input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}">
+ <div class="form-group">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPP/SPM</label>
+  <input class="form-control" type="text" name="no_spd" value="{{ $bp2a->no_pd }}">
+ </div>
+ </div>
 
- Perjalanan Dinas:<br>
-  <input class="form-control" type="text" name="perjalanan_dinas" ><br>
+  <input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}">
+ <div class="form-group">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal SPP/SPM</label>
+  <input class="form-control" type="text" name="tanggal_spp"  value="{{ $bp2a->tgl_spp }}"><br>
+ </div>
+ </div>
 
-  Angkutan Pegawai:<br>
-  <input class="form-control" type="text" name="angkutan_pegawai" ><br>
-  
-  Angkutan Keluarga:<br>
-  <input class="form-control" type="text" name="angkutan_keluarga"  ><br>
-  
-  Angkutan PRT:<br>
-  <input class="form-control" type="text" name="angkutan_prt" ><br>
-  
-  Pengepakan:<br>
-  <input class="form-control" type="text" name="pengepakan"><br>
-  
-  Angkutan Barang:<br>
-  <input class="form-control" type="text" name="angkutan_barang"><br>
-  
-  Uang Harian Tiba:<br>
-  <input class="form-control" type="text" name="uang_harian_tiba"><br>
-  
- Uang Harian Bertolak:<br>
-  <input class="form-control" type="text" name="uang_harian_bertolak"><br>
-  
-  Uang Harian Pembantu:<br>
-  <input class="form-control" type="text" name="uang_harian_pembantu"><br>
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tiket Berangkat</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="tiket_berangkat" value="{{ $bp2a->tiket_berangkat }}" ><br>
+ </div>
+ </div>
 
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tiket Kembali</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="tiket_kembali" value="{{ $bp2a->tiket_kembali }}"><br>
+ </div>
+ </div>
 
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">DPR</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="dpr" value="{{ $bp2a->dpr }}"><br>
+ </div>
+ </div>
 
-  
-  Total :<br>
-  <input class="form-control" type="text" name="total"><br>  
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Penginapan</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="penginapan" value="{{ $bp2a->penginapan }}"><br>
+ </div>
+ </div>
 
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Penginapan Tanpa Bukti</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="penginapan_tanpa_bukti" value="{{ $bp2a->penginapan_tanpa_bukti }}"><br>
+ </div>
+ </div>
 
-  <input class="btn btn-success" type="submit" value="Simpan">
-   <input class="btn btn-danger" type="submit" value="Batal">
-     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-</form> 
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">UH</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="uh" value="{{ $bp2a->uh }}"><br>
+ </div>
+ </div>
 
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">UHR</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="uhr" value="{{ $bp2a->uhr }}"><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kekurangan</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="kekurangan" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perjalanan Dinas</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="perjalanan_dinas" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Pegawai</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="angkutan_pegawai" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Keluarga</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="angkutan_keluarga" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan PR</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="angkutan_prt" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pengepakan</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="pengepakan" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Angkutan Barang</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="angkutan_barang" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Tiba</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="uang_harian_tiba" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Bertolak</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="uang_harian_bertolak" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uang Harian Pembantu</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="uang_harian_pembantu" value=""><br>
+ </div>
+ </div>
+
+ <div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Total</label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+  <input class="form-control" type="text" name="total" value="{{ $bp2a->total1 }}"><br>
+ </div>
+ </div>
+
+ <div class="ln_solid"></div>
+ <div class="form-group">
+  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+    <button type="submit" class="btn btn-primary">Batal</button>
+    <button type="submit" class="btn btn-success">Simpan</button>
+    <input type="hidden" name="_token" value="">
+  </div>
+ </div>
+
+ </form>
 @endrole
 
 
