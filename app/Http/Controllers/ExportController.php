@@ -70,10 +70,16 @@ public function import(){
     // $tampan->save();
 
 
-    $role = new roler();
-    $role->role_id = 4;
-    $role->user_id = User::where('email', $row->Nip)->value('id');
-    $role->save();
+    // $role = new roler();
+    // $role->role_id = 4;
+    // $role->user_id = User::where('email', $row->Nip)->value('id');
+    // $role->save();
+
+
+    // $tampan = new Profil();
+    // $tampan->profil_id = User::where('email', $row->Nip)->value('id');
+    // $tampan->nama = $row->NmPegawai;
+    // $tampan->save();
 
 
     // employees::updateOrCreate(

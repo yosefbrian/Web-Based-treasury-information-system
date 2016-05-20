@@ -221,7 +221,8 @@
                                 </li>
 
                  <li><a href="{{ url('admin/registeri') }}">Register</a></li>
-                 <li><a data-placement="bottom" title="Tambah Database Pegawai" href="#" data-toggle="modal" data-target="#modalimport"><i class="fa fa-btn glyphicon glyphicon-upload"></i>Import User</a></li>
+                 <li><a data-placement="bottom" title="Tambah Database Pegawai" href="#" data-toggle="modal" data-target="#modalimport">Import User</a></li>
+                  <li><a href="{{ url('/admin/slider') }}"> Edit Slider</a></li>
                   @endrole
                  <li><a href="{{ url('/gantipassword') }}">Ubah Password</a></li>
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -288,8 +289,8 @@
               </div>
           </div>
           <footer class="col-md-12 col-md-offset-0">
-            <div class="dashboard_graph pull-right">
-                Template by Bebek</a>
+            <div class="dashboard_graph pull-right" >
+               Developed by kodkod
             </div>
             <div class="clearfix"></div>
           </footer>
