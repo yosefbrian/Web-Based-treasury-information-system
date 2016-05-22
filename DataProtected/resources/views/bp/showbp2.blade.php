@@ -86,38 +86,63 @@ th, td {
 <div class="x_title">
 </div>
 @role(1)
-<form action="{{ url('admin/bp2search') }}" method="post">
+<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('admin/bp2search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
+<input class="btn btn-default" type="submit" value="Cari" > -->
+
 @endrole
 
 
 @role(2)
-<form action="{{ url('bp/bp2search') }}" method="post">
+<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('bp/bp2search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
+<input class="btn btn-default" type="submit" value="Cari" > -->
+
 @endrole
 
 
 @role(3)
-<form action="{{ url('spd/bp2search') }}" method="post">
+<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+<!-- <form action="{{ url('spd/bp2search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
+<input class="btn btn-default" type="submit" value="Cari" > -->
+
 @endrole
 
 
 @role(5)
-<form action="{{ url('bp2/bp2search') }}" method="post">
+<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+<!-- <form action="{{ url('bp2/bp2search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" >
-</form>
+<input class="btn btn-default" type="submit" value="Cari" > -->
 @endrole
 
 
@@ -221,11 +246,11 @@ th, td {
 
 <table style="width:100%">
   <tr>
-    <th>No SPD</th>
-    <th>No PP</th>
-    <th>No SPP/SPM</th>
-    <th>tanggal SPP/SPM</th>
-    <th></th>
+    <th><center>No SPD</th>
+    <th><center>No PP</th>
+    <th><center>No SPP/SPM</th>
+    <th><center>Tanggal SPP/SPM</th>
+    <th><center>Aksi</th>
   </tr>
 
 
@@ -241,9 +266,37 @@ th, td {
     <td>{{ $bp21->tiket_kembali }}</td>
     <td>{{ $bp21->dpr }}</td>
      <td>{{ $bp21->penginapan }}</td> -->
+     <td> <center>
+       <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a>
+     @role(1)
+
+    <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
+
+     @endrole
 
 
-<td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
+
+     @role(5)
+
+    <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
+
+     @endrole
+
+
+     @role(1)
+
+        <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
+
+      @endrole
+
+
+
+     @role(5)
+
+        <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
+
+      @endrole
+    </td>
 
      <div class="modal fade" id="modalshow<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
@@ -507,37 +560,10 @@ th, td {
 
 
 
-@role(1)
-
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
-
-@endrole
 
 
 
-@role(5)
-
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
-
-@endrole
-
-
-@role(1)
-
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
-
- @endrole    
-
-
-
-@role(5)
-
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
-
- @endrole   
-
-
-                             <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
+                        <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -552,9 +578,9 @@ th, td {
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('bpController@delete2', $bp21->id) }}">Hapus</a>
+                                    <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal">Kembali</button>
+
+                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('bpController@delete2', $bp21->id) }}">Hapus</a>
                                 </div>
                             </div>
                         </div>

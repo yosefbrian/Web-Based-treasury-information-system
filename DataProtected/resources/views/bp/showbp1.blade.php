@@ -58,6 +58,7 @@ th, td {
 
 <h2>LIST BENDAHARA PENGELUARAN 1
 
+
 @role(1)
   <a  title="Download Data BP 1" href="{{url('admin/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
   <!-- <a data-placement="bottom" title="Download Data BP 1" href="{{url('admin/bp1/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
@@ -68,36 +69,57 @@ th, td {
 @endrole
 
 </h2>
-
+<div class="x_title">
+</div>
 @role(1)
-<form action="{{ url('admin/bp1search') }}" method="post">
+<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('admin/bp1search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp1" id="searchbp1"></input>
 <input class="btn btn-default" type="submit" value="Cari" >
-</form>
+</form> -->
 @endrole
 
 @role(2)
-<form action="{{ url('bp/bp1search') }}" method="post">
+<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('bp/bp1search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp1" id="searchbp1"></input>
 <input class="btn btn-default" type="submit" value="Cari" >
-</form>
+</form> -->
 @endrole
 
 
 @role(3)
-<form action="{{ url('spd/bp1search') }}" method="post">
+<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('spd/bp1search') }}" method="post">
 <input type="hidden" name="_token" value="{{ csrf_token() }}" >
 <input type="text" name="searchbp1" id="searchbp1"></input>
 <input class="btn btn-default" type="submit" value="Cari" >
-</form>
+</form> -->
 @endrole
 
 
 
-<div class="x_title">
-</div>
+
 
 <body>
 
@@ -195,14 +217,14 @@ th, td {
 
 <table>
   <tr>
-    <th>No PP</th>
-    <th>No PD</th>
-    <th>Nama</th>
-    <th>NIP</th>
-    <th>Pencairan</th>
-    <th>Nama PPK</th>
-    <th>Keterangan</th>
-    <th></th>
+    <th><center>No PP</th>
+    <th><center>No PD</th>
+    <th><center>Nama</th>
+    <th><center>NIP</th>
+    <th><center>Pencairan</th>
+    <th><center>Nama PPK</th>
+    <th><center>Keterangan</th>
+    <th><center>Aksi</th>
   </tr>
 
 
@@ -219,21 +241,21 @@ th, td {
      <td>{{ $bp11->keterangan }}</td>
 
 @role(1)
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+ <td><center><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a>
 @endrole
 
 @role(2)
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+<a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a>
 @endrole
 
 @role(1)
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+    <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a>
 @endrole
 
 
 
 @role(2)
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+    <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a>
 @endrole
 
                              <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
@@ -250,10 +272,10 @@ th, td {
                                     <input type="hidden" value="<?php echo $bp11->id;?>" name="id">
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
+
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    <div class="divider"></div>
-                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('bpController@delete', $bp11->id) }}">Hapus</a>
+                                    <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal">Kembali</button>
+                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('bpController@delete', $bp11->id) }}">Hapus</a>
                                 </div>
                             </div>
                         </div>

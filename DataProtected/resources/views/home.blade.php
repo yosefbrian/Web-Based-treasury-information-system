@@ -36,7 +36,6 @@ $('div.alert').delay(5000).slideUp(300);
 
 
 
-
 <!-- slider -->
 <div id="carousel" class="col-md-12">
   <!--
@@ -68,9 +67,10 @@ $i=1  ?>
 <div class="carousel-inner" >
 
     <div class="item active" style="width:100%; max-height:500px !important;">
-    <img src="upload/slider/selamatdtg.png" alt="">
+    <img src="upload/slider/1.jpg" alt="">
+    <div style="position:absolute; top: 50%; margin-top:0px; width: 100%; text-align:center; font-size:50px; color:white">SELAMAT DATANG</div>
       <div class="carousel-caption">
-        <h2></h2>
+        <h1> </h1>
         <p></p>
       </div>
     </div>
@@ -126,7 +126,6 @@ $i=1  ?>
 
 
 <!-- end carousel -->
-
 
 <div class="row">
     <br>

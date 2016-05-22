@@ -123,11 +123,11 @@ th, td {
 
 <table style="width:100%">
   <tr>
-    <th>No SPD</th>
-    <th>No PP</th>
-    <th>No SPP/SPM</th>
-    <th>tanggal SPP/SPM</th>
-    <th></th>
+    <th><center>No SPD</th>
+    <th><center>No PP</th>
+    <th><center>No SPP/SPM</th>
+    <th><center>Tanggal SPP/SPM</th>
+    <th><center>Aksi</th>
   </tr>
 
 
@@ -145,8 +145,31 @@ th, td {
      <td>{{ $bp21->penginapan }}</td> -->
 
 
-<td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
+<td><center> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a>
+@role(1)
 
+<a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
+
+@endrole
+
+
+
+@role(5)
+
+<a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
+
+@endrole
+
+
+@role(1)
+    <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
+@endrole
+
+@role(5)
+    <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
+@endrole
+</td>
+</tr>
      <div class="modal fade" id="modalshow<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -406,33 +429,14 @@ th, td {
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                </div>
 
 
 
-@role(1)
-
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
-
-@endrole
 
 
-
-@role(5)
-
- <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
-
-@endrole
-
-
-@role(1)
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
-@endrole
-
-@role(5)
-     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
-@endrole
-
-                             <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
+                      <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -455,7 +459,6 @@ th, td {
                         </div>
                     </div>
 
-  </tr>
   @endforeach
 </table>
 

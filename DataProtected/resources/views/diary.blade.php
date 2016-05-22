@@ -139,5 +139,5 @@ $('div.alert').delay(5000).slideUp(300);
     </div>
     @endforeach
     {!! $diarys->render() !!}
-</div>
+
 @endsection
