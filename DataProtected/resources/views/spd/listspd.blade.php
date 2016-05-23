@@ -77,15 +77,17 @@ th {
   <input class="btn btn-default pull-left" type="submit" value="Cari" ></input>
 </div>
 </form>
+
+
 <div class="">
 
 @role(1)
-<form action="{{ url('admin/searchspd') }}" method="post" enctype="multipart/form-data" >
+<form action="{{ url('admin/listcari') }}" method="post" enctype="multipart/form-data" >
 @endrole
 
 
 @role(3)
-<form action="{{ url('spd/searchspd') }}" method="post" enctype="multipart/form-data" >
+<form action="{{ url('spd/listcari') }}" method="post" enctype="multipart/form-data" >
 @endrole
 
 

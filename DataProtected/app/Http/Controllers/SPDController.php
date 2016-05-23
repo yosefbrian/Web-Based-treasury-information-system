@@ -281,14 +281,14 @@ public function storespd(Request $request, $id) {
       $result = spdcenter::where('created_at', 'LIKE', $tanggal)->paginate(10);
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         // return Redirect('admin/listspd');
-        return view('spd.listspdcari')->with('result', $result);
+        return view('spd.listspdcari')->with('result', $result)->with('tanggal', $tanggal);
     }
 
 
 
 
      public function searchspd(Request $request) {
-      $cari = $request->get('searchspd');
+      $cari = $request->get('spdsearch');
       if($cari==''){
         // return redirect('admin/listspd');
         return redirect()->back(); 
