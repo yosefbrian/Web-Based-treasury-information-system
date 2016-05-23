@@ -181,14 +181,13 @@ public function delete2($id) {
 
     $spd = spdcenter::paginate(10);
         
-          return view('bp.bp')->with('spd', $spd);
+          return view('bp.showbp1')->with('spd', $spd);
     }
     
 
     public function update2($id, Request $request) 
     {
          $no_spd = reques::get('no_spd');
-        $spd_id = reques::get('spd_id');
         $no_pp = reques::get('no_pp');
         $no_spp = reques::get('no_spp');
         $tanggal_spp =  reques::get('tanggal_spp');
@@ -200,15 +199,23 @@ public function delete2($id) {
         $uh =reques::get('uh');
         $uhr =reques::get('uhr');
         $kekurangan =reques::get('kekurangan');
-        $total1 =reques::get('total1');
+        $perjalanan_dinas =reques::get('perjalanan_dinas');
+        $angkutan_pegawai =reques::get('angkutan_pegawai');
+        $angkutan_keluarga =reques::get('angkutan_keluarga');
+        $angkutan_prt =reques::get('angkutan_prt');
+        $pengepakan =reques::get('pengepakan');
+        $angkutan_barang =reques::get('angkutan_barang');
+        $uang_harian_tiba =reques::get('uang_harian_tiba');
+        $uang_harian_bertolak =reques::get('uang_harian_bertolak');
+        $uang_harian_pembantu =reques::get('uang_harian_pembantu');
+        $total =reques::get('total');
         // $filename = reques::get('fileToUpload')->getClientOriginalName();
 
 
 
     $bp2a = bp2a::findOrFail($id);
 
-     $bp2a->no_spd = $no_spd;
-    $bp2a->spd_id = $spd_id;
+    $bp2a->no_spd = $no_spd;
     $bp2a->no_pp = $no_pp;
     $bp2a->no_spp = $no_spp;
     $bp2a->tgl_spp = $tanggal_spp;
@@ -220,7 +227,16 @@ public function delete2($id) {
     $bp2a->uh = $uh;
     $bp2a->uhr = $uhr;
     $bp2a->kekurangan = $kekurangan;
-    $bp2a->total1 = $total1;
+    $bp2a->perjalanan_dinas = $perjalanan_dinas;
+    $bp2a->angkutan_pegawai = $angkutan_pegawai;
+    $bp2a->angkutan_keluarga = $angkutan_keluarga;
+    $bp2a->angkutan_prt = $angkutan_prt;
+    $bp2a->pengepakan = $pengepakan;
+    $bp2a->angkutan_barang = $kekurangan;
+    $bp2a->uang_harian_tiba = $uang_harian_tiba;
+    $bp2a->uang_harian_bertolak = $uang_harian_bertolak;
+    $bp2a->uang_harian_pembantu = $uang_harian_pembantu;
+    $bp2a->total = $total;
 
     $bp2a->save();
 
@@ -233,7 +249,7 @@ public function delete2($id) {
 
       $spd = spdcenter::paginate(10);
         
-          return view('bp.bp')->with('spd', $spd);
+          return view('bp.showbp2')->with('spd', $spd);
     }
 
           public function bp1cari(Request $request) {

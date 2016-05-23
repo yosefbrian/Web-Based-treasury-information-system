@@ -82,11 +82,6 @@ th, td {
 
 </h2>
 
-
-
-
-
-
 <div class="x_title">
 </div>
 
