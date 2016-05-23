@@ -68,6 +68,15 @@ th, td {
    <a  title="Download Data BP 1" href="{{url('bp/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
 @endrole
 
+@role(3)
+   <a  title="Download Data BP 1" href="{{url('spd/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
+
+@role(5)
+   <a  title="Download Data BP 1" href="{{url('bp2/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
+
+
 </h2>
 <div class="x_title">
 </div>
@@ -78,11 +87,15 @@ th, td {
 @endrole
 
 @role(2)
-<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('bp/bp1search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
 @role(3)
-<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('spd/bp1search') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+@role(5)
+<form action="{{ url('bp2/bp1search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
     <div class="col-sm-8 pull-left">
@@ -101,6 +114,15 @@ th, td {
 @role(2)
 <form action="{{ url('bp/bp1cari') }}" method="post" enctype="multipart/form-data">
 @endrole
+
+@role(3)
+<form action="{{ url('spd/bp1cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+@role(5)
+<form action="{{ url('bp2/bp1cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
  <div>
 <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -181,10 +203,6 @@ th, td {
   </form>
 </div>
 
-
-
-
-
 <table>
   <tr>
     <th><center>No PP</th>
@@ -215,41 +233,39 @@ th, td {
 @endrole
 
 @role(2)
-<a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a>
+<td><center><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp/bp1/ubah/'.$bp11->id)}}"><span class="glyphicon glyphicon-pencil"></a>
 @endrole
 
 @role(1)
     <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a>
 @endrole
 
-
-
 @role(2)
     <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp11->id;?>"><span class="glyphicon glyphicon-trash"></a>
 @endrole
 
-                             <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
-                        <div class="modal-dialog modal-sm" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title"><b>Perhatian</b></h4>
-                                </div>
+    <div class="modal fade" id="modaldelete<?php echo $bp11->id;?>" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title"><b>Perhatian</b></h4>
+              </div>
 
-                                <div class="modal-body">
-                                    <input type="hidden" value="<?php echo $bp11->id;?>" name="id">
-                                    <h5>Apakah Anda yakin akan menghapus data ini?</h5>
-                                </div>
+              <div class="modal-body">
+                  <input type="hidden" value="<?php echo $bp11->id;?>" name="id">
+                  <h5>Apakah Anda yakin akan menghapus data ini?</h5>
+              </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal">Kembali</button>
-                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('bpController@delete', $bp11->id) }}">Hapus</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal">Kembali</button>
+                  <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('bpController@delete', $bp11->id) }}">Hapus</a>
+              </div>
+          </div>
+      </div>
+  </div>
 
   </tr>
   @endforeach

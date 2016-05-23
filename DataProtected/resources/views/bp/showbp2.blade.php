@@ -66,14 +66,18 @@ th, td {
 
 @role(1)
   <a  title="Download Data BP 2" href="{{url('admin/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-  <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
+@role(2)
+  <a  title="Download Data BP 2" href="{{url('bp/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
 
+@role(3)
+  <a  title="Download Data BP 2" href="{{url('spd/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+@endrole
 
 @role(5)
   <a  title="Download Data BP 2" href="{{url('bp2/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-  <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
 </h2>
@@ -92,16 +96,15 @@ th, td {
 @endrole
 
 @role(2)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('bp/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
 @role(3)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('spd/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
-
 @role(5)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('bp2/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 <div class="col-sm-8 pull-left">
   <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
@@ -116,13 +119,20 @@ th, td {
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
 @endrole
 
+@role(2)
+<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+@role(3)
+<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
 @role(5)
 <form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
-  @endrole
+@endrole
+
 <input class="btn btn-default" type="submit" value="Cari" style="float:right">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-
 
 <div class="col-xs-3" style="float:right">
 <select name="Tahun" class="form-control">
@@ -201,10 +211,6 @@ th, td {
   </form>
 </div>
 
-
-
-
-
 <table style="width:100%">
   <tr>
     <th><center>No SPD</th>
@@ -216,8 +222,8 @@ th, td {
 
 
  <?php $i=0; ?>
-                @foreach ($bp2 as $bp21)
-                    <?php $i++; ?>
+  @foreach ($bp2 as $bp21)
+      <?php $i++; ?>
   <tr>
     <td>{{$bp21->no_spd}}</td>
     <td>{{$bp21->no_pp}}</td>
@@ -229,33 +235,22 @@ th, td {
      <td>{{ $bp21->penginapan }}</td> -->
      <td> <center>
        <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a>
+
      @role(1)
-
     <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
-
      @endrole
-
-
 
      @role(5)
-
     <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
-
      @endrole
 
 
      @role(1)
-
         <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
-
       @endrole
 
-
-
      @role(5)
-
         <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
-
       @endrole
     </td>
 
@@ -510,18 +505,11 @@ th, td {
                                                         </div>
                                                     </div>
 
-
-
-
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
 
 
                         <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
