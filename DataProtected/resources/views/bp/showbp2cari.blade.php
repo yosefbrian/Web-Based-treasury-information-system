@@ -4,56 +4,11 @@
 
 
 <!DOCTYPE html>
-
-@role(1)
-<ol class="breadcrumb">
-  <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="{{ url('admin/bp2')}}">Reimbursement</a></li>
-  <li><a href="{{ url('admin/bp2')}}">Bendahara Pengeluaran</a></li>
-  <li><a href="#">List BP 2</a></li>
-</ol>
-
-@endrole
-
-
-@role(5)
-<ol class="breadcrumb">
-  <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="{{ url('bp2/bp2')}}">Reimbursement</a></li>
-  <li><a href="{{ url('bp2/bp2')}}">Bendahara Pengeluaran</a></li>
-  <li><a href="#">List BP 2</a></li>
-</ol>
-
-@endrole
-
-
-<style type="text/css">
-
-    table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
-
-
-<!DOCTYPE html>
 <html>
 <head>
 <style>
 table, th, td {
-    border: 0px solid black;
+    border: 1px solid black;
     border-collapse: collapse;
 }
 th, td {
@@ -61,67 +16,26 @@ th, td {
 }
 </style>
 </head>
-
-<h2>LIST BENDAHARA PENGELUARAN 2
-
-@role(1)
-  <a  title="Download Data BP 2" href="{{url('admin/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-@endrole
-
-
-
-@role(5)
-  <a  title="Download Data BP 2" href="{{url('bp2/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-@endrole
-
-</h2>
-
-<div class="x_title">
-</div>
-@role(1)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-
-@role(2)
-<form action="{{ url('bp/bp2search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-
-@role(3)
-<form action="{{ url('spd/bp2search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-
-@role(5)
-<form action="{{ url('bp2/bp2search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-  <div class="col-sm-4 pull-left">
-    <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
-    <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-  </div>
-  <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-</form>
+<body>
 
 @role(1)
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
 @endrole
 
-@role(2)
-<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-@role(3)
-<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
-@endrole
 
 @role(5)
 <form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
 @endrole
 
-  <div class="col-xs-2" style="float:left">
-    <select name="Tanggal" class="form-control">
+
+@role(3)
+<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<div class="col-xs-2">
+  <select name="Tanggal" class="form-control">
     <option value="01" <?php echo (substr($tanggal,8,2) == '01')?"selected":""; ?>>1</option>
     <option value="02" <?php echo (substr($tanggal,8,2) == '02')?"selected":""; ?>>2</option>
     <option value="03" <?php echo (substr($tanggal,8,2) == '03')?"selected":""; ?>>3</option>
@@ -153,10 +67,10 @@ th, td {
     <option value="29" <?php echo (substr($tanggal,8,2) == '29')?"selected":""; ?>>29</option>
     <option value="30" <?php echo (substr($tanggal,8,2) == '30')?"selected":""; ?>>30</option>
     <option value="31" <?php echo (substr($tanggal,8,2) == '31')?"selected":""; ?>>31</option>
-    </select>
-    </div>
+  </select>
+  </div>
 
-  <div class="col-xs-2" style="float:left">
+  <div class="col-xs-2">
   <select name="Bulan" class="form-control">
     <option value="01" <?php echo (substr($tanggal,5,2) == '01')?"selected":""; ?>>Januari</option>
     <option value="02" <?php echo (substr($tanggal,5,2) == '02')?"selected":""; ?>>Februari</option>
@@ -173,8 +87,8 @@ th, td {
   </select>
   </div>
 
-  <div class="col-xs-2" style="float:left">
-    <select name="Tahun" class="form-control">
+  <div class="col-xs-2">
+  <select name="Tahun" class="form-control"  value="<?php echo substr($tanggal,0,4)?>">
     <option value="2016" <?php echo (substr($tanggal,0,4) == '2016')?"selected":""; ?>>2016</option>
     <option value="2017" <?php echo (substr($tanggal,0,4) == '2017')?"selected":""; ?>>2017</option>
     <option value="2018" <?php echo (substr($tanggal,0,4) == '2018')?"selected":""; ?>>2018</option>
@@ -184,22 +98,32 @@ th, td {
     <option value="2022" <?php echo (substr($tanggal,0,4) == '2022')?"selected":""; ?>>2022</option>
     <option value="2023" <?php echo (substr($tanggal,0,4) == '2023')?"selected":""; ?>>2023</option>
     <option value="2024" <?php echo (substr($tanggal,0,4) == '2024')?"selected":""; ?>>2024</option>
-    <option value="2025" <?php echo (substr($tanggal,0,4) == '2025')?"selected":""; ?>>2025</option>
-    </select>
+    <option value="2025" <?php echo (substr($tanggal,0,4) == '2025')?"selected":""; ?>>2025</option>                            
+  </select>
   </div>
-
-  <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+</div>
+<input class="btn btn-default" type="submit" value="Cari">
 </form>
+
+
+@role(1)
+<a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
+
+
+@role(5)
+<a data-placement="bottom" title="Download Data BP 2" href="{{url('bp2/bp2/export/'.$tanggal)}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a>
+@endrole
+
+
 
 <table style="width:100%">
   <tr>
-    <th><center>No SPD</th>
-    <th><center>No PP</th>
-    <th><center>No SPP/SPM</th>
-    <th><center>Tanggal SPP/SPM</th>
-    <th><center>Aksi</th>
+    <th>No SPD</th>
+    <th>No PP</th>
+    <th>No SPP/SPM</th>   
+    <th>tanggal SPP/SPM</th>
+    <th></th>
   </tr>
 
 
@@ -209,43 +133,15 @@ th, td {
   <tr>
     <td>{{$bp21->no_spd}}</td>
     <td>{{$bp21->no_pp}}</td>
-    <td>{{$bp21->no_spp}}</td>
+    <td>{{$bp21->no_spp}}</td>    
     <td>{{$bp21->tgl_spp}}</td>
  <!--     <td>{{$bp21->tiket_berangkat}}</td>
-    <td>{{ $bp21->tiket_kembali }}</td>
+    <td>{{ $bp21->tiket_kembali }}</td>    
     <td>{{ $bp21->dpr }}</td>
      <td>{{ $bp21->penginapan }}</td> -->
-     <td> <center>
-       <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a>
-     @role(1)
 
-    <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
-
-     @endrole
-
-
-
-     @role(5)
-
-    <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a>
-
-     @endrole
-
-
-     @role(1)
-
-        <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
-
-      @endrole
-
-
-
-     @role(5)
-
-        <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a>
-
-      @endrole
-    </td>
+ 
+<td> <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="bp21->id" data-target="#modalshow<?php echo $bp21->id;?>" href="#"><span class="glyphicon glyphicon-user"></span></a></td>
 
      <div class="modal fade" id="modalshow<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
@@ -272,7 +168,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    No PP
+                                                                    No PP 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->no_pp}}</div>
@@ -306,7 +202,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman
+                                                                    Pengiriman 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->tiket_berangkat}}</div>
@@ -316,7 +212,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Tiket Kembali:
+                                                                    Tiket Kembali: 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6"> {{ $bp21->tiket_kembali }}</div>
@@ -326,7 +222,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    DPR :
+                                                                    DPR : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->dpr }}</div>
@@ -336,7 +232,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Penginapan :
+                                                                    Penginapan : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->penginapan }}</div>
@@ -346,7 +242,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Penginapan Tanpa Bukti :
+                                                                    Penginapan Tanpa Bukti : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->penginapan_tanpa_bukti }}</div>
@@ -356,7 +252,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    UH:
+                                                                    UH: 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $bp21->uh}}</div>
@@ -388,7 +284,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Perjalanan Dinas :
+                                                                    Perjalanan Dinas : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->perjalanan_dinas}}</div>
@@ -399,7 +295,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Pegawai :
+                                                                    Angkutan Pegawai : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_pegawai}}</div>
@@ -410,7 +306,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Keluarga :
+                                                                    Angkutan Keluarga : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_keluarga}}</div>
@@ -422,7 +318,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan PRT :
+                                                                    Angkutan PRT : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_prt}}</div>
@@ -434,7 +330,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengepakan :
+                                                                    Pengepakan : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->pengepakan}}</div>
@@ -446,7 +342,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Angkutan Barang :
+                                                                    Angkutan Barang : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->angkutan_barang}}</div>
@@ -457,7 +353,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Tiba :
+                                                                    Uang Harian Tiba : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_tiba}}</div>
@@ -468,7 +364,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Bertolak :
+                                                                    Uang Harian Bertolak : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_bertolak}}</div>
@@ -479,7 +375,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Uang Harian Pembantu :
+                                                                    Uang Harian Pembantu : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->uang_harian_pembantu}}</div>
@@ -491,7 +387,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Total :
+                                                                    Total : 
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->total}}</div>
@@ -499,20 +395,36 @@ th, td {
                                                     </div>
 
 
-
-
+                                                    
+                                                    
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
+                                
 
 
+@role(1)
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+@endrole
 
 
+@role(5)
+ <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('bp2/bp2/ubah/'.$bp21->id)}}"><span class="glyphicon glyphicon-pencil"></a></td>
+
+@endrole
+
+@role(1)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
 
 
-                        <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
+@role(5)
+     <td><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $bp21->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+@endrole
+                             <div class="modal fade" id="modaldelete<?php echo $bp21->id;?>" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -521,19 +433,19 @@ th, td {
                                     </button>
                                     <h4 class="modal-title"><b>Perhatian</b></h4>
                                 </div>
-
+                                
                                 <div class="modal-body">
                                     <input type="hidden" value="<?php echo $bp21->id;?>" name="id">
                                     <h5>Apakah Anda yakin akan menghapus data ini?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-info btn-simple pull-left" data-dismiss="modal">Kembali</button>
-
-                                    <a class="btn btn-danger btn-simple pull-right" title="Hapus" href="{{ action('bpController@delete2', $bp21->id) }}">Hapus</a>
+                                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
+                                    <div class="divider"></div>
+                                    <a class="btn btn-danger btn-simple" title="Hapus" href="{{ action('bpController@delete2', $bp21->id) }}">Hapus</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>      
 
   </tr>
   @endforeach

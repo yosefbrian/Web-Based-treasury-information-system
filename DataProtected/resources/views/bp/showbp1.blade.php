@@ -61,6 +61,7 @@ th, td {
 
 @role(1)
   <a  title="Download Data BP 1" href="{{url('admin/bp1/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
+  <!-- <a data-placement="bottom" title="Download Data BP 1" href="{{url('admin/bp1/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
 @role(2)
@@ -72,61 +73,87 @@ th, td {
 </div>
 @role(1)
 <form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-@role(2)
-<form action="{{ url('bp/bp1search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-
-@role(3)
-<form action="{{ url('spd/bp1search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
-@role(5)
-<form action="{{ url('bp2/bp1search') }}" method="post" enctype="multipart/form-data">
-@endrole
-
     <div class="col-sm-4 pull-left">
       <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
       <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
     </div>
     <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-</form>
 
-@role(1)
-<form action="{{ url('admin/bp1cari') }}" method="post" enctype="multipart/form-data">
+<!-- <form action="{{ url('admin/bp1search') }}" method="post">
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+<input type="text" name="searchbp1" id="searchbp1"></input>
+<input class="btn btn-default" type="submit" value="Cari" >
+</form> -->
 @endrole
 
 @role(2)
-<form action="{{ url('bp/bp1cari') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('bp/bp1search') }}" method="post">
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+<input type="text" name="searchbp1" id="searchbp1"></input>
+<input class="btn btn-default" type="submit" value="Cari" >
+</form> -->
 @endrole
+
 
 @role(3)
-<form action="{{ url('spd/bp1cari') }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
+    <div class="col-sm-4 pull-left">
+      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
+      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+    </div>
+    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+
+<!-- <form action="{{ url('spd/bp1search') }}" method="post">
+<input type="hidden" name="_token" value="{{ csrf_token() }}" >
+<input type="text" name="searchbp1" id="searchbp1"></input>
+<input class="btn btn-default" type="submit" value="Cari" >
+</form> -->
 @endrole
 
-@role(5)
-<form action="{{ url('bp2/bp1cari') }}" method="post" enctype="multipart/form-data">
+
+
+
+
+<body>
+
+@role(1)
+
+<form action="{{ url('admin/bp1cari') }}" method="post" enctype="multipart/form-data">
+  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
 
-  <div class="col-xs-2" style="float:left">
-  <select name="Tahun" class="form-control">
-    <option value="%"> - Tahun - </option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-  </select>
-  </div>
 
-  <div class="col-xs-2" style="float:left">
+@role(2)
+<form action="{{ url('bp/bp1cari') }}" method="post" enctype="multipart/form-data">
+  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+@endrole
+
+<div class="col-xs-2" style="float:right">
+<select name="Tahun" class="form-control">
+  <option value="%"> - Tahun - </option>
+  <option value="2016">2016</option>
+  <option value="2017">2017</option>
+  <option value="2018">2018</option>
+  <option value="2019">2019</option>
+  <option value="2020">2020</option>
+  <option value="2021">2021</option>
+  <option value="2022">2022</option>
+  <option value="2023">2023</option>
+  <option value="2024">2024</option>
+  <option value="2025">2025</option>
+</select>
+</div>
+
+  <div class="col-xs-2" style="float:right">
   <select name="Bulan" class="form-control">
     <option value="%"> - Bulan - </option>
     <option value="01">Januari</option>
@@ -144,7 +171,7 @@ th, td {
   </select>
   </div>
 
-  <div class="col-xs-2" style="float:left">
+  <div class="col-xs-2" style="float:right">
     <select name="Tanggal" class="form-control">
       <option value="%"> - Hari - </option>
       <option value="01">1</option>
@@ -181,10 +208,12 @@ th, td {
     </select>
     </div>
 
-  <input class="btn btn-default" type="submit" value="Cari" style="float:left">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+</div>
 
 </form>
+
+
+
 
 <table>
   <tr>
