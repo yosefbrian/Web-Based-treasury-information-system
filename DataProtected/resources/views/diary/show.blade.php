@@ -6,6 +6,32 @@
 		@role(1)
 			<button class="btn" style="float: right"><a href="{{ url('edit/'.$diary->slug)}}">Edit Post</a></button>
 		@endrole
+
+			@role(2)
+	@if(Auth::user()->id == $diary->author_id)
+	<a style="float: right;" href="{{ url('diaryedit/'.$diary->slug)}}">Edit Post</a></button>
+	@endif
+	@endrole
+
+	@role(3)
+	@if(Auth::user()->id == $diary->author_id)
+	<a style="float: right;" href="{{ url('diaryedit/'.$diary->slug)}}">Edit Post</a></button>
+	@endif
+	@endrole
+
+@role(4)
+	@if(Auth::user()->id == $diary->author_id)
+	<a style="float: right;" href="{{ url('diaryedit/'.$diary->slug)}}">Edit Post</a></button>
+	@endif
+	@endrole
+
+@role(5)
+	@if(Auth::user()->id == $diary->author_id)
+	<a style="float: right;" href="{{ url('diaryedit/'.$diary->slug)}}">Edit Post</a>
+	@endif
+	@endrole
+
+
 	@else
 		Page does not exist
 	@endif

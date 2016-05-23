@@ -186,15 +186,20 @@ return view('diary.show')->with('diary',$diary)->with('comments',$comments);
 	{
 		//
 		$diary = Diary::find($id);
-		if($diary && ($diary->author_id == $request->user()->id || $request->user()->is_admin()))
-		{
-			$diary->delete();
+		$diary->delete();
 			$data['message'] = 'Post deleted Successfully';
-		}
-		else
-		{
-			$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
-		}
+
+
+		// if($diary && ($diary->author_id == $request->user()->id || $request->user()->is_admin()))
+		// {
+		// 	$diary->delete();
+		// 	$data['message'] = 'Post deleted Successfully';
+		// }
+		// else
+		// {
+		// 	$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
+		// }
+		
 		\Session::flash('flash_message_hapus','');
 		return redirect('/diary')->with($data);
 	}

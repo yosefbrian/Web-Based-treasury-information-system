@@ -32,7 +32,7 @@
       <textarea name='body'class="form-control">{{ old('body') }}</textarea>
     </div>
     <input type="submit" name='publish' class="btn btn-success pull-right" value = "Publish"/>
-    <input type="submit" name='save' class="btn btn-default pull-right" value = "Save Draft" />
+ <!--    <input type="submit" name='save' class="btn btn-default pull-right" value = "Save Draft" /> -->
   </form>
   <hr>
 </div>
@@ -60,12 +60,81 @@ $('div.alert').delay(5000).slideUp(300);
             <h3><a href="{{ url('diary/'.$diary->slug) }}">{{ $diary->title }}</a>
 
 
-                    @role(1)
+             
                     @if($diary->active == '1')
-                    <div class="btn-group pull-right" role="group" >
+                   
+
+@role(1)
+ <div class="btn-group pull-right" role="group" >
                       <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
-                      <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
-                    </div>
+  
+  <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+ </div>
+ @endrole
+
+
+
+  @role(2)
+
+  @if(Auth::user()->name == $diary->author->name)
+   <div class="btn-group pull-right" role="group" >
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
+
+
+  <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+ </div>
+  @endif
+  @endrole
+
+
+
+  @role(3)
+
+  @if(Auth::user()->id == $diary->author_id)
+
+
+   <div class="btn-group pull-right" role="group" >
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
+
+  <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+ </div>
+
+  @endif
+  @endrole
+                      
+
+
+  @role(4)
+
+  @if(Auth::user()->id == $diary->author_id)
+ 
+  <div class="btn-group pull-right" role="group" >
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
+
+  <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+ </div>
+
+  @endif
+  @endrole
+
+                      
+
+  @role(5)
+
+  @if(Auth::user()->id == $diary->author_id)
+
+   <div class="btn-group pull-right" role="group" >
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
+
+
+  <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+ </div>
+
+  @endif
+  @endrole
+
+
+                   
 
                     <div class="modal fade" id="modaldelete<?php echo $diary->id;?>" tabindex="-1" role="dialog" >
                       <div class="modal-dialog modal-sm" role="document">
@@ -124,8 +193,8 @@ $('div.alert').delay(5000).slideUp(300);
                              <a type="button" href="{{  url('/diarydelete/'.$diary->id.'?_token='.csrf_token()) }}" class="btn btn-danger" style="float:right">Delete</a>
                              @endrole
                             </form>
-                    @endrole
-                    @endif
+                   
+             @endif  
             </h3>
             <h5>{{ $diary->created_at->format('M d,Y \a\t h:i a') }} by {{ $diary->author->name }}</h5>
 
@@ -137,6 +206,7 @@ $('div.alert').delay(5000).slideUp(300);
           </div>
         </div>
     </div>
+   
     @endforeach
     {!! $diarys->render() !!}
 </div>
