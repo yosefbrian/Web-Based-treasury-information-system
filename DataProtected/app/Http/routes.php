@@ -69,6 +69,8 @@ Route::get('diaryedit/{slug}','DiaryController@edit');
 Route::post('diaryupdate','DiaryController@update');
 Route::get('diarydelete/{id}','DiaryController@destroy');
 Route::get('/diary/{slug}',['as' => 'diary', 'uses' => 'DiaryController@show'])->where('slug', '[A-Za-z0-9-_]+');
+Route::post('comment/add','CommentController@store');
+
 
 });
 

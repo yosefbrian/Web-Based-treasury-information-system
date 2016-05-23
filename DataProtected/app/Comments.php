@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comments extends Model {
 
 	//comments table in database
+
+protected $table = 'diary_com';
+
 	protected $guarded = [];
 	
 	// user who commented
@@ -17,7 +20,7 @@ class Comments extends Model {
 	
 	public function post()
 	{
-		return $this->belongsTo('App\Posts','on_post');
+		return $this->belongsTo('App\Diary','on_post');
 	}
 
 }

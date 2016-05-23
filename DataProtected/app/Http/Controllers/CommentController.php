@@ -1,6 +1,4 @@
-<?php 
-
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use App\Posts;
 use App\Comments;
@@ -9,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+
+
 
 class CommentController extends Controller {
 
@@ -46,7 +46,7 @@ class CommentController extends Controller {
 		$slug = $request->input('slug');
 		Comments::create( $input );
  
-		return redirect($slug)->with('message', 'Comment published'); 	
+		return redirect('diary/'.$slug)->with('message', 'Comment published'); 	
 	}
 
 	/**
