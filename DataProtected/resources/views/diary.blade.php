@@ -57,7 +57,7 @@ $('div.alert').delay(5000).slideUp(300);
     @foreach( $diarys as $diary )
     <div class="list-group" style="margin-top:5px">
         <div class="list-group-item">
-            <h3><a href="{{ url('/'.$diary->slug) }}">{{ $diary->title }}</a>
+            <h3><a href="{{ url('diary/'.$diary->slug) }}">{{ $diary->title }}</a>
 
 
                     @role(1)
@@ -139,5 +139,5 @@ $('div.alert').delay(5000).slideUp(300);
     </div>
     @endforeach
     {!! $diarys->render() !!}
-
+</div>
 @endsection
