@@ -27,19 +27,19 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PD <span class="required"></span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" name="no_pd" value="$bp1->no_pd" class="form-control col-md-7 col-xs-12">
+      <input type="text" name="no_pd" value="{{$bp1->no_pd}}" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama <span class="required"></span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" name="nama" value="$bp1->nama" class="form-control col-md-7 col-xs-12">
+      <input type="text" name="nama" value="{{$bp1->nama}}" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">NIP <span class="required"></span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" name="nip" value="$bp1->nip" class="form-control col-md-7 col-xs-12">
+      <input type="text" name="nip" value="{{$bp1->nip}}" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
   <div class="form-group">
@@ -53,7 +53,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama PPK <span class="required"></span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" name="nama_ppk" value="bp1->nama_ppk" class="form-control col-md-7 col-xs-12">
+      <input type="text" name="nama_ppk" value="{{bp1->nama_ppk}}" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
   <div class="form-group">
