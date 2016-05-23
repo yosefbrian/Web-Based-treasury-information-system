@@ -66,140 +66,61 @@ th, td {
 
 @role(1)
   <a  title="Download Data BP 2" href="{{url('admin/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-  <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
 
 
 @role(5)
   <a  title="Download Data BP 2" href="{{url('bp2/bp2/export')}}" title="Download Daftar SPD" type="button" class="btn btn-info btn-simple pull-right" style="float:right; margin-top:-5px"><i class="fa fa-download" style="margin-right:10px"></i>Download Data</a>
-  <!-- <a data-placement="bottom" title="Download Data BP 2" href="{{url('admin/bp2/export')}}"><i class="fa fa-btn glyphicon glyphicon-download"></i>Download Data</a> -->
 @endrole
 
 </h2>
-
-
-
-
-
 
 <div class="x_title">
 </div>
 @role(1)
 <form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-
-<!-- <form action="{{ url('admin/bp2search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" > -->
-
 @endrole
 
 
 @role(2)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-
-<!-- <form action="{{ url('bp/bp2search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" > -->
-
+<form action="{{ url('bp/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
 
 @role(3)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-<!-- <form action="{{ url('spd/bp2search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" > -->
-
+<form action="{{ url('spd/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
 
 @role(5)
-<form action="{{ url('admin/bp2search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-<!-- <form action="{{ url('bp2/bp2search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp2" id="searchbp2">
-<input class="btn btn-default" type="submit" value="Cari" > -->
+<form action="{{ url('bp2/bp2search') }}" method="post" enctype="multipart/form-data">
 @endrole
 
-
-<body>
+  <div class="col-sm-4 pull-left">
+    <input class="form-control"  type="text" name="searchbp2" id="searchbp2" placeholder="cari.." >
+    <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
+  </div>
+  <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+</form>
 
 @role(1)
 <form action="{{ url('admin/bp2cari') }}" method="post" enctype="multipart/form-data">
-  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
 
+@role(2)
+<form action="{{ url('bp/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
+
+@role(3)
+<form action="{{ url('spd/bp2cari') }}" method="post" enctype="multipart/form-data">
+@endrole
 
 @role(5)
 <form action="{{ url('bp2/bp2cari') }}" method="post" enctype="multipart/form-data">
-  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
 
-
-
-<div class="col-xs-2" style="float:right">
-<select name="Tahun" class="form-control">
-  <option value="%"> - Tahun - </option>
-  <option value="2016">2016</option>
-  <option value="2017">2017</option>
-  <option value="2018">2018</option>
-  <option value="2019">2019</option>
-  <option value="2020">2020</option>
-  <option value="2021">2021</option>
-  <option value="2022">2022</option>
-  <option value="2023">2023</option>
-  <option value="2024">2024</option>
-  <option value="2025">2025</option>
-</select>
-</div>
-
-  <div class="col-xs-2" style="float:right">
-  <select name="Bulan" class="form-control">
-    <option value="%"> - Bulan - </option>
-    <option value="01">Januari</option>
-    <option value="02">Februari</option>
-    <option value="03">Maret</option>
-    <option value="04">April</option>
-    <option value="05">Mei</option>
-    <option value="06">Juni</option>
-    <option value="07">Juli</option>
-    <option value="08">Agustus</option>
-    <option value="09">September</option>
-    <option value="10">Oktober</option>
-    <option value="11">November</option>
-    <option value="12">Desember</option>
-  </select>
-  </div>
-
-
-
-  <div class="col-xs-2" style="float:right">
+  <div class="col-xs-2" style="float:left">
     <select name="Tanggal" class="form-control">
       <option value="%"> - Hari - </option>
       <option value="01">1</option>
@@ -236,13 +157,44 @@ th, td {
     </select>
     </div>
 
-</div>
+  <div class="col-xs-2" style="float:left">
+  <select name="Bulan" class="form-control">
+    <option value="%"> - Bulan - </option>
+    <option value="01">Januari</option>
+    <option value="02">Februari</option>
+    <option value="03">Maret</option>
+    <option value="04">April</option>
+    <option value="05">Mei</option>
+    <option value="06">Juni</option>
+    <option value="07">Juli</option>
+    <option value="08">Agustus</option>
+    <option value="09">September</option>
+    <option value="10">Oktober</option>
+    <option value="11">November</option>
+    <option value="12">Desember</option>
+  </select>
+  </div>
+
+  <div class="col-xs-2" style="float:left">
+    <select name="Tahun" class="form-control">
+      <option value="%"> - Tahun - </option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 </form>
-
-
-
-
 
 <table style="width:100%">
   <tr>
