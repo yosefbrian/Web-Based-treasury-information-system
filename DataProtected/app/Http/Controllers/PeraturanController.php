@@ -74,6 +74,11 @@ class PeraturanController extends Controller
 
 
     public function deletepd($id) {
+        $pd = pd::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $pd->filename;
+        unlink($target_file);
+
         pd::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
             \Session::flash('flash_message_hapus','');
@@ -139,6 +144,10 @@ class PeraturanController extends Controller
 
 
     public function deletebp($id) {
+        $bp = bp::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $bp->filename;
+        unlink($target_file);
         bp::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
           \Session::flash('flash_message_hapus','');
@@ -206,6 +215,11 @@ public function getDatatukin()
 
 
     public function deletetukin($id) {
+        $tukin = tukin::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $tukin->filename;
+        unlink($target_file);
+
         tukin::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
                   \Session::flash('flash_message_hapus','');
@@ -273,6 +287,11 @@ public function getDatapbj()
 
 
     public function deletepbj($id) {
+        $pbj = pbj::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $pbj->filename;
+        unlink($target_file);
+
         pbj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         \Session::flash('flash_message_hapus','');
@@ -328,11 +347,11 @@ public function getDatapbj()
                 // echo "Sorry, there was an error uploading your file.";
             }
         }
-     $lpjlist = new lpj();
-		$lpjlist->judul = $request->get('judul');
-		$lpjlist->deskripsi = $request->get('deskripsi');
-    $lpjlist->filename = basename($_FILES["fileToUpload"]["name"]);
-		$lpjlist->save();
+        $lpjlist = new lpj();
+        $lpjlist->judul = $request->get('judul');
+        $lpjlist->deskripsi = $request->get('deskripsi');
+        $lpjlist->filename = basename($_FILES["fileToUpload"]["name"]);
+        $lpjlist->save();
 
     \Session::flash('flash_message_tambah','');
         return redirect('/peraturan');
@@ -340,6 +359,10 @@ public function getDatapbj()
 
 
     public function delete($id) {
+        $lpj = lpj::find($id);
+        $target_dir = "upload/notaspd/";
+        $target_file = $target_dir . $lpj->filename;
+        unlink($target_file);
         lpj::find($id)->delete();
         // \Session::flash('flash_message', 'Data pegawai telah dihapus');
         \Session::flash('flash_message_hapus','');
