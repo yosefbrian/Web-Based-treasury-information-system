@@ -71,73 +71,43 @@ th, td {
 </h2>
 <div class="x_title">
 </div>
+
+<div class="col-md-5">
 @role(1)
 <form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-
-<!-- <form action="{{ url('admin/bp1search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp1" id="searchbp1"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
-</form> -->
 @endrole
 
 @role(2)
 <form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
-      <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
-      <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
-    </div>
-    <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
-
-<!-- <form action="{{ url('bp/bp1search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp1" id="searchbp1"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
-</form> -->
 @endrole
-
 
 @role(3)
 <form action="{{ url('admin/bp1search') }}" method="post" enctype="multipart/form-data">
-    <div class="col-sm-4 pull-left">
+@endrole
+
+    <div class="col-sm-8 pull-left">
       <input class="form-control"  type="text" name="searchbp1" id="searchbp2" placeholder="cari.." >
       <input type="hidden" name="_token" value="{{ csrf_token() }}"><br>
     </div>
     <button type="submit" class="btn btn-default pull-left" value="Cari"><span class="fa fa-search"></span></button>
+</form>
+</div>
 
-<!-- <form action="{{ url('spd/bp1search') }}" method="post">
-<input type="hidden" name="_token" value="{{ csrf_token() }}" >
-<input type="text" name="searchbp1" id="searchbp1"></input>
-<input class="btn btn-default" type="submit" value="Cari" >
-</form> -->
-@endrole
-
-
-
-
-
-<body>
-
+<div class="col-md-7">
 @role(1)
-
 <form action="{{ url('admin/bp1cari') }}" method="post" enctype="multipart/form-data">
-  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
-
 
 @role(2)
 <form action="{{ url('bp/bp1cari') }}" method="post" enctype="multipart/form-data">
-  <input class="btn btn-default" type="submit" value="Cari" style="float:right">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
 @endrole
+ <div>
+<input class="btn btn-default" type="submit" value="Cari" style="float:right">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+</div>
 
-<div class="col-xs-2" style="float:right">
+
+<div class="col-xs-3" style="float:right">
 <select name="Tahun" class="form-control">
   <option value="%"> - Tahun - </option>
   <option value="2016">2016</option>
@@ -153,7 +123,7 @@ th, td {
 </select>
 </div>
 
-  <div class="col-xs-2" style="float:right">
+  <div class="col-xs-3" style="float:right">
   <select name="Bulan" class="form-control">
     <option value="%"> - Bulan - </option>
     <option value="01">Januari</option>
@@ -171,7 +141,7 @@ th, td {
   </select>
   </div>
 
-  <div class="col-xs-2" style="float:right">
+  <div class="col-xs-3" style="float:right">
     <select name="Tanggal" class="form-control">
       <option value="%"> - Hari - </option>
       <option value="01">1</option>
@@ -208,9 +178,9 @@ th, td {
     </select>
     </div>
 
+  </form>
 </div>
 
-</form>
 
 
 
