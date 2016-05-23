@@ -88,9 +88,22 @@ class CommentController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request, $id)
 	{
 		//
+		$diary = Comments::find($id);
+		if($diary && ($diary->from_user == $request->user()->id || $request->user()->is_admin()))
+		{
+			$diary->delete();
+			$data['message'] = 'Post deleted Successfully';
+		}
+		else
+		{
+			$data['errors'] = 'Invalid Operation. You have not sufficient permissions';
+		}
+	
+	return redirect()->back();
+	// return redirect('/diary')->with($data);
 	}
 
 }

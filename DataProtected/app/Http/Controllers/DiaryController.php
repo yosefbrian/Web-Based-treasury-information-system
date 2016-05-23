@@ -9,6 +9,7 @@ use App\role_user as peran;
 use Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostFormRequest;
+use App\Comments;
 
 use Illuminate\Http\Request;
 
@@ -86,17 +87,23 @@ class DiaryController extends Controller {
 	{
 		$diary = Diary::where('slug',$slug)->first();
 
+		$comments = Comments::where('on_post',$diary->id)->orderBy('created_at','desc')->paginate(5);
 		if($diary)
 		{
 			if($diary->active == false)
 				return redirect('/diary')->withErrors('requested page not found');
+			// $comments = $diary->comments;
 		}
 		else
 		{
 			return redirect('/diary')->withErrors('requested page not found');
 		}
-		return view('diary.show')->withPost($diary);
+		
+return view('diary.show')->with('diary',$diary)->with('comments',$comments);
+
+		// return view('diary.show')->withPost($diary)->withComments($comments);
 	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
