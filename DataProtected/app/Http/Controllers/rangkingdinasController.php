@@ -38,8 +38,6 @@ class rangkingdinasController extends Controller
           $nama = array();
           $nip = array();
 
-          $i = 0;
-          
           
 
           foreach ($spdcenter as $spd) {
@@ -54,18 +52,18 @@ class rangkingdinasController extends Controller
           $lama = ($pulang-$berangkat)/86400;
           // $jml += $lama;        
 
-          if(isset($jumlah[$i])){
-            $jumlah[$i] += $lama;
+          if(isset($jumlah[$spd->nip])){
+            $jumlah[$spd->nip] += $lama;
           }
           else{
-           $jumlah[$i]=$lama;
-           $nama[$i] = $spd->nama;
-          $nip[$i] = $spd->nip;
+           $jumlah[$spd->nip]=$lama;
+           $nama[$spd->nip] = $spd->nama;
+          $nip[$spd->nip] = $spd->nip;
               }
 
      
 
-            $i++;
+            
 
           }
 
@@ -74,10 +72,37 @@ class rangkingdinasController extends Controller
 array_multisort($jumlah, SORT_DESC, $nama, $nip);
 
 
+          $i = 0;
+          $j = 0;
+          $k = 0;
+          
+
+
+foreach($jumlah as $jml) {
+  $jumlah[$i] = $jml;
+  $i++;
+}
+
+
+foreach($nama as $nma) {
+  $nama[$j] = $nma;
+  $j++;
+}
+
+
+
+foreach($nip as $np) {
+  $nip[$k] = $np;
+  $k++;
+}
+
+
 
 
           return view('statistik.rangkingdinas')->with('profil', $profil)->with('nama',$nama)->with('nip', $nip)->with('jumlah',$jumlah);
     	
+
+      // return $nip;
 
 }
 
@@ -103,7 +128,7 @@ array_multisort($jumlah, SORT_DESC, $nama, $nip);
           $nama = array();
           $nip = array();
           
-           $i = 0;
+  
           
 
           foreach ($spdcenter as $spd) {
@@ -119,21 +144,48 @@ array_multisort($jumlah, SORT_DESC, $nama, $nip);
           $lama = ($pulang-$berangkat)/86400;
           // $jml += $lama;        
 
-          if(isset($jumlah[$i])){
-            $jumlah[$i] += $lama;
+          if(isset($jumlah[$spd->nip])){
+            $jumlah[$spd->nip] += $lama;
           }
           else{
-           $jumlah[$i]=$lama;
-           $nama[$i] = $spd->nama;
-          $nip[$i] = $spd->nip;
+           $jumlah[$spd->nip]=$lama;
+           $nama[$spd->nip] = $spd->nama;
+          $nip[$spd->nip] = $spd->nip;
           }
 
         }
 
-            $i++;
+       
 
         }
 
+
+array_multisort($jumlah, SORT_DESC, $nama, $nip);
+
+
+          $i = 0;
+          $j = 0;
+          $k = 0;
+          
+
+
+foreach($jumlah as $jml) {
+  $jumlah[$i] = $jml;
+  $i++;
+}
+
+
+foreach($nama as $nma) {
+  $nama[$j] = $nma;
+  $j++;
+}
+
+
+
+foreach($nip as $np) {
+  $nip[$k] = $np;
+  $k++;
+}
 
      
 
@@ -183,13 +235,13 @@ array_multisort($jumlah, SORT_DESC, $nama, $nip);
           $lama = ($pulang-$berangkat)/86400;
           // $jml += $lama;        
 
-          if(isset($jumlah[$i])){
-            $jumlah[$i] += $lama;
+          if(isset($jumlah[$spd->nip])){
+            $jumlah[$spd->nip] += $lama;
           }
           else{
-           $jumlah[$i]=$lama;
-           $nama[$i] = $spd->nama;
-          $nip[$i] = $spd->nip;
+           $jumlah[$spd->nip]=$lama;
+           $nama[$spd->nip] = $spd->nama;
+          $nip[$spd->nip] = $spd->nip;
               }
 
             }
@@ -203,6 +255,29 @@ array_multisort($jumlah, SORT_DESC, $nama, $nip);
 array_multisort($jumlah, SORT_DESC, $nama, $nip);
 
 
+          $i = 0;
+          $j = 0;
+          $k = 0;
+          
+
+
+foreach($jumlah as $jml) {
+  $jumlah[$i] = $jml;
+  $i++;
+}
+
+
+foreach($nama as $nma) {
+  $nama[$j] = $nma;
+  $j++;
+}
+
+
+
+foreach($nip as $np) {
+  $nip[$k] = $np;
+  $k++;
+}
 
 
           return view('statistik.rangkingdinasbulan')->with('profil', $profil)->with('nama',$nama)->with('nip', $nip)->with('jumlah',$jumlah);

@@ -98,7 +98,7 @@ th {
 $i=0;
 ?>
 @foreach($jumlah as $jml)
-
+@if(isset($jumlah[$i]))
 @if($i<20)
 <tr>
 
@@ -128,7 +128,7 @@ $i++;
 ?>
 
 @endif
-
+@endif
 @endforeach
 
 
