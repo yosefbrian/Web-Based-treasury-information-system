@@ -262,7 +262,8 @@ Route::group(['prefix' => 'admin','middleware' => 'role:admin'], function()
 
 	//Statisitik rangking
 	Route::get('/rangking','rangkingdinasController@show');
-	Route::post('/rangkingtahun', 'rangkingdinasController@rangkingtahun');
+	Route::get('/rangkingtahun', 'rangkingdinasController@rangkingtahun');
+	Route::get('/rangkingbulan', 'rangkingdinasController@bulan');
 
 
 

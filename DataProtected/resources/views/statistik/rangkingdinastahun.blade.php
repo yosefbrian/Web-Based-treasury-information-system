@@ -25,7 +25,7 @@ th {
 
 
  <form action="{{ action('rangkingdinasController@rangkingtahun') }}" method="post" enctype="multipart/form-data">
-	  	<input class="btn btn-default" type="submit" value="Cari" style="float:right">
+	  	<input class="btn btn-default" type="submit" value="Cari Berdasar Tahun" style="float:right">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="col-xs-2" style="float:right">
 			<select name="Tahun" class="form-control">
@@ -44,6 +44,48 @@ th {
 		</div>
 	</form>
 
+	 <form action="{{ url('admin/rangkingbulan') }}" method="get" enctype="multipart/form-data">
+	  	<input class="btn btn-default" type="submit" value="Cari Berdasar Bulan" style="float:right">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<div class="col-xs-2" style="float:right">
+			<select name="Tahun_bulan" class="form-control">
+			<option value="">Tahun</option>
+			  <option value="2016">2016</option>
+			  <option value="2017">2017</option>
+			  <option value="2018">2018</option>
+			  <option value="2019">2019</option>
+			  <option value="2020">2020</option>
+			  <option value="2021">2021</option>
+			  <option value="2022">2022</option>
+			  <option value="2023">2023</option>
+			  <option value="2024">2024</option>
+			  <option value="2025">2025</option>
+			</select>
+		</div>
+
+		<div class="col-xs-2" style="float:right">
+  <select name="Bulan_bulan" class="form-control">
+    <option value="%"> - Bulan - </option>
+    <option value="01">Januari</option>
+    <option value="02">Februari</option>
+    <option value="03">Maret</option>
+    <option value="04">April</option>
+    <option value="05">Mei</option>
+    <option value="06">Juni</option>
+    <option value="07">Juli</option>
+    <option value="08">Agustus</option>
+    <option value="09">September</option>
+    <option value="10">Oktober</option>
+    <option value="11">November</option>
+    <option value="12">Desember</option>
+  </select>
+  </div>
+
+
+
+	</form>
+
+
 <table>
 <tr>
 <th> Nama </th>
@@ -51,36 +93,46 @@ th {
 <th> Jumlah Hari </th>
 </tr>	
 
-@foreach($profil as $profile)
+<?php  
+
+$i=0;
+?>
+@foreach($jumlah as $jml)
+
+@if($i<20)
 <tr>
 
-@if(isset($nama[$profile->nip]))
-<td>
-<p> {{$nama[$profile->nip]}}</p>
-</td>
-@endif	
 
-@if(isset($nip[$profile->nip]))	
 <td>
-<p>{{$nip[$profile->nip]}}</p>
+<p> {{$nama[$i]}}</p>
 </td>
-@endif
 
 
-@if(isset($jumlah[$profile->nip]))
+	
 <td>
-<p>{{$jumlah[$profile->nip]}} hari</p>
+<p>{{$nip[$i]}}</p>
 </td>
-@endif
+
+
+
+<td>
+<p>{{$jumlah[$i]}} hari</p>
+</td>
+
 
 </tr>
 
+
+<?php  
+$i++;
+?>
+
+@endif
 
 @endforeach
 
 
 </table>
-
 
 
 
