@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+<h2>Unggah Slider Homepage</h2>
+<h6>Ukuran gambar 992x500 pixel</h6>
 
 <form action="{{ action('HomeController@stor') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -43,7 +45,7 @@ th {
 
 <table style="width:100%">
   <tr>
-    <th><center>Laporan Pertanggung Jawaban</th>
+    <th><center>Slider</th>
     <th><center>Aksi</th>
   </tr>
 

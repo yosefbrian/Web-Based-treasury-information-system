@@ -9,6 +9,7 @@ use App\Profil;
 use Auth;
 use Request as reques;
 use Illuminate\Http\Request;
+use Hash;
 
 class UserController extends Controller {
 
@@ -77,6 +78,7 @@ class UserController extends Controller {
 	public function ganti($id, Request $request)
 	{
 		$user = User::findOrFail($id);
+		$old = User::findOrFail($id);
 
 		$oldpass = reques::get('password_lama');
         $newpass = reques::get('password_baru');
@@ -86,7 +88,17 @@ class UserController extends Controller {
 				$user->password = bcrypt($newpass);
 				$user->save();
 			}
+			else
+			{
+				\Session::flash('flash_message_gagal1','');
+				return view('gantipassword', compact('old'));	
+			}
 			
+		}
+		else
+		{
+			\Session::flash('flash_message_gagal2','');
+			return view('gantipassword', compact('old'));
 		}
 		return redirect('/');
 	}
@@ -126,7 +138,9 @@ class UserController extends Controller {
     }
 
      public function edit($id) {
-        $book = Profil::findOrFail($id);
+
+		$book = Profil::where('profil_id', $id)->get();
+        // $book = Profil::findOrFail($id);
         return view('admin.editprofiluser',  compact('book'));
     }
 
@@ -148,6 +162,43 @@ class UserController extends Controller {
         $no_rekening = reques::get('no_rekening');
         $nama_rekening = reques::get('nama_rekening');
 		// $filename = reques::get('fileToUpload')->getClientOriginalName();
+
+        $uploadOk = 1;
+
+	    $target_dir = "upload/rekening/";
+	    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+	    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	    // Check if image file is a actual image or fake image
+	    if(isset($_POST["submit"])) {
+	        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+
+	            $uploadOk = 1;
+
+	    }
+	    // Check if file already exists
+	    if (file_exists($target_file)) {
+
+	        $uploadOk = 1;
+	    }
+	    // Check file size
+	    // Allow certain file formats
+	    // Check if $uploadOk is set to 0 by an error
+	    if ($uploadOk == 0) {
+	      // \Session::flash('flash_message_gagalupload','');
+	        // echo "Sorry, your file was not uploaded.";
+	    // if everything is ok, try to upload file
+	    }
+	    else {
+	            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+	            // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+	          // $this->import();
+	          // \Session::flash('flash_message_', 'Data telah berhasil diimport');
+	          }
+	            else {
+	              // \Session::flash('flash_message_berhasilupload','');
+	                // echo "Sorry, there was an error uploading your file.";
+	            }
+	        }
 
 		$filename = basename($_FILES["fileToUpload"]["name"]);
 
@@ -185,10 +236,17 @@ class UserController extends Controller {
 
         $newpass = reques::get('password_baru');
         $confirm =  reques::get('konfirmasi_password');
-		$user->password = bcrypt($newpass);
-		$user->save();
-			
-		return redirect('admin/daftaruser');
+        if ($newpass == $confirm)
+        {
+        	$user->password = bcrypt($newpass);
+			$user->save();
+			return redirect('admin/daftaruser');
+        }
+        else
+        {
+			\Session::flash('flash_message_gagal','');
+			return view('admin.resetpassworduser', compact('user'));
+		}
 	}
 }
 

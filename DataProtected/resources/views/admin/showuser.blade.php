@@ -96,8 +96,6 @@ th {
                       <a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $book->id?>"><span class="glyphicon glyphicon-trash"></a>
                     @endrole
 
-
-
                     @role(3)
                       <a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('spd/editprofiluser/'.$book->id) }}"><span class="glyphicon glyphicon-pencil"></a>
                       <a class="btn btn-primary" data-placement="bottom" title="Ganti Password" href="{{ url('spd/gantipassworduser/'.$book->id) }}"><span class="fa fa-key"></a>
