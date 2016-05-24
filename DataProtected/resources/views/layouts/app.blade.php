@@ -81,7 +81,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-desktop"></i>
+            <a href="{{ url('/') }}" class="site_title"><i class="fa fa-desktop " style="margin-left:5px"></i>
               <span>SPD Center</span></a>
           </div>
           <div class="clearfix"></div>
@@ -125,30 +125,30 @@
                   </ul>
                 </li>
 
-                
 
-                 
 
-                <li><a><i class="fa fa-table"></i> Reimbursement <span class="fa fa-chevron-down"></span></a>
+
+
+                <li><a><i class="fa fa-binoculars"></i> Monitoring <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     @role(3)
-                        <li><a href="{{ url('spd/spd')}}">SPD Center</a></li>
+                        <li><a href="{{ url('spd/spd')}}">Perjalanan Dinas</a></li>
                     @endrole
 
                   @role(4)
-                    <li><a href="{{ url('spdcenter')}}">SPD Center</a></li>
+                    <li><a href="{{ url('spdcenter')}}">Perjalanan Dinas</a></li>
                     @endrole
 
                      @role(1)
-                        <li><a href="{{ url('admin/spd')}}">SPD Center</a></li>
+                        <li><a href="{{ url('admin/spd')}}">Perjalanan Dinas</a></li>
                     @endrole
 
                      @role(2)
-                        <li><a href="{{ url('bp/spd')}}">SPD Center</a></li>
+                        <li><a href="{{ url('bp/spd')}}">Perjalanan Dinas</a></li>
                     @endrole
 
                      @role(5)
-                        <li><a href="{{ url('bp2/spd')}}">SPD Center</a></li>
+                        <li><a href="{{ url('bp2/spd')}}">Perjalanan Dinas</a></li>
                     @endrole
 
 
@@ -179,13 +179,13 @@
                   </ul>
                 </li>
                 @endrole
-                <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Diary</a>
+                <li><a href="{{ url('diary')}}"><i class="fa fa-edit"></i>Treasury Lounge</a>
                 @role(1)
-                <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
+                <li><a href="{{ url('admin/daftaruser')}}"><i class="fa fa-group"></i>Daftar User</a></li>
                 @endrole
 
                 @role(3)
-                <li><a href="{{ url('spd/daftaruser')}}"><i class="fa fa-user"></i>Daftar User</a></li>
+                <li><a href="{{ url('spd/daftaruser')}}"><i class="fa fa-group"></i>Daftar User</a></li>
                 @endrole
               </ul>
             </div>
@@ -237,7 +237,7 @@
 <div class="modal fade" id="modalimport" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    
+
                                     <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="close">
                                         <span aria-hidden="true">&times;</span>
@@ -245,9 +245,9 @@
                                     <h4 class="modal-title"><b>Unggah Data</b></h4>
                                 </div>
                                     <div class="modal-body">
-                                    <div class="col-xs-12">                          
+                                    <div class="col-xs-12">
                                       <label for="fileToUpload">Import file excel (xls)</label>
-                                      <form action="{{ action('ExportController@upload') }}" method="post" enctype="multipart/form-data" >                                     
+                                      <form action="{{ action('ExportController@upload') }}" method="post" enctype="multipart/form-data" >
                                         <div class="col-xs-8 col-md-offset-1">
                                           <input type="file" class="btn btn-default btn-file" name="fileToUpload" id="fileToUpload" required="required">
                                         </div>
@@ -258,12 +258,12 @@
                                     </form>
                                     </div>
                                     </div>
-                                    
+
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
                                     </div>
-                                    
-                              
+
+
                               </div>
                               </div>
                               </div>

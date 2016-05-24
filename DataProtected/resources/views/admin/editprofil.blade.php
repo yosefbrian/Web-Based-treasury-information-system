@@ -53,7 +53,7 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">Nm Status Pegawai <span class="required">*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Status Pegawai <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" name="nm_status_pegawai" value="{{ $book->nm_status_pegawai}}" class="form-control col-md-7 col-xs-12">
@@ -69,7 +69,7 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Jabatan <span class="required">*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Golongan <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" name="jenis_jabatan" value="{{ $book->jenis_jabatan }}" class="form-control col-md-7 col-xs-12">
@@ -77,7 +77,7 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">Unit Organisasi <span class="required" >*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Kantor/Satker <span class="required" >*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" name="unit_organisasi" value="{{ $book->unit_organisasi }}" class="form-control col-md-7 col-xs-12">

@@ -4,7 +4,9 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">Monitoring</a></li>
+  <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
+  <li><a href="#">Buat Data</a></li>
 </ol>
 
 <style type="text/css">
@@ -27,7 +29,7 @@ th {
 }
 </style>
 
-<h2> SPD CENTER </h2>
+<h2> BUAT DATA </h2>
 <hr>
 
 @role(1)
@@ -50,10 +52,10 @@ th {
 
 
  <input type="hidden" id="pengiriman" name="pengiriman" value="0">
-                         
-                        
 
-                       
+
+
+
 
 <!-- <br> -->
 <!-- <div id="tanggal_pengiriman">
@@ -134,7 +136,7 @@ Tanggal:<br>
 <br>
  -->
 
-</div>
+<!-- </div> -->
 
 
   no_PD:<br>

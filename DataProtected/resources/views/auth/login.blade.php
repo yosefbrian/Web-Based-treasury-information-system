@@ -46,11 +46,11 @@
                 <div class="container" >
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>SPD Center dan Layanan Perbendaharaan</h1>
+                            <h1>SPD CENTER</h1>
+                            <h3 style="color:white; margin-top:-5px">Subbag Perbendaharaan Data Center</h3>
                             <div class="description" style="width:100%">
                             	<p style="font-size:17px">
-www.xxxx.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk memperoleh informasi terkait pencairan SPD. Selain itu, juga terdapat layanan perbendaharaan antara lain informasi pengelolaan TUKIN dan Bendahara Pengeluaran.
-                            	</p>
+spdcenter.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk memperoleh informasi terkait perbendaharaan antara lain mengenai ketentuan pengelolaan Tunjangan Kinerja, Bendahara Pengeluaran dan monitoring pembayaran biaya perjalanan dinas yang dibebankan pada anggaran Kantor Pusat DJBC.                            	</p>
                             </div>
                         </div>
                     </div>
@@ -109,23 +109,34 @@ www.xxxx.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk 
                 <h3> Bagian Keuangan </h3>
                   <h3>Sub-bagian Perbendaharaan</h3>
 <br><br><br><br><br><br><br><br><br>
-            <div class="footer-company-name" style="">Bebek &copy; 2016</div>
+
           </div>
           <div class="footer-center">
             <div>
-              <i class="fa fa-map-marker"></i>
-              <p><span>Kantor Pusat DJBC Gedung Papua Lantai 3</span>
-              <span>Jalan Jendral A. Yani, 13230 Kotak Pos 225 Jakarta 13013 </span>
-              Jakarta, Indonesia</p>
+              <i class="fa fa-map-marker col-md-4"></i>
+              <div class="col-md-10">
+                <p><span>Kantor Pusat DJBC Gedung Papua Lantai 3</span>
+                  <span>Jalan Jenderal Ahmad Yani Jakarta-13230, Kotak Pos 225 Jakarta-13013 </span>
+                  <span>Jakarta, Indonesia</span></p>
+              </div>
             </div>
             <br>
             <div>
-              <i class="fa fa-phone"></i>
-              <p>(021) 4890308 ext 305</p>
+              <br>
+              <i class="fa fa-phone col-md-4"></i>
+              <div class="col-md-10">
+                <p><br><span>Telepon (021) 4890308 ext 305 atau 323</span>
+                <span>SMS 085 77 28 28 212</span></p>
+              </div>
             </div>
+
             <div>
-              <i class="fa fa-envelope"></i>
-              <p>Faksimile (021) 4890949</p>
+              <br>
+              <i class="fa fa-envelope col-md-4" style="margin-top:10px"></i>
+              <div class="col-md-10">
+                <p><br><span>Email: info.perbendaharaanbc@gmail.com<span>
+                <span>Email: lpj.perbendaharaanbc@gmail.com<span></p>
+              </div>
             </div>
           </div>
 
@@ -135,12 +146,15 @@ www.xxxx.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk 
 
             Sub-bagian Perbendaharaan mempunyai tugas melakukan urusan perbendaharaan Direktorat Jenderal dan penerbitan surat perintah pembayaran kepada Kantor Pelayanan Perbendaharaan Negara.
             </p>
-            <div class="footer-icons">
+            <!-- <div class="footer-icons">
               <a href="#"><i class="fa fa-facebook"></i></a>
               <a href="#"><i class="fa fa-twitter"></i></a>
               <a href="#"><i class="fa fa-linkedin"></i></a>
               <a href="#"><i class="fa fa-github"></i></a>
-            </div>
+            </div> -->
+          </div>
+          <div class="">
+              <div class="footer-company-name" style="">e-manth &copy; 2016</div>
           </div>
         </footer>
 

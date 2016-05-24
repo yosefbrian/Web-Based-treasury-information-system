@@ -4,7 +4,7 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
+  <li><a href="#">Monitoring</a></li>
   <li><a href="#">SPD Center Admin</a></li>
 </ol>
 <style type="text/css">

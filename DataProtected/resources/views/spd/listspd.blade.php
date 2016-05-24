@@ -8,7 +8,7 @@
 @role(1)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="{{ url('admin/spd')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/spd')}}">Monitoring</a></li>
   <li><a href="{{ url('admin/spd')}}">SPD Center Admin</a></li>
   <li><a href="#">List SPD</a></li>
 </ol>
@@ -18,7 +18,7 @@
 @role(3)
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="{{ url('spd/spd')}}">Reimbursement</a></li>
+  <li><a href="{{ url('spd/spd')}}">Monitoring</a></li>
   <li><a href="{{ url('spd/spd')}}">SPD Center Admin</a></li>
   <li><a href="#">List SPD</a></li>
 </ol>

@@ -4,7 +4,7 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
+  <li><a href="{{ url('admin/spd')}}">Monitoring</a></li>
   <li><a href="#">SPD Center</a></li>
 </ol>
 
@@ -57,7 +57,7 @@ th {
      <td>{{$espede->tanggal_berangkat}}</td>
      <td>{{$espede->tanggal_pulang}}</td>
      <td>{{$espede->tujuan}}</td>
-     <td> 
+     <td>
 
 <a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow1<?php echo $espede->id;?>" href="#">Detil SPD</a>
 
@@ -77,9 +77,9 @@ th {
         <h4 class="modal-title">Checklist</h4>
       </div>
       <div class="modal-body">
-        
 
-<?php  
+
+<?php
 
 $bppd = 0;
 $pengiriman = 0;
@@ -87,7 +87,7 @@ $pencairan = '';
 $kondisi = 0;
 
 
-foreach ($nota as $notas) { 
+foreach ($nota as $notas) {
     $notasatu = $notas->no_st;
 
     if($notasatu == $espede->no_st){
@@ -99,11 +99,11 @@ foreach ($nota as $notas) {
 
  $pengiriman = $espede->pengiriman;
 
-foreach ($bp1 as $bepe1) { 
+foreach ($bp1 as $bepe1) {
     $bpsatu = $bepe1->no_pd;
     if($bpsatu == $espede->no_pd){
         $bppd = $espede->no_pd;
-        
+
         $pencairan = $bepe1->pencairan;
     }
 }
@@ -111,7 +111,7 @@ foreach ($bp1 as $bepe1) {
 
 
 ?>
- 
+
 
 
 @if($espede->pengiriman=='0' and $kondisi==null)
@@ -174,7 +174,7 @@ foreach ($bp1 as $bepe1) {
     </div>
 
   </div>
-</div>     
+</div>
 
 
 
@@ -419,7 +419,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman 
+                                                                    Pengiriman
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->pengiriman}}</div>
@@ -429,7 +429,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor PD: 
+                                                                    Nomor PD:
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_pd}}</div>
@@ -439,7 +439,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nomor ST : 
+                                                                    Nomor ST :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->no_st}}</div>
@@ -449,7 +449,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    NIP : 
+                                                                    NIP :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nip}}</div>
@@ -459,7 +459,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama : 
+                                                                    Nama :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama}}</div>
@@ -469,7 +469,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Berangkat : 
+                                                                    Berangkat :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->berangkat}}</div>
@@ -514,7 +514,7 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Kegiatan : 
+                                                                    Kegiatan :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$espede->keterangan}}</div>
@@ -524,23 +524,23 @@ Tanggal Pengiriman:<br>
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Nama PPK : 
+                                                                    Nama PPK :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{ $espede->nama_ppk}}</div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    
+
+
                                                     </div>
                                                 </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                     <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-                                    
+
                             </div>
                            </div>
                           <!--  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>

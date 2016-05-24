@@ -1,7 +1,17 @@
 @extends('layouts.app')
 @section('content')
 
+<ol class="breadcrumb">
+  <li><a href="{{ url('/') }}">Home</a></li>
+  <li><a href="#">Statistik</a></li>
+  <li><a href="#">Ranking Dinas</a></li>
+</ol>
 
+ <h2>RANKING DINAS
+</h2>
+
+ <div class="x_title">
+ </div>
 
 <style type="text/css">
 
@@ -25,7 +35,7 @@ th {
 
 
  <form action="{{ url('admin/rangkingtahun') }}" method="get" enctype="multipart/form-data">
-	  	<input class="btn btn-default" type="submit" value="Cari Berdasar Tahun" style="float:right">
+	  	<input class="btn btn-info" type="submit" value="Cari Berdasar Tahun" style="float:right">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="col-xs-2" style="float:right">
 			<select name="Tahun" class="form-control">
@@ -44,11 +54,8 @@ th {
 		</div>
 	</form>
 
-<br>
-
-
  <form action="{{ url('admin/rangkingbulan') }}" method="get" enctype="multipart/form-data">
-	  	<input class="btn btn-default" type="submit" value="Cari Berdasar Bulan" style="float:right">
+	  	<input class="btn btn-info" type="submit" value="Cari Berdasar Bulan" style="float:right">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="col-xs-2" style="float:right">
 			<select name="Tahun_bulan" class="form-control">
@@ -98,9 +105,9 @@ th {
 <th> Nama </th>
 <th> NIP </th>
 <th> Jumlah Hari </th>
-</tr>	
+</tr>
 
-<?php  
+<?php
 
 $i=0;
 ?>
@@ -116,7 +123,7 @@ $i=0;
 </td>
 
 
-	
+
 <td>
 <p>{{$nip[$i]}}</p>
 </td>
@@ -131,7 +138,7 @@ $i=0;
 </tr>
 
 
-<?php  
+<?php
 $i++;
 ?>
 
