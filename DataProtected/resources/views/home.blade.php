@@ -161,7 +161,6 @@ $i=1  ?>
             <textarea name='body'class="form-control">{{ old('body') }}</textarea>
           </div>
           <input type="submit" name='publish' class="btn btn-success" value = "Publish" style="float:right"/>
-          <input type="submit" name='save' class="btn btn-default" value = "Save Draft" style="float:right"/>
         </form>
         <hr>
       </div>
@@ -233,7 +232,6 @@ $i=1  ?>
                                     @else
                                     <input type="submit" name='publish' class="btn btn-success" value = "Publish" style="float:right; margin-left:10px"/>
                                     @endif
-                                    <input type="submit" name='save' class="btn btn-default" value = "Save As Draft" style="float:right; margin-left:10px"/>
                                     @role(1)
                                     <a type="button" href="{{  url('admin/delete/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger" style="float:right">Delete</a>
 
@@ -243,7 +241,7 @@ $i=1  ?>
                                   <!--
                                   <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
                                   @else
-                                  <a style="float: right" href="{{ url('admin/edit/'.$post->slug)}}">Edit Draft</a>
+                                  
 
                                   <hr>
                                   @endif
