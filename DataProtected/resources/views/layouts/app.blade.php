@@ -212,15 +212,13 @@
 
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;">  Bantuan</a>
+                  <li><a href="javascript:;">Bantuan</a>
                   </li>
 
                   @role(1)
                   <li>
-                                    <a href="{{ url('admin/new-post') }}">Add new post</a>
-                                </li>
-
-                 <li><a href="{{ url('admin/registeri') }}">Register</a></li>
+                      <a href="{{ url('admin/new-post') }}">Add new post</a>
+                  </li>
                  <li><a data-placement="bottom" title="Tambah Database Pegawai" href="#" data-toggle="modal" data-target="#modalimport">Import User</a></li>
                   <li><a href="{{ url('/admin/slider') }}"> Edit Slider</a></li>
                   @endrole
