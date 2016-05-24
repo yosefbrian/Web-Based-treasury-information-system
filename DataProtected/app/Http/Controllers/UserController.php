@@ -9,6 +9,7 @@ use App\Profil;
 use Auth;
 use Request as reques;
 use Illuminate\Http\Request;
+use Hash;
 
 class UserController extends Controller {
 
@@ -77,6 +78,7 @@ class UserController extends Controller {
 	public function ganti($id, Request $request)
 	{
 		$user = User::findOrFail($id);
+		$old = User::findOrFail($id);
 
 		$oldpass = reques::get('password_lama');
         $newpass = reques::get('password_baru');
@@ -86,7 +88,17 @@ class UserController extends Controller {
 				$user->password = bcrypt($newpass);
 				$user->save();
 			}
+			else
+			{
+				\Session::flash('flash_message_gagal1','');
+				return view('gantipassword', compact('old'));	
+			}
 			
+		}
+		else
+		{
+			\Session::flash('flash_message_gagal2','');
+			return view('gantipassword', compact('old'));
 		}
 		return redirect('/');
 	}
