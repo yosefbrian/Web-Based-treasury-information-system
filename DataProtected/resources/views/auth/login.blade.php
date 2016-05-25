@@ -153,7 +153,7 @@ Subbagian Perbendaharaan adalah Subbagian yang berada di bawah Bagian Keuangan S
             </div> -->
           </div>
           <div class="">
-              <div class="footer-company-name" style="">e-manth &copy; 2016</div>
+              <div class="footer-company-name" style="">kodkod &copy; 2016</div>
           </div>
         </footer>
 
