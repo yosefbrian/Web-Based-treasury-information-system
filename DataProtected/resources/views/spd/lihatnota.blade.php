@@ -5,7 +5,8 @@
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="#">Monitoring</a></li>
-  <li><a href="#">SPD Center Admin</a></li>
+  <li><a href="#">Perjalanan Dinas</a></li>
+  <li><a href="#">Lihat Dokumen</a></li>
 </ol>
 <style type="text/css">
 
@@ -30,7 +31,7 @@ th {
 
 
 <div>
-<h2>Reimbursement</h2>
+<h2>LIHAT DOKUMEN</h2>
 </div>
 
 <br>
@@ -38,7 +39,7 @@ th {
 
 <table style="width:100%">
     <tr>
-        <th>Nota Perjalanan Dinas</th>
+        <th>Uraian</th>
         <th>Nomor ST</th>
         <th>Tanggal ST</th>
         <th>Nomor Resi</th>

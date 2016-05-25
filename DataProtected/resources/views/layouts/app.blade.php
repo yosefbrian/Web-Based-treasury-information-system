@@ -173,7 +173,7 @@
                 <li><a><i class="fa fa-bar-chart-o"></i> Statistik <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="{{ url('admin/statistik/pengeluarantahun')}}">Pengeluaran</a></li>
-                    <li><a href="{{ url('admin/rangking')}}">Ranking Dinas</a></li>
+                    <li><a href="{{ url('admin/rangking')}}">Rangking Dinas</a></li>
                     <li><a href="#">Data</a></li>
                     <li><a href="#">Kategori</a></li>
                   </ul>

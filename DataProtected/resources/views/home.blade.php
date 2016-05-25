@@ -66,7 +66,7 @@ $i=1  ?>
 
 <div class="carousel-inner" >
 
-    <div class="item active" style="width:100%; max-height:500px !important;">
+    <div class="item active" style="width:100%; max-height:400px !important;">
     <img src="upload/slider/1.jpg" alt="">
     <div style="position:absolute; top: 50%; margin-top:0px; width: 100%; text-align:center; font-size:50px; color:white">SELAMAT DATANG</div>
       <div class="carousel-caption">
@@ -76,7 +76,7 @@ $i=1  ?>
     </div>
 
 @foreach($slider as $slid)
-    <div class="item" style="width:100%; max-height:500px !important;">
+    <div class="item" style="width:100%; max-height:400px !important;">
       <img src="upload/slider/<?php echo $slid->filename;?>" alt="">
       <div class="carousel-caption">
         <h2>{{$slid->judul}}</h2>
@@ -114,10 +114,10 @@ $i=1  ?>
   <!-- Controls -->
 
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span style="margin-left:-100px; margin-top:250px" class="fa fa-angle-left" ></span>
+    <span style="margin-left:-100px; margin-top:200px" class="fa fa-angle-left" ></span>
   </a>
   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span style="margin-right:-100px; margin-top:250px" class="fa fa-angle-right"></span>
+    <span style="margin-right:-100px; margin-top:200px" class="fa fa-angle-right"></span>
   </a>
 
 </div>
@@ -241,7 +241,7 @@ $i=1  ?>
                                   <!--
                                   <button class="btn" style="float: right"><a href="{{ url('edit/'.$post->slug)}}">Edit Post</a></button> -->
                                   @else
-                                  
+
 
                                   <hr>
                                   @endif

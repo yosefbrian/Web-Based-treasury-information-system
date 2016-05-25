@@ -144,8 +144,7 @@ spdcenter.com adalah portal bagi pegawai Direktorat Jenderal Bea dan Cukai untuk
             <p class="footer-company-about">
               <span>Tentang Perusahaan</span>
 
-            Sub-bagian Perbendaharaan mempunyai tugas melakukan urusan perbendaharaan Direktorat Jenderal dan penerbitan surat perintah pembayaran kepada Kantor Pelayanan Perbendaharaan Negara.
-            </p>
+Subbagian Perbendaharaan adalah Subbagian yang berada di bawah Bagian Keuangan Sekretariat Direktorat Jenderal Bea dan Cukai yang melakukan urusan perbendaharaan Direktorat Jenderal dan menerbitkan surat perintah membayar kepada Kantor Pelayanan Perbendaharaan Negara (KPPN) demi terwujudnya realisasi anggaran belanja negara yang akuntabel sesuai dengan peraturan perundang-undangan yang berlaku.            </p>
             <!-- <div class="footer-icons">
               <a href="#"><i class="fa fa-facebook"></i></a>
               <a href="#"><i class="fa fa-twitter"></i></a>

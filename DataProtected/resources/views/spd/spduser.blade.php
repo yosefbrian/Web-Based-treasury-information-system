@@ -5,7 +5,7 @@
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="{{ url('admin/spd')}}">Monitoring</a></li>
-  <li><a href="#">SPD Center</a></li>
+  <li><a href="#">Perjalanan Dinas</a></li>
 </ol>
 
 <style type="text/css">
@@ -37,9 +37,11 @@ th {
 
 
   <tr>
-    <th>No SPD</th>
-    <th>Tanggal</th>
-    <th>Tujuan</th>
+    <th><center>No. PD</th>
+    <th><center>Tanggal Berangkat</th>
+    <th><center>Tanggal Pulang</th>
+    <th><center>Tujuan</th>
+    <th><center>Aksi</th>
    <!--  <th>Berangkat</th>
     <th>Tujuan</th>
     <th>Tanggal</th>
@@ -57,12 +59,12 @@ th {
      <td>{{$espede->tanggal_berangkat}}</td>
      <td>{{$espede->tanggal_pulang}}</td>
      <td>{{$espede->tujuan}}</td>
-     <td>
+     <td><center>
 
-<a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow1<?php echo $espede->id;?>" href="#">Detil SPD</a>
+<a class="btn btn-primary" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow1<?php echo $espede->id;?>" href="#">Detil Perjadin</a>
 
-     <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Nota</a>
-    <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Nota</a>
+     <a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $espede->id;?>" href="#">Upload Dokumen</a>
+    <a class="btn btn-primary" title="Lihat Nota" href="{{ action('SPDController@lihat', $espede->id) }}">Lihat Dokumen</a>
      <a class="btn btn-success" data-id ="espede->id" data-target="#checklist<?php echo $espede->id;?>" data-toggle="modal" href="#">Checklist</a>
      </td>
 
@@ -115,11 +117,11 @@ foreach ($bp1 as $bepe1) {
 
 
 @if($espede->pengiriman=='0' and $kondisi==null)
- <input type="checkbox" name="pengiriman"  disabled="disabled"> Upload Nota<br>
+ <input type="checkbox" name="pengiriman"  disabled="disabled"> Upload Dokumen<br>
 @endif
 
 @if($espede->pengiriman=='1' || $kondisi!=null)
- <input type="checkbox" name="pengiriman"  checked="checked" disabled="disabled"> Upload Nota<br>
+ <input type="checkbox" name="pengiriman"  checked="checked" disabled="disabled"> Upload Dokumen<br>
 @endif
 
 <input type="checkbox" name="pengiriman" value="{{ $espede->id }}" checked="checked" disabled="disabled"> SPD Center <br>
@@ -185,202 +187,197 @@ foreach ($bp1 as $bepe1) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Upload Nota</h4>
+        <h4 class="modal-title">Upload Dokumen</h4>
       </div>
       <div class="modal-body">
 
 
-<form  action="{{ url('/spdcenter/'.$espede->id) }}" method="post" enctype="multipart/form-data">
+                              <form  action="{{ url('/spdcenter/'.$espede->id) }}" method="post" enctype="multipart/form-data">
 
-Nomor ST :<br>
-  <input class="form-control" type="text" name="no_st" value="<?php echo $espede->no_st;?>"><br>
+                              Nomor ST :<br>
+                                <input class="form-control" type="text" name="no_st" value="<?php echo $espede->no_st;?>"><br>
 
-<div id="tanggal_st">
+                              <div id="tanggal_st">
 
-Tanggal ST:<br>
- <div class="col-xs-2">
-  <select name="Tanggal_st" class="form-control">
-    <option> - Hari - </option>
-    <option value="01">1</option>
-    <option value="02">2</option>
-    <option value="03">3</option>
-    <option value="04">4</option>
-    <option value="05">5</option>
-    <option value="06">6</option>
-    <option value="07">7</option>
-    <option value="08">8</option>
-    <option value="09">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-    <option value="31">31</option>
-  </select>
-  </div>
+                              Tanggal ST:<br>
+                               <div class="col-xs-2">
+                                <select name="Tanggal_st" class="form-control">
+                                  <option> - Hari - </option>
+                                  <option value="01">1</option>
+                                  <option value="02">2</option>
+                                  <option value="03">3</option>
+                                  <option value="04">4</option>
+                                  <option value="05">5</option>
+                                  <option value="06">6</option>
+                                  <option value="07">7</option>
+                                  <option value="08">8</option>
+                                  <option value="09">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                  <option value="25">25</option>
+                                  <option value="26">26</option>
+                                  <option value="27">27</option>
+                                  <option value="28">28</option>
+                                  <option value="29">29</option>
+                                  <option value="30">30</option>
+                                  <option value="31">31</option>
+                                </select>
+                                </div>
 
-  <div class="col-xs-2">
-  <select name="Bulan_st" class="form-control">
-    <option> - Bulan - </option>
-    <option value="01">Januari</option>
-    <option value="02">Februari</option>
-    <option value="03">Maret</option>
-    <option value="04">April</option>
-    <option value="05">Mei</option>
-    <option value="06">Juni</option>
-    <option value="07">Juli</option>
-    <option value="08">Agustus</option>
-    <option value="09">September</option>
-    <option value="10">Oktober</option>
-    <option value="11">November</option>
-    <option value="12">Desember</option>
-  </select>
-  </div>
+                                <div class="col-xs-2">
+                                <select name="Bulan_st" class="form-control">
+                                  <option> - Bulan - </option>
+                                  <option value="01">Januari</option>
+                                  <option value="02">Februari</option>
+                                  <option value="03">Maret</option>
+                                  <option value="04">April</option>
+                                  <option value="05">Mei</option>
+                                  <option value="06">Juni</option>
+                                  <option value="07">Juli</option>
+                                  <option value="08">Agustus</option>
+                                  <option value="09">September</option>
+                                  <option value="10">Oktober</option>
+                                  <option value="11">November</option>
+                                  <option value="12">Desember</option>
+                                </select>
+                                </div>
 
-  <div class="col-xs-2">
-  <select name="Tahun_st" class="form-control">
-    <option> - Tahun - </option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-  </select>
-  </div>
+                                <div class="col-xs-2">
+                                <select name="Tahun_st" class="form-control">
+                                  <option> - Tahun - </option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                </select>
+                              </div> <br>
 
-<br>
-<br>
+                              <br>
+                              <br>
+                              </div>
+
+                              No Resi :<br>
+                                <input class="form-control" type="text" name="no_resi" value=""><br>
+
+                              Deskripsi Nota :<br>
+                                <input class="form-control" type="text" name="deskripsi" value=""><br>
+
+
+                              <div id="tanggal_pengiriman">
+
+                              Tanggal Pengiriman:<br>
+                               <div class="col-xs-4">
+                                <select name="Tanggal_pengiriman" class="form-control">
+                                  <option> - Hari - </option>
+                                  <option value="01">1</option>
+                                  <option value="02">2</option>
+                                  <option value="03">3</option>
+                                  <option value="04">4</option>
+                                  <option value="05">5</option>
+                                  <option value="06">6</option>
+                                  <option value="07">7</option>
+                                  <option value="08">8</option>
+                                  <option value="09">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                  <option value="14">14</option>
+                                  <option value="15">15</option>
+                                  <option value="16">16</option>
+                                  <option value="17">17</option>
+                                  <option value="18">18</option>
+                                  <option value="19">19</option>
+                                  <option value="20">20</option>
+                                  <option value="21">21</option>
+                                  <option value="22">22</option>
+                                  <option value="23">23</option>
+                                  <option value="24">24</option>
+                                  <option value="25">25</option>
+                                  <option value="26">26</option>
+                                  <option value="27">27</option>
+                                  <option value="28">28</option>
+                                  <option value="29">29</option>
+                                  <option value="30">30</option>
+                                  <option value="31">31</option>
+                                </select>
+                                </div>
+
+                                <div class="col-xs-4">
+                                <select name="Bulan_pengiriman" class="form-control">
+                                  <option> - Bulan - </option>
+                                  <option value="01">Januari</option>
+                                  <option value="02">Februari</option>
+                                  <option value="03">Maret</option>
+                                  <option value="04">April</option>
+                                  <option value="05">Mei</option>
+                                  <option value="06">Juni</option>
+                                  <option value="07">Juli</option>
+                                  <option value="08">Agustus</option>
+                                  <option value="09">September</option>
+                                  <option value="10">Oktober</option>
+                                  <option value="11">November</option>
+                                  <option value="12">Desember</option>
+                                </select>
+                                </div>
+
+                                <div class="col-xs-4">
+                                <select name="Tahun_pengiriman" class="form-control">
+                                  <option> - Tahun - </option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                </select>
+                              </div><br>
+
+                              </div>
+
+                              <br>
+                              <div class="">
+                                Upload File Nota(maks 500kb) :<br>
+                                <div class="col-xs-2">
+                                <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"  />
+                                </div>
+                                  </div>
+
+
+
 </div>
 
-No Resi :<br>
-  <input class="form-control" type="text" name="no_resi" value=""><br>
-
-Deskripsi Nota :<br>
-  <input class="form-control" type="text" name="deskripsi" value=""><br>
-
-
-<div id="tanggal_pengiriman">
-
-Tanggal Pengiriman:<br>
- <div class="col-xs-2">
-  <select name="Tanggal_pengiriman" class="form-control">
-    <option> - Hari - </option>
-    <option value="01">1</option>
-    <option value="02">2</option>
-    <option value="03">3</option>
-    <option value="04">4</option>
-    <option value="05">5</option>
-    <option value="06">6</option>
-    <option value="07">7</option>
-    <option value="08">8</option>
-    <option value="09">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-    <option value="31">31</option>
-  </select>
-  </div>
-
-  <div class="col-xs-2">
-  <select name="Bulan_pengiriman" class="form-control">
-    <option> - Bulan - </option>
-    <option value="01">Januari</option>
-    <option value="02">Februari</option>
-    <option value="03">Maret</option>
-    <option value="04">April</option>
-    <option value="05">Mei</option>
-    <option value="06">Juni</option>
-    <option value="07">Juli</option>
-    <option value="08">Agustus</option>
-    <option value="09">September</option>
-    <option value="10">Oktober</option>
-    <option value="11">November</option>
-    <option value="12">Desember</option>
-  </select>
-  </div>
-
-  <div class="col-xs-2">
-  <select name="Tahun_pengiriman" class="form-control">
-    <option> - Tahun - </option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-    <option value="2025">2025</option>
-  </select>
-  </div>
-
-<br>
-<br>
-</div>
-
-
-    <div class="col-xs-8">
-
-    Upload File Nota(maks 500kb) :
-        <input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"  />
-    </div>
-
-
-<input class="btn btn-success" type="submit" value="Simpan"/>
-<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-
-
-
-</form>
-
-
-
-      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <input class="btn btn-success pull-left" type="submit" value="Simpan"/>
+        <button type="button" class="btn btn-warning pull-right" data-dismiss="modal">Close</button>
       </div>
     </div>
 
+  </form>
   </div>
 </div>
 
@@ -534,14 +531,16 @@ Tanggal Pengiriman:<br>
 
                                                     </div>
                                                 </div>
-                                        </div>
-                                    </div>
+                                                </div>
+                                                </div>
+
+
+                                  <div class="modal-footer">
+                                    <button type="button" title="Kembali" class="btn btn-info btn-simple" data-dismiss="modal">Kembali</button>
+                                  </div>
                                 </div>
-
-
-                                    <button type="button" title="Kembali" class="btn btn-default btn-simple" data-dismiss="modal">Kembali</button>
-
                             </div>
+                          <!-- </div> -->
                            </div>
                           <!--  <td><a class="btn btn-warning" data-placement="bottom" title="Edit Data" href="{{ url('admin/listspd/'.$espede->id.'/ubah')}}"><span class="glyphicon glyphicon-pencil"></a></td>
 
