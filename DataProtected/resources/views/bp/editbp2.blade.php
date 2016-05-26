@@ -3,8 +3,8 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">Edit data BP1</a></li>
 </ol>
 

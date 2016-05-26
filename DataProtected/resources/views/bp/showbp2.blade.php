@@ -274,7 +274,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    No PP
+                                                                    No PP :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->no_pp}}</div>
@@ -285,7 +285,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    No SPP/SPM
+                                                                    No SPP/SPM :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->no_spp}}</div>
@@ -296,7 +296,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Tanggal SPP
+                                                                    Tanggal SPP :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->tgl_spp}}</div>
@@ -308,7 +308,7 @@ th, td {
                                                         <div class="form-group">
                                                             <label class="col-sm-6">
                                                                 <div class="pull-right">
-                                                                    Pengiriman
+                                                                    Pengiriman :
                                                                 </div>
                                                             </label>
                                                             <div class="col-sm-6">{{$bp21->tiket_berangkat}}</div>
@@ -503,6 +503,9 @@ th, td {
                                                     </div>
                                                 </div>
                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-info btn-simple pull-right" data-dismiss="modal">Kembali</button>
                                     </div>
                                 </div>
 

@@ -205,7 +205,7 @@ th, td {
 
 <table>
   <tr>
-    <th><center>No PP</th>
+    <th><center>No SPP/SPM</th>
     <th><center>No PD</th>
     <th><center>Nama</th>
     <th><center>NIP</th>
@@ -220,8 +220,8 @@ th, td {
                 @foreach ($bp1 as $bp11)
                     <?php $i++; ?>
   <tr>
-    <td>{{$bp11->no_pp}}</td>
-    <td>{{$bp11->no_pd}}</td>
+    <td><center>{{$bp11->no_pp}}</td>
+    <td><center>{{$bp11->no_pd}}</td>
     <td>{{$bp11->nama}}</td>
      <td>{{$bp11->nip}}</td>
     <td>{{ $bp11->pencairan }}</td>

@@ -3,8 +3,9 @@
 @section('content')
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
+  <li><a href="#">List Data BP 1</a></li>
   <li><a href="#">Edit</a></li>
 </ol>
 
@@ -23,7 +24,7 @@
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PP </label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPP/SPM </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" name="no_pp" value="{{ $bp1->no_pp }}" class="form-control col-md-7 col-xs-12">
     </div>

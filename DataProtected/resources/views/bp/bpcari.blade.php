@@ -5,7 +5,7 @@
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
   <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+  <li><a href="#">Bendahara Pengeluaran</a></li>
 </ol>
 <style type="text/css">
 

@@ -4,8 +4,8 @@
 
 <ol class="breadcrumb">
   <li><a href="{{ url('/') }}">Home</a></li>
-  <li><a href="#">Reimbursement</a></li>
-  <li><a href="#">Bendahara Pengeluaran 1</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Reimbursement</a></li>
+  <li><a href="{{ url('admin/bp1')}}">Bendahara Pengeluaran</a></li>
   <li><a href="#">Isi data BP2</a></li>
 </ol>
 
@@ -25,12 +25,12 @@
 <div class="form-group">
  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPD</label>
  <div class="col-md-6 col-sm-6 col-xs-12">
- <input class="form-control" type="text" name="no_spd" value="{{ $bp2a->no_spd }}">
+ <input class="form-control" type="text" name="no_spd" value="{{ $bp2a->no_spd }}"><br>
 </div>
 </div>
 
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PP</label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPP/SPM</label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input class="form-control" type="text" name="no_pp" value="{{ $bp2a->no_pp }}"><br>
     </div>
@@ -38,7 +38,7 @@
 
 <input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}">
 <div class="form-group">
- <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No SPP/SPM</label>
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">No PP</label>
  <div class="col-md-6 col-sm-6 col-xs-12">
  <input class="form-control" type="text" name="no_spp" value="{{ $bp2a->no_spp }}">
 </div>
@@ -46,7 +46,7 @@
 <input class="form-control" type="hidden" name="spd_id" value="{{$bp2a->id}}"><br>
 
 <div class="form-group">
- <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal SPP/SPM</label>
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal SP2D</label>
  <div class="col-md-6 col-sm-6 col-xs-12">
  <input class="form-control" type="text" name="tanggal_spp"  value="{{ $bp2a->tgl_spp }}"><br>
 </div>
@@ -109,7 +109,7 @@
 </div>
 
 <div class="form-group">
- <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Perjalanan Dinas</label>
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jenis Perjalanan Dinas</label>
  <div class="col-md-6 col-sm-6 col-xs-12">
  <input class="form-control" type="text" name="perjalanan_dinas" value=""><br>
 </div>
@@ -172,7 +172,7 @@
 </div>
 
 <div class="form-group">
- <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Total</label>
+ <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">TOTAL(Rp)</label>
  <div class="col-md-6 col-sm-6 col-xs-12">
  <input class="form-control" type="text" name="total" value="{{ $bp2a->total1 }}"><br>
 </div>
